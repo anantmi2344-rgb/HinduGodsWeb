@@ -45,6 +45,50 @@
             min-height: 100vh;
         }
 
+        /* Intro Splash Animation Screen */
+        #introScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-gradient);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner-circle {
+            width: 80px;
+            height: 80px;
+            border: 4px solid var(--border-color);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .intro-text {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -208,7 +252,6 @@
             border-color: var(--primary-color);
         }
 
-        /* No Result */
         #noResult {
             text-align: center;
             padding: 30px;
@@ -230,7 +273,6 @@
             margin-top: 20px;
         }
 
-        /* Back to top button */
         #backToTop {
             position: fixed;
             bottom: 20px;
@@ -257,6 +299,12 @@
 </head>
 <body data-theme="light">
 
+    <!-- Intro Divine Animation Screen -->
+    <div id="introScreen">
+        <div class="spinner-circle"></div>
+        <div class="intro-text">🕉️ HinduGodsWeb Loading...</div>
+    </div>
+
     <div class="container">
         <div class="top-bar">
             <a href="index.html" class="portal-brand">🕉️ HinduGodsWeb</a>
@@ -268,21 +316,17 @@
             <p class="subtitle">Discover sacred mantras, aartis, chalisas and divine stories in a clean, premium, and spiritual space.</p>
         </header>
 
-        <!-- Global Search Bar -->
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search deities (Ganesh, Shiva, Hanuman)..." onkeyup="filterDeities()">
         </div>
 
-        <!-- No Result Message -->
         <div id="noResult">
             <p>🪔 No matching deity found. Try searching "Ganesh", "Shiva", or "Hanuman"!</p>
         </div>
 
         <h2 class="grid-title">Sacred Deities</h2>
 
-        <!-- Deities Grid -->
         <div class="deities-grid" id="deitiesGrid">
-            <!-- Ganesh Card -->
             <a href="ganesh.html" class="deity-card searchable-deity">
                 <div class="deity-icon">🐘</div>
                 <h3>Shri Ganesha</h3>
@@ -290,7 +334,6 @@
                 <span class="visit-btn">Explore Portal →</span>
             </a>
 
-            <!-- Shiva Card -->
             <a href="shiva.html" class="deity-card searchable-deity">
                 <div class="deity-icon">🔱</div>
                 <h3>Mahadev Shiva</h3>
@@ -298,7 +341,6 @@
                 <span class="visit-btn">Explore Portal →</span>
             </a>
 
-            <!-- Hanuman Card -->
             <a href="hanuman.html" class="deity-card searchable-deity">
                 <div class="deity-icon">🚩</div>
                 <h3>Shri Hanuman</h3>
@@ -312,24 +354,30 @@
         </footer>
     </div>
 
-    <!-- Back to top button -->
     <button id="backToTop" onclick="scrollToTop()">↑</button>
 
     <script>
-        // Load saved theme on startup
-        window.addEventListener('DOMContentLoaded', () => {
+        // Hide Intro Animation after 1.2 seconds smoothly
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const intro = document.getElementById('introScreen');
+                intro.style.opacity = '0';
+                setTimeout(() => {
+                    intro.style.display = 'none';
+                }, 500);
+            }, 1000);
+
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
             document.getElementById('themeBtn').innerText = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
         });
 
-        // Theme Toggle Logic
         function toggleTheme() {
             const body = document.body;
             const themeBtn = document.getElementById('themeBtn');
             if (body.getAttribute('data-theme') === 'light') {
                 body.setAttribute('data-theme', 'dark');
-                themeBtn.innerText = '☀️ Light Mode';
+                themeBtn.innerText = '☀️️ Light Mode';
                 localStorage.setItem('theme', 'dark');
             } else {
                 body.setAttribute('data-theme', 'light');
@@ -338,7 +386,6 @@
             }
         }
 
-        // Search Filter for Deities
         function filterDeities() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('searchable-deity');
@@ -358,7 +405,6 @@
             noResult.style.display = matchCount === 0 ? "block" : "none";
         }
 
-        // Back to top scroll functionality
         window.onscroll = function() {
             let btn = document.getElementById("backToTop");
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
