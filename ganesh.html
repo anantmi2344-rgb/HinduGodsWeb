@@ -62,27 +62,32 @@
             text-decoration: none;
             background: var(--primary-color);
             color: white;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.9rem;
             transition: background 0.2s;
         }
 
-        .nav-back:hover {
+        .nav-back:hover, .nav-back:focus {
             background: var(--primary-dark);
+            outline: 2px solid var(--accent-gold);
         }
 
         .theme-toggle {
             background: var(--card-bg);
             color: var(--text-main);
             border: 1px solid var(--primary-color);
-            padding: 8px 14px;
+            padding: 10px 16px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
             font-size: 0.85rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .theme-toggle:focus {
+            outline: 2px solid var(--primary-color);
         }
 
         header {
@@ -137,7 +142,7 @@
             text-decoration: none;
             color: var(--primary-dark);
             background: var(--bg-gradient);
-            padding: 6px 12px;
+            padding: 8px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -146,9 +151,10 @@
             flex-shrink: 0;
         }
 
-        .quick-nav a:hover {
+        .quick-nav a:hover, .quick-nav a:focus {
             background: var(--primary-color);
             color: white;
+            outline: none;
         }
 
         /* Search Container Styles */
@@ -184,6 +190,7 @@
             cursor: pointer;
             color: var(--text-muted);
             display: none;
+            padding: 5px;
         }
 
         .clear-search:hover {
@@ -228,11 +235,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
             border: 1px solid var(--border-color);
             position: relative;
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
         }
 
         .card h2 {
@@ -260,7 +262,7 @@
             background: var(--bg-gradient);
             color: var(--primary-dark);
             border: 1px solid var(--border-color);
-            padding: 8px 14px;
+            padding: 10px 16px;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
@@ -268,9 +270,10 @@
             transition: background 0.2s, color 0.2s;
         }
 
-        .action-btn:hover {
+        .action-btn:hover, .action-btn:focus {
             background: var(--primary-color);
             color: white;
+            outline: none;
         }
 
         .copy-feedback {
@@ -315,8 +318,9 @@
             justify-content: center;
         }
 
-        #backToTop:hover {
+        #backToTop:hover, #backToTop:focus {
             background: var(--primary-dark);
+            outline: 2px solid var(--accent-gold);
         }
 
         footer {
@@ -331,8 +335,8 @@
 
     <div class="container">
         <div class="top-bar">
-            <a href="index.html" class="nav-back">← Back to Home</a>
-            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+            <a href="index.html" class="nav-back" aria-label="Back to Home Page">← Back to Home</a>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle Dark/Light Mode">🌙 Dark Mode</button>
         </div>
 
         <header>
@@ -341,7 +345,7 @@
         </header>
 
         <!-- Quick Sticky Navigation -->
-        <nav class="quick-nav">
+        <nav class="quick-nav" aria-label="Quick Page Navigation">
             <a href="#mantras">Mantras</a>
             <a href="#aarti">Aarti</a>
             <a href="#names">12 Names</a>
@@ -353,8 +357,8 @@
 
         <!-- Search Container with Clear Button -->
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search mantras, aarti, story, puja..." onkeyup="filterContent()">
-            <button class="clear-search" id="clearBtn" onclick="clearSearch()">✕</button>
+            <input type="text" id="searchInput" placeholder="Search mantras, aarti, story, puja..." onkeyup="filterContent()" aria-label="Search devotional content">
+            <button class="clear-search" id="clearBtn" onclick="clearSearch()" aria-label="Clear Search">✕</button>
         </div>
 
         <!-- Today's Divine Highlight Section -->
@@ -364,7 +368,7 @@
         </div>
 
         <!-- No Result Message -->
-        <div id="noResult">
+        <div id="noResult" role="alert">
             <p>🪔 No matching devotional content found. Try searching something else!</p>
         </div>
 
@@ -377,9 +381,9 @@
 4. गणेश मूल मन्त्र: ॐ श्रीं ह्रीं क्लीं ग्लौं गं गणेशाय नमः॥
 5. महागणपति मन्त्र: ॐ ह्रीं श्रीं क्लीं नमो भगवते महागणपतये सर्वविघ्ननाशाय सर्वजनमे वशमानय स्वाहा॥</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Ganesh Mantras')">🔊 Play Audio</button>
-                <button class="action-btn" onclick="copyContent('mantraText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
+                <button class="action-btn" onclick="playAudio('Ganesh Mantras')" aria-label="Play audio for Ganesh Mantras">🔊 Play Audio</button>
+                <button class="action-btn" onclick="copyContent('mantraText', this)" aria-label="Copy Ganesh Mantras text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
             </div>
         </div>
 
@@ -390,9 +394,9 @@
 एकदन्त दयावन्त चार भुजा धारी। मस्तक सिन्दूर सोहे मूसे की सवारी॥
 हार चढ़ै फूल चढ़ै और चढ़ै मेवा। लड्डूअन का भोग लगे संत करें सेवा॥</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Ganesh Aarti')">🔊 Play Aarti Audio</button>
-                <button class="action-btn" onclick="copyContent('aartiText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
+                <button class="action-btn" onclick="playAudio('Ganesh Aarti')" aria-label="Play audio for Ganesh Aarti">🔊 Play Aarti Audio</button>
+                <button class="action-btn" onclick="copyContent('aartiText', this)" aria-label="Copy Ganesh Aarti text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
             </div>
         </div>
 
@@ -401,9 +405,9 @@
             <h2>Ganesh Ji ke 12 Naam</h2>
             <div class="content-box" id="namesText">1. सुमुख 2. एकदन्त 3. कपिल 4. गजकर्णक 5. लम्बोदर 6. विकट 7. विघ्ननाशक 8. धूम्रकेतु 9. गणाध्यक्ष 10. भालचन्द्र 11. गजानन 12. विनायक</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Ganesh 12 Names')">🔊 Play Audio</button>
-                <button class="action-btn" onclick="copyContent('namesText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
+                <button class="action-btn" onclick="playAudio('Ganesh 12 Names')" aria-label="Play audio for 12 Names">🔊 Play Audio</button>
+                <button class="action-btn" onclick="copyContent('namesText', this)" aria-label="Copy 12 Names text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
             </div>
         </div>
 
@@ -412,9 +416,9 @@
             <h2>Ganesh Ji ki Katha</h2>
             <div class="content-box" id="storyText">पौराणिक कथा के अनुसार, माता पार्वती ने स्नान करने से पहले अपने उबटन से एक बालक की आकृति बनाई और उसमें प्राण फूंक दिए। उन्होंने उसका नाम गणेश रखा और पहरे पर बैठा दिया। जब भगवान शिव आए, तो बालक ने उन्हें अंदर जाने से रोक दिया, जिससे शिवजी क्रोधित हो गए और उन्होंने गणेश जी का सिर धड़ से अलग कर दिया। माता पार्वती के विलाप पर शिवजी ने गजानन के धड़ पर हाथी का सिर जोड़कर उन्हें पुनर्जीवित किया।</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Ganesh Katha')">🔊 Play Katha Audio</button>
-                <button class="action-btn" onclick="copyContent('storyText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
+                <button class="action-btn" onclick="playAudio('Ganesh Katha')" aria-label="Play audio for Ganesh Katha">🔊 Play Katha Audio</button>
+                <button class="action-btn" onclick="copyContent('storyText', this)" aria-label="Copy Ganesh Katha text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
             </div>
         </div>
 
@@ -423,8 +427,8 @@
             <h2>Ganesh Chaturthi Information</h2>
             <div class="content-box" id="chaturthiText">गणेश चतुर्थी भगवान गणेश के जन्मोत्सव के रूप में मनाई जाती है। भाद्रपद मास के शुक्ल पक्ष की चतुर्थी तिथि को यह पर्व शुरू होता है और 10 दिनों तक चलता है। लोग अपने घरों और पंडालों में गणेश जी की मूर्ति स्थापित करते हैं और अनंत चतुर्दशी के दिन विसर्जन करते हैं।</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="copyContent('chaturthiText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
+                <button class="action-btn" onclick="copyContent('chaturthiText', this)" aria-label="Copy Ganesh Chaturthi information text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
             </div>
         </div>
 
@@ -437,8 +441,8 @@
 4. धूप और दीपक जलाकर आरती करें।
 5. भगवान को भोग लगाएं और क्षमा प्रार्थना करें।</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="copyContent('pujaText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
+                <button class="action-btn" onclick="copyContent('pujaText', this)" aria-label="Copy Simple Ganesh Puja Vidhi text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
             </div>
         </div>
 
@@ -448,9 +452,9 @@
             <div class="content-box" id="vandanaText">गजाननं भूतगणादिसेवितं कपित्थजम्बूफलसारभक्षितम्।
 उमासुतं शोकविनाशकारणं नमामि विघ्नेश्वरपादपंकजम्॥</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Ganesh Vandana')">🔊 Play Vandana Audio</button>
-                <button class="action-btn" onclick="copyContent('vandanaText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
+                <button class="action-btn" onclick="playAudio('Ganesh Vandana')" aria-label="Play audio for Ganesh Vandana">🔊 Play Vandana Audio</button>
+                <button class="action-btn" onclick="copyContent('vandanaText', this)" aria-label="Copy Ganesh Vandana text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
             </div>
         </div>
 
@@ -460,10 +464,9 @@
     </div>
 
     <!-- Back to top button -->
-    <button id="backToTop" onclick="scrollToTop()">↑</button>
+    <button id="backToTop" onclick="scrollToTop()" aria-label="Scroll back to top">↑</button>
 
     <script>
-        // Random Daily Highlights
         const highlights = [
             "विघ्नहर्ता भगवान गणेश की आराधना से जीवन के समस्त संकट दूर होते हैं।",
             "प्रथमा पूज्य श्री गणेश जी स्मरण मात्र से सभी कार्यों में सिद्धि प्राप्त होती है।",
@@ -474,13 +477,11 @@
             const randomHighlight = highlights[Math.floor(Math.random() * highlights.length)];
             document.getElementById('highlightText').innerText = `"${randomHighlight}"`;
 
-            // Load saved theme
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
             document.getElementById('themeBtn').innerText = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
         });
 
-        // Theme Toggle Logic
         function toggleTheme() {
             const body = document.body;
             const themeBtn = document.getElementById('themeBtn');
@@ -495,7 +496,6 @@
             }
         }
 
-        // Improved Search Filter Function with Clear Button & No Results
         function filterContent() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let clearBtn = document.getElementById('clearBtn');
@@ -503,11 +503,7 @@
             let noResult = document.getElementById('noResult');
             let matchCount = 0;
 
-            if (input.length > 0) {
-                clearBtn.style.display = 'block';
-            } else {
-                clearBtn.style.display = 'none';
-            }
+            clearBtn.style.display = input.length > 0 ? 'block' : 'none';
 
             for (let i = 0; i < sections.length; i++) {
                 let text = sections[i].innerText.toLowerCase();
@@ -519,11 +515,7 @@
                 }
             }
 
-            if (matchCount === 0) {
-                noResult.style.display = "block";
-            } else {
-                noResult.style.display = "none";
-            }
+            noResult.style.display = matchCount === 0 ? "block" : "none";
         }
 
         function clearSearch() {
@@ -536,26 +528,9 @@
             document.getElementById('noResult').style.display = "none";
         }
 
-        // Dummy Audio Handler
         function playAudio(title) {
             alert("Playing audio for: " + title + " (Audio feature ready)");
         }
 
-        // Copy Content Function with feedback
         function copyContent(elementId, btnElement) {
-            let textToCopy = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                let feedback = btnElement.parentElement.querySelector('.copy-feedback');
-                if (feedback) {
-                    feedback.style.display = 'inline';
-                    setTimeout(() => {
-                        feedback.style.display = 'none';
-                    }, 2000);
-                }
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        }
-
-        // Back to top scroll functionality
-        window.onscroll = function
+            let textToCopy = d
