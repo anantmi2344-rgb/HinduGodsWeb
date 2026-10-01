@@ -1,54 +1,104 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Ganesha - Aarti & Videos</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #fffdf5; margin: 0; padding: 0; }
-        header { background: #e67e22; color: white; text-align: center; padding: 15px; }
-        .ad-box { text-align: center; background: #fff3cd; padding: 10px; margin: 10px; border: 1px dashed #ffa500; }
-        .container { padding: 15px; }
-        .content-box { background: white; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .content-box h3 { color: #d35400; margin-top: 0; }
-        .lyrics { background: #f9f9f9; padding: 10px; border-left: 4px solid #e67e22; font-style: italic; white-space: pre-line; }
-        .back-btn { display: inline-block; background: #333; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; margin-bottom: 15px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shri Ganesha - Aarti & Gallery</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#fffdf5;
+    margin:0;
+}
+header{
+    background:#e67e22;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+.container{
+    padding:15px;
+}
+.content-box{
+    background:white;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,.12);
+}
+.content-box h3{
+    color:#d35400;
+}
+.back-btn{
+    display:inline-block;
+    background:#333;
+    color:white;
+    padding:9px 15px;
+    text-decoration:none;
+    border-radius:6px;
+    margin-bottom:15px;
+}
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+.gallery img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.lyrics{
+    background:#f9f9f9;
+    padding:12px;
+    border-left:4px solid #e67e22;
+    line-height:1.8;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h2>🐘 Shri Ganesha Portal 🐘</h2>
-        <p>Aarti & Vighnaharta Status Videos</p>
-    </header>
+<header>
+<h2>🐘 Shri Ganesha Portal 🐘</h2>
+<p>Aarti & Ganesha Gallery</p>
+</header>
 
-    <div class="container">
-        <a href="index.html" class="back-btn">⬅️ Back to Home</a>
+<div class="container">
 
-        <!-- Test Ad Space -->
-        <div class="ad-box">
-            <p><b>[ Test Ad Space ]</b></p>
-        </div>
+<a href="index.html" class="back-btn">⬅️ Back to Home</a>
 
-        <!-- Content Item 1: Aarti Lyrics -->
-        <div class="content-box">
-            <h3>Jai Ganesh Jai Ganesh Jai Ganesh Deva</h3>
-            <p><b>Category:</b> Aarti Lyrics</p>
-            <div class="lyrics">
-                जय गणेश जय गणेश जय गणेश देवा।
-                माता जाकी पार्वती पिता महादेवा॥
-                एक दंत दयावंत चार भुजाधारी।
-                माथे सिंदूर सोहे मूसे की सवारी॥
-            </div>
-        </div>
+<div class="content-box">
+<h3>🖼️ Shri Ganesha Gallery</h3>
 
-        <!-- Content Item 2: Video Section -->
-        <div class="content-box">
-            <h3>Vighnaharta Ganesha Status Video</h3>
-            <p><b>Status:</b> High Quality Video</p>
-            <p style="color: #27ae60; font-weight: bold;">📥 Download Link: Free for Users</p>
-        </div>
-    </div>
+<div class="gallery">
+
+<!-- यहाँ केवल Ganesha वाली images डालनी हैं -->
+
+<img src="IMG_GANESH_01.jpg" alt="Shri Ganesha">
+<img src="IMG_GANESH_02.jpg" alt="Shri Ganesha">
+<img src="IMG_GANESH_03.jpg" alt="Shri Ganesha">
+<img src="IMG_GANESH_04.jpg" alt="Shri Ganesha">
+
+</div>
+</div>
+
+<div class="content-box">
+<h3>🙏 Jai Ganesh Jai Ganesh Jai Ganesh Deva</h3>
+
+<div class="lyrics">
+जय गणेश जय गणेश जय गणेश देवा।
+माता जाकी पार्वती पिता महादेवा॥
+
+एक दंत दयावंत चार भुजाधारी।
+माथे सिंदूर सोहे मूसे की सवारी॥
+</div>
+</div>
+
+</div>
 
 </body>
-</html>
+    </html>
