@@ -1,567 +1,397 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>श्री गणेश - मंत्र, आरती एवं पूजा</title>
-
-<style>
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,sans-serif;
-    background:linear-gradient(180deg,#fff8e8,#fffdf5);
-    margin:0;
-    color:#333;
-}
-
-/* Header */
-header{
-    background:linear-gradient(135deg,#e67e22,#f39c12,#d35400);
-    color:white;
-    text-align:center;
-    padding:25px 15px;
-    box-shadow:0 4px 12px rgba(0,0,0,.18);
-}
-
-header h2{
-    margin:0 0 8px;
-    font-size:27px;
-}
-
-header p{
-    margin:0;
-    font-size:15px;
-}
-
-/* Main */
-.container{
-    padding:15px;
-    max-width:850px;
-    margin:auto;
-}
-
-/* Back button */
-.back-btn{
-    display:inline-block;
-    background:#333;
-    color:white;
-    padding:10px 17px;
-    text-decoration:none;
-    border-radius:8px;
-    margin-bottom:15px;
-    transition:.2s;
-}
-
-.back-btn:hover{
-    background:#111;
-}
-
-/* Search */
-.search-box{
-    background:white;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 3px 10px rgba(0,0,0,.10);
-    margin-bottom:18px;
-}
-
-.search-box label{
-    display:block;
-    color:#b84d00;
-    font-weight:bold;
-    margin-bottom:8px;
-}
-
-#searchInput{
-    width:100%;
-    padding:12px 14px;
-    border:2px solid #f0c27b;
-    border-radius:8px;
-    font-size:16px;
-    outline:none;
-}
-
-#searchInput:focus{
-    border-color:#e67e22;
-}
-
-#noResult{
-    display:none;
-    text-align:center;
-    color:#777;
-    padding:15px 0 0;
-}
-
-/* Cards */
-.content-box{
-    background:rgba(255,255,255,.97);
-    padding:20px;
-    margin-bottom:18px;
-    border-radius:14px;
-    box-shadow:0 4px 14px rgba(0,0,0,.10);
-    border:1px solid #f5dfbd;
-}
-
-.content-box h3{
-    color:#d35400;
-    margin-top:0;
-    font-size:21px;
-    border-bottom:2px solid #f3d3a4;
-    padding-bottom:10px;
-}
-
-/* Mantra */
-.mantra-box{
-    background:linear-gradient(135deg,#fff8e8,#fffdf7);
-    border-left:5px solid #e67e22;
-    padding:16px;
-    margin:14px 0;
-    border-radius:9px;
-}
-
-.mantra-title{
-    font-weight:bold;
-    color:#b84d00;
-    font-size:18px;
-    margin-bottom:10px;
-}
-
-.mantra{
-    font-size:20px;
-    line-height:2;
-    text-align:center;
-    font-weight:500;
-}
-
-.meaning{
-    margin-top:9px;
-    color:#555;
-    line-height:1.8;
-    font-size:15px;
-}
-
-/* Aarti */
-.aarti{
-    font-size:19px;
-    line-height:2;
-    text-align:center;
-    background:#fffaf0;
-    padding:16px;
-    border-radius:9px;
-}
-
-/* Names */
-.names-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-}
-
-.name-card{
-    background:linear-gradient(135deg,#fff8e8,#fffdf7);
-    border:1px solid #f0d3a0;
-    border-radius:9px;
-    padding:15px 10px;
-    text-align:center;
-    font-size:18px;
-    font-weight:bold;
-    color:#9c4700;
-}
-
-.name-number{
-    display:block;
-    font-size:14px;
-    color:#777;
-    margin-bottom:5px;
-}
-
-/* Text */
-.info-text{
-    line-height:1.9;
-    font-size:16px;
-}
-
-.puja-list{
-    padding-left:22px;
-    line-height:2;
-    font-size:16px;
-}
-
-.highlight{
-    background:#fff8e8;
-    border-left:5px solid #e67e22;
-    padding:14px;
-    border-radius:8px;
-    line-height:1.8;
-}
-
-/* Mobile */
-@media(max-width:500px){
-
-    header h2{
-        font-size:23px;
-    }
-
-    .container{
-        padding:10px;
-    }
-
-    .content-box{
-        padding:15px;
-    }
-
-    .mantra{
-        font-size:18px;
-    }
-
-    .aarti{
-        font-size:17px;
-    }
-
-    .names-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<h2>🐘 श्री गणेश पोर्टल 🐘</h2>
-<p>मंत्र • आरती • नाम • कथा • पूजा</p>
-</header>
-
-<div class="container">
-
-<a href="index.html" class="back-btn">⬅️ मुख्य पृष्ठ</a>
-
-
-<!-- Search -->
-<div class="search-box">
-
-<label for="searchInput">🔍 गणेश पोर्टल में खोजें</label>
-
-<input
-type="text"
-id="searchInput"
-placeholder="मंत्र, आरती, नाम, कथा या पूजा खोजें..."
-autocomplete="off"
->
-
-<div id="noResult">
-कोई परिणाम नहीं मिला।
-</div>
-
-</div>
-
-
-<!-- 5 मंत्र -->
-<div class="content-box searchable">
-
-<h3>🙏 श्री गणेश के 5 लोकप्रिय मंत्र</h3>
-
-<div class="mantra-box">
-<div class="mantra-title">१. श्री गणेश मूल मंत्र</div>
-
-<div class="mantra">
-ॐ गं गणपतये नमः॥
-</div>
-
-<div class="meaning">
-अर्थ: भगवान श्री गणपति को श्रद्धापूर्वक नमन।
-</div>
-</div>
-
-<div class="mantra-box">
-<div class="mantra-title">२. श्री गणेश गायत्री मंत्र</div>
-
-<div class="mantra">
-ॐ एकदन्ताय विद्महे।<br>
-वक्रतुण्डाय धीमहि।<br>
-तन्नो दन्तिः प्रचोदयात्॥
-</div>
-
-<div class="meaning">
-अर्थ: हम एकदन्त भगवान का ध्यान करते हैं। वक्रतुण्ड भगवान हमारी बुद्धि को सद्मार्ग की ओर प्रेरित करें।
-</div>
-</div>
-
-<div class="mantra-box">
-<div class="mantra-title">३. वक्रतुण्ड मंत्र</div>
-
-<div class="mantra">
-ॐ वक्रतुण्डाय हुं॥
-</div>
-</div>
-
-<div class="mantra-box">
-<div class="mantra-title">४. ऋणहर्ता गणेश मंत्र</div>
-
-<div class="mantra">
-ॐ गणेश ऋणं छिन्धि वरेण्यं हुं नमः फट्॥
-</div>
-</div>
-
-<div class="mantra-box">
-<div class="mantra-title">५. क्षिप्रप्रसाद गणपति मंत्र</div>
-
-<div class="mantra">
-गं क्षिप्रप्रसादनाय नमः॥
-</div>
-</div>
-
-</div>
-
-
-<!-- आरती -->
-<div class="content-box searchable">
-
-<h3>🪔 श्री गणेश जी की आरती</h3>
-
-<div class="mantra-box">
-
-<div class="mantra-title">
-श्री गणेश आरती
-</div>
-
-<div class="aarti">
-
-जय गणेश, जय गणेश, जय गणेश देवा।<br>
-माता जाकी पार्वती, पिता महादेवा॥<br><br>
-
-एकदन्त दयावन्त, चार भुजाधारी।<br>
-माथे सिन्दूर सोहे, मूसे की सवारी॥<br><br>
-
-पान चढ़े, फूल चढ़े और चढ़े मेवा।<br>
-लड्डुअन का भोग लगे, सन्त करें सेवा॥
-
-</div>
-
-<div class="meaning">
-🙏 श्री गणेश जी की आरती श्रद्धा और भक्ति से करें।
-</div>
-
-</div>
-
-</div>
-
-
-<!-- 12 नाम -->
-<div class="content-box searchable">
-
-<h3>🌺 श्री गणेश जी के 12 पवित्र नाम</h3>
-
-<div class="names-grid">
-
-<div class="name-card">
-<span class="name-number">१</span>
-सुमुख
-</div>
-
-<div class="name-card">
-<span class="name-number">२</span>
-एकदन्त
-</div>
-
-<div class="name-card">
-<span class="name-number">३</span>
-कपिल
-</div>
-
-<div class="name-card">
-<span class="name-number">४</span>
-गजकर्णक
-</div>
-
-<div class="name-card">
-<span class="name-number">५</span>
-लम्बोदर
-</div>
-
-<div class="name-card">
-<span class="name-number">६</span>
-विकट
-</div>
-
-<div class="name-card">
-<span class="name-number">७</span>
-विघ्नराज
-</div>
-
-<div class="name-card">
-<span class="name-number">८</span>
-विनायक
-</div>
-
-<div class="name-card">
-<span class="name-number">९</span>
-धूम्रकेतु
-</div>
-
-<div class="name-card">
-<span class="name-number">१०</span>
-गणाध्यक्ष
-</div>
-
-<div class="name-card">
-<span class="name-number">११</span>
-भालचन्द्र
-</div>
-
-<div class="name-card">
-<span class="name-number">१२</span>
-गजानन
-</div>
-
-</div>
-
-</div>
-
-
-<!-- गणेश कथा -->
-<div class="content-box searchable">
-
-<h3>📖 श्री गणेश जी की कथा</h3>
-
-<div class="info-text">
-
-<p>
-पौराणिक कथाओं के अनुसार, माता पार्वती ने एक बालक का निर्माण किया और उसे अपना द्वारपाल बनाया।
-</p>
-
-<p>
-माता पार्वती के आदेश के अनुसार बालक ने भगवान शिव को अंदर जाने से रोक दिया। इसके बाद भगवान शिव और बालक के बीच संघर्ष हुआ।
-</p>
-
-<p>
-कथा के अनुसार, बाद में भगवान शिव ने बालक को पुनर्जीवन दिया और उसे गणों का अधिपति बनाया। इसी कारण उन्हें <b>गणपति</b> और <b>गणेश</b> कहा जाता है।
-</p>
-
-</div>
-
-<div class="highlight">
-🙏 श्री गणेश को बुद्धि, विवेक और शुभारम्भ से जुड़े देवता के रूप में श्रद्धापूर्वक स्मरण किया जाता है।
-</div>
-
-</div>
-
-
-<!-- गणेश चतुर्थी -->
-<div class="content-box searchable">
-
-<h3>🌺 गणेश चतुर्थी</h3>
-
-<div class="info-text">
-
-<p>
-गणेश चतुर्थी भगवान श्री गणेश को समर्पित प्रमुख हिन्दू पर्व है। इस अवसर पर भक्त भगवान गणेश की प्रतिमा स्थापित करके पूजा-अर्चना और आरती करते हैं।
-</p>
-
-<p>
-विभिन्न स्थानों पर गणेश उत्सव की अलग-अलग परम्पराएँ देखने को मिलती हैं।
-</p>
-
-</div>
-
-</div>
-
-
-<!-- पूजा विधि -->
-<div class="content-box searchable">
-
-<h3>🪔 श्री गणेश पूजा की सरल विधि</h3>
-
-<ol class="puja-list">
-
-<li>पूजा का स्थान स्वच्छ करें।</li>
-<li>भगवान श्री गणेश की प्रतिमा या चित्र स्थापित करें।</li>
-<li>भगवान गणेश का ध्यान और प्रणाम करें।</li>
-<li>फूल, दूर्वा और फल आदि श्रद्धापूर्वक अर्पित करें।</li>
-<li>भगवान गणेश को नैवेद्य या प्रसाद अर्पित करें।</li>
-<li>श्री गणेश मंत्र का श्रद्धापूर्वक जाप करें।</li>
-<li>श्री गणेश जी की आरती करें।</li>
-<li>अंत में भगवान गणेश से प्रार्थना करें।</li>
-
-</ol>
-
-</div>
-
-
-<!-- गणेश वंदना -->
-<div class="content-box searchable">
-
-<h3>🙏 श्री गणेश वंदना</h3>
-
-<div class="mantra-box">
-
-<div class="mantra">
-वक्रतुण्ड महाकाय<br>
-सूर्यकोटि समप्रभ।<br>
-निर्विघ्नं कुरु मे देव<br>
-शुभकार्येषु सर्वदा॥
-</div>
-
-<div class="meaning">
-हे विशाल शरीर और करोड़ों सूर्यों के समान तेज वाले भगवान गणेश, मेरे शुभ कार्यों को सदा निर्विघ्न पूर्ण करें।
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<script>
-
-const searchInput = document.getElementById("searchInput");
-const sections = document.querySelectorAll(".searchable");
-const noResult = document.getElementById("noResult");
-
-searchInput.addEventListener("input", function(){
-
-    const searchText = this.value.trim().toLowerCase();
-
-    let found = false;
-
-    sections.forEach(function(section){
-
-        const content = section.innerText.toLowerCase();
-
-        if(searchText === "" || content.includes(searchText)){
-
-            section.style.display = "block";
-
-            if(searchText !== ""){
-                found = true;
-            }
-
-        }else{
-
-            section.style.display = "none";
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shri Ganesha - HinduDevotional Portal</title>
+    <style>
+        :root {
+            --primary-color: #d97706;
+            --primary-dark: #b45309;
+            --accent-gold: #fbbf24;
+            --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #f3f4f6;
         }
 
-    });
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    if(searchText !== "" && !found){
-        noResult.style.display = "block";
-    }else{
-        noResult.style.display = "none";
-    }
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 15px;
+        }
 
-});
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-</script>
+        header {
+            text-align: center;
+            padding: 25px 15px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-bottom: 4px solid var(--accent-gold);
+        }
 
+        h1 {
+            color: var(--primary-dark);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 15px;
+            text-decoration: none;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .nav-back:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Quick Sticky Navigation Bar */
+        .quick-nav {
+            position: sticky;
+            top: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-bottom: 20px;
+            z-index: 100;
+            border: 1px solid #fef3c7;
+        }
+
+        .quick-nav::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .quick-nav::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 4px;
+        }
+
+        .quick-nav a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            background: #fffbeb;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #fde68a;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .quick-nav a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 1rem;
+            border: 2px solid #f3f4f6;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.2s;
+            background: var(--card-bg);
+        }
+
+        #searchInput:focus {
+            border-color: var(--primary-color);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .card h2 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #fef3c7;
+            padding-bottom: 6px;
+        }
+
+        .content-box {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            white-space: pre-line;
+            margin-bottom: 15px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            background: #fef3c7;
+            color: var(--primary-dark);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .action-btn:hover {
+            background: var(--accent-gold);
+            color: #78350f;
+        }
+
+        .copy-feedback {
+            font-size: 0.75rem;
+            color: #059669;
+            margin-left: 8px;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* Back to top button */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: none;
+            font-size: 1.1rem;
+            z-index: 1000;
+        }
+
+        #backToTop:hover {
+            background: var(--primary-dark);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="nav-back">← Back to Home</a>
+
+        <header>
+            <h1>Shri Ganesha Portal</h1>
+            <p class="subtitle">Aarti, Mantras, Names, Story & Puja Vidhi</p>
+        </header>
+
+        <!-- Quick Sticky Navigation -->
+        <nav class="quick-nav">
+            <a href="#mantras">Mantras</a>
+            <a href="#aarti">Aarti</a>
+            <a href="#names">12 Names</a>
+            <a href="#story">Story</a>
+            <a href="#chaturthi">Chaturthi</a>
+            <a href="#puja">Puja Vidhi</a>
+            <a href="#vandana">Vandana</a>
+        </nav>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search mantras, aarti, story, puja..." onkeyup="filterContent()">
+        </div>
+
+        <!-- Section 1: Mantras -->
+        <div class="card searchable-section" id="mantras">
+            <h2>Ganesh Mantras</h2>
+            <div class="content-box" id="mantraText">1. वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥
+2. ॐ गं गणपतये नमः॥
+3. संकष्टनशन गणेश स्तोत्रम्
+4. गणेश मूल मन्त्र: ॐ श्रीं ह्रीं क्लीं ग्लौं गं गणेशाय नमः॥
+5. महागणपति मन्त्र: ॐ ह्रीं श्रीं क्लीं नमो भगवते महागणपतये सर्वविघ्ननाशाय सर्वजनमे वशमानय स्वाहा॥</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="playAudio('Ganesh Mantras')">🔊 Play Audio</button>
+                <button class="action-btn" onclick="copyContent('mantraText', this)">📋 Copy Text</button>
+                <span class="copy-feedback">Copied!</span>
+            </div>
+        </div>
+
+        <!-- Section 2: Aarti -->
+        <div class="card searchable-section" id="aarti">
+            <h2>Jai Ganesh Ganesh Deva (Aarti)</h2>
+            <div class="content-box" id="aartiText">जय गणेश जय गणेश जय गणेश देवा। माता जाकी पारती पिता महादेवा॥
+एकदन्त दयावन्त चार भुजा धारी। मस्तक सिन्दूर सोहे मूसे की सवारी॥
+हार चढ़ै फूल चढ़ै और चढ़ै मेवा। लड्डूअन का भोग लगे संत करें सेवा॥</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="playAudio('Ganesh Aarti')">🔊 Play Aarti Audio</button>
+                <button class="action-btn" onclick="copyContent('aartiText', this)">📋 Copy Text</button>
+                <span class="copy-feedback">Copied!</span>
+            </div>
+        </div>
+
+        <!-- Section 3: 12 Names -->
+        <div class="card searchable-section" id="names">
+            <h2>Ganesh Ji ke 12 Naam</h2>
+            <div class="content-box" id="namesText">1. सुमुख 2. एकदन्त 3. कपिल 4. गजकर्णक 5. लम्बोदर 6. विकट 7. विघ्ननाशक 8. धूम्रकेतु 9. गणाध्यक्ष 10. भालचन्द्र 11. गजानन 12. विनायक</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="playAudio('Ganesh 12 Names')">🔊 Play Audio</button>
+                <button class="action-btn" onclick="copyContent('namesText', this)">📋 Copy Text</button>
+                <span class="copy-feedback">Copied!</span>
+            </div>
+        </div>
+
+        <!-- Section 4: Story -->
+        <div class="card searchable-section" id="story">
+            <h2>Ganesh Ji ki Katha</h2>
+            <div class="content-box" id="storyText">पौराणिक कथा के अनुसार, माता पार्वती ने स्नान करने से पहले अपने उबटन से एक बालक की आकृति बनाई और उसमें प्राण फूंक दिए। उन्होंने उसका नाम गणेश रखा और पहरे पर बैठा दिया। जब भगवान शिव आए, तो बालक ने उन्हें अंदर जाने से रोक दिया, जिससे शिवजी क्रोधित हो गए और उन्होंने गणेश जी का सिर धड़ से अलग कर दिया। माता पार्वती के विलाप पर शिवजी ने गजानन के धड़ पर हाथी का सिर जोड़कर उन्हें पुनर्जीवित किया।</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="playAudio('Ganesh Katha')">🔊 Play Katha Audio</button>
+                <button class="action-btn" onclick="copyContent('storyText', this)">📋 Copy Text</button>
+                <span class="copy-feedback">Copied!</span>
+            </div>
+        </div>
+
+        <!-- Section 5: Ganesh Chaturthi -->
+        <div class="card searchable-section" id="chaturthi">
+            <h2>Ganesh Chaturthi Information</h2>
+            <div class="content-box" id="chaturthiText">गणेश चतुर्थी भगवान गणेश के जन्मोत्सव के रूप में मनाई जाती है। भाद्रपद मास के शुक्ल पक्ष की चतुर्थी तिथि को यह पर्व शुरू होता है और 10 दिनों तक चलता है। लोग अपने घरों और पंडालों में गणेश जी की मूर्ति स्थापित करते हैं और अनंत चतुर्दशी के दिन विसर्जन करते हैं।</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="copyContent('chaturthiText', this)">📋 Copy Text</button>
+                <span class="copy-feedback">Copied!</span>
+            </div>
+        </div>
+
+        <!-- Section 6: Simple Puja Vidhi -->
+        <div class="card searchable-section" id="puja">
+            <h2>Simple Ganesh Puja Vidhi</h2>
+            <div class="content-box" id="pujaText">1. प्रातकाल स्नान करके शुद्ध वस्त्र पहनें।
+2. पूजा स्थान पर गणेश जी की मूर्ति स्थापित करें।
+3. दूर्वा घास, मोदक, पीले फूल, रोली और अक्षत अर्पित करें।
+4. धूप और दीपक जलाकर आरती करें।
+5. भगवान को भोग लगाएं और क्षमा प्रार्थना करें।</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="copyContent('pujaText', this)">📋 Copy Text</button>
+                <span class="copy-feedback">Copied!</span>
+            </div>
+        </div>
+
+        <!-- Section 7: Ganesh Vandana -->
+        <div class="card searchable-section" id="vandana">
+            <h2>Ganesh Vandana</h2>
+            <div class="content-box" id="vandanaText">गजाननं भूतगणादिसेवितं कपित्थजम्बूफलसारभक्षितम्।
+उमासुतं शोकविनाशकारणं नमामि विघ्नेश्वरपादपंकजम्॥</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="playAudio('Ganesh Vandana')">🔊 Play Vandana Audio</button>
+                <button class="action-btn" onclick="copyContent('vandanaText', this)">📋 Copy Text</button>
+                <span class="copy-feedback">Copied!</span>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 HinduDevotional Portal. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Back to top button -->
+    <button id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Search Filter Function
+        function filterContent() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let sections = document.getElementsByClassName('searchable-section');
+
+            for (let i = 0; i < sections.length; i++) {
+                let text = sections[i].innerText.toLowerCase();
+                if (text.includes(input)) {
+                    sections[i].style.display = "block";
+                } else {
+                    sections[i].style.display = "none";
+                }
+            }
+        }
+
+        // Dummy Audio Handler
+        function playAudio(title) {
+            alert("Playing audio for: " + title + " (Audio feature ready)");
+        }
+
+        // Copy Content Function with chhota feedback
+        function copyContent(elementId, btnElement) {
+            let textToCopy = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                let feedback = btnElement.parentElement.querySelector('.copy-feedback');
+                if (feedback) {
+                    feedback.style.display = 'inline';
+                    setTimeout(() => {
+                        feedback.style.display = 'none';
+                    }, 2000);
+                }
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        // Back to top scroll functionality
+        window.onscroll = function() {
+            let btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
 </body>
-</html>
+    </html>
+                
