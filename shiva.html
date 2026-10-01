@@ -3,50 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahadev Shiva - Mantras & Videos</title>
+    <title>Mahadev Shiva - HinduDevotional Portal</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #fffdf5; margin: 0; padding: 0; }
-        header { background: #2980b9; color: white; text-align: center; padding: 15px; }
-        .ad-box { text-align: center; background: #fff3cd; padding: 10px; margin: 10px; border: 1px dashed #ffa500; }
-        .container { padding: 15px; }
-        .content-box { background: white; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .content-box h3 { color: #2980b9; margin-top: 0; }
-        .lyrics { background: #f9f9f9; padding: 10px; border-left: 4px solid #2980b9; font-style: italic; white-space: pre-line; }
-        .back-btn { display: inline-block; background: #333; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; margin-bottom: 15px; }
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --accent-gold: #fbbf24;
+            --bg-gradient: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --primary-dark: #60a5fa;
+            --accent-gold: #f59e0b;
+            --bg-gradient: linear-gradient(135deg, #0f172a 100%, #1e293b 0%);
+            --card-bg: #1e293b;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #334155;
+            --nav-bg: rgba(30, 41, 59, 0.95);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 15px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .nav-back {
+            display: inline-block;
+            text-decoration: none;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .nav-back:hover, .nav-back:focus {
+            background: var(--primary-dark);
+            outline: 2px solid var(--accent-gold);
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--primary-color);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .theme-toggle:focus {
+            outline: 2px solid var(--primary-color);
+        }
+
+        header {
+            text-align: center;
+            padding: 25px 15px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-bottom: 4px solid var(--accent-gold);
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Quick Sticky Navigation Bar */
+        .quick-nav {
+            position: sticky;
+            top: 10px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(8px);
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-bottom: 20px;
+            z-index: 100;
+            border: 1px solid var(--border-color);
+        }
+
+        .quick-nav::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .quick-nav::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 4px;
+        }
+
+        .quick-nav a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            background: var(--bg-gradient);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .quick-nav a:hover, .quick-nav a:focus {
+            background: var(--primary-color);
+            color: white;
+            outline: none;
+        }
+
+        /* Search Container */
+        .search-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 12px 40px 12px 16px;
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.2s;
+            background: var(--card-bg);
+            color: var(--text-main);
+        }
+
+        #searchInput:focus {
+            border-color: var(--primary-color);
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            display: none;
+            padding: 5px;
+        }
+
+        .clear-search:hover {
+            color: var(--primary-color);
+        }
+
+        /* Highlight Card */
+        .highlight-card {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        [data-theme="dark"] .highlight-card {
+            background: linear-gradient(135deg, #1e293b 100%, #0f172a 0%);
+            color: #93c5fd;
+            border-color: #3b82f6;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .highlight-card p {
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .card h2 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 6px;
+        }
+
+        .content-box {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            white-space: pre-line;
+            margin-bottom: 15px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            background: var(--bg-gradient);
+            color: var(--primary-dark);
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .action-btn:hover, .action-btn:focus {
+            background: var(--primary-color);
+            color: white;
+            outline: none;
+        }
+
+        .copy-feedback {
+            font-size: 0.75rem;
+            color: #10b981;
+            margin-left: 8px;
+            font-weight: bold;
+            display: none;
+            align-self: center;
+        }
+
+        #noResult {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            display: none;
+            background: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: none;
+            font-size: 1.2rem;
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #backToTop:hover, #backToTop:focus {
+            background: var(--primary-dark);
+            outline: 2px solid var(--accent-gold);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
     </style>
 </head>
-<body>
-
-    <header>
-        <h2>🔱 Mahadev Shiva Portal 🔱</h2>
-        <p>Maha Mrityunjaya Mantra & Tandav Stotram</p>
-    </header>
+<body data-theme="light">
 
     <div class="container">
-        <a href="index.html" class="back-btn">⬅️ Back to Home</a>
-
-        <!-- Test Ad Space -->
-        <div class="ad-box">
-            <p><b>[ Test Ad Space ]</b></p>
+        <div class="top-bar">
+            <a href="index.html" class="nav-back" aria-label="Back to Home Page">← Back to Home</a>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle Dark/Light Mode">🌙 Dark Mode</button>
         </div>
 
-        <!-- Content Item 1: Mantra -->
-        <div class="content-box">
-            <h3>Maha Mrityunjaya Mantra</h3>
-            <p><b>Category:</b> Sacred Mantra</p>
-            <div class="lyrics">
-                ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्।
-                उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात्॥
+        <header>
+            <h1>Mahadev Shiva Portal</h1>
+            <p class="subtitle">Maha Mrunjay Mantra, Tandav Stotram, Aarti & Jyotirlinga</p>
+        </header>
+
+        <!-- Quick Sticky Navigation -->
+        <nav class="quick-nav" aria-label="Quick Page Navigation">
+            <a href="#mritunjay">Mantra</a>
+            <a href="#tandav">Tandav Stotram</a>
+            <a href="#aarti">Shiv Aarti</a>
+            <a href="#jyotirlinga">12 Jyotirlinga</a>
+            <a href="#story">Mahashivaratri</a>
+        </nav>
+
+        <!-- Search Container -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search mantra, tandem, aarti, jyotirlinga..." onkeyup="filterContent()" aria-label="Search devotional content">
+            <button class="clear-search" id="clearBtn" onclick="clearSearch()" aria-label="Clear Search">✕</button>
+        </div>
+
+        <!-- Today's Divine Highlight -->
+        <div class="highlight-card" id="dailyHighlight">
+            <h3>🔱 Today's Divine Highlight</h3>
+            <p id="highlightText">"ॐ नमः शिवाय — हर हर महादेव की गूंज से संपूर्ण ब्रह्मांड में सकारात्मक ऊर्जा का संचार होता है।"</p>
+        </div>
+
+        <!-- No Result Message -->
+        <div id="noResult" role="alert">
+            <p>🪔 No matching devotional content found. Try searching something else!</p>
+        </div>
+
+        <!-- Section 1: Maha Mrunjay Mantra -->
+        <div class="card searchable-section" id="mritunjay">
+            <h2>Maha Mrunjaya Mantra</h2>
+            <div class="content-box" id="mritunjayText">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्।
+उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात्॥</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="playAudio('Maha Mrunjay Mantra')" aria-label="Play Maha Mrunjay Mantra audio">🔊 Play Audio</button>
+                <button class="action-btn" onclick="copyContent('mritunjayText', this)" aria-label="Copy Maha Mrunjay Mantra text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
             </div>
         </div>
 
-        <!-- Content Item 2: Video Section -->
-        <div class="content-box">
-            <h3>Shiv Tandav Stotram Status</h3>
-            <p><b>Status:</b> Power-packed Devotional Video</p>
-            <p style="color: #27ae60; font-weight: bold;">📥 Download Link: Free for Users</p>
+        <!-- Section 2: Shiv Tandav Stotram -->
+        <div class="card searchable-section" id="tandav">
+            <h2>Shiv Tandav Stotram (Excerpt)</h2>
+            <div class="content-box" id="tandavText">जटाटवीगलज्जलप्रपा पावितस्थले गलेऽवलम्ब्य लम्बितां भुजङ्गतुङ्गमालिकाम्।
+डमड्डमड्डमड्डमन्निनादवड्ध्वयं चकार चण्डताण्डवं तनोतु नः शिवः शिवम्॥</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="playAudio('Shiv Tandav Stotram')" aria-label="Play Tandav Stotram audio">🔊 Play Audio</button>
+                <button class="action-btn" onclick="copyContent('tandavText', this)" aria-label="Copy Tandav Stotram text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
+            </div>
         </div>
+
+        <!-- Section 3: Shiv Aarti -->
+        <div class="card searchable-section" id="aarti">
+            <h2>Jai Shiv Omkara (Shiv Aarti)</h2>
+            <div class="content-box" id="aartiText">जय शिव ओकारा ब्रह्मा विष्णु सदा शिव अर्द्धांगी धारा॥
+एकाननन चतुराननन पंचानन राजे। हंसासन गरुड़ासन वृषवाहन साजे॥</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="playAudio('Shiv Aarti')" aria-label="Play Shiv Aarti audio">🔊 Play Aarti Audio</button>
+                <button class="action-btn" onclick="copyContent('aartiText', this)" aria-label="Copy Shiv Aarti text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
+            </div>
+        </div>
+
+        <!-- Section 4: 12 Jyotirlinga -->
+        <div class="card searchable-section" id="jyotirlinga">
+            <h2>12 Jyotirlinga Names</h2>
+            <div class="content-box" id="jyotirlingaText">1. सोमनाथ 2. मल्लिकार्जुन 3. महाकाल 4. ओमकारेश्वर 5. बैद्यनाथ 6. भीमशंकर 7. रामेश्वर 8. नागेश्वर 9. विश्वनाथ 10. त्र्यम्बकेश्वर 11. केदारनाथ 12. घृष्णेश्वर</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="copyContent('jyotirlingaText', this)" aria-label="Copy 12 Jyotirlinga text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
+            </div>
+        </div>
+
+        <!-- Section 5: Mahashivaratri -->
+        <div class="card searchable-section" id="story">
+            <h2>Mahashivaratri Information</h2>
+            <div class="content-box" id="storyText">महाशिवरात्रि भगवान शिव और माता पार्वती के विवाह के उत्सव के रूप में मनाई जाती है। फाल्गुन मास के कृष्ण पक्ष की चतुर्दशी को भक्तजन व्रत रखते हैं, रात्रि जागरण करते हैं और शिवलिंग पर जल तथा बेलपत्र अर्पित करते हैं।</div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="copyContent('storyText', this)" aria-label="Copy Mahashivaratri info text">📋 Copy Text</button>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 HinduDevotional Portal. All rights reserved.</p>
+        </footer>
     </div>
 
+    <!-- Back to top button -->
+    <button id="backToTop" onclick="scrollToTop()" aria-label="Scroll back to top">↑</button>
+
+    <script>
+        const highlights = [
+            "ॐ नमः शिवाय — हर हर महादेव की गूंज से संपूर्ण ब्रह्मांड में सकारात्मक ऊर्जा का संचार होता है।",
+            "महामृत्युंजय मंत्र के जाप से अकाल मृत्यु का भय और समस्त कष्ट दूर होते हैं।",
+            "शिवोऽहम् — भगवान शिव ही सत्य हैं, शिव ही सुंदर हैं।"
+        ];
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            const randomHighlight = highlights[Math.floor(Math.random() * highlights.length)];
+            document.getElementById('highlightText').innerText = `"${randomHighlight}"`;
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            document.getElementById('themeBtn').innerText = savedTheme === 'dark' ? '☀️️ Light Mode' : '🌙 Dark Mode';
+        });
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeBtn = document.getElementById('themeBtn');
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeBtn.innerText = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeBtn.innerText = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        function filterContent() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let clearBtn = document.getElementById('clearBtn');
+            let sections = document.getElementsByClassName('searchable-section');
+            let noResult = document.getElementById('noResult');
+            let matchCount = 0;
+
+            clearBtn.style.display = input.length > 0 ? 'block' : 'none';
+
+            for (let i = 0; i < sections.length; i++) {
+                let text = sections[i].innerText.toLowerCase();
+                if (text.includes(input)) {
+                    sections[i].style.display = "block";
+                    matchCount++;
+                } else {
+                    sections[i].style.display = "none";
+                }
+            }
+
+            noResult.style.display = matchCount === 0 ? "block" : "none";
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('clearBtn').style.display = 'none';
+            let sections = document.getElementsByClassName('searchable-section');
+            for (let i = 0; i < sections.length; i++) {
+                sections[i].style.display = "block";
+            }
+            document.getElementById('noResult').style.display = "none";
+        }
+
+        function playAudio(title) {
+            alert("Playing audio for: " + title + " (Audio feature ready)");
+        }
+
+        function copyContent(elementId, btnElement) {
+            let textToCopy = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                let feedback = btnElement.parentElement.querySelector('.copy-feedback');
+                if (feedback) {
+                    feedback.style.display = 'inline';
+                    setTimeout(() => {
+                        feedback.style.display = 'none';
+                    }, 2000);
+                }
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        window.onscroll = function() {
+            let btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                btn.style.display = "flex";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
 </body>
-</html>
+    </html>
+    
