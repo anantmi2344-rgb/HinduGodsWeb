@@ -4,66 +4,127 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>श्री गणेश - मंत्र, आरती, नाम एवं कथा</title>
+<title>श्री गणेश - मंत्र, आरती एवं पूजा</title>
 
 <style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:Arial,sans-serif;
-    background:#fffdf5;
+    background:linear-gradient(180deg,#fff8e8,#fffdf5);
     margin:0;
     color:#333;
 }
 
+/* Header */
 header{
-    background:#e67e22;
+    background:linear-gradient(135deg,#e67e22,#f39c12,#d35400);
     color:white;
     text-align:center;
-    padding:18px 15px;
+    padding:25px 15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.18);
 }
 
 header h2{
-    margin:0 0 6px;
+    margin:0 0 8px;
+    font-size:27px;
 }
 
 header p{
     margin:0;
+    font-size:15px;
 }
 
+/* Main */
 .container{
     padding:15px;
-    max-width:800px;
+    max-width:850px;
     margin:auto;
 }
 
-.content-box{
+/* Back button */
+.back-btn{
+    display:inline-block;
+    background:#333;
+    color:white;
+    padding:10px 17px;
+    text-decoration:none;
+    border-radius:8px;
+    margin-bottom:15px;
+    transition:.2s;
+}
+
+.back-btn:hover{
+    background:#111;
+}
+
+/* Search */
+.search-box{
     background:white;
-    padding:18px;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,.10);
     margin-bottom:18px;
-    border-radius:10px;
-    box-shadow:0 2px 6px rgba(0,0,0,.12);
+}
+
+.search-box label{
+    display:block;
+    color:#b84d00;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+#searchInput{
+    width:100%;
+    padding:12px 14px;
+    border:2px solid #f0c27b;
+    border-radius:8px;
+    font-size:16px;
+    outline:none;
+}
+
+#searchInput:focus{
+    border-color:#e67e22;
+}
+
+#noResult{
+    display:none;
+    text-align:center;
+    color:#777;
+    padding:15px 0 0;
+}
+
+/* Cards */
+.content-box{
+    background:rgba(255,255,255,.97);
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:14px;
+    box-shadow:0 4px 14px rgba(0,0,0,.10);
+    border:1px solid #f5dfbd;
 }
 
 .content-box h3{
     color:#d35400;
     margin-top:0;
+    font-size:21px;
+    border-bottom:2px solid #f3d3a4;
+    padding-bottom:10px;
 }
 
-.back-btn{
-    display:inline-block;
-    background:#333;
-    color:white;
-    padding:9px 15px;
-    text-decoration:none;
-    border-radius:6px;
-    margin-bottom:15px;
-}
-
+/* Mantra */
 .mantra-box{
-    background:#fff8e8;
+    background:linear-gradient(135deg,#fff8e8,#fffdf7);
     border-left:5px solid #e67e22;
-    padding:15px;
+    padding:16px;
     margin:14px 0;
-    border-radius:7px;
+    border-radius:9px;
 }
 
 .mantra-title{
@@ -81,21 +142,23 @@ header p{
 }
 
 .meaning{
-    margin-top:8px;
+    margin-top:9px;
     color:#555;
     line-height:1.8;
     font-size:15px;
 }
 
+/* Aarti */
 .aarti{
     font-size:19px;
     line-height:2;
     text-align:center;
     background:#fffaf0;
-    padding:15px;
-    border-radius:8px;
+    padding:16px;
+    border-radius:9px;
 }
 
+/* Names */
 .names-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -103,10 +166,10 @@ header p{
 }
 
 .name-card{
-    background:#fff8e8;
+    background:linear-gradient(135deg,#fff8e8,#fffdf7);
     border:1px solid #f0d3a0;
-    border-radius:8px;
-    padding:14px;
+    border-radius:9px;
+    padding:15px 10px;
     text-align:center;
     font-size:18px;
     font-weight:bold;
@@ -120,6 +183,7 @@ header p{
     margin-bottom:5px;
 }
 
+/* Text */
 .info-text{
     line-height:1.9;
     font-size:16px;
@@ -135,8 +199,36 @@ header p{
     background:#fff8e8;
     border-left:5px solid #e67e22;
     padding:14px;
-    border-radius:7px;
+    border-radius:8px;
     line-height:1.8;
+}
+
+/* Mobile */
+@media(max-width:500px){
+
+    header h2{
+        font-size:23px;
+    }
+
+    .container{
+        padding:10px;
+    }
+
+    .content-box{
+        padding:15px;
+    }
+
+    .mantra{
+        font-size:18px;
+    }
+
+    .aarti{
+        font-size:17px;
+    }
+
+    .names-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 }
 </style>
 </head>
@@ -153,8 +245,27 @@ header p{
 <a href="index.html" class="back-btn">⬅️ मुख्य पृष्ठ</a>
 
 
-<!-- 5 गणेश मंत्र -->
-<div class="content-box">
+<!-- Search -->
+<div class="search-box">
+
+<label for="searchInput">🔍 गणेश पोर्टल में खोजें</label>
+
+<input
+type="text"
+id="searchInput"
+placeholder="मंत्र, आरती, नाम, कथा या पूजा खोजें..."
+autocomplete="off"
+>
+
+<div id="noResult">
+कोई परिणाम नहीं मिला।
+</div>
+
+</div>
+
+
+<!-- 5 मंत्र -->
+<div class="content-box searchable">
 
 <h3>🙏 श्री गणेश के 5 लोकप्रिय मंत्र</h3>
 
@@ -170,7 +281,6 @@ header p{
 </div>
 </div>
 
-
 <div class="mantra-box">
 <div class="mantra-title">२. श्री गणेश गायत्री मंत्र</div>
 
@@ -185,7 +295,6 @@ header p{
 </div>
 </div>
 
-
 <div class="mantra-box">
 <div class="mantra-title">३. वक्रतुण्ड मंत्र</div>
 
@@ -194,7 +303,6 @@ header p{
 </div>
 </div>
 
-
 <div class="mantra-box">
 <div class="mantra-title">४. ऋणहर्ता गणेश मंत्र</div>
 
@@ -202,7 +310,6 @@ header p{
 ॐ गणेश ऋणं छिन्धि वरेण्यं हुं नमः फट्॥
 </div>
 </div>
-
 
 <div class="mantra-box">
 <div class="mantra-title">५. क्षिप्रप्रसाद गणपति मंत्र</div>
@@ -215,8 +322,8 @@ header p{
 </div>
 
 
-<!-- गणेश जी की आरती -->
-<div class="content-box">
+<!-- आरती -->
+<div class="content-box searchable">
 
 <h3>🪔 श्री गणेश जी की आरती</h3>
 
@@ -248,8 +355,8 @@ header p{
 </div>
 
 
-<!-- श्री गणेश के 12 नाम -->
-<div class="content-box">
+<!-- 12 नाम -->
+<div class="content-box searchable">
 
 <h3>🌺 श्री गणेश जी के 12 पवित्र नाम</h3>
 
@@ -320,27 +427,23 @@ header p{
 </div>
 
 
-<!-- गणेश जी की कथा -->
-<div class="content-box">
+<!-- गणेश कथा -->
+<div class="content-box searchable">
 
 <h3>📖 श्री गणेश जी की कथा</h3>
 
 <div class="info-text">
 
 <p>
-पौराणिक कथाओं के अनुसार, माता पार्वती ने अपने शरीर के उबटन से एक बालक का निर्माण किया और उसे अपना द्वारपाल बनाया। माता पार्वती ने बालक को आदेश दिया कि उनकी अनुमति के बिना किसी को भी अंदर प्रवेश न करने दिया जाए।
+पौराणिक कथाओं के अनुसार, माता पार्वती ने एक बालक का निर्माण किया और उसे अपना द्वारपाल बनाया।
 </p>
 
 <p>
-जब भगवान शिव वहाँ आए, तब बालक ने उन्हें अंदर जाने से रोक दिया। इस कारण भगवान शिव और बालक के बीच संघर्ष हुआ। कथा के अनुसार, भगवान शिव ने बालक का सिर अलग कर दिया।
+माता पार्वती के आदेश के अनुसार बालक ने भगवान शिव को अंदर जाने से रोक दिया। इसके बाद भगवान शिव और बालक के बीच संघर्ष हुआ।
 </p>
 
 <p>
-माता पार्वती को जब यह ज्ञात हुआ तो वे अत्यंत क्रोधित हुईं। तब भगवान शिव ने बालक को पुनर्जीवित करने का वचन दिया। भगवान शिव के निर्देश पर देवताओं ने उत्तर दिशा की ओर सबसे पहले मिलने वाले जीव का सिर लाने का प्रयास किया और हाथी का सिर लाया गया।
-</p>
-
-<p>
-भगवान शिव ने हाथी के सिर को बालक के शरीर पर स्थापित करके उसे पुनर्जीवन दिया और उसे गणों का अधिपति बनाया। इसी कारण उन्हें <b>गणपति</b> और <b>गणेश</b> कहा जाता है।
+कथा के अनुसार, बाद में भगवान शिव ने बालक को पुनर्जीवन दिया और उसे गणों का अधिपति बनाया। इसी कारण उन्हें <b>गणपति</b> और <b>गणेश</b> कहा जाता है।
 </p>
 
 </div>
@@ -353,7 +456,7 @@ header p{
 
 
 <!-- गणेश चतुर्थी -->
-<div class="content-box">
+<div class="content-box searchable">
 
 <h3>🌺 गणेश चतुर्थी</h3>
 
@@ -364,7 +467,7 @@ header p{
 </p>
 
 <p>
-इस पर्व में भगवान गणेश की भक्ति, प्रार्थना और सांस्कृतिक उत्सव का विशेष महत्व माना जाता है। विभिन्न स्थानों पर गणेश उत्सव की अलग-अलग परम्पराएँ देखने को मिलती हैं।
+विभिन्न स्थानों पर गणेश उत्सव की अलग-अलग परम्पराएँ देखने को मिलती हैं।
 </p>
 
 </div>
@@ -372,36 +475,29 @@ header p{
 </div>
 
 
-<!-- सरल गणेश पूजा विधि -->
-<div class="content-box">
+<!-- पूजा विधि -->
+<div class="content-box searchable">
 
 <h3>🪔 श्री गणेश पूजा की सरल विधि</h3>
 
 <ol class="puja-list">
 
 <li>पूजा का स्थान स्वच्छ करें।</li>
-
-<li>भगवान श्री गणेश की प्रतिमा या चित्र को स्थापित करें।</li>
-
+<li>भगवान श्री गणेश की प्रतिमा या चित्र स्थापित करें।</li>
 <li>भगवान गणेश का ध्यान और प्रणाम करें।</li>
-
 <li>फूल, दूर्वा और फल आदि श्रद्धापूर्वक अर्पित करें।</li>
-
 <li>भगवान गणेश को नैवेद्य या प्रसाद अर्पित करें।</li>
-
 <li>श्री गणेश मंत्र का श्रद्धापूर्वक जाप करें।</li>
-
 <li>श्री गणेश जी की आरती करें।</li>
-
-<li>अंत में भगवान गणेश से प्रार्थना करके प्रसाद ग्रहण करें।</li>
+<li>अंत में भगवान गणेश से प्रार्थना करें।</li>
 
 </ol>
 
 </div>
 
 
-<!-- अंतिम प्रार्थना -->
-<div class="content-box">
+<!-- गणेश वंदना -->
+<div class="content-box searchable">
 
 <h3>🙏 श्री गणेश वंदना</h3>
 
@@ -415,15 +511,57 @@ header p{
 </div>
 
 <div class="meaning">
-हे विशाल शरीर और करोड़ों सूर्यों के समान तेज वाले भगवान गणेश, मेरे सभी शुभ कार्यों को सदा निर्विघ्न पूर्ण करें।
+हे विशाल शरीर और करोड़ों सूर्यों के समान तेज वाले भगवान गणेश, मेरे शुभ कार्यों को सदा निर्विघ्न पूर्ण करें।
 </div>
 
 </div>
 
 </div>
 
-
 </div>
+
+
+<script>
+
+const searchInput = document.getElementById("searchInput");
+const sections = document.querySelectorAll(".searchable");
+const noResult = document.getElementById("noResult");
+
+searchInput.addEventListener("input", function(){
+
+    const searchText = this.value.trim().toLowerCase();
+
+    let found = false;
+
+    sections.forEach(function(section){
+
+        const content = section.innerText.toLowerCase();
+
+        if(searchText === "" || content.includes(searchText)){
+
+            section.style.display = "block";
+
+            if(searchText !== ""){
+                found = true;
+            }
+
+        }else{
+
+            section.style.display = "none";
+
+        }
+
+    });
+
+    if(searchText !== "" && !found){
+        noResult.style.display = "block";
+    }else{
+        noResult.style.display = "none";
+    }
+
+});
+
+</script>
 
 </body>
-    </html>
+</html>
