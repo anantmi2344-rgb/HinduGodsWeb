@@ -14,7 +14,6 @@
             --text-main: #1f2937;
             --text-muted: #4b5563;
             --border-color: #f3f4f6;
-            --nav-bg: rgba(255, 255, 255, 0.95);
         }
 
         [data-theme="dark"] {
@@ -26,7 +25,6 @@
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --border-color: #374151;
-            --nav-bg: rgba(31, 41, 55, 0.95);
         }
 
         * {
@@ -45,48 +43,76 @@
             min-height: 100vh;
         }
 
-        /* Intro Splash Animation Screen */
+        /* HD Divine Mandala Intro Animation Screen */
         #introScreen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--bg-gradient);
+            background: radial-gradient(circle, #fef3c7 0%, #fde68a 50%, #d97706 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.6s ease-in-out;
         }
 
-        .spinner-circle {
+        .mandala-loader {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .mandala-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px dashed var(--primary-dark);
+            border-radius: 50%;
+            animation: spinMandala 4s linear infinite;
+        }
+
+        .mandala-ring-inner {
+            position: absolute;
             width: 80px;
             height: 80px;
-            border: 4px solid var(--border-color);
-            border-top: 4px solid var(--primary-color);
+            border: 3px solid var(--accent-gold);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
+            animation: spinReverse 3s linear infinite;
         }
 
-        @keyframes spin {
+        .mandala-center-icon {
+            font-size: 2.8rem;
+            animation: pulseIcon 1.5s ease-in-out infinite;
+        }
+
+        @keyframes spinMandala {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        .intro-text {
-            color: var(--primary-dark);
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            animation: pulse 1.5s ease-in-out infinite;
+        @keyframes spinReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .intro-title {
+            color: #78350f;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .container {
@@ -120,7 +146,6 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        /* Hero Section */
         header {
             text-align: center;
             padding: 40px 20px;
@@ -129,15 +154,12 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
             margin-bottom: 25px;
             border-bottom: 4px solid var(--accent-gold);
-            position: relative;
-            overflow: hidden;
         }
 
         h1 {
             color: var(--primary-dark);
             font-size: 2.3rem;
             margin-bottom: 10px;
-            letter-spacing: -0.5px;
         }
 
         .subtitle {
@@ -147,7 +169,6 @@
             margin: 0 auto;
         }
 
-        /* Search Section */
         .search-container {
             position: relative;
             margin-bottom: 30px;
@@ -160,7 +181,6 @@
             border: 2px solid var(--border-color);
             border-radius: 12px;
             outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
             background: var(--card-bg);
             color: var(--text-main);
             box-shadow: 0 4px 10px rgba(0,0,0,0.02);
@@ -171,7 +191,6 @@
             box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.15);
         }
 
-        /* Deity Cards Grid */
         .grid-title {
             font-size: 1.3rem;
             color: var(--primary-dark);
@@ -200,8 +219,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            overflow: hidden;
         }
 
         .deity-card:hover {
@@ -291,18 +308,18 @@
             align-items: center;
             justify-content: center;
         }
-
-        #backToTop:hover {
-            background: var(--primary-dark);
-        }
     </style>
 </head>
 <body data-theme="light">
 
-    <!-- Intro Divine Animation Screen -->
+    <!-- HD Divine Mandala Intro Animation Screen -->
     <div id="introScreen">
-        <div class="spinner-circle"></div>
-        <div class="intro-text">🕉️ HinduGodsWeb Loading...</div>
+        <div class="mandala-loader">
+            <div class="mandala-ring"></div>
+            <div class="mandala-ring-inner"></div>
+            <div class="mandala-center-icon">🐘</div>
+        </div>
+        <div class="intro-title">ॐ HinduGodsWeb Loading...</div>
     </div>
 
     <div class="container">
@@ -357,15 +374,16 @@
     <button id="backToTop" onclick="scrollToTop()">↑</button>
 
     <script>
-        // Hide Intro Animation after 1.2 seconds smoothly
+        // Dynamic loading speed adjustment based on internet performance / window load event
         window.addEventListener('load', () => {
+            const intro = document.getElementById('introScreen');
+            // Ensure smooth fade out once everything is fully ready
             setTimeout(() => {
-                const intro = document.getElementById('introScreen');
                 intro.style.opacity = '0';
                 setTimeout(() => {
                     intro.style.display = 'none';
-                }, 500);
-            }, 1000);
+                }, 600);
+            }, 1200);
 
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
@@ -377,7 +395,7 @@
             const themeBtn = document.getElementById('themeBtn');
             if (body.getAttribute('data-theme') === 'light') {
                 body.setAttribute('data-theme', 'dark');
-                themeBtn.innerText = '☀️️ Light Mode';
+                themeBtn.innerText = '☀️ Light Mode';
                 localStorage.setItem('theme', 'dark');
             } else {
                 body.setAttribute('data-theme', 'light');
