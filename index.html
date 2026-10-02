@@ -317,7 +317,7 @@
         <div class="mandala-loader">
             <div class="mandala-ring"></div>
             <div class="mandala-ring-inner"></div>
-            <div class="mandala-center-icon">🐘</div>
+            <div class="mandala-center-icon">🕉️</div>
         </div>
         <div class="intro-title">ॐ HinduGodsWeb Loading...</div>
     </div>
@@ -334,11 +334,11 @@
         </header>
 
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search deities (Ganesh, Shiva, Hanuman)..." onkeyup="filterDeities()">
+            <input type="text" id="searchInput" placeholder="Search deities (Ganesh, Shiva, Hanuman, Krishna)..." onkeyup="filterDeities()">
         </div>
 
         <div id="noResult">
-            <p>🪔 No matching deity found. Try searching "Ganesh", "Shiva", or "Hanuman"!</p>
+            <p>🪔 No matching deity found. Try searching "Ganesh", "Shiva", "Hanuman", or "Krishna"!</p>
         </div>
 
         <h2 class="grid-title">Sacred Deities</h2>
@@ -364,6 +364,13 @@
                 <p>Hanuman Chalisa, Bajrang Baan, Ashtak, Sundarkand & Katha</p>
                 <span class="visit-btn">Explore Portal →</span>
             </a>
+
+            <a href="krishna.html" class="deity-card searchable-deity">
+                <div class="deity-icon">🪈</div>
+                <h3>Shri Krishna</h3>
+                <p>Bhagavad Gita Saar, Aarti, Mantras, Leela & Divine Wisdom</p>
+                <span class="visit-btn">Explore Portal →</span>
+            </a>
         </div>
 
         <footer>
@@ -374,10 +381,8 @@
     <button id="backToTop" onclick="scrollToTop()">↑</button>
 
     <script>
-        // Dynamic loading speed adjustment based on internet performance / window load event
         window.addEventListener('load', () => {
             const intro = document.getElementById('introScreen');
-            // Ensure smooth fade out once everything is fully ready
             setTimeout(() => {
                 intro.style.opacity = '0';
                 setTimeout(() => {
@@ -437,5 +442,4 @@
         }
     </script>
 </body>
-    </html>
-    
+</html>
