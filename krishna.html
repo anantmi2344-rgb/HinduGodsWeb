@@ -6,7 +6,7 @@
     <title>Shri Krishna - HinduDevotional Portal</title>
     <style>
         :root {
-            --primary-color: #0284c7; /* Peacock Blue Accent */
+            --primary-color: #0284c7;
             --primary-dark: #0369a1;
             --accent-gold: #fbbf24;
             --bg-gradient: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
@@ -21,7 +21,7 @@
             --primary-color: #38bdf8;
             --primary-dark: #7dd3fc;
             --accent-gold: #f59e0b;
-            --bg-gradient: linear-gradient(135deg, #0f172a 1-0%, #1e293b 100%);
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             --card-bg: #1e293b;
             --text-main: #f3f4f6;
             --text-muted: #94a3b8;
@@ -445,10 +445,36 @@
         </div>
 
         <div class="card searchable-section" id="aarti">
-            <h2>Shri Krishna Aarti</h2>
+            <h2>Shri Krishna Aarti (आरती कुंजबिहारी की)</h2>
             <div class="content-box" id="aartiText">आरती कुंजबिहारी की, श्री गिरिधर कृष्ण मुरारी की॥
-गले में बजन्ती माला, बजावै मुरली मधुर बाला।
-श्रवण में कुण्डल झलकारै, भक्तां के मन को हरवै॥</div>
+गले में बैजन्ती माला, बजावै मुरली मधुर बाला।
+श्रवण में कुण्डल झलकारै, नंद के आनन्द नन्दलाला॥
+श्री गिरिधर कृष्णमुरारी की...
+आरती कुंजबिहारी की, श्री गिरिधर कृष्णमुरारी की॥
+
+गगन सम अंग कांति काली, राधिका चमक रही आली।
+लतन में ठाढ़े बनमाली;
+भ्रमर सी अलक, कस्तूरी तिलक, चंद्र सी झलक;
+ललित छवि श्यामा प्यारी की॥
+श्री गिरिधर कृष्णमुरारी की...
+
+कणकमय मोर मुकुट बिलसै, देवता दरसन को तरसैं।
+गगन तों सुमन रासि बरसै;
+बजे मुरमुर मधुर मिरदंग, ग्वालिन संग;
+अतुल रति गोप कुमारी की॥
+श्री गिरिधर कृष्णमुरारी की...
+
+जहां ते प्रक्ट भई गंगा, कलुष कलि हारिणि श्रीगंगा।
+स्मरण ते होत मोह भंगा;
+बसी शिव शीश, जटाके बीच, हरे अघ कीच;
+चरण छवि श्रीबनवारी की॥
+श्री गिरिधर कृष्णमुरारी की...
+
+चमकती उज्ज्वल तट रेनू, बज रही वृंदावन बेनू।
+चहुं दिसि गोपि ग्वाल धेनू;
+हंसत मृदु मंद, चांदनी चंद, कटत भव फंद;
+टेर सुनु दीन भिखारी की॥
+श्री गिरिधर कृष्णमुरारी की...</div>
             <div class="btn-group">
                 <button class="action-btn" onclick="playAudio('Krishna Aarti')">🔊 Play Aarti Audio</button>
                 <button class="action-btn" onclick="copyContent('aartiText', this)">📋 Copy Text</button>
@@ -502,7 +528,7 @@
             const themeBtn = document.getElementById('themeBtn');
             if (body.getAttribute('data-theme') === 'light') {
                 body.setAttribute('data-theme', 'dark');
-                themeBtn.innerText = '☀️️ Light Mode';
+                themeBtn.innerText = '☀️ Light Mode';
                 localStorage.setItem('theme', 'dark');
             } else {
                 body.setAttribute('data-theme', 'light');
@@ -572,8 +598,4 @@
         };
 
         function scrollToTop() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-    </script>
-</body>
-</html>
+           
