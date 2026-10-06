@@ -13,18 +13,18 @@
             --card-bg: #ffffff;
             --text-main: #1f2937;
             --text-muted: #4b5563;
-            --border-color: #f3f4f6;
+            --border-color: #fecaca;
             --nav-bg: rgba(255, 255, 255, 0.95);
         }
 
         [data-theme="dark"] {
             --primary-color: #ef4444;
             --primary-dark: #f87171;
-            --accent-gold: #d97706;
-            --bg-gradient: linear-gradient(135deg, #18181b 100%, #27272a 0%);
+            --accent-gold: #f59e0b;
+            --bg-gradient: linear-gradient(135deg, #18181b 0%, #27272a 100%);
             --card-bg: #27272a;
             --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
+            --text-muted: #a1a1aa;
             --border-color: #3f3f46;
             --nav-bg: rgba(39, 39, 42, 0.95);
         }
@@ -43,6 +43,76 @@
             line-height: 1.6;
             padding: 15px;
             min-height: 100vh;
+        }
+
+        /* HD Divine Mandala Intro Animation Screen */
+        #introScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #fee2e2 0%, #fecaca 50%, #b91c1c 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .mandala-loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .mandala-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px dashed var(--primary-dark);
+            border-radius: 50%;
+            animation: spinMandala 3s linear infinite;
+        }
+
+        .mandala-ring-inner {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border: 3px solid var(--accent-gold);
+            border-radius: 50%;
+            animation: spinReverse 2s linear infinite;
+        }
+
+        .mandala-center-icon {
+            font-size: 2.3rem;
+            animation: pulseIcon 1.2s ease-in-out infinite;
+        }
+
+        @keyframes spinMandala {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spinReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .intro-title {
+            color: #7f1d1d;
+            font-size: 1.4rem;
+            font-weight: 800;
         }
 
         .container {
@@ -66,12 +136,6 @@
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-
-        .nav-back:hover, .nav-back:focus {
-            background: var(--primary-dark);
-            outline: 2px solid var(--accent-gold);
         }
 
         .theme-toggle {
@@ -83,11 +147,6 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 0.85rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .theme-toggle:focus {
-            outline: 2px solid var(--primary-color);
         }
 
         header {
@@ -111,7 +170,6 @@
             font-size: 1rem;
         }
 
-        /* Quick Sticky Navigation Bar */
         .quick-nav {
             position: sticky;
             top: 10px;
@@ -129,15 +187,6 @@
             border: 1px solid var(--border-color);
         }
 
-        .quick-nav::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .quick-nav::-webkit-scrollbar-thumb {
-            background: var(--accent-gold);
-            border-radius: 4px;
-        }
-
         .quick-nav a {
             text-decoration: none;
             color: var(--primary-dark);
@@ -147,17 +196,9 @@
             font-size: 0.85rem;
             font-weight: 600;
             border: 1px solid var(--border-color);
-            transition: all 0.2s;
             flex-shrink: 0;
         }
 
-        .quick-nav a:hover, .quick-nav a:focus {
-            background: var(--primary-color);
-            color: white;
-            outline: none;
-        }
-
-        /* Search Container */
         .search-container {
             position: relative;
             margin-bottom: 20px;
@@ -170,13 +211,8 @@
             border: 2px solid var(--border-color);
             border-radius: 10px;
             outline: none;
-            transition: border-color 0.2s;
             background: var(--card-bg);
             color: var(--text-main);
-        }
-
-        #searchInput:focus {
-            border-color: var(--primary-color);
         }
 
         .clear-search {
@@ -190,41 +226,6 @@
             cursor: pointer;
             color: var(--text-muted);
             display: none;
-            padding: 5px;
-        }
-
-        .clear-search:hover {
-            color: var(--primary-color);
-        }
-
-        /* Highlight Card */
-        .highlight-card {
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-            border: 1px solid var(--accent-gold);
-            border-radius: 14px;
-            padding: 18px;
-            margin-bottom: 20px;
-            color: #7f1d1d;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-
-        [data-theme="dark"] .highlight-card {
-            background: linear-gradient(135deg, #27272a 100%, #18181b 0%);
-            color: #fca5a5;
-            border-color: #b91c1c;
-        }
-
-        .highlight-card h3 {
-            font-size: 1.05rem;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .highlight-card p {
-            font-size: 0.95rem;
-            font-style: italic;
         }
 
         .card {
@@ -234,7 +235,6 @@
             margin-bottom: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
             border: 1px solid var(--border-color);
-            position: relative;
         }
 
         .card h2 {
@@ -267,13 +267,6 @@
             font-weight: 600;
             cursor: pointer;
             font-size: 0.85rem;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .action-btn:hover, .action-btn:focus {
-            background: var(--primary-color);
-            color: white;
-            outline: none;
         }
 
         .copy-feedback {
@@ -287,14 +280,9 @@
 
         #noResult {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             color: var(--text-muted);
-            font-size: 1.1rem;
             display: none;
-            background: var(--card-bg);
-            border-radius: 14px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 20px;
         }
 
         #backToTop {
@@ -308,17 +296,10 @@
             height: 45px;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             display: none;
-            font-size: 1.2rem;
             z-index: 1000;
             align-items: center;
             justify-content: center;
-        }
-
-        #backToTop:hover, #backToTop:focus {
-            background: var(--primary-dark);
-            outline: 2px solid var(--accent-gold);
         }
 
         footer {
@@ -331,134 +312,64 @@
 </head>
 <body data-theme="light">
 
+    <!-- HD Divine Mandala Intro Animation Screen -->
+    <div id="introScreen">
+        <div class="mandala-loader">
+            <div class="mandala-ring"></div>
+            <div class="mandala-ring-inner"></div>
+            <div class="mandala-center-icon">🚩</div>
+        </div>
+        <div class="intro-title">ॐ Shri Hanuman Loading...</div>
+    </div>
+
     <div class="container">
         <div class="top-bar">
-            <a href="index.html" class="nav-back" aria-label="Back to Home Page">← Back to Home</a>
-            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle Dark/Light Mode">🌙 Dark Mode</button>
+            <a href="index.html" class="nav-back">← Back to Home</a>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
         </div>
 
         <header>
             <h1>Shri Hanuman Portal</h1>
-            <p class="subtitle">Hanuman Chalisa, Bajrang Baan, Sankatmochan & Katha</p>
+            <p class="subtitle">Hanuman Chalisa, Bajrang Baan, Ashtak & Katha</p>
         </header>
 
-        <!-- Quick Sticky Navigation -->
-        <nav class="quick-nav" aria-label="Quick Page Navigation">
+        <nav class="quick-nav">
             <a href="#chalisa">Chalisa</a>
             <a href="#baan">Bajrang Baan</a>
-            <a href="#ashtak">Ashtak</a>
-            <a href="#stotra">Sundarkand</a>
-            <a href="#story">Story</a>
+            <a href="#sundarkand">Sundarkand</a>
         </nav>
 
-        <!-- Search Container -->
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search chalisa, baan, ashtak, story..." onkeyup="filterContent()" aria-label="Search devotional content">
-            <button class="clear-search" id="clearBtn" onclick="clearSearch()" aria-label="Clear Search">✕</button>
+            <input type="text" id="searchInput" placeholder="Search chalisa, baan, katha..." onkeyup="filterContent()">
+            <button class="clear-search" id="clearBtn" onclick="clearSearch()">✕</button>
         </div>
 
-        <!-- Today's Divine Highlight -->
-        <div class="highlight-card" id="dailyHighlight">
-            <h3>🚩 Today's Divine Highlight</h3>
-            <p id="highlightText">"बुद्धिबल यश दैहहु मोही, हरहु कलेस विकार — संकट मोचन हनुमान जी की कृपा से सब मंगल होता है।"</p>
-        </div>
+        <div id="noResult"><p>🪔 No matching content found.</p></div>
 
-        <!-- No Result Message -->
-        <div id="noResult" role="alert">
-            <p>🪔 No matching devotional content found. Try searching something else!</p>
-        </div>
-
-        <!-- Section 1: Hanuman Chalisa -->
         <div class="card searchable-section" id="chalisa">
-            <h2>Shri Hanuman Chalisa (श्री हनुमान चालीसा)</h2>
-            <div class="content-box" id="chalisaText">दोहा
-श्रीगुरु चरन सरोज रज निज मन मुकुर सुधारि।
-बरनउँ रघबर बिमल सुसु जो दायक फल चारि॥
-बुद्धिहीन तनु जानिके सुमिरौं पवनकुमार।
-बल बुद्धि बिद्या देहू मोहि हरहु कलेस बिकार॥
-
-चोपाइ
-जय हनुमान ज्ञान गुन सागर। जय कपि‍त लोक उजागर॥
-राम दूत अतित बल धामा। अंजनी पुत्र पवनसुत नामा॥
-महावीर विक्रम बजरंगी। कुमति निवार सुमति के संगी॥
-कंचन बरन विराज सुबेसा। कानन कुण्डल कुंचित केसा॥
-हाथ वज्र औ ध्वजा बिराजै। कांधे मुंज जनेऊ साजे॥
-सवन सुवन केसरी नंदन। तेज प्रताप महा जग वंदन॥
-(पूर्ण पाठ...)</div>
+            <h2>Hanuman Chalisa</h2>
+            <div class="content-box" id="chalisaText">श्रीगुरु चरन सरोज रज निज मनु मुकुर सुधारि। बरनउँ रघुबर बिमल सुकुसु जो दायक फल चारि॥</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Hanuman Chalisa')" aria-label="Play Hanuman Chalisa audio">🔊 Play Audio</button>
-                <button class="action-btn" onclick="copyContent('chalisaText', this)" aria-label="Copy Hanuman Chalisa text">📋 Copy Text</button>
-                <span class="copy-feedback" aria-live="polite">Copied!</span>
+                <button class="action-btn" onclick="copyContent('chalisaText', this)">📋 Copy Text</button>
+                <span class="copy-feedback">Copied!</span>
             </div>
         </div>
 
-        <!-- Section 2: Bajrang Baan -->
-        <div class="card searchable-section" id="baan">
-            <h2>Bajrang Baan (बज्रङ्ग बाण)</h2>
-            <div class="content-box" id="baanText">निश्चय प्रेम प्रतीति ते, विनय करैं मानबाय।
-तेहि के कारज सकल सिद्ध, करै हनुमान॥
-जय हनुमान महाप्रभु जोई। जो सुमिरै संकट नहिं होई॥</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Bajrang Baan')" aria-label="Play Bajrang Baan audio">🔊 Play Audio</button>
-                <button class="action-btn" onclick="copyContent('baanText', this)" aria-label="Copy Bajrang Baan text">📋 Copy Text</button>
-                <span class="copy-feedback" aria-live="polite">Copied!</span>
-            </div>
-        </div>
-
-        <!-- Section 3: Sankatmochan Hanuman Ashtak -->
-        <div class="card searchable-section" id="ashtak">
-            <h2>Sankatmochan Hanuman Ashtak</h2>
-            <div class="content-box" id="ashtakText">बाल समय रवि भयो लच्छी भयो ता समय कहु भूम न दीन्हो।
-तीनहुं लोक भयो अंधियारों ताहि सोई त्रास भयो जग जीन्हो॥
-बालकपन अति सुन्दर रूप, संकट मोचन नाम परयो तिहारी॥</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Hanuman Ashtak')" aria-label="Play Ashtak audio">🔊 Play Audio</button>
-                <button class="action-btn" onclick="copyContent('ashtakText', this)" aria-label="Copy Ashtak text">📋 Copy Text</button>
-                <span class="copy-feedback" aria-live="polite">Copied!</span>
-            </div>
-        </div>
-
-        <!-- Section 4: Sundarkand Shlok -->
-        <div class="card searchable-section" id="stotra">
-            <h2>Sundarkand Highlights</h2>
-            <div class="content-box" id="stotraText">शांतं शाश्वतमप्रमेयमनघं निर्वाणशान्तिप्रदं
-ब्रह्माशम्भुफणीन्द्रसेव्यमनिशं वेदान्तगम्यं विभुम्।
-बाहुभ्यामभयप्रदं सुजनकृते संहारकं दूतशं
-वन्दे वासुदतं सुमित्रानन्दनं नमामि रामप्रियम॥</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="copyContent('stotraText', this)" aria-label="Copy Sundarkand text">📋 Copy Text</button>
-                <span class="copy-feedback" aria-live="polite">Copied!</span>
-            </div>
-        </div>
-
-        <!-- Section 5: Story -->
-        <div class="card searchable-section" id="story">
-            <h2>Hanuman Ji ki Katha</h2>
-            <div class="content-box" id="storyText">भगवान हनुमान पवन पुत्र और माता अंजनी के नंदन हैं। बाल्यकाल में सूर्य को फल समझकर खाने के लिए आगे बढ़ने वाले हनुमान जी को इंद्र के वज्र से चोट लगी थी। वे भगवान श्रीराम के सबसे बड़े भक्त और अनन्य सेवक हैं जिन्होंने लंका दहन से लेकर संजीवनी बूटी लाने तक प्रभु श्री राम की सेवा में अपना जीवन समर्पित किया।</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="copyContent('storyText', this)" aria-label="Copy Hanuman Katha text">📋 Copy Text</button>
-                <span class="copy-feedback" aria-live="polite">Copied!</span>
-            </div>
-        </div>
-
-        <footer>
-            <p>&copy; 2026 HinduDevotional Portal. All rights reserved.</p>
-        </footer>
+        <footer><p>&copy; 2026 HinduDevotional Portal</p></footer>
     </div>
 
-    <!-- Back to top button -->
-    <button id="backToTop" onclick="scrollToTop()" aria-label="Scroll back to top">↑</button>
+    <button id="backToTop" onclick="scrollToTop()">↑</button>
 
     <script>
-        const highlights = [
-            "बुद्धिबल यश दैहहु मोही, हरहु कलेस विकार — संकट मोचन हनुमान जी की कृपा से सब मंगल होता है।",
-            "अंजनि सुत पवनसुत हनुमान की जय — राम भक्त हनुमान संकट हर लेते हैं।",
-            "वीर हनुमान अति बलवाना, राम नाम रस जिनके प्राणा।"
-        ];
-        
-        window.addEventListener('DOMContentLoaded', () => {
-            const randomHighlight = highlights[Math.floor(Math.random() * highlights.length)];
-            document.getElementById('highlightText').innerText = `"${randomHighlight}"`;
+        // Guaranteed max 3-second loader timer handler
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const intro = document.getElementById('introScreen');
+                if(intro) {
+                    intro.style.opacity = '0';
+                    setTimeout(() => intro.style.display = 'none', 300);
+                }
+            }, 600); // Smooth fast load within max 3 seconds limit
 
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
@@ -483,36 +394,17 @@
             let input = document.getElementById('searchInput').value.toLowerCase();
             let clearBtn = document.getElementById('clearBtn');
             let sections = document.getElementsByClassName('searchable-section');
-            let noResult = document.getElementById('noResult');
-            let matchCount = 0;
-
             clearBtn.style.display = input.length > 0 ? 'block' : 'none';
-
             for (let i = 0; i < sections.length; i++) {
-                let text = sections[i].innerText.toLowerCase();
-                if (text.includes(input)) {
-                    sections[i].style.display = "block";
-                    matchCount++;
-                } else {
-                    sections[i].style.display = "none";
-                }
+                sections[i].style.display = sections[i].innerText.toLowerCase().includes(input) ? "block" : "none";
             }
-
-            noResult.style.display = matchCount === 0 ? "block" : "none";
         }
 
         function clearSearch() {
             document.getElementById('searchInput').value = '';
             document.getElementById('clearBtn').style.display = 'none';
             let sections = document.getElementsByClassName('searchable-section');
-            for (let i = 0; i < sections.length; i++) {
-                sections[i].style.display = "block";
-            }
-            document.getElementById('noResult').style.display = "none";
-        }
-
-        function playAudio(title) {
-            alert("Playing audio for: " + title + " (Audio feature ready)");
+            for (let i = 0; i < sections.length; i++) sections[i].style.display = "block";
         }
 
         function copyContent(elementId, btnElement) {
@@ -521,22 +413,14 @@
                 let feedback = btnElement.parentElement.querySelector('.copy-feedback');
                 if (feedback) {
                     feedback.style.display = 'inline';
-                    setTimeout(() => {
-                        feedback.style.display = 'none';
-                    }, 2000);
+                    setTimeout(() => feedback.style.display = 'none', 2000);
                 }
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
             });
         }
 
         window.onscroll = function() {
             let btn = document.getElementById("backToTop");
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
+            btn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "flex" : "none";
         };
 
         function scrollToTop() {
@@ -544,5 +428,4 @@
         }
     </script>
 </body>
-    </html>
-                                             
+</html>
