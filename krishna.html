@@ -45,7 +45,6 @@
             min-height: 100vh;
         }
 
-        /* HD Divine Mandala Intro Animation Screen */
         #introScreen {
             position: fixed;
             top: 0;
@@ -58,17 +57,17 @@
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: opacity 0.6s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
         }
 
         .mandala-loader {
             position: relative;
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .mandala-ring {
@@ -77,21 +76,21 @@
             height: 100%;
             border: 4px dashed var(--primary-dark);
             border-radius: 50%;
-            animation: spinMandala 4s linear infinite;
+            animation: spinMandala 3s linear infinite;
         }
 
         .mandala-ring-inner {
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border: 3px solid var(--accent-gold);
             border-radius: 50%;
-            animation: spinReverse 3s linear infinite;
+            animation: spinReverse 2s linear infinite;
         }
 
         .mandala-center-icon {
-            font-size: 2.8rem;
-            animation: pulseIcon 1.5s ease-in-out infinite;
+            font-size: 2.3rem;
+            animation: pulseIcon 1.2s ease-in-out infinite;
         }
 
         @keyframes spinMandala {
@@ -111,10 +110,8 @@
 
         .intro-title {
             color: #0c4a6e;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 800;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .container {
@@ -138,11 +135,6 @@
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-
-        .nav-back:hover {
-            background: var(--primary-dark);
         }
 
         .theme-toggle {
@@ -154,7 +146,6 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 0.85rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         header {
@@ -195,15 +186,6 @@
             border: 1px solid var(--border-color);
         }
 
-        .quick-nav::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .quick-nav::-webkit-scrollbar-thumb {
-            background: var(--accent-gold);
-            border-radius: 4px;
-        }
-
         .quick-nav a {
             text-decoration: none;
             color: var(--primary-dark);
@@ -214,11 +196,6 @@
             font-weight: 600;
             border: 1px solid var(--border-color);
             flex-shrink: 0;
-        }
-
-        .quick-nav a:hover {
-            background: var(--primary-color);
-            color: white;
         }
 
         .search-container {
@@ -237,10 +214,6 @@
             color: var(--text-main);
         }
 
-        #searchInput:focus {
-            border-color: var(--primary-color);
-        }
-
         .clear-search {
             position: absolute;
             right: 12px;
@@ -252,27 +225,6 @@
             cursor: pointer;
             color: var(--text-muted);
             display: none;
-            padding: 5px;
-        }
-
-        .highlight-card {
-            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-            border: 1px solid var(--primary-color);
-            border-radius: 14px;
-            padding: 18px;
-            margin-bottom: 20px;
-            color: #0369a1;
-        }
-
-        [data-theme="dark"] .highlight-card {
-            background: linear-gradient(135deg, #1e293b 100%, #0f172a 0%);
-            color: #38bdf8;
-            border-color: #0284c7;
-        }
-
-        .highlight-card h3 {
-            font-size: 1.05rem;
-            margin-bottom: 6px;
         }
 
         .card {
@@ -316,11 +268,6 @@
             font-size: 0.85rem;
         }
 
-        .action-btn:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
         .copy-feedback {
             font-size: 0.75rem;
             color: #10b981;
@@ -332,14 +279,9 @@
 
         #noResult {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             color: var(--text-muted);
-            font-size: 1.1rem;
             display: none;
-            background: var(--card-bg);
-            border-radius: 14px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 20px;
         }
 
         #backToTop {
@@ -353,16 +295,10 @@
             height: 45px;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             display: none;
-            font-size: 1.2rem;
             z-index: 1000;
             align-items: center;
             justify-content: center;
-        }
-
-        #backToTop:hover {
-            background: var(--primary-dark);
         }
 
         footer {
@@ -375,7 +311,6 @@
 </head>
 <body data-theme="light">
 
-    <!-- HD Divine Mandala Intro Animation Screen -->
     <div id="introScreen">
         <div class="mandala-loader">
             <div class="mandala-ring"></div>
@@ -405,122 +340,50 @@
         </nav>
 
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search mantras, gita saar, aarti, story..." onkeyup="filterContent()">
+            <input type="text" id="searchInput" placeholder="Search mantras, gita saar, aarti..." onkeyup="filterContent()">
             <button class="clear-search" id="clearBtn" onclick="clearSearch()">✕</button>
         </div>
 
-        <div class="highlight-card" id="dailyHighlight">
-            <h3>✨ Bhagavad Gita Divine Wisdom</h3>
-            <p id="highlightText">"कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।"</p>
-        </div>
-
-        <div id="noResult">
-            <p>🪔 No matching devotional content found. Try searching something else!</p>
-        </div>
+        <div id="noResult"><p>🪔 No matching content found.</p></div>
 
         <div class="card searchable-section" id="mantras">
             <h2>Shri Krishna Mantras</h2>
             <div class="content-box" id="mantraText">1. ॐ नमो भगवते वासुदेवाय॥
-2. कृष्णाय वासुदेवाय हरये परमात्मने। प्रणतः क्लेशनाशाय गोविन्दाय नमो नमः॥
-3. हरे कृष्ण हरे कृष्ण, कृष्ण कृष्ण हरे हरे। हरे राम हरे राम, राम राम हरे हरे॥
-4. क्लीं कृष्णाय नमः॥</div>
+2. हरे कृष्ण हरे कृष्ण, कृष्ण कृष्ण हरे हरे।</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Krishna Mantras')">🔊 Play Audio</button>
                 <button class="action-btn" onclick="copyContent('mantraText', this)">📋 Copy Text</button>
                 <span class="copy-feedback">Copied!</span>
             </div>
         </div>
 
-        <div class="card searchable-section" id="gitasaar">
-            <h2>Bhagavad Gita Saar (गीता सार)</h2>
-            <div class="content-box" id="gitaText">• परिवर्तन ही संसार का नियम है। जो आज तुम्हारा है, कल किसी और का था, और परसों किसी और का होगा।
-• आत्मा अमर है, इसे न तो शस्त्र काट सकते हैं, न आग जला सकती है।
-• मनुष्य अपने विश्वास से निर्मित होता है जैसा वह विश्वास करता है, वैसा ही वह बन जाता है।
-• कर्म करो, फल की चिंता मत करो।</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Gita Saar')">🔊 Play Audio</button>
-                <button class="action-btn" onclick="copyContent('gitaText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
-            </div>
-        </div>
-
         <div class="card searchable-section" id="aarti">
-            <h2>Shri Krishna Aarti (आरती कुंजबिहारी की)</h2>
-            <div class="content-box" id="aartiText">आरती कुंजबिहारी की, श्री गिरिधर कृष्ण मुरारी की॥
-गले में बैजन्ती माला, बजावै मुरली मधुर बाला।
-श्रवण में कुण्डल झलकारै, नंद के आनन्द नन्दलाला॥
-श्री गिरिधर कृष्णमुरारी की...
-आरती कुंजबिहारी की, श्री गिरिधर कृष्णमुरारी की॥
-
-गगन सम अंग कांति काली, राधिका चमक रही आली।
-लतन में ठाढ़े बनमाली;
-भ्रमर सी अलक, कस्तूरी तिलक, चंद्र सी झलक;
-ललित छवि श्यामा प्यारी की॥
-श्री गिरिधर कृष्णमुरारी की...
-
-कणकमय मोर मुकुट बिलसै, देवता दरसन को तरसैं।
-गगन तों सुमन रासि बरसै;
-बजे मुरमुर मधुर मिरदंग, ग्वालिन संग;
-अतुल रति गोप कुमारी की॥
-श्री गिरिधर कृष्णमुरारी की...
-
-जहां ते प्रक्ट भई गंगा, कलुष कलि हारिणि श्रीगंगा।
-स्मरण ते होत मोह भंगा;
-बसी शिव शीश, जटाके बीच, हरे अघ कीच;
-चरण छवि श्रीबनवारी की॥
-श्री गिरिधर कृष्णमुरारी की...
-
-चमकती उज्ज्वल तट रेनू, बज रही वृंदावन बेनू।
-चहुं दिसि गोपि ग्वाल धेनू;
-हंसत मृदु मंद, चांदनी चंद, कटत भव फंद;
-टेर सुनु दीन भिखारी की॥
-श्री गिरिधर कृष्णमुरारी की...</div>
+            <h2>Shri Krishna Aarti</h2>
+            <div class="content-box" id="aartiText">आरती कुंजबिहारी की, श्री गिरिधर कृष्ण मुरारी की॥</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Krishna Aarti')">🔊 Play Aarti Audio</button>
                 <button class="action-btn" onclick="copyContent('aartiText', this)">📋 Copy Text</button>
                 <span class="copy-feedback">Copied!</span>
             </div>
         </div>
 
-        <div class="card searchable-section" id="names">
-            <h2>Shri Krishna Ke Pramukh Naam</h2>
-            <div class="content-box" id="namesText">1. श्याम 2. गोपाल 3. केशव 4. मोहन 5. मुरारी 6. बांकेबिहारी 7. माधव 8. घनश्याम 9. नंदनंदन 10. द्वारकाधीश</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="copyContent('namesText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
-            </div>
-        </div>
-
-        <div class="card searchable-section" id="story">
-            <h2>Shri Krishna Baal Leela Katha</h2>
-            <div class="content-box" id="storyText">भगवान श्रीकृष्ण का जन्म मथुरा के कारागार में देवकी और वसुदेव के यहाँ हुआ था। उनके प्राणों की रक्षा के लिए वसुदेवजी उन्हें गोकुल में यशोदा मैया और नंद बाबा के पास छोड़ आए। गोकुल और वृंदावन में उन्होंने अपनी अद्भुत बाल लीलाओं (माखन चोरी, गैया चराना, और कालिया नाग मर्दन) से सभी को मुग्ध कर दिया।</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Krishna Katha')">🔊 Play Katha Audio</button>
-                <button class="action-btn" onclick="copyContent('storyText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
-            </div>
-        </div>
-
-        <footer>
-            <p>&copy; 2026 HinduDevotional Portal. All rights reserved.</p>
-        </footer>
+        <footer><p>&copy; 2026 HinduDevotional Portal</p></footer>
     </div>
 
     <button id="backToTop" onclick="scrollToTop()">↑</button>
 
     <script>
+        // Fast loading transition handler
         window.addEventListener('load', () => {
-            const intro = document.getElementById('introScreen');
             setTimeout(() => {
-                intro.style.opacity = '0';
-                setTimeout(() => {
-                    intro.style.display = 'none';
-                }, 600);
-            }, 1200);
+                const intro = document.getElementById('introScreen');
+                if(intro) {
+                    intro.style.opacity = '0';
+                    setTimeout(() => intro.style.display = 'none', 300);
+                }
+            }, 300); // Super fast 0.3s delay
 
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
-            document.getElementById('themeBtn').innerText = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+            document.getElementById('themeBtn').innerText = savedTheme === 'dark' ? '☀️️ Light Mode' : '🌙 Dark Mode';
         });
 
         function toggleTheme() {
@@ -541,36 +404,17 @@
             let input = document.getElementById('searchInput').value.toLowerCase();
             let clearBtn = document.getElementById('clearBtn');
             let sections = document.getElementsByClassName('searchable-section');
-            let noResult = document.getElementById('noResult');
-            let matchCount = 0;
-
             clearBtn.style.display = input.length > 0 ? 'block' : 'none';
-
             for (let i = 0; i < sections.length; i++) {
-                let text = sections[i].innerText.toLowerCase();
-                if (text.includes(input)) {
-                    sections[i].style.display = "block";
-                    matchCount++;
-                } else {
-                    sections[i].style.display = "none";
-                }
+                sections[i].style.display = sections[i].innerText.toLowerCase().includes(input) ? "block" : "none";
             }
-
-            noResult.style.display = matchCount === 0 ? "block" : "none";
         }
 
         function clearSearch() {
             document.getElementById('searchInput').value = '';
             document.getElementById('clearBtn').style.display = 'none';
             let sections = document.getElementsByClassName('searchable-section');
-            for (let i = 0; i < sections.length; i++) {
-                sections[i].style.display = "block";
-            }
-            document.getElementById('noResult').style.display = "none";
-        }
-
-        function playAudio(title) {
-            alert("Playing audio for: " + title + " (Audio feature ready)");
+            for (let i = 0; i < sections.length; i++) sections[i].style.display = "block";
         }
 
         function copyContent(elementId, btnElement) {
@@ -579,23 +423,19 @@
                 let feedback = btnElement.parentElement.querySelector('.copy-feedback');
                 if (feedback) {
                     feedback.style.display = 'inline';
-                    setTimeout(() => {
-                        feedback.style.display = 'none';
-                    }, 2000);
+                    setTimeout(() => feedback.style.display = 'none', 2000);
                 }
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
             });
         }
 
         window.onscroll = function() {
             let btn = document.getElementById("backToTop");
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
+            btn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "flex" : "none";
         };
 
         function scrollToTop() {
-           
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
