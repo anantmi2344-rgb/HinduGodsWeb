@@ -6,27 +6,27 @@
     <title>Mahadev Shiva - HinduDevotional Portal</title>
     <style>
         :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1e40af;
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
             --accent-gold: #fbbf24;
-            --bg-gradient: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            --bg-gradient: linear-gradient(135deg, #e0e7ff 0%, #ede9fe 100%);
             --card-bg: #ffffff;
             --text-main: #1f2937;
             --text-muted: #4b5563;
-            --border-color: #e5e7eb;
+            --border-color: #c7d2fe;
             --nav-bg: rgba(255, 255, 255, 0.95);
         }
 
         [data-theme="dark"] {
-            --primary-color: #3b82f6;
-            --primary-dark: #60a5fa;
+            --primary-color: #818cf8;
+            --primary-dark: #a5b4fc;
             --accent-gold: #f59e0b;
-            --bg-gradient: linear-gradient(135deg, #0f172a 100%, #1e293b 0%);
-            --card-bg: #1e293b;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --card-bg: #1e1b4b;
             --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: #334155;
-            --nav-bg: rgba(30, 41, 59, 0.95);
+            --text-muted: #94a3b8;
+            --border-color: #312e81;
+            --nav-bg: rgba(30, 27, 75, 0.95);
         }
 
         * {
@@ -43,6 +43,76 @@
             line-height: 1.6;
             padding: 15px;
             min-height: 100vh;
+        }
+
+        /* HD Divine Mandala Intro Animation Screen */
+        #introScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #ede9fe 0%, #c7d2fe 50%, #4f46e5 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .mandala-loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .mandala-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px dashed var(--primary-dark);
+            border-radius: 50%;
+            animation: spinMandala 3s linear infinite;
+        }
+
+        .mandala-ring-inner {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border: 3px solid var(--accent-gold);
+            border-radius: 50%;
+            animation: spinReverse 2s linear infinite;
+        }
+
+        .mandala-center-icon {
+            font-size: 2.3rem;
+            animation: pulseIcon 1.2s ease-in-out infinite;
+        }
+
+        @keyframes spinMandala {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spinReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .intro-title {
+            color: #312e81;
+            font-size: 1.4rem;
+            font-weight: 800;
         }
 
         .container {
@@ -66,12 +136,6 @@
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-
-        .nav-back:hover, .nav-back:focus {
-            background: var(--primary-dark);
-            outline: 2px solid var(--accent-gold);
         }
 
         .theme-toggle {
@@ -83,11 +147,6 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 0.85rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .theme-toggle:focus {
-            outline: 2px solid var(--primary-color);
         }
 
         header {
@@ -111,7 +170,6 @@
             font-size: 1rem;
         }
 
-        /* Quick Sticky Navigation Bar */
         .quick-nav {
             position: sticky;
             top: 10px;
@@ -129,15 +187,6 @@
             border: 1px solid var(--border-color);
         }
 
-        .quick-nav::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .quick-nav::-webkit-scrollbar-thumb {
-            background: var(--accent-gold);
-            border-radius: 4px;
-        }
-
         .quick-nav a {
             text-decoration: none;
             color: var(--primary-dark);
@@ -147,17 +196,9 @@
             font-size: 0.85rem;
             font-weight: 600;
             border: 1px solid var(--border-color);
-            transition: all 0.2s;
             flex-shrink: 0;
         }
 
-        .quick-nav a:hover, .quick-nav a:focus {
-            background: var(--primary-color);
-            color: white;
-            outline: none;
-        }
-
-        /* Search Container */
         .search-container {
             position: relative;
             margin-bottom: 20px;
@@ -170,13 +211,8 @@
             border: 2px solid var(--border-color);
             border-radius: 10px;
             outline: none;
-            transition: border-color 0.2s;
             background: var(--card-bg);
             color: var(--text-main);
-        }
-
-        #searchInput:focus {
-            border-color: var(--primary-color);
         }
 
         .clear-search {
@@ -190,41 +226,6 @@
             cursor: pointer;
             color: var(--text-muted);
             display: none;
-            padding: 5px;
-        }
-
-        .clear-search:hover {
-            color: var(--primary-color);
-        }
-
-        /* Highlight Card */
-        .highlight-card {
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-            border: 1px solid var(--accent-gold);
-            border-radius: 14px;
-            padding: 18px;
-            margin-bottom: 20px;
-            color: #1e3a8a;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-
-        [data-theme="dark"] .highlight-card {
-            background: linear-gradient(135deg, #1e293b 100%, #0f172a 0%);
-            color: #93c5fd;
-            border-color: #3b82f6;
-        }
-
-        .highlight-card h3 {
-            font-size: 1.05rem;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .highlight-card p {
-            font-size: 0.95rem;
-            font-style: italic;
         }
 
         .card {
@@ -234,7 +235,6 @@
             margin-bottom: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
             border: 1px solid var(--border-color);
-            position: relative;
         }
 
         .card h2 {
@@ -267,13 +267,6 @@
             font-weight: 600;
             cursor: pointer;
             font-size: 0.85rem;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .action-btn:hover, .action-btn:focus {
-            background: var(--primary-color);
-            color: white;
-            outline: none;
         }
 
         .copy-feedback {
@@ -287,14 +280,9 @@
 
         #noResult {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             color: var(--text-muted);
-            font-size: 1.1rem;
             display: none;
-            background: var(--card-bg);
-            border-radius: 14px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 20px;
         }
 
         #backToTop {
@@ -308,17 +296,10 @@
             height: 45px;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             display: none;
-            font-size: 1.2rem;
             z-index: 1000;
             align-items: center;
             justify-content: center;
-        }
-
-        #backToTop:hover, #backToTop:focus {
-            background: var(--primary-dark);
-            outline: 2px solid var(--accent-gold);
         }
 
         footer {
@@ -331,121 +312,77 @@
 </head>
 <body data-theme="light">
 
+    <!-- HD Divine Mandala Intro Animation Screen -->
+    <div id="introScreen">
+        <div class="mandala-loader">
+            <div class="mandala-ring"></div>
+            <div class="mandala-ring-inner"></div>
+            <div class="mandala-center-icon">🔱</div>
+        </div>
+        <div class="intro-title">ॐ Mahadev Shiva Loading...</div>
+    </div>
+
     <div class="container">
         <div class="top-bar">
-            <a href="index.html" class="nav-back" aria-label="Back to Home Page">← Back to Home</a>
-            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle Dark/Light Mode">🌙 Dark Mode</button>
+            <a href="index.html" class="nav-back">← Back to Home</a>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
         </div>
 
         <header>
             <h1>Mahadev Shiva Portal</h1>
-            <p class="subtitle">Maha Mrunjay Mantra, Tandav Stotram, Aarti & Jyotirlinga</p>
+            <p class="subtitle">Maha Mrunjaya Mantra, Tandav Stotram, Aarti & 12 Jyotirlinga</p>
         </header>
 
-        <!-- Quick Sticky Navigation -->
-        <nav class="quick-nav" aria-label="Quick Page Navigation">
-            <a href="#mritunjay">Mantra</a>
-            <a href="#tandav">Tandav Stotram</a>
-            <a href="#aarti">Shiv Aarti</a>
-            <a href="#jyotirlinga">12 Jyotirlinga</a>
-            <a href="#story">Mahashivaratri</a>
+        <nav class="quick-nav">
+            <a href="#mantras">Mantras</a>
+            <a href="#aarti">Aarti</a>
+            <a href="#jyotirlinga">Jyotirlinga</a>
         </nav>
 
-        <!-- Search Container -->
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search mantra, tandem, aarti, jyotirlinga..." onkeyup="filterContent()" aria-label="Search devotional content">
-            <button class="clear-search" id="clearBtn" onclick="clearSearch()" aria-label="Clear Search">✕</button>
+            <input type="text" id="searchInput" placeholder="Search mantras, aarti, jyotirlinga..." onkeyup="filterContent()">
+            <button class="clear-search" id="clearBtn" onclick="clearSearch()">✕</button>
         </div>
 
-        <!-- Today's Divine Highlight -->
-        <div class="highlight-card" id="dailyHighlight">
-            <h3>🔱 Today's Divine Highlight</h3>
-            <p id="highlightText">"ॐ नमः शिवाय — हर हर महादेव की गूंज से संपूर्ण ब्रह्मांड में सकारात्मक ऊर्जा का संचार होता है।"</p>
-        </div>
+        <div id="noResult"><p>🪔 No matching content found.</p></div>
 
-        <!-- No Result Message -->
-        <div id="noResult" role="alert">
-            <p>🪔 No matching devotional content found. Try searching something else!</p>
-        </div>
-
-        <!-- Section 1: Maha Mrunjay Mantra -->
-        <div class="card searchable-section" id="mritunjay">
-            <h2>Maha Mrunjaya Mantra</h2>
-            <div class="content-box" id="mritunjayText">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्।
-उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात्॥</div>
+        <div class="card searchable-section" id="mantras">
+            <h2>Maha Mrityunjaya Mantra</h2>
+            <div class="content-box" id="mantraText">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्। उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात्॥</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Maha Mrunjay Mantra')" aria-label="Play Maha Mrunjay Mantra audio">🔊 Play Audio</button>
-                <button class="action-btn" onclick="copyContent('mritunjayText', this)" aria-label="Copy Maha Mrunjay Mantra text">📋 Copy Text</button>
-                <span class="copy-feedback" aria-live="polite">Copied!</span>
+                <button class="action-btn" onclick="copyContent('mantraText', this)">📋 Copy Text</button>
+                <span class="copy-feedback">Copied!</span>
             </div>
         </div>
 
-        <!-- Section 2: Shiv Tandav Stotram -->
-        <div class="card searchable-section" id="tandav">
-            <h2>Shiv Tandav Stotram (Excerpt)</h2>
-            <div class="content-box" id="tandavText">जटाटवीगलज्जलप्रपा पावितस्थले गलेऽवलम्ब्य लम्बितां भुजङ्गतुङ्गमालिकाम्।
-डमड्डमड्डमड्डमन्निनादवड्ध्वयं चकार चण्डताण्डवं तनोतु नः शिवः शिवम्॥</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Shiv Tandav Stotram')" aria-label="Play Tandav Stotram audio">🔊 Play Audio</button>
-                <button class="action-btn" onclick="copyContent('tandavText', this)" aria-label="Copy Tandav Stotram text">📋 Copy Text</button>
-                <span class="copy-feedback" aria-live="polite">Copied!</span>
-            </div>
-        </div>
-
-        <!-- Section 3: Shiv Aarti -->
         <div class="card searchable-section" id="aarti">
-            <h2>Jai Shiv Omkara (Shiv Aarti)</h2>
-            <div class="content-box" id="aartiText">जय शिव ओकारा ब्रह्मा विष्णु सदा शिव अर्द्धांगी धारा॥
-एकाननन चतुराननन पंचानन राजे। हंसासन गरुड़ासन वृषवाहन साजे॥</div>
+            <h2>Shri Shiva Aarti</h2>
+            <div class="content-box" id="aartiText">ओम जय शिव ओमकारा, स्वामी जय शिव ओमकारा। ब्रह्मा विष्णु भोले हर जोई संधारा॥</div>
             <div class="btn-group">
-                <button class="action-btn" onclick="playAudio('Shiv Aarti')" aria-label="Play Shiv Aarti audio">🔊 Play Aarti Audio</button>
-                <button class="action-btn" onclick="copyContent('aartiText', this)" aria-label="Copy Shiv Aarti text">📋 Copy Text</button>
-                <span class="copy-feedback" aria-live="polite">Copied!</span>
+                <button class="action-btn" onclick="copyContent('aartiText', this)">📋 Copy Text</button>
+                <span class="copy-feedback">Copied!</span>
             </div>
         </div>
 
-        <!-- Section 4: 12 Jyotirlinga -->
-        <div class="card searchable-section" id="jyotirlinga">
-            <h2>12 Jyotirlinga Names</h2>
-            <div class="content-box" id="jyotirlingaText">1. सोमनाथ 2. मल्लिकार्जुन 3. महाकाल 4. ओमकारेश्वर 5. बैद्यनाथ 6. भीमशंकर 7. रामेश्वर 8. नागेश्वर 9. विश्वनाथ 10. त्र्यम्बकेश्वर 11. केदारनाथ 12. घृष्णेश्वर</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="copyContent('jyotirlingaText', this)" aria-label="Copy 12 Jyotirlinga text">📋 Copy Text</button>
-                <span class="copy-feedback" aria-live="polite">Copied!</span>
-            </div>
-        </div>
-
-        <!-- Section 5: Mahashivaratri -->
-        <div class="card searchable-section" id="story">
-            <h2>Mahashivaratri Information</h2>
-            <div class="content-box" id="storyText">महाशिवरात्रि भगवान शिव और माता पार्वती के विवाह के उत्सव के रूप में मनाई जाती है। फाल्गुन मास के कृष्ण पक्ष की चतुर्दशी को भक्तजन व्रत रखते हैं, रात्रि जागरण करते हैं और शिवलिंग पर जल तथा बेलपत्र अर्पित करते हैं।</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="copyContent('storyText', this)" aria-label="Copy Mahashivaratri info text">📋 Copy Text</button>
-                <span class="copy-feedback" aria-live="polite">Copied!</span>
-            </div>
-        </div>
-
-        <footer>
-            <p>&copy; 2026 HinduDevotional Portal. All rights reserved.</p>
-        </footer>
+        <footer><p>&copy; 2026 HinduDevotional Portal</p></footer>
     </div>
 
-    <!-- Back to top button -->
-    <button id="backToTop" onclick="scrollToTop()" aria-label="Scroll back to top">↑</button>
+    <button id="backToTop" onclick="scrollToTop()">↑</button>
 
     <script>
-        const highlights = [
-            "ॐ नमः शिवाय — हर हर महादेव की गूंज से संपूर्ण ब्रह्मांड में सकारात्मक ऊर्जा का संचार होता है।",
-            "महामृत्युंजय मंत्र के जाप से अकाल मृत्यु का भय और समस्त कष्ट दूर होते हैं।",
-            "शिवोऽहम् — भगवान शिव ही सत्य हैं, शिव ही सुंदर हैं।"
-        ];
-        
-        window.addEventListener('DOMContentLoaded', () => {
-            const randomHighlight = highlights[Math.floor(Math.random() * highlights.length)];
-            document.getElementById('highlightText').innerText = `"${randomHighlight}"`;
+        // Guaranteed max 3-second loader timer handler
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const intro = document.getElementById('introScreen');
+                if(intro) {
+                    intro.style.opacity = '0';
+                    setTimeout(() => intro.style.display = 'none', 300);
+                }
+            }, 600); // Smooth fast load within max 3 seconds limit
 
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
-            document.getElementById('themeBtn').innerText = savedTheme === 'dark' ? '☀️️ Light Mode' : '🌙 Dark Mode';
+            document.getElementById('themeBtn').innerText = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
         });
 
         function toggleTheme() {
@@ -466,36 +403,17 @@
             let input = document.getElementById('searchInput').value.toLowerCase();
             let clearBtn = document.getElementById('clearBtn');
             let sections = document.getElementsByClassName('searchable-section');
-            let noResult = document.getElementById('noResult');
-            let matchCount = 0;
-
             clearBtn.style.display = input.length > 0 ? 'block' : 'none';
-
             for (let i = 0; i < sections.length; i++) {
-                let text = sections[i].innerText.toLowerCase();
-                if (text.includes(input)) {
-                    sections[i].style.display = "block";
-                    matchCount++;
-                } else {
-                    sections[i].style.display = "none";
-                }
+                sections[i].style.display = sections[i].innerText.toLowerCase().includes(input) ? "block" : "none";
             }
-
-            noResult.style.display = matchCount === 0 ? "block" : "none";
         }
 
         function clearSearch() {
             document.getElementById('searchInput').value = '';
             document.getElementById('clearBtn').style.display = 'none';
             let sections = document.getElementsByClassName('searchable-section');
-            for (let i = 0; i < sections.length; i++) {
-                sections[i].style.display = "block";
-            }
-            document.getElementById('noResult').style.display = "none";
-        }
-
-        function playAudio(title) {
-            alert("Playing audio for: " + title + " (Audio feature ready)");
+            for (let i = 0; i < sections.length; i++) sections[i].style.display = "block";
         }
 
         function copyContent(elementId, btnElement) {
@@ -504,22 +422,14 @@
                 let feedback = btnElement.parentElement.querySelector('.copy-feedback');
                 if (feedback) {
                     feedback.style.display = 'inline';
-                    setTimeout(() => {
-                        feedback.style.display = 'none';
-                    }, 2000);
+                    setTimeout(() => feedback.style.display = 'none', 2000);
                 }
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
             });
         }
 
         window.onscroll = function() {
             let btn = document.getElementById("backToTop");
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
+            btn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "flex" : "none";
         };
 
         function scrollToTop() {
@@ -527,5 +437,4 @@
         }
     </script>
 </body>
-    </html>
-    
+</html>
