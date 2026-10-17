@@ -11,6 +11,10 @@
             --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background: var(--bg-gradient);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,6 +26,7 @@
         .container {
             max-width: 900px;
             margin: auto;
+            padding-bottom: 50px;
         }
 
         header {
@@ -37,30 +42,40 @@
         header h1 {
             margin: 0;
             font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         header p {
             margin: 10px 0 0 0;
             color: #fde68a;
+            font-size: 16px;
+        }
+
+        h2 {
+            color: var(--deep-saffron);
+            border-bottom: 2px solid #fef3c7;
+            padding-bottom: 8px;
+            margin-top: 30px;
         }
 
         /* Deities Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
+            margin-top: 20px;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 25px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 20px;
             border-radius: 16px;
             text-align: center;
             text-decoration: none;
             color: inherit;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border: 1px solid rgba(245, 158, 11, 0.3);
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
@@ -68,9 +83,31 @@
             box-shadow: 0 10px 25px rgba(217, 119, 6, 0.2);
         }
 
+        /* Divine Image Container Styling */
+        .img-container {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #f59e0b;
+            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3);
+            background: #fffbeb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .card h3 {
             color: var(--deep-saffron);
-            margin: 15px 0 5px 0;
+            margin: 10px 0 5px 0;
+            font-size: 20px;
         }
 
         .card p {
@@ -109,6 +146,7 @@
         .modal-content h2 {
             color: var(--deep-saffron);
             margin-top: 0;
+            border: none;
         }
 
         .modal-content p {
@@ -159,25 +197,27 @@
             margin-top: 50px;
             color: #78716c;
             font-size: 14px;
-            padding-bottom: 40px;
+            padding-bottom: 20px;
+            border-top: 1px solid #e7e5e4;
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Welcome / Terms & Privacy Modal (पहले खुलेगा) -->
+    <!-- 1. Welcome / Terms & Privacy Modal -->
     <div id="welcome-modal">
         <div class="modal-content">
             <h2>🕉️ HinduGodsWeb में आपका स्वागत है</h2>
             <p>
                 <strong>नियम और गोपनीयता नीति (Terms & Privacy Policy):</strong><br>
-                इस पोर्टल पर उपलब्ध सभी मंत्र, आरतियाँ, कथाएँ और धार्मिक सामग्री केवल सात्विक और आध्यात्मिक जानकारी के उद्देश्य से हैं। इस वेबसाइट का उपयोग करके आप हमारी गोपनीयता नीति से सहमत होते हैं।
+                इस पोर्टल पर उपलब्ध सभी मंत्र, आरतियाँ, कथाएँ और धार्मिक सामग्री सात्विक उद्देश्य से हैं। इस वेबसाइट का उपयोग करके आप हमारी गोपनीयता नीति से सहमत होते हैं।
             </p>
             <button class="accept-btn" onclick="acceptTerms()">Accept & Enter (स्वीकार करें)</button>
         </div>
     </div>
 
-    <!-- 2. Creator Watermark Badge (जैसे बड़े क्रिएटर्स का लोगो/नाम रहता है) -->
+    <!-- 2. Creator Watermark Badge -->
     <div class="creator-badge">
         ✨ Created by Anant Mishra
     </div>
@@ -192,26 +232,38 @@
         <h2>Sacred Deities</h2>
 
         <div class="grid">
+            <!-- Shri Ganesha Card with Image Support -->
             <a href="ganesh.html" class="card">
-                <div style="font-size: 40px;">🐘</div>
+                <div class="img-container">
+                    <img src="images/ganesh.jpg" alt="Shri Ganesha" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\'><text x=\'50%\' y=\'55%\' font-size=\'40\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🐘</text></svg>';">
+                </div>
                 <h3>Shri Ganesha</h3>
                 <p>Mantras, Aarti & Story</p>
             </a>
 
+            <!-- Mahadev Shiva Card -->
             <a href="shiva.html" class="card">
-                <div style="font-size: 40px;">🔱</div>
+                <div class="img-container">
+                    <img src="images/shiva.jpg" alt="Mahadev Shiva" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\'><text x=\'50%\' y=\'55%\' font-size=\'40\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🔱</text></svg>';">
+                </div>
                 <h3>Mahadev Shiva</h3>
                 <p>Maha Mrityunjaya & Stotram</p>
             </a>
 
+            <!-- Shri Hanuman Card -->
             <a href="hanuman.html" class="card">
-                <div style="font-size: 40px;">🚩</div>
+                <div class="img-container">
+                    <img src="images/hanuman.jpg" alt="Shri Hanuman" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\'><text x=\'50%\' y=\'55%\' font-size=\'40\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🚩</text></svg>';">
+                </div>
                 <h3>Shri Hanuman</h3>
                 <p>Chalisa, Bajrang Baan & Katha</p>
             </a>
 
+            <!-- Shri Krishna Card -->
             <a href="krishna.html" class="card">
-                <div style="font-size: 40px;">🪈</div>
+                <div class="img-container">
+                    <img src="images/krishna.jpg" alt="Shri Krishna" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\'><text x=\'50%\' y=\'55%\' font-size=\'40\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🪈</text></svg>';">
+                </div>
                 <h3>Shri Krishna</h3>
                 <p>Bhagavad Gita Saar & Wisdom</p>
             </a>
@@ -232,7 +284,6 @@
                 modal.style.display = 'none';
             }, 400);
             
-            // Optional: Save state so modal doesn't pop up on every single click inside the site
             localStorage.setItem('termsAccepted', 'true');
         }
 
