@@ -3,438 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Krishna - HinduDevotional Portal</title>
+    <title>Shri Krishna - Divine Portal</title>
     <style>
         :root {
-            --primary-color: #0284c7;
-            --primary-dark: #0369a1;
-            --accent-gold: #fbbf24;
-            --bg-gradient: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            --card-bg: #ffffff;
-            --text-main: #1f2937;
-            --text-muted: #4b5563;
-            --border-color: #bae6fd;
-            --nav-bg: rgba(255, 255, 255, 0.95);
-        }
-
-        [data-theme="dark"] {
-            --primary-color: #38bdf8;
-            --primary-dark: #7dd3fc;
-            --accent-gold: #f59e0b;
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --card-bg: #1e293b;
-            --text-main: #f3f4f6;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
-            --nav-bg: rgba(30, 41, 59, 0.95);
+            --primary-gold: #d97706;
+            --deep-saffron: #7c2d12;
+            --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
         }
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background 0.3s, color 0.3s;
+            scroll-behavior: smooth;
         }
 
         body {
             background: var(--bg-gradient);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 15px;
-            min-height: 100vh;
-        }
-
-        #introScreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, #e0f2fe 0%, #bae6fd 50%, #0284c7 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .mandala-loader {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .mandala-ring {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 4px dashed var(--primary-dark);
-            border-radius: 50%;
-            animation: spinMandala 3s linear infinite;
-        }
-
-        .mandala-ring-inner {
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            border: 3px solid var(--accent-gold);
-            border-radius: 50%;
-            animation: spinReverse 2s linear infinite;
-        }
-
-        .mandala-center-icon {
-            font-size: 2.3rem;
-            animation: pulseIcon 1.2s ease-in-out infinite;
-        }
-
-        @keyframes spinMandala {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes spinReverse {
-            0% { transform: rotate(360deg); }
-            100% { transform: rotate(0deg); }
-        }
-
-        @keyframes pulseIcon {
-            0%, 100% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
-        }
-
-        .intro-title {
-            color: #0c4a6e;
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #292524;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
         }
 
         .nav-back {
             display: inline-block;
             text-decoration: none;
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .theme-toggle {
-            background: var(--card-bg);
-            color: var(--text-main);
-            border: 1px solid var(--primary-color);
-            padding: 10px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
+            color: var(--deep-saffron);
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 16px;
         }
 
         header {
             text-align: center;
-            padding: 25px 15px;
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: #fff;
+            padding: 35px 20px;
+            border-radius: 20px;
             margin-bottom: 20px;
-            border-bottom: 4px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
         }
 
-        h1 {
-            color: var(--primary-dark);
-            font-size: 2rem;
-            margin-bottom: 5px;
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1rem;
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #93c5fd;
         }
 
-        .quick-nav {
-            position: sticky;
-            top: 10px;
-            background: var(--nav-bg);
-            backdrop-filter: blur(8px);
-            padding: 10px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        /* Tabs */
+        .tabs-container {
             display: flex;
             gap: 10px;
             overflow-x: auto;
+            padding: 10px 5px 20px 5px;
             white-space: nowrap;
-            margin-bottom: 20px;
-            z-index: 100;
-            border: 1px solid var(--border-color);
+            scrollbar-width: none;
         }
+        .tabs-container::-webkit-scrollbar { display: none; }
 
-        .quick-nav a {
-            text-decoration: none;
-            color: var(--primary-dark);
-            background: var(--bg-gradient);
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid var(--border-color);
-            flex-shrink: 0;
-        }
-
-        .search-container {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        #searchInput {
-            width: 100%;
-            padding: 12px 40px 12px 16px;
-            font-size: 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 10px;
-            outline: none;
-            background: var(--card-bg);
-            color: var(--text-main);
-        }
-
-        .clear-search {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            font-size: 1.1rem;
+        .tab-btn {
+            background: #ffffff;
+            border: 2px solid #3b82f6;
+            color: #1e3a8a;
+            padding: 9px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
             cursor: pointer;
-            color: var(--text-muted);
-            display: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
         }
 
+        .tab-btn.active, .tab-btn:hover {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Search */
+        .search-box {
+            margin-bottom: 25px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 30px;
+            border: 1px solid #3b82f6;
+            font-size: 15px;
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        /* Cards */
         .card {
             background: var(--card-bg);
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
 
         .card h2 {
-            color: var(--primary-dark);
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 6px;
+            color: #1e3a8a;
+            margin-top: 0;
+            border-bottom: 2px solid #eff6ff;
+            padding-bottom: 10px;
+            font-size: 21px;
         }
 
-        .content-box {
-            font-size: 1.05rem;
-            color: var(--text-main);
-            white-space: pre-line;
-            margin-bottom: 15px;
+        .content-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+        .content-text p {
+            margin: 12px 0;
         }
 
-        .action-btn {
-            background: var(--bg-gradient);
-            color: var(--primary-dark);
-            border: 1px solid var(--border-color);
-            padding: 10px 16px;
+        .names-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .name-box {
+            background: #eff6ff;
+            padding: 12px 15px;
             border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.85rem;
+            border-left: 4px solid #3b82f6;
+            font-size: 14px;
+            font-weight: 500;
         }
 
-        .copy-feedback {
-            font-size: 0.75rem;
-            color: #10b981;
-            margin-left: 8px;
-            font-weight: bold;
-            display: none;
-            align-self: center;
-        }
-
-        #noResult {
-            text-align: center;
-            padding: 20px;
-            color: var(--text-muted);
-            display: none;
-        }
-
-        #backToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: white;
+        /* Copy Button */
+        .copy-btn {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
             border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
             cursor: pointer;
-            display: none;
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
         }
+        .copy-btn:hover { background: #1d4ed8; }
 
-        footer {
+        /* Toast */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #1e3a8a;
+            color: #fff;
             text-align: center;
-            padding: 20px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            border-radius: 8px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
+        #toast.show { visibility: visible; }
     </style>
 </head>
-<body data-theme="light">
-
-    <div id="introScreen">
-        <div class="mandala-loader">
-            <div class="mandala-ring"></div>
-            <div class="mandala-ring-inner"></div>
-            <div class="mandala-center-icon">🪈</div>
-        </div>
-        <div class="intro-title">ॐ Shri Krishna Loading...</div>
-    </div>
+<body>
 
     <div class="container">
-        <div class="top-bar">
-            <a href="index.html" class="nav-back">← Back to Home</a>
-            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
-        </div>
+        <a href="index.html" class="nav-back" style="color: #1e3a8a;">← होम पेज पर वापस जाएं</a>
 
         <header>
-            <h1>Shri Krishna Portal</h1>
-            <p class="subtitle">Bhagavad Gita Saar, Aarti, Mantras, Leela & Divine Wisdom</p>
+            <h1>🦚 श्री कृष्ण दिव्य पोर्टल</h1>
+            <p>20 लोकप्रिय नाम, संपूर्ण जीवन गाथा, अद्भुत कथाएँ और अच्युतम केशवम भजन</p>
         </header>
 
-        <nav class="quick-nav">
-            <a href="#mantras">Mantras</a>
-            <a href="#gitasaar">Gita Saar</a>
-            <a href="#aarti">Aarti</a>
-            <a href="#names">108 Names</a>
-            <a href="#story">Leela Katha</a>
-        </nav>
-
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search mantras, gita saar, aarti..." onkeyup="filterContent()">
-            <button class="clear-search" id="clearBtn" onclick="clearSearch()">✕</button>
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="नाम, गाथा, कथा या भजन खोजें..." onkeyup="searchContent()">
         </div>
 
-        <div id="noResult"><p>🪔 No matching content found.</p></div>
+        <div class="tabs-container">
+            <button id="k-all" class="tab-btn active" onclick="filterSection('all', 'k-all')">🌟 सभी</button>
+            <button id="k-names" class="tab-btn" onclick="filterSection('names', 'k-names')">✨ 20 नाम</button>
+            <button id="k-story" class="tab-btn" onclick="filterSection('story', 'k-story')">📖 संपूर्ण गाथा</button>
+            <button id="k-katha" class="tab-btn" onclick="filterSection('katha', 'k-katha')">📚 अद्भुत कथाएँ</button>
+            <button id="k-bhajan" class="tab-btn" onclick="filterSection('bhajan', 'k-bhajan')">🎶 प्रसिद्ध भजन</button>
+        </div>
 
-        <div class="card searchable-section" id="mantras">
-            <h2>Shri Krishna Mantras</h2>
-            <div class="content-box" id="mantraText">1. ॐ नमो भगवते वासुदेवाय॥
-2. हरे कृष्ण हरे कृष्ण, कृष्ण कृष्ण हरे हरे।</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="copyContent('mantraText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
+        <!-- 1. 20 लोकप्रिय नाम -->
+        <div class="card searchable-card" data-category="names">
+            <h2>✨ श्रीकृष्ण के 20 लोकप्रिय नाम</h2>
+            <div class="names-grid" id="names-box">
+                <div class="name-box"><strong>1. कृष्ण:</strong> अत्यंत आकर्षक रूप वाले</div>
+                <div class="name-box"><strong>2. मोहन:</strong> सबको मोहित करने वाले</div>
+                <div class="name-box"><strong>3. श्याम:</strong> सांवला या नीला-श्याम रंग</div>
+                <div class="name-box"><strong>4. कान्हा:</strong> प्रेम से पुकारा जाने वाला नाम</div>
+                <div class="name-box"><strong>5. बांके बिहारी:</strong> त्रिभंग मुद्रा वाले</div>
+                <div class="name-box"><strong>6. गिरधर:</strong> गोवर्धन पर्वत उठाने वाले</div>
+                <div class="name-box"><strong>7. मुरलीधर:</strong> बांसुरी धारण करने वाले</div>
+                <div class="name-box"><strong>8. नंदनंदन:</strong> नंद बाबा के पुत्र</div>
+                <div class="name-box"><strong>9. यशोदानंदन:</strong> यशोदा मैया के लाल</div>
+                <div class="name-box"><strong>10. माखनचोर:</strong> माखन चुराने वाले</div>
+                <div class="name-box"><strong>11. गोपाल:</strong> गायों की रक्षा करने वाले</div>
+                <div class="name-box"><strong>12. गोविंदा:</strong> इंद्रियों को प्रसन्न करने वाले</div>
+                <div class="name-box"><strong>13. वासुदेव:</strong> वसुदेव जी के पुत्र</div>
+                <div class="name-box"><strong>14. केशव:</strong> घुंघराले बालों वाले</div>
+                <div class="name-box"><strong>15. माधव:</strong> लक्ष्मी जी के स्वामी</div>
+                <div class="name-box"><strong>16. मुरारी:</strong> मुर राक्षस का वध करने वाले</div>
+                <div class="name-box"><strong>17. रणछोड़:</strong> रणभूमि से रणनीति तहत हटने वाले</div>
+                <div class="name-box"><strong>18. पार्थसारथी:</strong> अर्जुन के सारथी</div>
+                <div class="name-box"><strong>19. नारायण:</strong> सबमें निवास करने वाले</div>
+                <div class="name-box"><strong>20. जगन्नाथ:</strong> ब्रह्मांड के स्वामी</div>
             </div>
+            <button class="copy-btn" onclick="copyContent('names-box', 'सभी नाम कॉपी हो गए हैं!')">📋 नाम कॉपी करें</button>
         </div>
 
-        <div class="card searchable-section" id="aarti">
-            <h2>Shri Krishna Aarti</h2>
-            <div class="content-box" id="aartiText">आरती कुंजबिहारी की, श्री गिरिधर कृष्ण मुरारी की॥</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="copyContent('aartiText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
+        <!-- 2. संपूर्ण गाथा -->
+        <div class="card searchable-card" data-category="story">
+            <h2>📖 भगवान श्रीकृष्ण की संपूर्ण गाथा</h2>
+            <div class="content-text" id="story-box" style="text-align: justify;">
+                <p><strong>1. जन्म और बाललीलाएं:</strong> मथुरा के कारागार में देवकी-वसुदेव के यहाँ जन्म। कंस के भय से गोकुल में यशोदा-नंद के यहाँ पालन-पोषण, माखन चोरी और पूतना जैसे असुरों का वध.</p>
+                <p><strong>2. ब्रज की लीलाएं:</strong> कालिया नाग का मानमर्दन, इंद्र का अहंकार तोड़ने के लिए गोवर्धन पूजा और गोपियों के साथ महारास.</p>
+                <p><strong>3. कंस वध और द्वारका स्थापना:</strong> मथुरा लौटकर कंस का वध और जरासंध के आक्रमणों से रक्षा हेतु समुद्र के बीच द्वारका नगरी की स्थापना.</p>
+                <p><strong>4. महाभारत और गीता ज्ञान:</strong> पांडवों के मार्गदर्शक बनकर कुरुक्षेत्र में अर्जुन को 'श्रीमद्भगवद्गीता' का अमर ज्ञान दिया.</p>
+                <p><strong>5. महाप्रयाण:</strong> प्रभास क्षेत्र में अपनी लीला समाप्त कर अपने निज धाम (वैकुंठ) लौटे.</p>
             </div>
+            <button class="copy-btn" onclick="copyContent('story-box', 'संपूर्ण गाथा कॉपी हो गई है!')">📋 गाथा कॉपी करें</button>
         </div>
 
-        <footer><p>&copy; 2026 HinduDevotional Portal</p></footer>
+        <!-- 3. अद्भुत कथाएँ -->
+        <div class="card searchable-card" data-category="katha">
+            <h2>📚 श्रीकृष्ण से जुड़ी 3 प्रसिद्ध कथाएँ</h2>
+            <div class="content-text" id="katha-box" style="text-align: justify;">
+                <p><strong>1. गोवर्धन पर्वत उठाने की कथा:</strong> इंद्र के अहंकार को तोड़ने के लिए बालकृष्ण ने कनिष्ठ उंगली पर विशाल गोवर्धन पर्वत उठाकर सात दिन तक ब्रजवासियों की रक्षा की.</p>
+                <p><strong>2. सुदामा और कृष्ण की मित्रता:</strong> सांदीपनि आश्रम के मित्र सुदामा के द्वारका आने पर नंगे पाँव दौड़कर गले लगाना और उनकी गरीबी दूर करना.</p>
+                <p><strong>3. द्रौपदी की लाज बचाना (चीरहरण):</strong> भरी सभा में द्रौपदी द्वारा "हे कृष्ण" पुकारे जाने पर अपनी माया से चीर अनंत कर उनकी लाज बचाई.</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('katha-box', 'कथाएँ कॉपी हो गई हैं!')">📋 कथाएँ कॉपी करें</button>
+        </div>
+
+        <!-- 4. प्रसिद्ध भजन -->
+        <div class="card searchable-card" data-category="bhajan">
+            <h2>🎶 अच्युतम केशवम भजन</h2>
+            <div class="content-text" id="bhajan-box">
+                <p>केशवं गोविंदम केशवं गोविंदम<br>केशवं गोविंदम केशवं गोविंदम</p>
+                <p><strong>अच्युतम केशवं कृष्ण दामोदरं,</strong><br>
+                राम नारायणं जानकी वल्लभम् ॥</p>
+                <p>कौन कहता है भगवान आते नहीं,<br>
+                तुम मीरा के जैसे बुलाते नहीं<br>
+                अच्युतम केशवं कृष्ण दामोदरं, राम नारायणं जानकी वल्लभम् ॥</p>
+                <p>कौन कहता है भगवान खाते नहीं,<br>
+                बेर शबरी के जैसे खिलाते नहीं<br>
+                अच्युतम केशवं कृष्ण दामोदरं, राम नारायणं जानकी वल्लभम् ॥</p>
+                <p>कौन कहता है भगवान सोते नहीं,<br>
+                माँ यशोदा के जैसे सुलाते नहीं<br>
+                अच्युतम केशवं कृष्ण दामोदरं, राम नारायणं जानकी वल्लभम् ॥</p>
+                <p>कौन कहता है भगवान नाचते नहीं,<br>
+                गोपियों की तरह तुम नचाते नहीं<br>
+                अच्युतम केशवं कृष्ण दामोदरं, राम नारायणं जानकी वल्लभम् ॥</p>
+                <p>नाम जपते चलो, काम करते चलो,<br>
+                हर समय कृष्ण का ध्यान करते चलो<br>
+                याद आएगी उनको कभी ना कभी,<br>
+                कृष्ण दर्शन तो देंगे कभी ना कभी ॥</p>
+                <p>बोलो बांके बिहारी लाल की जय!</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('bhajan-box', 'भजन कॉपी हो गया है!')">📋 भजन कॉपी करें</button>
+        </div>
+
+        <footer>
+            <p>© 2026 HinduGodsWeb Portal. Built with pure devotion & divine UI.</p>
+        </footer>
     </div>
 
-    <button id="backToTop" onclick="scrollToTop()">↑</button>
+    <!-- Toast -->
+    <div id="toast">संदेश</div>
 
     <script>
-        // Fast loading transition handler
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const intro = document.getElementById('introScreen');
-                if(intro) {
-                    intro.style.opacity = '0';
-                    setTimeout(() => intro.style.display = 'none', 300);
-                }
-            }, 300); // Super fast 0.3s delay
-
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.body.setAttribute('data-theme', savedTheme);
-            document.getElementById('themeBtn').innerText = savedTheme === 'dark' ? '☀️️ Light Mode' : '🌙 Dark Mode';
-        });
-
-        function toggleTheme() {
-            const body = document.body;
-            const themeBtn = document.getElementById('themeBtn');
-            if (body.getAttribute('data-theme') === 'light') {
-                body.setAttribute('data-theme', 'dark');
-                themeBtn.innerText = '☀️ Light Mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.setAttribute('data-theme', 'light');
-                themeBtn.innerText = '🌙 Dark Mode';
-                localStorage.setItem('theme', 'light');
+        // Working Copy Function
+        function copyContent(containerId, message) {
+            const textElement = document.getElementById(containerId);
+            if (!textElement) return;
+            const textArea = document.createElement("textarea");
+            textArea.value = textElement.innerText;
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(message);
+            } catch (err) {
+                alert('कॉपी नहीं हो पाया!');
             }
+            document.body.removeChild(textArea);
         }
 
-        function filterContent() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let clearBtn = document.getElementById('clearBtn');
-            let sections = document.getElementsByClassName('searchable-section');
-            clearBtn.style.display = input.length > 0 ? 'block' : 'none';
-            for (let i = 0; i < sections.length; i++) {
-                sections[i].style.display = sections[i].innerText.toLowerCase().includes(input) ? "block" : "none";
-            }
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            toast.innerText = msg;
+            toast.className = "show";
+            setTimeout(() => { toast.className = ""; }, 2500);
         }
 
-        function clearSearch() {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('clearBtn').style.display = 'none';
-            let sections = document.getElementsByClassName('searchable-section');
-            for (let i = 0; i < sections.length; i++) sections[i].style.display = "block";
-        }
+        // 100% Working Tab Filter Function using IDs
+        function filterSection(category, btnId) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(btnId).classList.add('active');
 
-        function copyContent(elementId, btnElement) {
-            let textToCopy = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                let feedback = btnElement.parentElement.querySelector('.copy-feedback');
-                if (feedback) {
-                    feedback.style.display = 'inline';
-                    setTimeout(() => feedback.style.display = 'none', 2000);
+            const cards = document.querySelectorAll('.searchable-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
                 }
             });
         }
 
-        window.onscroll = function() {
-            let btn = document.getElementById("backToTop");
-            btn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "flex" : "none";
-        };
-
-        function scrollToTop() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
+        // Search Function
+        function searchContent() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.searchable-card');
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>
