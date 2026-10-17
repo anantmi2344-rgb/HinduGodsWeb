@@ -9,11 +9,12 @@
             --primary-gold: #d97706;
             --deep-saffron: #7c2d12;
             --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            --card-bg: rgba(255, 255, 255, 0.92);
+            --card-bg: rgba(255, 255, 255, 0.95);
         }
 
         * {
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -35,7 +36,7 @@
             text-decoration: none;
             color: var(--deep-saffron);
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-size: 16px;
             transition: 0.3s;
         }
@@ -49,34 +50,99 @@
             text-align: center;
             background: linear-gradient(135deg, #7c2d12, #b45309);
             color: #fff;
-            padding: 40px 20px;
+            padding: 35px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(124, 45, 18, 0.2);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             position: relative;
             overflow: hidden;
         }
 
         header::before {
             content: "🕉️";
-            font-size: 120px;
+            font-size: 110px;
             position: absolute;
             right: -20px;
-            bottom: -30px;
+            bottom: -25px;
             opacity: 0.1;
         }
 
         header h1 {
             margin: 0;
-            font-size: 32px;
+            font-size: 30px;
             letter-spacing: 1px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         header p {
-            margin: 10px 0 0 0;
-            font-size: 16px;
+            margin: 8px 0 0 0;
+            font-size: 15px;
             color: #fde68a;
+        }
+
+        /* --- STYLISH HORIZONTAL TABS --- */
+        .tabs-container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 5px 20px 5px;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+
+        .tabs-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            background: #ffffff;
+            border: 2px solid #f59e0b;
+            color: var(--deep-saffron);
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(217, 119, 6, 0.3);
+        }
+
+        /* --- SEARCH BAR --- */
+        .search-box {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 20px 14px 45px;
+            border-radius: 30px;
+            border: 1px solid #f59e0b;
+            background: #fff;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-input:focus {
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.15);
+            border-color: var(--deep-saffron);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 18px;
+            top: 15px;
+            font-size: 16px;
         }
 
         /* Glassmorphism Cards */
@@ -116,7 +182,7 @@
         /* 12 Names Grid */
         .names-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 15px;
             margin-bottom: 20px;
@@ -131,7 +197,7 @@
             font-weight: 500;
         }
 
-        /* Functional Copy Button Styling */
+        /* Functional Copy Button */
         .copy-btn {
             background: linear-gradient(135deg, #f59e0b, #d97706);
             border: none;
@@ -150,15 +216,10 @@
 
         .copy-btn:hover {
             background: linear-gradient(135deg, #d97706, #b45309);
-            box-shadow: 0 6px 15px rgba(217, 119, 6, 0.4);
             transform: scale(1.02);
         }
 
-        .copy-btn:active {
-            transform: scale(0.98);
-        }
-
-        /* Toast Notification for Copy Success */
+        /* Toast Notification */
         #toast {
             visibility: hidden;
             min-width: 250px;
@@ -209,55 +270,104 @@
 
         <header>
             <h1>🐘 श्री गणेश दिव्य पोर्टल</h1>
-            <p>वक्रतुण्ड महाकाय, विघ्नहर्ता श्री गणेश के संपूर्ण मंत्र, द्वादश नाम और पावन गाथा</p>
+            <p>संपूर्ण मंत्र, आरतियाँ, पावन कथाएँ और विवाह प्रसंग</p>
         </header>
 
+        <!-- Search Bar -->
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="मंत्र, आरती या कथा खोजें..." onkeyup="searchContent()">
+        </div>
+
+        <!-- Horizontal Quick Filter Tabs -->
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="filterSection('all')">🌟 सभी देखें</button>
+            <button class="tab-btn" onclick="filterSection('mantras')">📿 मंत्र एवं स्तोत्र</button>
+            <button class="tab-btn" onclick="filterSection('aarti')">🪔 श्री गणेश आरती</button>
+            <button class="tab-btn" onclick="filterSection('names')">📜 लोकप्रिय नाम</button>
+            <button class="tab-btn" onclick="filterSection('story')">📖 गणेश जी की स्टोरी (जन्म)</button>
+            <button class="tab-btn" onclick="filterSection('ekdant')">🐘 एकदंत कथा</button>
+            <button class="tab-btn" onclick="filterSection('marriage')">💍 विवाह प्रसंग</button>
+        </div>
+
         <!-- 1. संपूर्ण मंत्र सेक्शन -->
-        <div class="card">
-            <h2>✨ श्री गणेश संपूर्ण मंत्र</h2>
+        <div class="card searchable-card" data-category="mantras">
+            <h2>✨ श्री गणेश मुख्य मंत्र एवं स्तोत्र</h2>
             <div class="content-text" id="mantras-box">
-                <p><strong>1. महामंत्र:</strong> वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</p>
-                <p><strong>2. मूल एवं बीज मंत्र:</strong> ॐ गं गणपतये नमः॥</p>
-                <p><strong>3. गणेश गायत्री मंत्र:</strong> ॐ एकदन्ताय विद्महे वक्रतुण्डाय धीमहि तन्तो दंती प्रचोदयात्॥</p>
-                <p><strong>4. ऋणमोचन गणेश मंत्र:</strong> ॐ गणानां त्वा गणपति हवामहे कवीमविमष्टमश्रवणाम्। ज्येष्ठराजं ब्रह्मणां ब्रह्मणस्पत आ नः शृण्वन्नूतिभिः सीद सादनम्॥</p>
-                <p><strong>5. संकटनाशन मंत्र:</strong> प्रणाम्य शिरसा देवं गौरीपुत्रं विनायकम्। भक्तावासं स्मरेन्नित्यमायुष्कामार्थसिद्धये॥</p>
+                <p><strong>1. वक्रतुंड महामंत्र:</strong> वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</p>
+                <p><strong>2. सिद्धि मंत्र:</strong> ॐ गं गणपतये नमः॥</p>
+                <p><strong>3. गजानन मंत्र:</strong> ॐ गजाननं भूतगणादि सेवितं, कपित्थ जम्बू फल चारु भक्षणम्। उमासुतं शोक विनाशकारकम्, नमामि विघ्नेश्वर पादपंकजम्॥</p>
+                <p><strong>4. एकदंत गायत्री मंत्र:</strong> ॐ एकदन्ताय विद्महे वक्रतुण्डाय धीमहि। तन्नो दन्ती प्रचोदयात्॥</p>
+                <p><strong>5. ऋणमोचन गणेश मंत्र:</strong> ॐ गणानां त्वा गणपति हवामहे कवीमविमष्टमश्रवणाम्। ज्येष्ठराजं ब्रह्मणां ब्रह्मणस्पत आ नः शृण्वन्नूतिभिः सीद सादनम्॥</p>
             </div>
-            <button class="copy-btn" onclick="copyContent('mantras-box', 'सभी मंत्र क्लिपबोर्ड पर कॉपी हो गए हैं!')">📋 सभी मंत्र कॉपी करें</button>
+            <button class="copy-btn" onclick="copyContent('mantras-box', 'सभी मंत्र कॉपी हो गए हैं!')">📋 मंत्र कॉपी करें</button>
         </div>
 
-        <!-- 2. द्वादश नाम सेक्शन -->
-        <div class="card">
-            <h2>📜 श्री गणेश द्वादश नाम (12 पवित्र नाम)</h2>
-            <p style="font-size: 15px; color: #57534e;">पुराणों के अनुसार भगवान गणेश के इन बारह नामों का स्मरण करने से सभी बाधाएं समाप्त होती हैं:</p>
+        <!-- 2. श्री गणेश आरती सेक्शन (नई जोड़ी गई) -->
+        <div class="card searchable-card" data-category="aarti">
+            <h2>🪔 श्री गणेश जी की आरती</h2>
+            <div class="content-text" id="aarti-box">
+                <p>जय गणेश जय गणेश जय गणेश देवा। माता जाकी पार्वती पिता महादेवा॥</p>
+                <p>एक दंत दयावंत चार भुजा धारी। माथे सिंदूर सोहे मूसे की सवारी॥<br>जय गणेश जय गणेश जय गणेश देवा...</p>
+                <p>पान चढ़े फूल चढ़े और चढ़े मेवा। लड्डुअन का भोग लगे संत करें सेवा॥<br>जय गणेश जय गणेश जय गणेश देवा...</p>
+                <p>अंधन को आँख देत कोढ़िन को काया। बांझन को पुत्र देत निर्धन को माया॥<br>जय गणेश जय गणेश जय गणेश देवा...</p>
+                <p>सूर श्याम शरण आए सफल कीजे सेवा। माता जाकी पार्वती पिता महादेवा॥<br>जय गणेश जय गणेश जय गणेश देवा...</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('aarti-box', 'आरती कॉपी हो गई है!')">📋 आरती कॉपी करें</button>
+        </div>
+
+        <!-- 3. गणेश जी के लोकप्रिय नाम सेक्शन -->
+        <div class="card searchable-card" data-category="names">
+            <h2>📜 श्री गणेश जी के लोकप्रिय नाम</h2>
+            <p style="font-size: 15px; color: #57534e;">भारतीय परंपरा और पुराणों में गणेश जी के पुकारे जाने वाले प्रमुख नाम:</p>
             <div class="names-grid" id="names-box">
-                <div class="name-box">1. सुमुख (सुंदर मुख वाले)</div>
-                <div class="name-box">2. महाटक / एकदंत</div>
-                <div class="name-box">3. गजकर्ण (हाथी के कान जैसे)</div>
-                <div class="name-box">4. लम्बोदर (बड़े पेट वाले)</div>
-                <div class="name-box">5. विकट (विकट रूप धारी)</div>
-                <div class="name-box">6. विघ्नराज (विघ्नों के राजा)</div>
-                <div class="name-box">7. धूम्रवर्ण (धुएँ के वर्ण वाले)</div>
-                <div class="name-box">8. विनायक (न्याय करने वाले)</div>
-                <div class="name-box">9. भालचन्द्र (माथे पर चंद्रमा)</div>
-                <div class="name-box">10. गजानन (हाथी के मुख वाले)</div>
-                <div class="name-box">11. गणपति (गणों के पति)</div>
-                <div class="name-box">12. सर्वसिद्धिदायक</div>
+                <div class="name-box"><strong>गणपति:</strong> गणों के पति</div>
+                <div class="name-box"><strong>विनायक:</strong> न्याय करने वाले</div>
+                <div class="name-box"><strong>विघ्नहर्ता:</strong> विघ्नों को हरने वाले</div>
+                <div class="name-box"><strong>गजानन:</strong> गज जैसा मुख वाले</div>
+                <div class="name-box"><strong>लंबोदर:</strong> बड़े उदर वाले</div>
+                <div class="name-box"><strong>एकदंत:</strong> एक दांत वाले</div>
+                <div class="name-box"><strong>सिद्धिविनायक:</strong> सिद्धिदाता</div>
+                <div class="name-box"><strong>बुद्धि विधाता:</strong> ज्ञान के प्रतीक</div>
+                <div class="name-box"><strong>वक्रतुंड:</strong> मुड़ी हुई सूंड वाले</div>
+                <div class="name-box"><strong>मंगलमूर्ति:</strong> कल्याणकारी</div>
             </div>
-            <button class="copy-btn" onclick="copyContent('names-box', 'सभी 12 नाम कॉपी हो गए हैं!')">📋 सभी नाम कॉपी करें</button>
+            <button class="copy-btn" onclick="copyContent('names-box', 'सभी नाम कॉपी हो गए हैं!')">📋 नाम कॉपी करें</button>
         </div>
 
-        <!-- 3. पौराणिक कथा सेक्शन -->
-        <div class="card">
-            <h2>📖 पौराणिक कथा (शिव महापुराण के अनुसार)</h2>
+        <!-- 4. गणेश जी की स्टोरी (जन्म कथा) -->
+        <div class="card searchable-card" data-category="story">
+            <h2>📖 श्री गणेश जी की स्टोरी (शिव पुराण के अनुसार जन्म कथा)</h2>
             <div class="content-text" id="story-box" style="text-align: justify;">
-                <p>शिव महापुराण के अनुसार, एक बार माता पार्वती ने स्नान करने से पहले अपने उबटन से एक सुंदर बालक का निर्माण किया और उसका नाम गणेश रखकर उसे द्वार पर पहरे पर बैठा दिया। कुछ समय बाद भगवान शिव वहाँ आए, तो बालक ने उन्हें अंदर जाने से रोक दिया। इसे अपनी मर्यादा के विरुद्ध मानकर शिवजी ने त्रिशूल से उस बालक का सिर अलग कर दिया।</p>
-                <p>माता पार्वती के विलाप को देखकर भगवान शिव ने अपने गणों को उत्तर दिशा में सबसे पहले मिलने वाले ऐसे जीव का सिर लाने को कहा जिसकी माता अपने बच्चे की तरफ पीठ करके सोई हो। गणों को एक हथिनी का बच्चा मिला, जिसका सिर शिवजी ने बालक के धड़ पर रखकर उसे पुनर्जीवित किया। तभी से वे 'गजानन' और प्रथम पूज्य 'गणेश' कहलाए।</p>
+                <p><strong>1. जन्म:</strong> एक बार माता पार्वती स्नान करने जा रही थीं। उन्होंने अपने शरीर के उबटन से एक सुंदर बालक की मूर्ति बनाई और उसमें प्राण डाल दिए। उन्होंने उस बालक से कहा - "तुम मेरे पुत्र हो, द्वार पर पहरा दो, किसी को अंदर मत आने देना।"</p>
+                <p><strong>2. शिव जी से युद्ध:</strong> तभी भगवान शिव वहां आए। बालक ने उन्हें भी रोक दिया। शिव जी के समझाने पर भी जब बालक नहीं माना, तो क्रोध में शिव जी ने अपने त्रिशूल से बालक का सिर धड़ से अलग कर दिया।</p>
+                <p><strong>3. गजमुख और पुनर्जीवन:</strong> माता पार्वती के विलाप को देखकर शिव जी ने अपने गणों को उत्तर दिशा में सबसे पहले मिलने वाले जीव (हाथी) का सिर लाने को कहा। भगवान शिव ने वह सिर बालक के धड़ से जोड़कर उसे जीवित किया।</p>
+                <p><strong>4. प्रथम पूज्य वरदान:</strong> सभी देवताओं ने आशीर्वाद दिया और ब्रह्मा जी ने वरदान दिया कि आज से किसी भी शुभ कार्य से पहले तुम्हारी ही पूजा होगी और तुम्हें 'प्रथम पूज्य' कहा जाएगा।</p>
             </div>
-            <button class="copy-btn" onclick="copyContent('story-box', 'पौराणिक कथा कॉपी हो गई है!')">📋 कथा कॉपी करें</button>
+            <button class="copy-btn" onclick="copyContent('story-box', 'जन्म कथा कॉपी हो गई है!')">📋 जन्म कथा कॉपी करें</button>
+        </div>
+
+        <!-- 5. एकदंत कथा सेक्शन (नई जोड़ी गई) -->
+        <div class="card searchable-card" data-category="ekdant">
+            <h2>🐘 गणेश जी 'एकदंत' क्यों कहलाए? (प्रसिद्ध कथाएँ)</h2>
+            <div class="content-text" id="ekdant-box" style="text-align: justify;">
+                <p><strong>कथा 1 - परशुराम जी का प्रसंग:</strong> एक बार परशुराम जी शिव जी से मिलने आए, लेकिन द्वार पर गणेश जी ने उन्हें रोक दिया। क्रोधित होकर परशुराम जी ने अपने फरसे से वार कर दिया। पिता के दिए हुए अस्त्र का सम्मान करते हुए गणेश जी ने वह वार अपने दांत पर सह लिया, जिससे उनका एक दांत टूट गया और वे 'एकदंत' कहलाए।</p>
+                <p><strong>कथा 2 - महाभारत लेखन:</strong> महर्षि वेदव्यास जब महाभारत लिख रहे थे, तो लिखते-लिखते गणेश जी की कलम (लेखनी) टूट गई। ज्ञान का प्रवाह न रुके, इसलिए उन्होंने अपना एक दांत तोड़कर उससे पूरी महाभारत लिख डाली।</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('ekdant-box', 'एकदंत कथा कॉपी हो गई है!')">📋 एकदंत कथा कॉपी करें</button>
+        </div>
+
+        <!-- 6. गणेश जी का विवाह प्रसंग (विशेष रूप से जोड़ा गया) -->
+        <div class="card searchable-card" data-category="marriage">
+            <h2>💍 श्री गणेश जी का विवाह प्रसंग (द्धि-सिद्धि और परिक्रमा की कथा)</h2>
+            <div class="content-text" id="marriage-box" style="text-align: justify;">
+                <p><strong>परिक्रमा की शर्त:</strong> जब कार्तिकेय और गणेश जी विवाह योग्य हुए, तो माता-पिता ने शर्त रखी कि जो पहले पूरी पृथ्वी की परिक्रमा करके आएगा, उसका विवाह पहले होगा। कार्तिकेय जी मोर पर बैठकर निकल पड़े, लेकिन बुद्धिमान गणेश जी ने अपने माता-पिता (शिव-पार्वती) की सात बार परिक्रमा कर, हाथ जोड़कर कहा - "मेरे लिए तो आप ही पूरी पृथ्वी और ब्रह्मांड हैं।" इससे प्रसन्न होकर उन्हें विजेता घोषित किया गया।</p>
+                <p><strong>विवाह और संतान:</strong> इसके पश्चात प्रजापति विश्वकर्मा की दो सुंदर पुत्रियों—<strong>द्धि (बुद्धि और सफलता)</strong> और <strong>सिद्धि (उपलब्धि)</strong> का विवाह गणेश जी से संपन्न हुआ। रिद्धि से 'शुभ' और सिद्धि से 'लाभ' नामक पुत्रों की प्राप्ति हुई।</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('marriage-box', 'विवाह प्रसंग कॉपी हो गया है!')">📋 विवाह प्रसंग कॉपी करें</button>
         </div>
 
         <footer>
-            <p>© 2026 HinduGodsWeb Portal. Built with pure devotion & fully functional divine UI.</p>
+            <p>© 2026 HinduGodsWeb Portal. Built with pure devotion & divine UI.</p>
         </footer>
     </div>
 
@@ -265,7 +375,7 @@
     <div id="toast">संदेश</div>
 
     <script>
-        // Working JavaScript Function for Copying Content
+        // Working Copy Function
         function copyContent(containerId, message) {
             const textElement = document.getElementById(containerId);
             if (!textElement) return;
@@ -286,6 +396,37 @@
             setTimeout(() => { 
                 toast.className = toast.className.replace("show", ""); 
             }, 3000);
+        }
+
+        // Tab Filter Function
+        function filterSection(category) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.searchable-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Search Bar Function
+        function searchContent() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.searchable-card');
+
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
     </script>
 
