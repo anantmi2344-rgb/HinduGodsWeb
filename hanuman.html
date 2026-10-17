@@ -3,428 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Hanuman - HinduDevotional Portal</title>
+    <title>Shri Hanuman - Divine Portal</title>
     <style>
         :root {
-            --primary-color: #dc2626;
-            --primary-dark: #b91c1c;
-            --accent-gold: #fbbf24;
-            --bg-gradient: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-            --card-bg: #ffffff;
-            --text-main: #1f2937;
-            --text-muted: #4b5563;
-            --border-color: #fecaca;
-            --nav-bg: rgba(255, 255, 255, 0.95);
-        }
-
-        [data-theme="dark"] {
-            --primary-color: #ef4444;
-            --primary-dark: #f87171;
-            --accent-gold: #f59e0b;
-            --bg-gradient: linear-gradient(135deg, #18181b 0%, #27272a 100%);
-            --card-bg: #27272a;
-            --text-main: #f3f4f6;
-            --text-muted: #a1a1aa;
-            --border-color: #3f3f46;
-            --nav-bg: rgba(39, 39, 42, 0.95);
+            --primary-gold: #d97706;
+            --deep-saffron: #7c2d12;
+            --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
         }
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background 0.3s, color 0.3s;
+            scroll-behavior: smooth;
         }
 
         body {
             background: var(--bg-gradient);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 15px;
-            min-height: 100vh;
-        }
-
-        /* HD Divine Mandala Intro Animation Screen */
-        #introScreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, #fee2e2 0%, #fecaca 50%, #b91c1c 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .mandala-loader {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .mandala-ring {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 4px dashed var(--primary-dark);
-            border-radius: 50%;
-            animation: spinMandala 3s linear infinite;
-        }
-
-        .mandala-ring-inner {
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            border: 3px solid var(--accent-gold);
-            border-radius: 50%;
-            animation: spinReverse 2s linear infinite;
-        }
-
-        .mandala-center-icon {
-            font-size: 2.3rem;
-            animation: pulseIcon 1.2s ease-in-out infinite;
-        }
-
-        @keyframes spinMandala {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes spinReverse {
-            0% { transform: rotate(360deg); }
-            100% { transform: rotate(0deg); }
-        }
-
-        @keyframes pulseIcon {
-            0%, 100% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
-        }
-
-        .intro-title {
-            color: #7f1d1d;
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #292524;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
         }
 
         .nav-back {
             display: inline-block;
             text-decoration: none;
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .theme-toggle {
-            background: var(--card-bg);
-            color: var(--text-main);
-            border: 1px solid var(--primary-color);
-            padding: 10px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
+            color: var(--deep-saffron);
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 16px;
         }
 
         header {
             text-align: center;
-            padding: 25px 15px;
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #7c2d12, #b45309);
+            color: #fff;
+            padding: 35px 20px;
+            border-radius: 20px;
             margin-bottom: 20px;
-            border-bottom: 4px solid var(--accent-gold);
         }
 
-        h1 {
-            color: var(--primary-dark);
-            font-size: 2rem;
-            margin-bottom: 5px;
+        header h1 {
+            margin: 0;
+            font-size: 28px;
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1rem;
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            color: #fde68a;
         }
 
-        .quick-nav {
-            position: sticky;
-            top: 10px;
-            background: var(--nav-bg);
-            backdrop-filter: blur(8px);
-            padding: 10px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        /* Tabs */
+        .tabs-container {
             display: flex;
             gap: 10px;
             overflow-x: auto;
+            padding: 10px 5px 20px 5px;
             white-space: nowrap;
-            margin-bottom: 20px;
-            z-index: 100;
-            border: 1px solid var(--border-color);
         }
 
-        .quick-nav a {
-            text-decoration: none;
-            color: var(--primary-dark);
-            background: var(--bg-gradient);
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid var(--border-color);
-            flex-shrink: 0;
-        }
-
-        .search-container {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        #searchInput {
-            width: 100%;
-            padding: 12px 40px 12px 16px;
-            font-size: 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 10px;
-            outline: none;
-            background: var(--card-bg);
-            color: var(--text-main);
-        }
-
-        .clear-search {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            font-size: 1.1rem;
+        .tab-btn {
+            background: #ffffff;
+            border: 2px solid #f59e0b;
+            color: var(--deep-saffron);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
             cursor: pointer;
-            color: var(--text-muted);
-            display: none;
         }
 
+        .tab-btn.active, .tab-btn:hover {
+            background: #d97706;
+            color: white;
+        }
+
+        /* Search */
+        .search-box {
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid #f59e0b;
+            font-size: 15px;
+            outline: none;
+        }
+
+        /* Cards */
         .card {
             background: var(--card-bg);
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .card h2 {
-            color: var(--primary-dark);
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 6px;
+            color: var(--deep-saffron);
+            margin-top: 0;
+            border-bottom: 2px solid #fef3c7;
+            padding-bottom: 8px;
+            font-size: 20px;
         }
 
-        .content-box {
-            font-size: 1.05rem;
-            color: var(--text-main);
-            white-space: pre-line;
+        .content-text {
+            font-size: 16px;
+            line-height: 1.8;
             margin-bottom: 15px;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+        .content-text p {
+            margin: 10px 0;
         }
 
-        .action-btn {
-            background: var(--bg-gradient);
-            color: var(--primary-dark);
-            border: 1px solid var(--border-color);
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.85rem;
+        .names-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
         }
 
-        .copy-feedback {
-            font-size: 0.75rem;
-            color: #10b981;
-            margin-left: 8px;
-            font-weight: bold;
-            display: none;
-            align-self: center;
+        .name-box {
+            background: #fffbeb;
+            padding: 10px 12px;
+            border-radius: 6px;
+            border-left: 3px solid #d97706;
+            font-size: 14px;
         }
 
-        #noResult {
-            text-align: center;
-            padding: 20px;
-            color: var(--text-muted);
-            display: none;
-        }
-
-        #backToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: white;
+        /* Copy Button */
+        .copy-btn {
+            background: #d97706;
             border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
             cursor: pointer;
-            display: none;
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
+            font-weight: bold;
+            font-size: 13px;
         }
 
-        footer {
+        /* Toast */
+        #toast {
+            visibility: hidden;
+            min-width: 220px;
+            background-color: #7c2d12;
+            color: #fff;
             text-align: center;
-            padding: 20px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            border-radius: 6px;
+            padding: 10px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            font-weight: bold;
         }
+        #toast.show { visibility: visible; }
     </style>
 </head>
-<body data-theme="light">
-
-    <!-- HD Divine Mandala Intro Animation Screen -->
-    <div id="introScreen">
-        <div class="mandala-loader">
-            <div class="mandala-ring"></div>
-            <div class="mandala-ring-inner"></div>
-            <div class="mandala-center-icon">🚩</div>
-        </div>
-        <div class="intro-title">ॐ Shri Hanuman Loading...</div>
-    </div>
+<body>
 
     <div class="container">
-        <div class="top-bar">
-            <a href="index.html" class="nav-back">← Back to Home</a>
-            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
-        </div>
+        <a href="index.html" class="nav-back">← होम पेज पर वापस जाएं</a>
 
         <header>
-            <h1>Shri Hanuman Portal</h1>
-            <p class="subtitle">Hanuman Chalisa, Bajrang Baan, Ashtak & Katha</p>
+            <h1>🚩 संकटमोचन श्री हनुमान दिव्य पोर्टल</h1>
+            <p>हनुमान चालीसा, मंत्र, नाम और पावन कथाएँ</p>
         </header>
 
-        <nav class="quick-nav">
-            <a href="#chalisa">Chalisa</a>
-            <a href="#baan">Bajrang Baan</a>
-            <a href="#sundarkand">Sundarkand</a>
-        </nav>
-
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search chalisa, baan, katha..." onkeyup="filterContent()">
-            <button class="clear-search" id="clearBtn" onclick="clearSearch()">✕</button>
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="यहाँ खोजें..." onkeyup="searchContent()">
         </div>
 
-        <div id="noResult"><p>🪔 No matching content found.</p></div>
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="filterSection('all', this)">🌟 सभी</button>
+            <button class="tab-btn" onclick="filterSection('chalisa', this)">📜 चालीसा</button>
+            <button class="tab-btn" onclick="filterSection('mantras', this)">📿 मंत्र</button>
+            <button class="tab-btn" onclick="filterSection('names', this)">✨ नाम</button>
+            <button class="tab-btn" onclick="filterSection('story', this)">📖 गाथा</button>
+            <button class="tab-btn" onclick="filterSection('katha', this)">📚 कथाएँ</button>
+        </div>
 
-        <div class="card searchable-section" id="chalisa">
-            <h2>Hanuman Chalisa</h2>
-            <div class="content-box" id="chalisaText">श्रीगुरु चरन सरोज रज निज मनु मुकुर सुधारि। बरनउँ रघुबर बिमल सुकुसु जो दायक फल चारि॥</div>
-            <div class="btn-group">
-                <button class="action-btn" onclick="copyContent('chalisaText', this)">📋 Copy Text</button>
-                <span class="copy-feedback">Copied!</span>
+        <!-- 1. चालीसा -->
+        <div class="card searchable-card" data-category="chalisa">
+            <h2>📜 श्री हनुमान चालीसा</h2>
+            <div class="content-text" id="chalisa-box">
+                <p><strong>दोहा:</strong> श्रीगुरु चरन सरोज रज निज मनु मुकुर सुधारि। बरनउँ रघुबर बिमल सुजोकु जो दायकु फल चारि॥</p>
+                <p>बुद्धिहीन तनु जानिकै सुमिरौं पवन-कुमार। बल बुद्धि बिद्या देहु मोहिं हरहु कलेस बिकार॥</p>
+                <p><strong>चौपाई:</strong> जय हनुमान ज्ञान गुन सागर। जय कपीस तिहुँ लोक उजागर॥ राम दूत अतुलित बल धामा। अंजनि-पुत्र पवनसुत नामा॥</p>
             </div>
+            <button class="copy-btn" onclick="copyContent('chalisa-box', 'चालीसा कॉपी हो गई है!')">📋 कॉपी करें</button>
         </div>
 
-        <footer><p>&copy; 2026 HinduDevotional Portal</p></footer>
+        <!-- 2. मंत्र -->
+        <div class="card searchable-card" data-category="mantras">
+            <h2>📿 हनुमान जी के प्रमुख मंत्र</h2>
+            <div class="content-text" id="mantras-box">
+                <p><strong>1. मूल मंत्र:</strong> ॐ हं हनुमते नमः॥</p>
+                <p><strong>2. संकट मोचन मंत्र:</strong> ॐ नमो हनुमते रुद्रावताराय सर्वशत्रुसंहारणाय स्वाहा॥</p>
+                <p><strong>3. बीज मंत्र:</strong> ॐ ऐं श्रीं हं हनुमते रामदूताय नमः॥</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('mantras-box', 'मंत्र कॉपी हो गए हैं!')">📋 कॉपी करें</button>
+        </div>
+
+        <!-- 3. नाम -->
+        <div class="card searchable-card" data-category="names">
+            <h2>✨ हनुमान जी के प्रमुख नाम</h2>
+            <div class="names-grid" id="names-box">
+                <div class="name-box"><strong>हनुमान:</strong> टूटी ठुड्डी वाले</div>
+                <div class="name-box"><strong>पवनपुत्र:</strong> पवन देव के पुत्र</div>
+                <div class="name-box"><strong>संकटमोचन:</strong> संकट दूर करने वाले</div>
+                <div class="name-box"><strong>बजरंगबली:</strong> वज्र समान शरीर वाले</div>
+            </div>
+            <button class="copy-btn" onclick="copyContent('names-box', 'सभी नाम कॉपी हो गए हैं!')">📋 कॉपी करें</button>
+        </div>
+
+        <!-- 4. गाथा -->
+        <div class="card searchable-card" data-category="story">
+            <h2>📖 संपूर्ण गाथा</h2>
+            <div class="content-text" id="story-box">
+                <p>माता अंजनी और केसरी के यहाँ चैत्र पूर्णिमा को हनुमान जी का जन्म हुआ। इन्हें शिव का 11वां रुद्रावतार माना जाता है। बचपन में सूर्य को फल समझकर निगलने की लीला और लंका दहन इनकी महानता दर्शाती है।</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('story-box', 'गाथा कॉपी हो गई है!')">📋 कॉपी करें</button>
+        </div>
+
+        <!-- 5. कथाएँ -->
+        <div class="card searchable-card" data-category="katha">
+            <h2>📚 प्रसिद्ध कथाएँ</h2>
+            <div class="content-text" id="katha-box">
+                <p>1. सूर्य को फल समझकर निगलना।<br>2. संजीवनी बूटी के लिए द्रोणगिरि पर्वत उठाना।<br>3. छाती चीरकर राम-सीता के दर्शन कराना।</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('katha-box', 'कथाएँ कॉपी हो गई हैं!')">📋 कॉपी करें</button>
+        </div>
     </div>
 
-    <button id="backToTop" onclick="scrollToTop()">↑</button>
+    <div id="toast">संदेश</div>
 
     <script>
-        // Guaranteed max 3-second loader timer handler
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const intro = document.getElementById('introScreen');
-                if(intro) {
-                    intro.style.opacity = '0';
-                    setTimeout(() => intro.style.display = 'none', 300);
+        // 100% Guaranteed Working Copy Function using Textarea
+        function copyContent(containerId, message) {
+            const textElement = document.getElementById(containerId);
+            if (!textElement) {
+                alert('एवं तत्व नहीं मिला!');
+                return;
+            }
+            
+            const textToCopy = textElement.innerText;
+            const textArea = document.createElement("textarea");
+            textArea.value = textToCopy;
+            
+            textArea.style.position = "fixed";
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.opacity = "0";
+            
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast(message);
+                } else {
+                    alert('कॉपी नहीं हो पाया!');
                 }
-            }, 600); // Smooth fast load within max 3 seconds limit
-
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.body.setAttribute('data-theme', savedTheme);
-            document.getElementById('themeBtn').innerText = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
-        });
-
-        function toggleTheme() {
-            const body = document.body;
-            const themeBtn = document.getElementById('themeBtn');
-            if (body.getAttribute('data-theme') === 'light') {
-                body.setAttribute('data-theme', 'dark');
-                themeBtn.innerText = '☀️ Light Mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.setAttribute('data-theme', 'light');
-                themeBtn.innerText = '🌙 Dark Mode';
-                localStorage.setItem('theme', 'light');
+            } catch (err) {
+                alert('ब्राउज़र ने अनुमति नहीं दी!');
             }
+
+            document.body.removeChild(textArea);
         }
 
-        function filterContent() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let clearBtn = document.getElementById('clearBtn');
-            let sections = document.getElementsByClassName('searchable-section');
-            clearBtn.style.display = input.length > 0 ? 'block' : 'none';
-            for (let i = 0; i < sections.length; i++) {
-                sections[i].style.display = sections[i].innerText.toLowerCase().includes(input) ? "block" : "none";
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            toast.innerText = msg;
+            toast.className = "show";
+            setTimeout(() => { 
+                toast.className = ""; 
+            }, 2500);
+        }
+
+        // Working Tab Filter Function
+        function filterSection(category, btnElement) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if (btnElement) {
+                btnElement.classList.add('active');
             }
-        }
 
-        function clearSearch() {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('clearBtn').style.display = 'none';
-            let sections = document.getElementsByClassName('searchable-section');
-            for (let i = 0; i < sections.length; i++) sections[i].style.display = "block";
-        }
-
-        function copyContent(elementId, btnElement) {
-            let textToCopy = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                let feedback = btnElement.parentElement.querySelector('.copy-feedback');
-                if (feedback) {
-                    feedback.style.display = 'inline';
-                    setTimeout(() => feedback.style.display = 'none', 2000);
+            const cards = document.querySelectorAll('.searchable-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
                 }
             });
         }
 
-        window.onscroll = function() {
-            let btn = document.getElementById("backToTop");
-            btn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "flex" : "none";
-        };
+        // Search Function
+        function searchContent() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.searchable-card');
 
-        function scrollToTop() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>
