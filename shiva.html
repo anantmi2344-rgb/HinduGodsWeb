@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahadev Shiva - Divine Portal</title>
     <style>
+        /* --- THEME 2: ROYAL CRIMSON (राजसी सिंदूर और स्वर्ण) --- */
         :root {
-            --primary-gold: #d97706;
-            --deep-saffron: #7c2d12;
-            --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
+            --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
+            --brass-gold: #d4af37;
+            --brass-dark: #aa8c2c;
+            --glass-bg: rgba(30, 10, 10, 0.7);
+            --glass-border: rgba(212, 175, 55, 0.4);
+            --text-light: #fdfbf7;
+            --text-muted: #eaddb6;
         }
 
-        * {
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
-            background: var(--bg-gradient);
+            background: var(--crimson-bg);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #292524;
+            color: var(--text-light);
             margin: 0;
             padding: 0;
+            min-height: 100vh;
         }
 
         .container {
@@ -32,89 +34,84 @@
         }
 
         .nav-back {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             text-decoration: none;
-            color: var(--deep-saffron);
-            font-weight: bold;
+            color: var(--brass-gold);
+            font-weight: 700;
             margin-bottom: 15px;
             font-size: 16px;
-            transition: 0.3s;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
         }
-
         .nav-back:hover {
-            color: var(--primary-gold);
+            background: var(--brass-gold);
+            color: #2a0808;
+            transform: translateX(-5px);
         }
 
-        /* Divine Header Graphic */
         header {
             text-align: center;
-            background: linear-gradient(135deg, #7c2d12, #b45309);
-            color: #fff;
-            padding: 35px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(124, 45, 18, 0.2);
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(0,0,0,0.4));
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            border-radius: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             position: relative;
             overflow: hidden;
         }
 
-        header::before {
-            content: "🔱";
-            font-size: 110px;
-            position: absolute;
-            right: -20px;
-            bottom: -25px;
-            opacity: 0.1;
-        }
-
         header h1 {
             margin: 0;
-            font-size: 30px;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 32px;
+            color: var(--brass-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         header p {
-            margin: 8px 0 0 0;
-            font-size: 15px;
-            color: #fde68a;
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
-        /* --- STYLISH HORIZONTAL TABS --- */
+        /* Tabs */
         .tabs-container {
             display: flex;
             gap: 12px;
             overflow-x: auto;
-            padding: 10px 5px 20px 5px;
+            padding: 10px 5px 25px 5px;
             white-space: nowrap;
             scrollbar-width: none;
         }
-
-        .tabs-container::-webkit-scrollbar {
-            display: none;
-        }
+        .tabs-container::-webkit-scrollbar { display: none; }
 
         .tab-btn {
-            background: #ffffff;
-            border: 2px solid #f59e0b;
-            color: var(--deep-saffron);
-            padding: 10px 22px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--brass-gold);
+            color: var(--brass-gold);
+            padding: 10px 24px;
             border-radius: 30px;
             font-size: 15px;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
 
-        .tab-btn:hover, .tab-btn.active {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--brass-gold);
+            color: #2a0808;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(217, 119, 6, 0.3);
         }
 
-        /* --- SEARCH BAR --- */
+        /* Search */
         .search-box {
             margin-bottom: 25px;
             position: relative;
@@ -122,144 +119,139 @@
 
         .search-input {
             width: 100%;
-            padding: 14px 20px 14px 45px;
+            padding: 16px 20px 16px 50px;
             border-radius: 30px;
-            border: 1px solid #f59e0b;
-            background: #fff;
+            border: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.3);
             font-size: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            color: var(--text-light);
             outline: none;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
-
+        .search-input::placeholder { color: rgba(234,221,182,0.6); }
         .search-input:focus {
-            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.15);
-            border-color: var(--deep-saffron);
+            border-color: var(--brass-gold);
+            background: rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
         .search-box::before {
             content: "🔍";
             position: absolute;
-            left: 18px;
-            top: 15px;
-            font-size: 16px;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            opacity: 0.8;
         }
 
-        /* Glassmorphism Cards */
+        /* Cards */
         .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-            position: relative;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .card h2 {
-            color: var(--deep-saffron);
+            color: var(--brass-gold);
             margin-top: 0;
-            border-bottom: 2px solid #fef3c7;
-            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
+            padding-bottom: 12px;
             font-size: 22px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .content-text {
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-size: 16.5px;
+            line-height: 1.85;
+            margin-bottom: 25px;
+            color: var(--text-light);
         }
 
-        .content-text p {
-            margin: 12px 0;
-        }
+        .content-text p { margin: 14px 0; }
+        .content-text strong { color: var(--brass-gold); }
 
-        .content-text strong {
-            color: #9a3412;
-        }
-
-        /* Names Grid */
         .names-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 15px;
-            margin-top: 15px;
-            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-bottom: 25px;
         }
 
         .name-box {
-            background: #fffbeb;
-            padding: 12px 15px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-gold);
+            background: rgba(0,0,0,0.3);
+            padding: 14px 16px;
+            border-radius: 12px;
+            border-left: 4px solid var(--brass-gold);
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--text-muted);
         }
 
-        /* Functional Copy Button */
+        /* Copy Button */
         .copy-btn {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
+            background: var(--brass-gold);
             border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
+            color: #2a0808;
+            padding: 12px 24px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
         }
-
         .copy-btn:hover {
-            background: linear-gradient(135deg, #d97706, #b45309);
-            transform: scale(1.02);
+            background: #f0c950;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
         }
 
         /* Toast Notification */
         #toast {
             visibility: hidden;
             min-width: 250px;
-            background-color: #7c2d12;
-            color: #fff;
+            background: var(--brass-gold);
+            color: #2a0808;
             text-align: center;
-            border-radius: 8px;
-            padding: 12px;
+            border-radius: 12px;
+            padding: 14px 20px;
             position: fixed;
             z-index: 1000;
             left: 50%;
-            bottom: 30px;
+            bottom: 40px;
             transform: translateX(-50%);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            font-weight: 500;
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
         #toast.show {
             visibility: visible;
             animation: fadein 0.5s, fadeout 0.5s 2.5s;
         }
 
         @keyframes fadein {
-            from { bottom: 0; opacity: 0; }
-            to { bottom: 30px; opacity: 1; }
+            from { bottom: 0; opacity: 0; transform: translate(-50%, 20px); }
+            to { bottom: 40px; opacity: 1; transform: translate(-50%, 0); }
         }
-
         @keyframes fadeout {
-            from { bottom: 30px; opacity: 1; }
+            from { bottom: 40px; opacity: 1; }
             to { bottom: 0; opacity: 0; }
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
-            color: #78716c;
+            margin-top: 50px;
+            color: rgba(234,221,182,0.5);
             font-size: 14px;
-            padding-bottom: 20px;
-            border-top: 1px solid #e7e5e4;
-            padding-top: 20px;
+            padding: 30px 0;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
         }
     </style>
 </head>
@@ -270,26 +262,24 @@
 
         <header>
             <h1>🔱 महाकाल शिव दिव्य पोर्टल</h1>
-            <p>महामृत्युंजय मंत्र, 10 प्रमुख आरतियाँ, स्तोत्र और शिव पुराण की पावन कथाएँ</p>
+            <p>महामृत्युंजय मंत्र, 10 प्रमुख आरतियाँ, स्तोत्र और शिव पुराण कथाएँ</p>
         </header>
 
-        <!-- Search Bar -->
         <div class="search-box">
             <input type="text" id="searchInput" class="search-input" placeholder="मंत्र, आरती, नाम या कथा खोजें..." onkeyup="searchContent()">
         </div>
 
-        <!-- Horizontal Quick Filter Tabs -->
         <div class="tabs-container">
-            <button class="tab-btn active" onclick="filterSection('all')">🌟 सभी देखें</button>
-            <button class="tab-btn" onclick="filterSection('mantras')">📿 महाशिव मंत्र</button>
-            <button class="tab-btn" onclick="filterSection('aartis')">🪔 10 प्रमुख आरतियाँ</button>
-            <button class="tab-btn" onclick="filterSection('names')">📜 20 लोकप्रिय नाम</button>
-            <button class="tab-btn" onclick="filterSection('story')">📖 शिव पुराण गाथा</button>
-            <button class="tab-btn" onclick="filterSection('marriage')">💍 शिव-पार्वती विवाह</button>
-            <button class="tab-btn" onclick="filterSection('katha')">📚 प्रसिद्ध कथाएँ</button>
+            <button id="s-all" class="tab-btn active" onclick="filterSection('all', 's-all')">🌟 सभी</button>
+            <button id="s-mantras" class="tab-btn" onclick="filterSection('mantras', 's-mantras')">📿 मंत्र</button>
+            <button id="s-aartis" class="tab-btn" onclick="filterSection('aartis', 's-aartis')">🪔 आरतियाँ</button>
+            <button id="s-names" class="tab-btn" onclick="filterSection('names', 's-names')">✨ 20 नाम</button>
+            <button id="s-story" class="tab-btn" onclick="filterSection('story', 's-story')">📖 शिव गाथा</button>
+            <button id="s-marriage" class="tab-btn" onclick="filterSection('marriage', 's-marriage')">💍 विवाह</button>
+            <button id="s-katha" class="tab-btn" onclick="filterSection('katha', 's-katha')">📚 कथाएँ</button>
         </div>
 
-        <!-- 1. भगवान शिव के प्रमुख मंत्र -->
+        <!-- 1. मंत्र -->
         <div class="card searchable-card" data-category="mantras">
             <h2>📿 भगवान शिव के प्रमुख और महत्वपूर्ण मंत्र</h2>
             <div class="content-text" id="mantras-box">
@@ -302,56 +292,27 @@
             <button class="copy-btn" onclick="copyContent('mantras-box', 'सभी मंत्र कॉपी हो गए हैं!')">📋 मंत्र कॉपी करें</button>
         </div>
 
-        <!-- 2. भगवान शिव की 10 प्रमुख आरतियाँ -->
+        <!-- 2. आरतियाँ -->
         <div class="card searchable-card" data-category="aartis">
             <h2>🪔 भगवान शिव की 10 प्रमुख आरतियाँ</h2>
             <div class="content-text" id="aartis-box">
-                <p><strong>1. श्री शिव जी की मुख्य आरती:</strong><br>
-                ॐ जय शिव ओमकारा, स्वामी जय शिव ओमकारा। ब्रह्मा, विष्णु, सदाशिव, अर्द्धांगी धारा॥<br>
-                (एकानन चतुरानन पञ्चाननन राजै... काशी में विश्वनाथ विराजत नन्दी ब्रह्मचारी...)</p>
-
-                <p><strong>2. श्री भोले बाबा की आरती:</strong><br>
-                जय भोले बाबा, स्वामी जय भोले बाबा। देव मुनि नर सेवत, शीश नवाता॥<br>
-                (महिमा अपरंपार तेरी हे त्रिपुरारी... डमरू बाजै डम-डम बाजे मृदंगा...)</p>
-
-                <p><strong>3. श्री महाकाल की आरती (उज्जैन):</strong><br>
-                जय महाकाल देवा, स्वामी जय महाकाल देवा। भस्म रमे तन ऊपर, सुख के हो देवा॥<br>
-                (क्षिप्रा तट विराजत अवंतिका नगरी... मुण्डमाल गले सोहै नागिन सी छाजे...)</p>
-
-                <p><strong>4. श्री केदारनाथ जी की आरती:</strong><br>
-                जय केदार भंडारी, स्वामी जय केदार भंडारी। हिमगिरी पर्वत शोभित, महिमा अति भारी॥<br>
-                (मन्दाकिनी तट राजत अलकनंदा धारा... पांडव शिला पूजत मन में हरषावैं...)</p>
-
-                <p><strong>5. श्री अमरनाथ जी की आरती:</strong><br>
-                जय अमरनाथ देवा, स्वामी जय अमरनाथ देवा। हिमशिवलिंग विराजे, नित होय सेवा॥<br>
-                (अमर कथा जो गाई शुक-संतन जानी... हिम के शिवलिंग स्वामी आप ही कहाते...)</p>
-
-                <p><strong>6. श्री पशुपतिनाथ जी की आरती:</strong><br>
-                जय पशुपति देवा, स्वामी जय पशुपति देवा। पशुपतिनाथ की आरती, जो कोई नर सेवा॥<br>
-                (चार मुखी तुम राजत त्रिभुवन के स्वामी... बागमती तट पावन महिमा अति भारी...)</p>
-
-                <p><strong>7. श्री सोमनाथ जी की आरती:</strong><br>
-                जय सोमनाथ देवा, स्वामी जय सोमनाथ देवा। चंद्र देव तप कीन्हो, पाई प्रभु सेवा॥<br>
-                (प्रथम ज्योतिर्लिंग राजत सौराष्ट्र में प्यारे... समुद्र किनारे शोभे मंदिर अति सुंदर...)</p>
-
-                <p><strong>8. श्री विश्वनाथ जी की आरती (काशी):</strong><br>
-                जय विश्वनाथ देवा, स्वामी जय विश्वनाथ देवा। काशी के पुरवासी, तुम हो वरदेवा॥<br>
-                (गंगा तट बिराजत मुक्ति की फुलवारी... अन्नपूर्णा संग राजै भिक्षा तुम पावत...)</p>
-
-                <p><strong>9. श्री बटुक भैरव जी की आरती:</strong><br>
-                जय भैरव देवा, स्वामी जय भैरव देवा। काली के अवतार प्रभु, नित होय सेवा॥<br>
-                (श्वान वाहन राजै त्रिशूल हाथ धारी... बटुक रूप तुम्हारा बालपन सुहावै...)</p>
-
-                <p><strong>10. श्री नंदी महाराज की आरती:</strong><br>
-                जय नंदी देवा, स्वामी जय नंदी देवा। शिवजी के प्रिय वाहन, हो नित तुम सेवा॥<br>
-                (श्वेत वर्ण तुम्हारा सुंदर मुख भारा... शिव मंदिर के आगे आसन तुम लावै...)</p>
+                <p><strong>1. श्री शिव जी की मुख्य आरती:</strong> ॐ जय शिव ओमकारा, स्वामी जय शिव ओमकारा। ब्रह्मा, विष्णु, सदाशिव, अर्द्धांगी धारा॥</p>
+                <p><strong>2. श्री भोले बाबा की आरती:</strong> जय भोले बाबा, स्वामी जय भोले बाबा। देव मुनि नर सेवत, शीश नवाता॥</p>
+                <p><strong>3. श्री महाकाल की आरती:</strong> जय महाकाल देवा, स्वामी जय महाकाल देवा। भस्म रमे तन ऊपर, सुख के हो देवा॥</p>
+                <p><strong>4. श्री केदारनाथ जी की आरती:</strong> जय केदार भंडारी, स्वामी जय केदार भंडारी। हिमगिरी पर्वत शोभित, महिमा अति भारी॥</p>
+                <p><strong>5. श्री अमरनाथ जी की आरती:</strong> जय अमरनाथ देवा, स्वामी जय अमरनाथ देवा। हिमशिवलिंग विराजे, नित होय सेवा॥</p>
+                <p><strong>6. श्री पशुपतिनाथ जी की आरती:</strong> जय पशुपति देवा, स्वामी जय पशुपति देवा। पशुपतिनाथ की आरती, जो कोई नर सेवा॥</p>
+                <p><strong>7. श्री सोमनाथ जी की आरती:</strong> जय सोमनाथ देवा, स्वामी जय सोमनाथ देवा। चंद्र देव तप कीन्हो, पाई प्रभु सेवा॥</p>
+                <p><strong>8. श्री विश्वनाथ जी की आरती:</strong> जय विश्वनाथ देवा, स्वामी जय विश्वनाथ देवा। काशी के पुरवासी, तुम हो वरदेवा॥</p>
+                <p><strong>9. श्री बटुक भैरव जी की आरती:</strong> जय भैरव देवा, स्वामी जय भैरव देवा। काली के अवतार प्रभु, नित होय सेवा॥</p>
+                <p><strong>10. श्री नंदी महाराज की आरती:</strong> जय नंदी देवा, स्वामी जय नंदी देवा। शिवजी के प्रिय वाहन, हो नित तुम सेवा॥</p>
             </div>
             <button class="copy-btn" onclick="copyContent('aartis-box', 'सभी आरतियाँ कॉपी हो गई हैं!')">📋 आरतियाँ कॉपी करें</button>
         </div>
 
-        <!-- 3. 20 लोकप्रिय नाम (बिल्कुल सही और बिना दोहराव के) -->
+        <!-- 3. 20 लोकप्रिय नाम -->
         <div class="card searchable-card" data-category="names">
-            <h2>📜 भगवान शिव के 20 लोकप्रिय नाम</h2>
+            <h2>✨ भगवान शिव के 20 लोकप्रिय नाम</h2>
             <div class="names-grid" id="names-box">
                 <div class="name-box"><strong>1. शिव:</strong> कल्याण करने वाले</div>
                 <div class="name-box"><strong>2. महादेव:</strong> देवों के देव</div>
@@ -372,83 +333,82 @@
                 <div class="name-box"><strong>17. गंगाधर:</strong> गंगा धारण करने वाले</div>
                 <div class="name-box"><strong>18. मृत्युंजय:</strong> मृत्यु को जीतने वाले</div>
                 <div class="name-box"><strong>19. हर:</strong> पापों को हरने वाले</div>
-                <div class="name-box"><strong>20. चंद्रशेखर:</strong> सिर पर चंद्रमा धारण करने वाले</div>
+                <div class="name-box"><strong>20. चंद्रशेखर:</strong> चंद्रमा धारण करने वाले</div>
             </div>
             <button class="copy-btn" onclick="copyContent('names-box', 'सभी नाम कॉपी हो गए हैं!')">📋 नाम कॉपी करें</button>
         </div>
 
         <!-- 4. शिव पुराण संपूर्ण गाथा -->
         <div class="card searchable-card" data-category="story">
-            <h2>📖 भगवान शिव की संपूर्ण गाथा (शिव पुराण के अनुसार)</h2>
-            <div class="content-text" id="story-box" style="text-align: justify;">
-                <p><strong>1. निराकार से साकार रूप:</strong> शुरुआत में केवल अद्वैत ब्रह्म 'सदाशिव' और 'आद्य शक्ति' थे। उन्हीं से ब्रह्मा और विष्णु की उत्पत्ति हुई। श्रेष्ठता के विवाद पर शिव जी अनंत ज्योतिर्लिंग (अग्नि स्तंभ) के रूप में प्रकट हुए।</p>
-                <p><strong>2. सती रूप और त्याग:</strong> राजा दक्ष की पुत्री सती का विवाह शिव जी से हुआ। दक्ष यज्ञ में शिव अपमान से दुखी होकर सती योगाग्नि में भस्म हो गईं। क्रोधित शिव के अंश वीरभद्र ने यज्ञ का विध्वंस किया। विष्णु चक्र से सती के अंग 51 जगहों पर गिरे जो 'शक्तिपीठ' बने.</p>
-                <p><strong>3. शिव परिवार:</strong> माता पार्वती, पुत्र कार्तिकेय (स्कंद), प्रथम पूज्य गणेश, वाहन नंदी और गले में वासुकी नाग—यह परिवार विरोधाभासी प्रकृतियों का अद्भुत मेल है।</p>
-                <p><strong>4. समुद्र मंथन और नीलकंठ:</strong> देवताओं-असुरों के मंथन से निकले हलाहल विष को पीकर शिव जी ने सृष्टि की रक्षा की, जिससे उनका गला नीला हुआ और वे 'नीलकंठ' कहलाए।</p>
-                <p><strong>5. महाकाल और प्रलय:</strong> कल्प के अंत में अधर्म बढ़ने पर शिव जी महाकाल का रूप धरकर तांडव करते हैं, जिससे नई सृष्टि की पुनर्रचना हो सके।</p>
+            <h2>📖 भगवान शिव की संपूर्ण गाथा</h2>
+            <div class="content-text" id="story-box">
+                <p><strong>1. निराकार से साकार रूप:</strong> शुरुआत में सदाशिव और आद्य शक्ति थे। ब्रह्मा-विष्णु की उत्पत्ति और ज्योतिर्लिंग प्रकट होने की कथा।</p>
+                <p><strong>2. सती रूप और त्याग:</strong> राजा दक्ष की पुत्री सती का विवाह शिव से हुआ। दक्ष यज्ञ में अपमान पर सती योगाग्नि में भस्म हुईं, जिसके अंगों से 51 शक्तिपीठ बने।</p>
+                <p><strong>3. समुद्र मंथन और नीलकंठ:</strong> हलाहल विषपान कर सृष्टि की रक्षा की, जिससे गला नीला हुआ और 'नीलकंठ' नाम पड़ा।</p>
             </div>
             <button class="copy-btn" onclick="copyContent('story-box', 'शिव गाथा कॉपी हो गई है!')">📋 गाथा कॉपी करें</button>
         </div>
 
-        <!-- 5. शिव-पार्वती विवाह कथा -->
+        <!-- 5. विवाह प्रसंग -->
         <div class="card searchable-card" data-category="marriage">
             <h2>💍 शिव-पार्वती विवाह की पावन कथा</h2>
-            <div class="content-text" id="marriage-box" style="text-align: justify;">
-                <p><strong>कठोर तपस्या:</strong> सती वियोग के बाद शिव जी समाधि में लीन हो गए। हिमालय पुत्री पार्वती (सती का पुनर्जन्म) ने शिव को पाने के लिए वर्षों तक निराहार रहकर "ॐ नमः शिवाय" का कठोर तप किया।</p>
-                <p><strong>कामदेव का प्रसंग:</strong> देवताओं के आग्रह पर कामदेव ने शिव समाधि भंग करने का प्रयास किया, जिससे शिव जी के तीसरे नेत्र से कामदेव भस्म हो गए।</p>
-                <p><strong>अनोखी बारात और विवाह:</strong> परीक्षा लेने आए ब्रह्मचारी रूपी शिव की बुराइयों पर भी जब पार्वती अडिग रहीं, तो शिव जी ने दिव्य रूप में दर्शन दिए। विवाह के दिन भूत, प्रेत, अघोरी और नागों की अनोखी बारात पहुँची। माता मैना के मोहभंग पर शिव जी ने तेजोमय दिव्य रूप धारण किया और त्रियुगी नारायण क्षेत्र में शिव-शक्ति का पावन विवाह संपन्न हुआ।</p>
+            <div class="content-text" id="marriage-box">
+                <p>सती वियोग के बाद शिवजी की लंबी समाधि। हिमालय पुत्री पार्वती द्वारा कठोर तपस्या। कामदेव प्रसंग और बटुक वेश में परीक्षा। अंततः भूत-प्रेतों की अनोखी बारात के साथ त्रियुगी नारायण क्षेत्र में शिव-शक्ति का पावन विवाह संपन्न हुआ।</p>
             </div>
             <button class="copy-btn" onclick="copyContent('marriage-box', 'विवाह कथा कॉपी हो गई है!')">📋 विवाह कथा कॉपी करें</button>
         </div>
 
-        <!-- 6. भगवान शिव से जुड़ी प्रसिद्ध कथाएँ -->
+        <!-- 6. प्रसिद्ध कथाएँ -->
         <div class="card searchable-card" data-category="katha">
             <h2>📚 भगवान शिव की प्रसिद्ध कथाएँ</h2>
-            <div class="content-text" id="katha-box" style="text-align: justify;">
-                <p><strong>1. भस्मासुर और मोहिनी लीला:</strong> भस्मासुर को सिर पर हाथ रखने से भस्म करने का वरदान मिला और वह शिव जी के पीछे दौड़ा। तब विष्णु जी ने मोहिनी रूप धरकर नृत्य के छल से भस्मासुर का हाथ उसके खुद के सिर पर रखवाकर उसे भस्म कराया।</p>
-                <p><strong>2. रावण और शिव तांडव स्तोत्र:</strong> अहंकार में रावण ने कैलाश पर्वत उठाने का प्रयास किया। शिव जी के अंगूठे के हल्के दबाव से रावण का हाथ दब गया। तब रावण ने शिव प्रसन्नता हेतु 'शिव तांडव स्तोत्र' की रचना की और 'चंद्रहास' तलवार प्राप्त की।</p>
-                <p><strong>3. किरात अवतार और अर्जुन:</strong> महाभारत काल में अर्जुन की परीक्षा लेने के लिए शिव जी ने किरात (शिकारी) का रूप धारण किया और पाशुपत अस्त्र प्रदान किया।</p>
+            <div class="content-text" id="katha-box">
+                <p><strong>1. भस्मासुर और मोहिनी लीला:</strong> भस्मासुर को भस्म करने का वरदान मिलना और विष्णु जी द्वारा मोहिनी रूप धरकर उसका वध कराना।</p>
+                <p><strong>2. रावण और शिव तांडव स्तोत्र:</strong> रावण द्वारा कैलाश उठाने का प्रयास और शिवजी के अंगूठे के दबाव पर 'शिव तांडव स्तोत्र' की रचना।</p>
             </div>
             <button class="copy-btn" onclick="copyContent('katha-box', 'प्रसिद्ध कथाएँ कॉपी हो गई हैं!')">📋 कथाएँ कॉपी करें</button>
         </div>
 
         <footer>
-            <p>© 2026 HinduGodsWeb Portal. Built with pure devotion & divine UI.</p>
+            <p>© 2026 HinduGodsWeb Portal. Built with pure devotion & Royal Design.</p>
         </footer>
     </div>
 
-    <!-- Toast Notification Element -->
+    <!-- Toast Notification -->
     <div id="toast">संदेश</div>
 
     <script>
-        // Working Copy Function
+        // 100% Working Fallback Copy Function
         function copyContent(containerId, message) {
             const textElement = document.getElementById(containerId);
             if (!textElement) return;
-            const textToCopy = textElement.innerText;
-
-            navigator.clipboard.writeText(textToCopy).then(() => {
+            const textArea = document.createElement("textarea");
+            textArea.value = textElement.innerText;
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
                 showToast(message);
-            }).catch(err => {
-                alert('कॉपी करने में विफल रहा!');
-            });
+            } catch (err) {
+                alert('कॉपी नहीं हो पाया!');
+            }
+            document.body.removeChild(textArea);
         }
 
-        // Toast Notification Trigger
+        // Beautiful Toast Notification
         function showToast(msg) {
             const toast = document.getElementById("toast");
             toast.innerText = msg;
             toast.className = "show";
-            setTimeout(() => { 
-                toast.className = toast.className.replace("show", ""); 
-            }, 3000);
+            setTimeout(() => { toast.className = ""; }, 2500);
         }
 
-        // Tab Filter Function
-        function filterSection(category) {
+        // 100% Working ID-based Tab Filter
+        function filterSection(category, btnId) {
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            document.getElementById(btnId).classList.add('active');
 
             const cards = document.querySelectorAll('.searchable-card');
             cards.forEach(card => {
@@ -457,4 +417,22 @@
                 } else {
                     card.style.display = 'none';
                 }
-          
+            });
+        }
+
+        // Live Search Function
+        function searchContent() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.searchable-card');
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
