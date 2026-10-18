@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shri Krishna - Divine Portal</title>
     <style>
+        /* --- THEME 2: ROYAL CRIMSON (राजसी सिंदूर और स्वर्ण) --- */
         :root {
-            --primary-gold: #d97706;
-            --deep-saffron: #7c2d12;
-            --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
+            --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
+            --brass-gold: #d4af37;
+            --brass-dark: #aa8c2c;
+            --glass-bg: rgba(30, 10, 10, 0.7);
+            --glass-border: rgba(212, 175, 55, 0.4);
+            --text-light: #fdfbf7;
+            --text-muted: #eaddb6;
         }
 
-        * {
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
-            background: var(--bg-gradient);
+            background: var(--crimson-bg);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #292524;
+            color: var(--text-light);
             margin: 0;
             padding: 0;
+            min-height: 100vh;
         }
 
         .container {
@@ -32,272 +34,334 @@
         }
 
         .nav-back {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             text-decoration: none;
-            color: var(--deep-saffron);
-            font-weight: bold;
+            color: var(--brass-gold);
+            font-weight: 700;
             margin-bottom: 15px;
             font-size: 16px;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        .nav-back:hover {
+            background: var(--brass-gold);
+            color: #2a0808;
+            transform: translateX(-5px);
         }
 
         header {
             text-align: center;
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            color: #fff;
-            padding: 35px 20px;
-            border-radius: 20px;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(0,0,0,0.4));
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            border-radius: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             position: relative;
             overflow: hidden;
         }
 
         header h1 {
             margin: 0;
-            font-size: 28px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 32px;
+            color: var(--brass-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         header p {
-            margin: 8px 0 0 0;
-            font-size: 15px;
-            color: #93c5fd;
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
         /* Tabs */
         .tabs-container {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             overflow-x: auto;
-            padding: 10px 5px 20px 5px;
+            padding: 10px 5px 25px 5px;
             white-space: nowrap;
             scrollbar-width: none;
         }
         .tabs-container::-webkit-scrollbar { display: none; }
 
         .tab-btn {
-            background: #ffffff;
-            border: 2px solid #3b82f6;
-            color: #1e3a8a;
-            padding: 9px 20px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--brass-gold);
+            color: var(--brass-gold);
+            padding: 10px 24px;
             border-radius: 30px;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 15px;
+            font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .tab-btn.active, .tab-btn:hover {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            color: white;
-            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3);
+            background: var(--brass-gold);
+            color: #2a0808;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
         }
 
         /* Search */
         .search-box {
             margin-bottom: 25px;
+            position: relative;
         }
 
         .search-input {
             width: 100%;
-            padding: 14px 20px;
+            padding: 16px 20px 16px 50px;
             border-radius: 30px;
-            border: 1px solid #3b82f6;
-            font-size: 15px;
+            border: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.3);
+            font-size: 16px;
+            color: var(--text-light);
             outline: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        .search-input::placeholder { color: rgba(234,221,182,0.6); }
+        .search-input:focus {
+            border-color: var(--brass-gold);
+            background: rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            opacity: 0.8;
         }
 
         /* Cards */
         .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            padding: 25px;
-            border-radius: 16px;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .card h2 {
-            color: #1e3a8a;
+            color: var(--brass-gold);
             margin-top: 0;
-            border-bottom: 2px solid #eff6ff;
-            padding-bottom: 10px;
-            font-size: 21px;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
+            padding-bottom: 12px;
+            font-size: 22px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .content-text {
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-size: 16.5px;
+            line-height: 1.85;
+            margin-bottom: 25px;
+            color: var(--text-light);
         }
 
-        .content-text p {
-            margin: 12px 0;
-        }
+        .content-text p { margin: 14px 0; }
+        .content-text strong { color: var(--brass-gold); }
 
         .names-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 25px;
         }
 
         .name-box {
-            background: #eff6ff;
-            padding: 12px 15px;
-            border-radius: 8px;
-            border-left: 4px solid #3b82f6;
-            font-size: 14px;
-            font-weight: 500;
+            background: rgba(0,0,0,0.3);
+            padding: 14px 16px;
+            border-radius: 12px;
+            border-left: 4px solid var(--brass-gold);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-muted);
         }
 
         /* Copy Button */
         .copy-btn {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: var(--brass-gold);
             border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
+            color: #2a0808;
+            padding: 12px 24px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
         }
-        .copy-btn:hover { background: #1d4ed8; }
+        .copy-btn:hover {
+            background: #f0c950;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
 
-        /* Toast */
+        /* Toast Notification */
         #toast {
             visibility: hidden;
             min-width: 250px;
-            background-color: #1e3a8a;
-            color: #fff;
+            background: var(--brass-gold);
+            color: #2a0808;
             text-align: center;
-            border-radius: 8px;
-            padding: 12px;
+            border-radius: 12px;
+            padding: 14px 20px;
             position: fixed;
             z-index: 1000;
             left: 50%;
-            bottom: 30px;
+            bottom: 40px;
             transform: translateX(-50%);
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        #toast.show { visibility: visible; }
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; transform: translate(-50%, 20px); }
+            to { bottom: 40px; opacity: 1; transform: translate(-50%, 0); }
+        }
+        @keyframes fadeout {
+            from { bottom: 40px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: rgba(234,221,182,0.5);
+            font-size: 14px;
+            padding: 30px 0;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a href="index.html" class="nav-back" style="color: #1e3a8a;">← होम पेज पर वापस जाएं</a>
+        <a href="index.html" class="nav-back">← होम पेज पर वापस जाएं</a>
 
         <header>
             <h1>🦚 श्री कृष्ण दिव्य पोर्टल</h1>
-            <p>20 लोकप्रिय नाम, संपूर्ण जीवन गाथा, अद्भुत कथाएँ और अच्युतम केशवम भजन</p>
+            <p>दिव्य मंत्र, महाआरती, गीता सार और पावन लीलाएँ</p>
         </header>
 
         <div class="search-box">
-            <input type="text" id="searchInput" class="search-input" placeholder="नाम, गाथा, कथा या भजन खोजें..." onkeyup="searchContent()">
+            <input type="text" id="searchInput" class="search-input" placeholder="मंत्र, आरती, गीता या लीला खोजें..." onkeyup="searchContent()">
         </div>
 
         <div class="tabs-container">
             <button id="k-all" class="tab-btn active" onclick="filterSection('all', 'k-all')">🌟 सभी</button>
+            <button id="k-mantras" class="tab-btn" onclick="filterSection('mantras', 'k-mantras')">📿 मंत्र</button>
+            <button id="k-aarti" class="tab-btn" onclick="filterSection('aarti', 'k-aarti')">🪔 आरती</button>
             <button id="k-names" class="tab-btn" onclick="filterSection('names', 'k-names')">✨ 20 नाम</button>
-            <button id="k-story" class="tab-btn" onclick="filterSection('story', 'k-story')">📖 संपूर्ण गाथा</button>
-            <button id="k-katha" class="tab-btn" onclick="filterSection('katha', 'k-katha')">📚 अद्भुत कथाएँ</button>
-            <button id="k-bhajan" class="tab-btn" onclick="filterSection('bhajan', 'k-bhajan')">🎶 प्रसिद्ध भजन</button>
+            <button id="k-gita" class="tab-btn" onclick="filterSection('gita', 'k-gita')">📖 गीता सार</button>
+            <button id="k-leela" class="tab-btn" onclick="filterSection('leela', 'k-leela')">🌸 लीलाएँ</button>
         </div>
 
-        <!-- 1. 20 लोकप्रिय नाम -->
+        <!-- 1. मंत्र सेक्शन -->
+        <div class="card searchable-card" data-category="mantras">
+            <h2>📿 श्री कृष्ण के पावन एवं शक्तिशाली मंत्र</h2>
+            <div class="content-text" id="mantras-box">
+                <p><strong>1. महामंत्र (तारक मंत्र):</strong> हरे कृष्ण हरे कृष्ण, कृष्ण कृष्ण हरे हरे। हरे राम हरे राम, राम राम हरे हरे॥</p>
+                <p><strong>2. मूल कृष्ण मंत्र:</strong> ॐ क्लीं कृष्णाय नमः॥</p>
+                <p><strong>3. गोपाल मंत्र:</strong> ॐ श्रीं कृष्णाय स्वाहा॥</p>
+                <p><strong>4. त्रैलोक्य मोहन मंत्र:</strong> ॐ नमो भगवते वासुदेवाय॥</p>
+                <p><strong>5. राधा-कृष्ण युगल मंत्र:</strong> ॐ श्री राधायै नमः ॐ श्री कृष्णाय नमः॥</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('mantras-box', 'श्री कृष्ण मंत्र कॉपी हो गए हैं!')">📋 मंत्र कॉपी करें</button>
+        </div>
+
+        <!-- 2. आरती सेक्शन -->
+        <div class="card searchable-card" data-category="aarti">
+            <h2>🪔 श्री कृष्ण जी की आरती</h2>
+            <div class="content-text" id="aarti-box">
+                <p>आरती कुंजबिहारी की, श्री गिरधर कृष्ण मुरारी की॥<br>गले में बजमाला, बजावे मुरलीवाला, दर्श से पापे टाला, आरती कुंजबिहारी की...</p>
+                <p>क्युं चमकै चमक दमक, छटा छबि भारी है। दर्शन को उमड़े नर नारी, आरती कुंजबिहारी की...</p>
+                <p>कंस को मार गिराया, गोपियों को हंसाया। रास रचाया यमुना किनारे, आरती कुंजबिहारी की...</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('aarti-box', 'श्री कृष्ण आरती कॉपी हो गई है!')">📋 आरती कॉपी करें</button>
+        </div>
+
+        <!-- 3. 20 लोकप्रिय नाम सेक्शन -->
         <div class="card searchable-card" data-category="names">
-            <h2>✨ श्रीकृष्ण के 20 लोकप्रिय नाम</h2>
+            <h2>✨ श्री कृष्ण के 20 लोकप्रिय नाम</h2>
             <div class="names-grid" id="names-box">
-                <div class="name-box"><strong>1. कृष्ण:</strong> अत्यंत आकर्षक रूप वाले</div>
-                <div class="name-box"><strong>2. मोहन:</strong> सबको मोहित करने वाले</div>
-                <div class="name-box"><strong>3. श्याम:</strong> सांवला या नीला-श्याम रंग</div>
-                <div class="name-box"><strong>4. कान्हा:</strong> प्रेम से पुकारा जाने वाला नाम</div>
-                <div class="name-box"><strong>5. बांके बिहारी:</strong> त्रिभंग मुद्रा वाले</div>
-                <div class="name-box"><strong>6. गिरधर:</strong> गोवर्धन पर्वत उठाने वाले</div>
-                <div class="name-box"><strong>7. मुरलीधर:</strong> बांसुरी धारण करने वाले</div>
-                <div class="name-box"><strong>8. नंदनंदन:</strong> नंद बाबा के पुत्र</div>
-                <div class="name-box"><strong>9. यशोदानंदन:</strong> यशोदा मैया के लाल</div>
-                <div class="name-box"><strong>10. माखनचोर:</strong> माखन चुराने वाले</div>
-                <div class="name-box"><strong>11. गोपाल:</strong> गायों की रक्षा करने वाले</div>
-                <div class="name-box"><strong>12. गोविंदा:</strong> इंद्रियों को प्रसन्न करने वाले</div>
-                <div class="name-box"><strong>13. वासुदेव:</strong> वसुदेव जी के पुत्र</div>
-                <div class="name-box"><strong>14. केशव:</strong> घुंघराले बालों वाले</div>
-                <div class="name-box"><strong>15. माधव:</strong> लक्ष्मी जी के स्वामी</div>
-                <div class="name-box"><strong>16. मुरारी:</strong> मुर राक्षस का वध करने वाले</div>
-                <div class="name-box"><strong>17. रणछोड़:</strong> रणभूमि से रणनीति तहत हटने वाले</div>
-                <div class="name-box"><strong>18. पार्थसारथी:</strong> अर्जुन के सारथी</div>
-                <div class="name-box"><strong>19. नारायण:</strong> सबमें निवास करने वाले</div>
-                <div class="name-box"><strong>20. जगन्नाथ:</strong> ब्रह्मांड के स्वामी</div>
+                <div class="name-box"><strong>1. कृष्ण:</strong> सबको आकर्षित करने वाले</div>
+                <div class="name-box"><strong>2. श्याम:</strong> सांवले रूप वाले</div>
+                <div class="name-box"><strong>3. कन्हैया:</strong> सबके प्यारे</div>
+                <div class="name-box"><strong>4. मुरलीधर:</strong> बांसुरी धारण करने वाले</div>
+                <div class="name-box"><strong>5. गिरधर:</strong> गोवर्धन पर्वत उठाने वाले</div>
+                <div class="name-box"><strong>6. वासुदेव:</strong> वसुदेव के पुत्र</div>
+                <div class="name-box"><strong>7. मोहन:</strong> मन को मोहने वाले</div>
+                <div class="name-box"><strong>8. माधव:</strong> लक्ष्मीपति</div>
+                <div class="name-box"><strong>9. केशव:</strong> सुंदर केशों वाले</div>
+                <div class="name-box"><strong>10. गोपाल:</strong> गायों की रक्षा करने वाले</div>
+                <div class="name-box"><strong>11. गोविंद:</strong> गायों और इंद्रियों के स्वामी</div>
+                <div class="name-box"><strong>12. नंदनः:</strong> यशोदा नंदन</div>
+                <div class="name-box"><strong>13. बांकेबिहारी:</strong> त्रिभंग मुद्रा वाले</div>
+                <div class="name-box"><strong>14. द्वारकाधीश:</strong> द्वारका के राजा</div>
+                <div class="name-box"><strong>15. पार्थसारथी:</strong> अर्जुन के सारथी</div>
+                <div class="name-box"><strong>16. रणछोड़:</strong> रणभूमि छोड़ने वाले</div>
+                <div class="name-box"><strong>17. अच्युत:</strong> कभी न गिरने वाले</div>
+                <div class="name-box"><strong>18. जगन्नाथ:</strong> जगत के नाथ</div>
+                <div class="name-box"><strong>19. पीतांबर:</strong> पीले वस्त्र पहनने वाले</div>
+                <div class="name-box"><strong>20. घनश्याम:</strong> बादल जैसे सांवले</div>
             </div>
             <button class="copy-btn" onclick="copyContent('names-box', 'सभी नाम कॉपी हो गए हैं!')">📋 नाम कॉपी करें</button>
         </div>
 
-        <!-- 2. संपूर्ण गाथा -->
-        <div class="card searchable-card" data-category="story">
-            <h2>📖 भगवान श्रीकृष्ण की संपूर्ण गाथा</h2>
-            <div class="content-text" id="story-box" style="text-align: justify;">
-                <p><strong>1. जन्म और बाललीलाएं:</strong> मथुरा के कारागार में देवकी-वसुदेव के यहाँ जन्म। कंस के भय से गोकुल में यशोदा-नंद के यहाँ पालन-पोषण, माखन चोरी और पूतना जैसे असुरों का वध.</p>
-                <p><strong>2. ब्रज की लीलाएं:</strong> कालिया नाग का मानमर्दन, इंद्र का अहंकार तोड़ने के लिए गोवर्धन पूजा और गोपियों के साथ महारास.</p>
-                <p><strong>3. कंस वध और द्वारका स्थापना:</strong> मथुरा लौटकर कंस का वध और जरासंध के आक्रमणों से रक्षा हेतु समुद्र के बीच द्वारका नगरी की स्थापना.</p>
-                <p><strong>4. महाभारत और गीता ज्ञान:</strong> पांडवों के मार्गदर्शक बनकर कुरुक्षेत्र में अर्जुन को 'श्रीमद्भगवद्गीता' का अमर ज्ञान दिया.</p>
-                <p><strong>5. महाप्रयाण:</strong> प्रभास क्षेत्र में अपनी लीला समाप्त कर अपने निज धाम (वैकुंठ) लौटे.</p>
+        <!-- 4. श्रीमद्भगवद्गीता सार -->
+        <div class="card searchable-card" data-category="gita">
+            <h2>📖 श्रीमद्भगवद्गीता का मुख्य सार</h2>
+            <div class="content-text" id="gita-box" style="text-align: justify;">
+                <p><strong>1. कर्म अधिकार:</strong> कर्मण्येवाधिकारस्ते मा फलेषु कदाचन। मा कर्मफलहेतुर्भूर्मा ते संगोऽस्त्वकर्मणि॥ (अर्थात मनुष्य का अधिकार केवल कर्म करने पर है, उसके फल पर कभी नहीं।)</p>
+                <p><strong>2. आत्मा अमर है:</strong> न जायते म्रियते वा कदाचित्... आत्मा न कभी जन्म लेती है और न मरती है। शरीर नश्वर है, आत्मा अजर-अमर है।</p>
+                <p><strong>3. परिवर्तन ही नियम है:</strong> परिवर्तन ही इस संसार का नियम है। जो आज तुम्हारा है, कल किसी और का था, और भविष्य में किसी और का होगा।</p>
             </div>
-            <button class="copy-btn" onclick="copyContent('story-box', 'संपूर्ण गाथा कॉपी हो गई है!')">📋 गाथा कॉपी करें</button>
+            <button class="copy-btn" onclick="copyContent('gita-box', 'गीता सार कॉपी हो गया है!')">📋 गीता सार कॉपी करें</button>
         </div>
 
-        <!-- 3. अद्भुत कथाएँ -->
-        <div class="card searchable-card" data-category="katha">
-            <h2>📚 श्रीकृष्ण से जुड़ी 3 प्रसिद्ध कथाएँ</h2>
-            <div class="content-text" id="katha-box" style="text-align: justify;">
-                <p><strong>1. गोवर्धन पर्वत उठाने की कथा:</strong> इंद्र के अहंकार को तोड़ने के लिए बालकृष्ण ने कनिष्ठ उंगली पर विशाल गोवर्धन पर्वत उठाकर सात दिन तक ब्रजवासियों की रक्षा की.</p>
-                <p><strong>2. सुदामा और कृष्ण की मित्रता:</strong> सांदीपनि आश्रम के मित्र सुदामा के द्वारका आने पर नंगे पाँव दौड़कर गले लगाना और उनकी गरीबी दूर करना.</p>
-                <p><strong>3. द्रौपदी की लाज बचाना (चीरहरण):</strong> भरी सभा में द्रौपदी द्वारा "हे कृष्ण" पुकारे जाने पर अपनी माया से चीर अनंत कर उनकी लाज बचाई.</p>
+        <!-- 5. बाल लीलाएँ एवं कथाएँ -->
+        <div class="card searchable-card" data-category="leela">
+            <h2>🌸 श्री कृष्ण की पावन लीलाएँ</h2>
+            <div class="content-text" id="leela-box" style="text-align: justify;">
+                <p><strong>1. माखन चोरी लीला:</strong> गोकुल में यशोदा माता के आंगन में बाल कृष्ण द्वारा मित्रों के साथ मिलकर माखन चुराने और खाने की बालसुलभ लीला।</p>
+                <p><strong>2. गोवर्धन धरण:</strong> इंद्र के प्रकोप से गोकुल वासियों की रक्षा के लिए भगवान कृष्ण ने अपनी कनिष्ठ उंगली पर विशाल गोवर्धन पर्वत को 7 दिनों तक उठाए रखा था।</p>
+                <p><strong>3. चीर हरण और रासलीला:</strong> यमुना तट पर गोपियों के साथ महारास रचाकर भक्ति और प्रेम का सर्वोच्च संदेश देना।</p>
             </div>
-            <button class="copy-btn" onclick="copyContent('katha-box', 'कथाएँ कॉपी हो गई हैं!')">📋 कथाएँ कॉपी करें</button>
-        </div>
-
-        <!-- 4. प्रसिद्ध भजन -->
-        <div class="card searchable-card" data-category="bhajan">
-            <h2>🎶 अच्युतम केशवम भजन</h2>
-            <div class="content-text" id="bhajan-box">
-                <p>केशवं गोविंदम केशवं गोविंदम<br>केशवं गोविंदम केशवं गोविंदम</p>
-                <p><strong>अच्युतम केशवं कृष्ण दामोदरं,</strong><br>
-                राम नारायणं जानकी वल्लभम् ॥</p>
-                <p>कौन कहता है भगवान आते नहीं,<br>
-                तुम मीरा के जैसे बुलाते नहीं<br>
-                अच्युतम केशवं कृष्ण दामोदरं, राम नारायणं जानकी वल्लभम् ॥</p>
-                <p>कौन कहता है भगवान खाते नहीं,<br>
-                बेर शबरी के जैसे खिलाते नहीं<br>
-                अच्युतम केशवं कृष्ण दामोदरं, राम नारायणं जानकी वल्लभम् ॥</p>
-                <p>कौन कहता है भगवान सोते नहीं,<br>
-                माँ यशोदा के जैसे सुलाते नहीं<br>
-                अच्युतम केशवं कृष्ण दामोदरं, राम नारायणं जानकी वल्लभम् ॥</p>
-                <p>कौन कहता है भगवान नाचते नहीं,<br>
-                गोपियों की तरह तुम नचाते नहीं<br>
-                अच्युतम केशवं कृष्ण दामोदरं, राम नारायणं जानकी वल्लभम् ॥</p>
-                <p>नाम जपते चलो, काम करते चलो,<br>
-                हर समय कृष्ण का ध्यान करते चलो<br>
-                याद आएगी उनको कभी ना कभी,<br>
-                कृष्ण दर्शन तो देंगे कभी ना कभी ॥</p>
-                <p>बोलो बांके बिहारी लाल की जय!</p>
-            </div>
-            <button class="copy-btn" onclick="copyContent('bhajan-box', 'भजन कॉपी हो गया है!')">📋 भजन कॉपी करें</button>
+            <button class="copy-btn" onclick="copyContent('leela-box', 'लीलाएँ कॉपी हो गई हैं!')">📋 लीलाएँ कॉपी करें</button>
         </div>
 
         <footer>
-            <p>© 2026 HinduGodsWeb Portal. Built with pure devotion & divine UI.</p>
+            <p>© 2026 HinduGodsWeb Portal. Built with pure devotion & Royal Design.</p>
         </footer>
     </div>
 
-    <!-- Toast -->
+    <!-- Toast Notification -->
     <div id="toast">संदेश</div>
 
     <script>
-        // Working Copy Function
+        // 100% Working Fallback Copy Function
         function copyContent(containerId, message) {
             const textElement = document.getElementById(containerId);
             if (!textElement) return;
@@ -316,6 +380,7 @@
             document.body.removeChild(textArea);
         }
 
+        // Beautiful Toast Notification
         function showToast(msg) {
             const toast = document.getElementById("toast");
             toast.innerText = msg;
@@ -323,7 +388,7 @@
             setTimeout(() => { toast.className = ""; }, 2500);
         }
 
-        // 100% Working Tab Filter Function using IDs
+        // 100% Working ID-based Tab Filter
         function filterSection(category, btnId) {
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
@@ -339,7 +404,7 @@
             });
         }
 
-        // Search Function
+        // Live Search Function
         function searchContent() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.querySelectorAll('.searchable-card');
