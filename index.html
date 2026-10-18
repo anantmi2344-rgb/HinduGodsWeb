@@ -145,7 +145,6 @@
             background: rgba(45, 15, 15, 0.85);
         }
 
-        /* Image styling: Object-fit contain to preserve original uploaded look */
         .god-img {
             width: 100%;
             height: 200px;
@@ -165,7 +164,7 @@
         .god-card h2 {
             margin: 5px 0 10px 0;
             color: var(--brass-gold);
-            font-size: 24px;
+            font-size: 22px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
         }
 
@@ -176,7 +175,7 @@
             line-height: 1.5;
         }
 
-        /* Footer & Privacy Policy Link */
+        /* Footer */
         footer {
             text-align: center;
             margin-top: 40px;
@@ -203,11 +202,10 @@
             display: inline-block;
             font-size: 14.5px;
             font-weight: 600;
-            transition: color 0.2s;
         }
         .policy-link:hover { color: #ffffff; }
 
-        /* Modal Popup for Privacy Policy */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -229,12 +227,6 @@
             color: var(--text-light);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
             position: relative;
-            animation: popIn 0.3s ease;
-        }
-
-        @keyframes popIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
         }
 
         .close-btn {
@@ -265,7 +257,6 @@
 <body>
 
     <div class="container">
-        <!-- Top Policy Button -->
         <div class="top-action-bar">
             <button class="policy-btn-top" onclick="openPolicy()">📜 Privacy Policy</button>
         </div>
@@ -280,24 +271,35 @@
         </div>
 
         <div class="gods-grid" id="godsGrid">
+            <!-- श्री गणेश जी -->
             <a href="ganesh.html" class="god-card searchable-god" data-name="shri ganesha ganpati vinayak gajanand">
                 <img src="ganesh.jpg" alt="श्री गणेश जी" class="god-img">
                 <h2>श्री गणेश जी</h2>
                 <p>वक्रतुंड महामंत्र, गणेश आरती, जन्म कथा, एकदंत प्रसंग और विवाह कथा</p>
             </a>
 
+            <!-- मर्यादा पुरुषोत्तम श्री राम -->
+            <a href="ram.html" class="god-card searchable-god" data-name="maryada purushottam shri ram rama ramachandra ayodhya raghavendra raghunandan">
+                <img src="ram.jpg" alt="मर्यादा पुरुषोत्तम श्री राम" class="god-img">
+                <h2>मर्यादा पुरुषोत्तम श्री राम</h2>
+                <p>श्री राम महामंत्र, रामचरितमानस चौपाइयाँ, आरती और पावन गाथाएँ</p>
+            </a>
+
+            <!-- महादेव शिव -->
             <a href="shiva.html" class="god-card searchable-god" data-name="mahadev shiva shankar mahakal bholenath">
                 <img src="shiva.jpg" alt="महादेव शिव" class="god-img">
                 <h2>महादेव शिव</h2>
                 <p>महामृत्युंजय मंत्र, 10 प्रमुख आरतियाँ, 20 नाम और शिव पुराण गाथा</p>
             </a>
 
+            <!-- श्री हनुमान जी -->
             <a href="hanuman.html" class="god-card searchable-god" data-name="shri hanuman bajarangbali pavanputt chalisa">
                 <img src="hanuman.jpg" alt="श्री हनुमान जी" class="god-img">
                 <h2>श्री हनुमान जी</h2>
                 <p>संपूर्ण हनुमान चालीसा, शक्तिशाली मंत्र, 20 पावन नाम और प्रेरक कथाएँ</p>
             </a>
 
+            <!-- श्री कृष्ण -->
             <a href="krishna.html" class="god-card searchable-god" data-name="shri krishna shyam kanha gita bhagavad">
                 <img src="krishna.jpg" alt="श्री कृष्ण" class="god-img">
                 <h2>श्री कृष्ण</h2>
@@ -325,7 +327,6 @@
     </div>
 
     <script>
-        // Live Quick Search for Homepage Cards
         function searchGods() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.querySelectorAll('.searchable-god');
@@ -340,7 +341,6 @@
             });
         }
 
-        // Modal Functions for Privacy Policy
         function openPolicy() {
             document.getElementById('policyModal').style.display = 'flex';
         }
@@ -348,7 +348,6 @@
             document.getElementById('policyModal').style.display = 'none';
         }
 
-        // Close modal when clicking outside of the box
         window.onclick = function(event) {
             let modal = document.getElementById('policyModal');
             if (event.target == modal) {
@@ -357,5 +356,4 @@
         }
     </script>
 </body>
-    </html>
-    
+</html>
