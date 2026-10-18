@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hindu Divine Portal - Royal Edition</title>
     <style>
-        /* --- THEME 2: ROYAL CRIMSON (राजसी सिंदूर और स्वर्ण) --- */
+        /* --- THEME 2: ROYAL CRIMSON (Rajasi Sindoor aur Swarn) --- */
         :root {
             --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
             --brass-gold: #d4af37;
@@ -33,6 +33,27 @@
             padding: 20px;
         }
 
+        .top-action-bar {
+            text-align: right;
+            margin-bottom: 15px;
+        }
+
+        .policy-btn-top {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--brass-gold);
+            color: var(--brass-gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .policy-btn-top:hover {
+            background: var(--brass-gold);
+            color: #2a0808;
+        }
+
         header {
             text-align: center;
             background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(0,0,0,0.4));
@@ -58,28 +79,6 @@
             font-size: 16px;
             color: var(--text-muted);
             font-weight: 500;
-        }
-
-        /* Top Quick Actions Bar */
-        .top-action-bar {
-            text-align: right;
-            margin-bottom: 15px;
-        }
-
-        .policy-btn-top {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--brass-gold);
-            color: var(--brass-gold);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .policy-btn-top:hover {
-            background: var(--brass-gold);
-            color: #2a0808;
         }
 
         /* Search Box */
@@ -129,7 +128,7 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 30px 20px;
+            padding: 25px 20px;
             text-align: center;
             text-decoration: none;
             color: var(--text-light);
@@ -146,15 +145,25 @@
             background: rgba(45, 15, 15, 0.85);
         }
 
-        .god-icon {
-            font-size: 50px;
+        /* Image styling: Object-fit contain to preserve original uploaded look */
+        .god-img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.2);
             margin-bottom: 15px;
-            display: inline-block;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .god-card:hover .god-img {
+            transform: scale(1.03);
         }
 
         .god-card h2 {
-            margin: 0 0 10px 0;
+            margin: 5px 0 10px 0;
             color: var(--brass-gold);
             font-size: 24px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
@@ -256,7 +265,7 @@
 <body>
 
     <div class="container">
-        <!-- Top Policy Button for Instant Access -->
+        <!-- Top Policy Button -->
         <div class="top-action-bar">
             <button class="policy-btn-top" onclick="openPolicy()">📜 Privacy Policy</button>
         </div>
@@ -272,25 +281,25 @@
 
         <div class="gods-grid" id="godsGrid">
             <a href="ganesh.html" class="god-card searchable-god" data-name="shri ganesha ganpati vinayak gajanand">
-                <div class="god-icon">🐘</div>
+                <img src="images/ganesh.jpg" alt="श्री गणेश जी" class="god-img">
                 <h2>श्री गणेश जी</h2>
                 <p>वक्रतुंड महामंत्र, गणेश आरती, जन्म कथा, एकदंत प्रसंग और विवाह कथा</p>
             </a>
 
             <a href="shiva.html" class="god-card searchable-god" data-name="mahadev shiva shankar mahakal bholenath">
-                <div class="god-icon">🔱</div>
+                <img src="images/shiva.jpg" alt="महादेव शिव" class="god-img">
                 <h2>महादेव शिव</h2>
                 <p>महामृत्युंजय मंत्र, 10 प्रमुख आरतियाँ, 20 नाम और शिव पुराण गाथा</p>
             </a>
 
             <a href="hanuman.html" class="god-card searchable-god" data-name="shri hanuman bajarangbali pavanputt chalisa">
-                <div class="god-icon">🚩</div>
+                <img src="images/hanuman.jpg" alt="श्री हनुमान जी" class="god-img">
                 <h2>श्री हनुमान जी</h2>
                 <p>संपूर्ण हनुमान चालीसा, शक्तिशाली मंत्र, 20 पावन नाम और प्रेरक कथाएँ</p>
             </a>
 
             <a href="krishna.html" class="god-card searchable-god" data-name="shri krishna shyam kanha gita bhagavad">
-                <div class="god-icon">🦚</div>
+                <img src="images/krishna.jpg" alt="श्री कृष्ण" class="god-img">
                 <h2>श्री कृष्ण</h2>
                 <p>मुरली मनोहर के दिव्य मंत्र, आरती, गीता सार और पावन लीलाएँ</p>
             </a>
