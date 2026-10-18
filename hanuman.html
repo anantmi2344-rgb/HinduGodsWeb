@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shri Hanuman - Divine Portal</title>
     <style>
+        /* --- THEME 2: ROYAL CRIMSON (राजसी सिंदूर और स्वर्ण) --- */
         :root {
-            --primary-gold: #d97706;
-            --deep-saffron: #7c2d12;
-            --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
+            --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
+            --brass-gold: #d4af37;
+            --brass-dark: #aa8c2c;
+            --glass-bg: rgba(30, 10, 10, 0.7);
+            --glass-border: rgba(212, 175, 55, 0.4);
+            --text-light: #fdfbf7;
+            --text-muted: #eaddb6;
         }
 
-        * {
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
-            background: var(--bg-gradient);
+            background: var(--crimson-bg);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #292524;
+            color: var(--text-light);
             margin: 0;
             padding: 0;
+            min-height: 100vh;
         }
 
         .container {
@@ -32,145 +34,225 @@
         }
 
         .nav-back {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             text-decoration: none;
-            color: var(--deep-saffron);
-            font-weight: bold;
+            color: var(--brass-gold);
+            font-weight: 700;
             margin-bottom: 15px;
             font-size: 16px;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        .nav-back:hover {
+            background: var(--brass-gold);
+            color: #2a0808;
+            transform: translateX(-5px);
         }
 
         header {
             text-align: center;
-            background: linear-gradient(135deg, #7c2d12, #b45309);
-            color: #fff;
-            padding: 35px 20px;
-            border-radius: 20px;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(0,0,0,0.4));
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            border-radius: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
         }
 
         header h1 {
             margin: 0;
-            font-size: 28px;
+            font-size: 32px;
+            color: var(--brass-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         header p {
-            margin: 8px 0 0 0;
-            font-size: 15px;
-            color: #fde68a;
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
         /* Tabs */
         .tabs-container {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             overflow-x: auto;
-            padding: 10px 5px 20px 5px;
+            padding: 10px 5px 25px 5px;
             white-space: nowrap;
+            scrollbar-width: none;
         }
+        .tabs-container::-webkit-scrollbar { display: none; }
 
         .tab-btn {
-            background: #ffffff;
-            border: 2px solid #f59e0b;
-            color: var(--deep-saffron);
-            padding: 8px 18px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--brass-gold);
+            color: var(--brass-gold);
+            padding: 10px 24px;
             border-radius: 30px;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 15px;
+            font-weight: 700;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .tab-btn.active, .tab-btn:hover {
-            background: #d97706;
-            color: white;
+            background: var(--brass-gold);
+            color: #2a0808;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
         }
 
         /* Search */
         .search-box {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            position: relative;
         }
 
         .search-input {
             width: 100%;
-            padding: 12px 20px;
+            padding: 16px 20px 16px 50px;
             border-radius: 30px;
-            border: 1px solid #f59e0b;
-            font-size: 15px;
+            border: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.3);
+            font-size: 16px;
+            color: var(--text-light);
             outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-input::placeholder { color: rgba(234,221,182,0.6); }
+        .search-input:focus {
+            border-color: var(--brass-gold);
+            background: rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            opacity: 0.8;
         }
 
         /* Cards */
         .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            padding: 25px;
-            border-radius: 16px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .card h2 {
-            color: var(--deep-saffron);
+            color: var(--brass-gold);
             margin-top: 0;
-            border-bottom: 2px solid #fef3c7;
-            padding-bottom: 8px;
-            font-size: 20px;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
+            padding-bottom: 12px;
+            font-size: 22px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .content-text {
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 15px;
+            font-size: 16.5px;
+            line-height: 1.85;
+            margin-bottom: 25px;
+            color: var(--text-light);
         }
 
-        .content-text p {
-            margin: 10px 0;
-        }
+        .content-text p { margin: 14px 0; }
+        .content-text strong { color: var(--brass-gold); }
 
         .names-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 25px;
         }
 
         .name-box {
-            background: #fffbeb;
-            padding: 10px 12px;
-            border-radius: 6px;
-            border-left: 3px solid #d97706;
-            font-size: 14px;
+            background: rgba(0,0,0,0.3);
+            padding: 14px 16px;
+            border-radius: 12px;
+            border-left: 4px solid var(--brass-gold);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-muted);
         }
 
         /* Copy Button */
         .copy-btn {
-            background: #d97706;
+            background: var(--brass-gold);
             border: none;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
+            color: #2a0808;
+            padding: 12px 24px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 13px;
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        .copy-btn:hover {
+            background: #f0c950;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
         }
 
-        /* Toast */
+        /* Toast Notification */
         #toast {
             visibility: hidden;
-            min-width: 220px;
-            background-color: #7c2d12;
-            color: #fff;
+            min-width: 250px;
+            background: var(--brass-gold);
+            color: #2a0808;
             text-align: center;
-            border-radius: 6px;
-            padding: 10px;
+            border-radius: 12px;
+            padding: 14px 20px;
             position: fixed;
             z-index: 1000;
             left: 50%;
-            bottom: 20px;
+            bottom: 40px;
             transform: translateX(-50%);
-            font-weight: bold;
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        #toast.show { visibility: visible; }
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; transform: translate(-50%, 20px); }
+            to { bottom: 40px; opacity: 1; transform: translate(-50%, 0); }
+        }
+        @keyframes fadeout {
+            from { bottom: 40px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: rgba(234,221,182,0.5);
+            font-size: 14px;
+            padding: 30px 0;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -179,135 +261,181 @@
         <a href="index.html" class="nav-back">← होम पेज पर वापस जाएं</a>
 
         <header>
-            <h1>🚩 संकटमोचन श्री हनुमान दिव्य पोर्टल</h1>
-            <p>हनुमान चालीसा, मंत्र, नाम और पावन कथाएँ</p>
+            <h1>🚩 श्री हनुमान दिव्य पोर्टल</h1>
+            <p>संपूर्ण चालीसा, शक्तिशाली मंत्र, 20 पावन नाम और प्रेरक कथाएँ</p>
         </header>
 
         <div class="search-box">
-            <input type="text" id="searchInput" class="search-input" placeholder="यहाँ खोजें..." onkeyup="searchContent()">
+            <input type="text" id="searchInput" class="search-input" placeholder="चालीसा, मंत्र, नाम या कथा खोजें..." onkeyup="searchContent()">
         </div>
 
         <div class="tabs-container">
-            <button class="tab-btn active" onclick="filterSection('all', this)">🌟 सभी</button>
-            <button class="tab-btn" onclick="filterSection('chalisa', this)">📜 चालीसा</button>
-            <button class="tab-btn" onclick="filterSection('mantras', this)">📿 मंत्र</button>
-            <button class="tab-btn" onclick="filterSection('names', this)">✨ नाम</button>
-            <button class="tab-btn" onclick="filterSection('story', this)">📖 गाथा</button>
-            <button class="tab-btn" onclick="filterSection('katha', this)">📚 कथाएँ</button>
+            <button id="h-all" class="tab-btn active" onclick="filterSection('all', 'h-all')">🌟 सभी</button>
+            <button id="h-chalisa" class="tab-btn" onclick="filterSection('chalisa', 'h-chalisa')">📜 चालीसा</button>
+            <button id="h-mantras" class="tab-btn" onclick="filterSection('mantras', 'h-mantras')">📿 मंत्र</button>
+            <button id="h-names" class="tab-btn" onclick="filterSection('names', 'h-names')">✨ 20 नाम</button>
+            <button id="h-katha" class="tab-btn" onclick="filterSection('katha', 'h-katha')">📖 पावन कथाएँ</button>
         </div>
 
-        <!-- 1. चालीसा -->
+        <!-- 1. संपूर्ण हनुमान चालीसा -->
         <div class="card searchable-card" data-category="chalisa">
-            <h2>📜 श्री हनुमान चालीसा</h2>
+            <h2>📜 श्री हनुमान चालीसा (दोहा एवं चौपाई)</h2>
             <div class="content-text" id="chalisa-box">
-                <p><strong>दोहा:</strong> श्रीगुरु चरन सरोज रज निज मनु मुकुर सुधारि। बरनउँ रघुबर बिमल सुजोकु जो दायकु फल चारि॥</p>
-                <p>बुद्धिहीन तनु जानिकै सुमिरौं पवन-कुमार। बल बुद्धि बिद्या देहु मोहिं हरहु कलेस बिकार॥</p>
-                <p><strong>चौपाई:</strong> जय हनुमान ज्ञान गुन सागर। जय कपीस तिहुँ लोक उजागर॥ राम दूत अतुलित बल धामा। अंजनि-पुत्र पवनसुत नामा॥</p>
-            </div>
-            <button class="copy-btn" onclick="copyContent('chalisa-box', 'चालीसा कॉपी हो गई है!')">📋 कॉपी करें</button>
-        </div>
+                <p><strong>दोहा:</strong><br>
+                श्रीगुरु चरन सरोज रज निज मनु मुकुरु सुधारि। बरनउँ रघुबर बिमल जसु जो दायकु फल चारि॥<br>
+                बुद्धिहीन तनु जानिके सुमिरौ पवन-कुमार। बल बुधि बिद्या देहु मोहिं हरहु कलेस बिकार॥</p>
+                
+                <p><strong>चौपाई:</strong><br>
+                जय हनुमान ज्ञान गुन सागर। जय कपीस तिहुँ लोक उजागर॥<br>
+                राम दूत अतुलित बल धामा। अंजनि-पुत्र पवनसुत नामा॥<br>
+                महाबीर बिक्रम बजरंगी। कुमति निवार सुमति के संगी॥<br>
+                कंचन बरन बिराज सुबेसा। कानन कुंडल कुंचित केसा॥<br>
+                हाथ बज्र औ ध्वजा बिराजै। काँधे मूँज जनेऊ साजै॥<br>
+                संकर सुवन केसरीनंदन। तेज प्रताप महा जग बंदन॥<br>
+                बिद्यावान गुनी अति चातुर। राम काज करिबे को आतुर॥<br>
+                प्रभु चरित्र सुनिबे को रसिया। राम लखन सीता मन बसिया॥</p>
 
-        <!-- 2. मंत्र -->
+                <p>सूक्ष्म रूप धरि सियहिं दिखावा। बिकट रूप धरि लंक जरावा॥<br>
+                भीम रूप धरि असुर सँहारे। रामचंद्र के काज संवारे॥<br>
+                लाय सजीवन लखन जियाये। श्रीरघुबीर हरषि उर लाये॥<br>
+                रघुपति कीन्ही बहुत बड़ाई। तुम मम प्रिय भरतहि सम भाई॥<br>
+                सहस बदन तुम्हरो जस गावैं। अस कहि श्रीपति कंठ लगावैं॥</p>
+
+                <p>सनकादिक ब्रह्मादि मुनीसा। नारद सारद सहित अहीसा॥<br>
+                जम कुबेर दिगपाल जहाँ ते। कबि कोबिद कहि सके कहाँ ते॥<br>
+                तुम उपकार सुग्रीवहिं कीन्हा। राम मिलाय राज पद दीन्हा॥<br>
+                तुम्हरो मंत्र बिभीषन माना। लंकेस्वर भए सब जग जाना॥</p>
+
+                <p>जुग सहस्र जोजन पर भानू। लील्यो ताहि मधुर फल जानू॥<br>
+                प्रभु मुद्रिका मेलि मुख माहीं। जलधि लाँघि गये अचरज नाहीं॥<br>
+                दुर्गम काज जगत के जेते। सुगम अनुग्रह तुम्हरे तेते॥<br>
+                राम दुआरे तुम रखवारे। होत न आज्ञा बिनु पैसारे॥</p>
+
+                <p>सब सुख लहै तुम्हारी सरना। तुम रक्षक काहू को डर ना॥<br>
+                आपन तेज सम्हारो आपै। तीनों लोक हाँक तें काँपै॥<br>
+                भूत पिसाच निकट नहिं आवै। महाबीर जब नाम सुनावै॥<br>
+                नासै रोग हरै सब पीरा। जपत निरंतर हनुमत बीरा॥</p>
+
+                <p>संकट तें हनुमान छुड़ावै। मन क्रम बचन ध्यान जो लावै॥<br>
+                सब पर राम तपस्वी राजा। तिन के काज सकल तुम साजा॥<br>
+                और मनोरथ जो कोई लावै। सोइ अमित जीवन फल पावै॥<br>
+                चारों जुग परताप तुम्हारा। है परसिद्ध जगत उजियारा॥</p>
+
+                <p>साधु संत के तुम रखवारे। असुर निकंदन राम दुलारे॥<br>
+                अष्ट सिद्धि नौ निधि के दाता। अस बर दीन जानकी माता॥<br>
+                राम रसायन तुम्हरे पासा। सदा रहो रघुपति के दासा॥<br>
+                तुम्हरे भजन राम को पावै। जनम जनम के दुख बिसरावै॥</p>
+
+                <p>अन्त काल रघुबर पुर जाई। जहाँ जन्म हरि-भक्त कहाई॥<br>
+                और देवता चित्त न धरई। हनुमत सेइ सर्ब सुख करई॥<br>
+                संकट कटै मिटै सब पीरा। जो सुमिरै हनुमत बलबीरा॥<br>
+                जै जै जै हनुमान गोसाईं। कृपा करहु गुरुदेव की नाईं॥</p>
+
+                <p>जो सत बार पाठ कर कोई। छूटहि बंदि महा सुख होई॥<br>
+                जो यह पढ़ै हनुमान चालीसा। होय सिद्धि साखी गौरीसा॥<br>
+                तुलसीदास सदा हरि चेरा। कीजै नाथ हृदय मँह डेरा॥</p>
+
+                <p><strong>दोहा:</strong><br>
+                पवन तनय संकट हरन मंगल मूरति रूप। राम लखन सीता सहित हृदय बसहु सुर भूप॥</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('chalisa-box', 'संपूर्ण हनुमान चालीसा कॉपी हो गई है!')">📋 चालीसा कॉपी करें</button>
+        </div>
+        <!-- 2. शक्तिशाली मंत्र सेक्शन -->
         <div class="card searchable-card" data-category="mantras">
-            <h2>📿 हनुमान जी के प्रमुख मंत्र</h2>
+            <h2>📿 श्री हनुमान जी के 5 शक्तिशाली मंत्र</h2>
             <div class="content-text" id="mantras-box">
-                <p><strong>1. मूल मंत्र:</strong> ॐ हं हनुमते नमः॥</p>
-                <p><strong>2. संकट मोचन मंत्र:</strong> ॐ नमो हनुमते रुद्रावताराय सर्वशत्रुसंहारणाय स्वाहा॥</p>
-                <p><strong>3. बीज मंत्र:</strong> ॐ ऐं श्रीं हं हनुमते रामदूताय नमः॥</p>
+                <p><strong>1. मूल हनुमान मंत्र:</strong> ॐ हं हनुमते नमः॥</p>
+                <p><strong>2. महाबली मंत्र:</strong> ॐ नमो भगवते आंजनेय महाबलये स्वाहा॥</p>
+                <p><strong>3. संकट मोचन मंत्र:</strong> मनोजवं मारुततुल्यवेगं जितेन्द्रियं बुद्धिमतां वरिष्ठम्। वातात्मजं वानरयूथमुख्यं श्री रामदूतम शरणं प्रपद्ये॥</p>
+                <p><strong>4. रक्षा मंत्र:</strong> भूतपिसाच निकट नहिं आवै, महाबीर जब नाम सुनावै। नासै रोग हरै सब पीरा, जपत निरंतर हनुमत बीरा॥</p>
+                <p><strong>5. गायत्री मंत्र:</strong> ॐ आंजनेय्या विद्महे वायुपुत्राय धीमहि। तन्नो हनुमान प्रचोदयात्॥</p>
             </div>
-            <button class="copy-btn" onclick="copyContent('mantras-box', 'मंत्र कॉपी हो गए हैं!')">📋 कॉपी करें</button>
+            <button class="copy-btn" onclick="copyContent('mantras-box', 'सभी मंत्र कॉपी हो गए हैं!')">📋 मंत्र कॉपी करें</button>
         </div>
 
-        <!-- 3. नाम -->
+        <!-- 3. 20 लोकप्रिय नाम सेक्शन -->
         <div class="card searchable-card" data-category="names">
-            <h2>✨ हनुमान जी के प्रमुख नाम</h2>
+            <h2>✨ श्री हनुमान जी के 20 पावन नाम</h2>
             <div class="names-grid" id="names-box">
-                <div class="name-box"><strong>हनुमान:</strong> टूटी ठुड्डी वाले</div>
-                <div class="name-box"><strong>पवनपुत्र:</strong> पवन देव के पुत्र</div>
-                <div class="name-box"><strong>संकटमोचन:</strong> संकट दूर करने वाले</div>
-                <div class="name-box"><strong>बजरंगबली:</strong> वज्र समान शरीर वाले</div>
+                <div class="name-box"><strong>1. हनुमान:</strong> जिनकी ठुड्डी टूटी हुई हो</div>
+                <div class="name-box"><strong>2. बजरंगबली:</strong> वज्र के समान शरीर वाले</div>
+                <div class="name-box"><strong>3. पवनसुत:</strong> पवन देव के पुत्र</div>
+                <div class="name-box"><strong>4. आंजनेय:</strong> अंजनि माता के नंदन</div>
+                <div class="name-box"><strong>5. मारुति:</strong> मरुत् (पवन) के नंदन</div>
+                <div class="name-box"><strong>6. संकटमोचन:</strong> संकटों को दूर करने वाले</div>
+                <div class="name-box"><strong>7. महाबीर:</strong> अति पराक्रमी योद्धा</div>
+                <div class="name-box"><strong>8. रामदूता:</strong> भगवान राम के दूत</div>
+                <div class="name-box"><strong>9. केसरीनंदन:</strong> केसरी जी के पुत्र</div>
+                <div class="name-box"><strong>10. बजरांग:</strong> वज्र जैसे अंग वाले</div>
+                <div class="name-box"><strong>11. कपीश्वर:</strong> वानरों के स्वामी</div>
+                <div class="name-box"><strong>12. अतुलितबलधामा:</strong> अपार बल के धाम</div>
+                <div class="name-box"><strong>13. लक्ष्मणप्राणदाता:</strong> लक्ष्मण जी के प्राण बचाने वाले</div>
+                <div class="name-box"><strong>14. दशग्रीवदर्पहा:</strong> रावण का घमंड चूर करने वाले</div>
+                <div class="name-box"><strong>15. अशोककान्तविच्छेत्ता:</strong> अशोक वाटिका उजाड़ने वाले</div>
+                <div class="name-box"><strong>16. सुरारिघ्न:</strong> देवताओं के शत्रुओं का नाश करने वाले</div>
+                <div class="name-box"><strong>17. ज्ञानेन्द्रियाणामग्रगण्य:</strong> ज्ञानियों में श्रेष्ठ</div>
+                <div class="name-box"><strong>18. सर्वरोगहरा:</strong> सभी रोगों को हरने वाले</div>
+                <div class="name-box"><strong>19. सर्वदुःखहर:</strong> सभी दुखों का नाश करने वाले</div>
+                <div class="name-box"><strong>20. सियाराममनोहर:</strong> श्रीराम-सीता के मन को भाने वाले</div>
             </div>
-            <button class="copy-btn" onclick="copyContent('names-box', 'सभी नाम कॉपी हो गए हैं!')">📋 कॉपी करें</button>
+            <button class="copy-btn" onclick="copyContent('names-box', 'सभी नाम कॉपी हो गए हैं!')">📋 नाम कॉपी करें</button>
         </div>
-
-        <!-- 4. गाथा -->
-        <div class="card searchable-card" data-category="story">
-            <h2>📖 संपूर्ण गाथा</h2>
-            <div class="content-text" id="story-box">
-                <p>माता अंजनी और केसरी के यहाँ चैत्र पूर्णिमा को हनुमान जी का जन्म हुआ। इन्हें शिव का 11वां रुद्रावतार माना जाता है। बचपन में सूर्य को फल समझकर निगलने की लीला और लंका दहन इनकी महानता दर्शाती है।</p>
-            </div>
-            <button class="copy-btn" onclick="copyContent('story-box', 'गाथा कॉपी हो गई है!')">📋 कॉपी करें</button>
-        </div>
-
-        <!-- 5. कथाएँ -->
+        <!-- 4. पावन कथाएँ सेक्शन -->
         <div class="card searchable-card" data-category="katha">
-            <h2>📚 प्रसिद्ध कथाएँ</h2>
-            <div class="content-text" id="katha-box">
-                <p>1. सूर्य को फल समझकर निगलना।<br>2. संजीवनी बूटी के लिए द्रोणगिरि पर्वत उठाना।<br>3. छाती चीरकर राम-सीता के दर्शन कराना।</p>
+            <h2>📖 श्री हनुमान जी की प्रेरणादायक कथाएँ</h2>
+            <div class="content-text" id="katha-box" style="text-align: justify;">
+                <p><strong>1. सूर्य को फल समझकर निगलना:</strong> बचपन में भूख लगने पर बाल हनुमान ने आकाश में चमकते सूर्य को एक मीठा फल समझकर छलांग लगाई और उसे अपने मुख में रख लिया, जिससे तीनों लोकों में अंधकार छा गया। तब इंद्रदेव ने अपने वज्र से वार किया, जिससे उनकी ठुड्डी पर चोट लगी और वे 'हनुमान' कहलाए।</p>
+                <p><strong>2. संजीवनी बूटी और द्रोणगिरि पर्वत:</strong> मेघनाद के शक्ति बाण से जब लक्ष्मण जी मूर्छित हो गए, तो हनुमान जी पूरा द्रोणगिरि पर्वत ही उठाकर लंका ले आए, जिससे वैद्य सुषिषेण ने संजीवनी बूटी से लक्ष्मण जी के प्राण बचाए।</p>
+                <p><strong>3. हृदय चीरकर राम-सीता के दर्शन कराना:</strong> एक बार दरबार में जब कुछ लोगों ने पूछा कि आपके हृदय में कौन बसता है, तो हनुमान जी ने अपनी छाती चीरकर प्रभु श्री राम और माता सीता के प्रत्यक्ष दर्शन कराए।</p>
             </div>
-            <button class="copy-btn" onclick="copyContent('katha-box', 'कथाएँ कॉपी हो गई हैं!')">📋 कॉपी करें</button>
+            <button class="copy-btn" onclick="copyContent('katha-box', 'कथाएँ कॉपी हो गई हैं!')">📋 कथाएँ कॉपी करें</button>
         </div>
+
+        <footer>
+            <p>© 2026 HinduGodsWeb Portal. Built with pure devotion & Royal Design.</p>
+        </footer>
     </div>
 
+    <!-- Toast Notification -->
     <div id="toast">संदेश</div>
 
     <script>
-        // 100% Guaranteed Working Copy Function using Textarea
+        // 100% Working Fallback Copy Function
         function copyContent(containerId, message) {
             const textElement = document.getElementById(containerId);
-            if (!textElement) {
-                alert('एवं तत्व नहीं मिला!');
-                return;
-            }
-            
-            const textToCopy = textElement.innerText;
+            if (!textElement) return;
             const textArea = document.createElement("textarea");
-            textArea.value = textToCopy;
-            
+            textArea.value = textElement.innerText;
             textArea.style.position = "fixed";
-            textArea.style.top = "0";
-            textArea.style.left = "0";
-            textArea.style.opacity = "0";
-            
             document.body.appendChild(textArea);
             textArea.focus();
             textArea.select();
-
             try {
-                const successful = document.execCommand('copy');
-                if (successful) {
-                    showToast(message);
-                } else {
-                    alert('कॉपी नहीं हो पाया!');
-                }
+                document.execCommand('copy');
+                showToast(message);
             } catch (err) {
-                alert('ब्राउज़र ने अनुमति नहीं दी!');
+                alert('कॉपी नहीं हो पाया!');
             }
-
             document.body.removeChild(textArea);
         }
 
+        // Beautiful Toast Notification
         function showToast(msg) {
             const toast = document.getElementById("toast");
             toast.innerText = msg;
             toast.className = "show";
-            setTimeout(() => { 
-                toast.className = ""; 
-            }, 2500);
+            setTimeout(() => { toast.className = ""; }, 2500);
         }
 
-        // Working Tab Filter Function
-        function filterSection(category, btnElement) {
+        // 100% Working ID-based Tab Filter
+        function filterSection(category, btnId) {
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            if (btnElement) {
-                btnElement.classList.add('active');
-            }
+            document.getElementById(btnId).classList.add('active');
 
             const cards = document.querySelectorAll('.searchable-card');
             cards.forEach(card => {
-                const cardCat = card.getAttribute('data-category');
-                if (category === 'all' || cardCat === category) {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
@@ -315,11 +443,10 @@
             });
         }
 
-        // Search Function
+        // Live Search Function
         function searchContent() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.querySelectorAll('.searchable-card');
-
             cards.forEach(card => {
                 let text = card.innerText.toLowerCase();
                 if (text.includes(input)) {
