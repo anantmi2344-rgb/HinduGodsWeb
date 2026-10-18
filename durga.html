@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>माँ दुर्गा - Divine Portal</title>
+    <style>
+        :root {
+            --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
+            --brass-gold: #d4af37;
+            --brass-dark: #aa8c2c;
+            --glass-bg: rgba(30, 10, 10, 0.75);
+            --glass-border: rgba(212, 175, 55, 0.4);
+            --text-light: #fdfbf7;
+            --text-muted: #eaddb6;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background: var(--crimson-bg);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--brass-gold);
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 16px;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        .nav-back:hover {
+            background: var(--brass-gold);
+            color: #2a0808;
+            transform: translateX(-5px);
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(0,0,0,0.4));
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 20px;
+            border-radius: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: var(--brass-gold);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .tabs-container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 5px 25px 5px;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+        .tabs-container::-webkit-scrollbar { display: none; }
+
+        .tab-btn {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--brass-gold);
+            color: var(--brass-gold);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--brass-gold);
+            color: #2a0808;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .search-box {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.35);
+            font-size: 16px;
+            color: var(--text-light);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-input::placeholder { color: rgba(234,221,182,0.6); }
+        .search-input:focus {
+            border-color: var(--brass-gold);
+            background: rgba(0,0,0,0.6);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .card h2 {
+            color: var(--brass-gold);
+            margin-top: 0;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
+            padding-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .content-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+
+        .content-text p { margin: 12px 0; }
+        .content-text strong { color: var(--brass-gold); }
+
+        .copy-btn {
+            background: var(--brass-gold);
+            border: none;
+            color: #2a0808;
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        .copy-btn:hover {
+            background: #f0c950;
+            transform: translateY(-2px);
+        }
+
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background: var(--brass-gold);
+            color: #2a0808;
+            text-align: center;
+            border-radius: 12px;
+            padding: 14px 20px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 40px;
+            transform: translateX(-50%);
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; transform: translate(-50%, 20px); }
+            to { bottom: 40px; opacity: 1; transform: translate(-50%, 0); }
+        }
+        @keyframes fadeout {
+            from { bottom: 40px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: rgba(234,221,182,0.6);
+            font-size: 14.5px;
+            padding: 30px 0;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="nav-back">← होम पेज पर वापस जाएं</a>
+
+        <header>
+            <h1>🌺 माँ दुर्गा दिव्य पोर्टल</h1>
+            <p>दिव्य मन्त्र, महाआरती, संपूर्ण कथा और पावन नाम</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="मन्त्र, आरती या कथा खोजें..." onkeyup="searchContent()">
+        </div>
+
+        <div class="tabs-container">
+            <button id="r-all" class="tab-btn active" onclick="filterSection('all', 'r-all')">🌟 सभी</button>
+            <button id="r-mantras" class="tab-btn" onclick="filterSection('mantras', 'r-mantras')">📿 मन्त्र</button>
+            <button id="r-aarti" class="tab-btn" onclick="filterSection('aarti', 'r-aarti')">🪔 आरती सार</button>
+            <button id="r-katha" class="tab-btn" onclick="filterSection('katha', 'r-katha')">📖 संपूर्ण कथा</button>
+            <button id="r-names" class="tab-btn" onclick="filterSection('names', 'r-names')">📜 प्रमुख नाम</button>
+        </div>
+
+        <!-- 1. मन्त्र सेक्शन -->
+        <div class="card searchable-card" data-category="mantras">
+            <h2>📿 माँ दुर्गा के प्रमुख पावन मन्त्र</h2>
+            <div class="content-text" id="mantras-box">
+                <p><strong>1. दुर्गा बीज मन्त्र:</strong> ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चै॥</p>
+                <p><strong>2. सर्व बाधा मुक्ति मन्त्र:</strong> सर्वबाधाविनिर्मुक्तो धनधान्यसुतान्वितः। मनुष्यो मत्तप्रसादेन भविष्यति न संशयः॥</p>
+                <p><strong>3. या देवी सर्वभूतेषु:</strong> या देवी सर्वभूतेषु शक्तिरूपेण संस्थिता, नमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('mantras-box', 'मन्त्र कॉपी हो गए हैं!')">📋 मन्त्र कॉपी करें</button>
+        </div>
+
+        <!-- 2. आरती सेक्शन -->
+        <div class="card searchable-card" data-category="aarti">
+            <h2>🪔 अम्बे माँ की लोकप्रिय आरती एवं सार</h2>
+            <div class="content-text" id="aarti-box">
+                <p><strong>आरती सार:</strong> माँ अम्बे की यह पावन आरती भक्तों के सभी संकटों को दूर करने वाली और मन को शांति प्रदान करने वाली है। इसमें माँ के स्वरूप (खप्पर वाली, सिंह पर सवार) का गुणगान किया जाता है। नियमित रूप से संध्या के समय आरती करने से घर में सुख, समृद्धि और सकारात्मक ऊर्जा का वास होता है।</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('aarti-box', 'आरती सारांश कॉपी हो गया है!')">📋 आरती कॉपी करें</button>
+        </div>
+
+        <!-- 3. कथा सेक्शन -->
+        <div class="card searchable-card" data-category="katha">
+            <h2>📖 माँ दुर्गा की संपूर्ण कथा (शुरुआत से अंत तक)</h2>
+            <div class="content-text" id="katha-box" style="text-align: justify;">
+                <p><strong>1. महिषासुर का आतंक:</strong> प्राचीन काल में महिषासुर नामक महादैत्य ने कठिन तपस्या कर अजेय होने का वरदान पा लिया था। इसके बाद उसने स्वर्ग लोक पर आक्रमण कर दिया और सभी देवताओं को पराजित कर स्वर्ग से बाहर निकाल दिया।</p>
+                <p><strong>2. महाशक्ति का प्राकट्य:</strong> संकट में फंसे देवताओं ने त्रिमूर्ति (ब्रह्मा, विष्णु, शिव) से सहायता की प्रार्थना की। तब सभी देवताओं के क्रोध और तेज से एक पुंज प्रकट हुआ, जिससे माँ महाशक्ति दुर्गा का दिव्य अवतार हुआ।</p>
+                <p><strong>3. अस्त्र-शस्त्र की प्राप्ति:</strong> सभी देवताओं ने माँ को अपने सबसे शक्तिशाली अस्त्र प्रदान किए—भगवान शिव ने त्रिशूल, विष्णु ने चक्र, वरुण ने शंख, और हिमालय ने सवारी के लिए सिंह प्रदान किया।</p>
+                <p><strong>4. युद्धांतर विजय:</strong> माँ दुर्गा ने महिषासुर की विशाल सेना के साथ नौ दिनों तक अत्यंत भयंकर युद्ध किया। अंततः दशमी के दिन माता ने महिषासुर का संहार कर तीनों लोकों को उसके अत्याचारों से मुक्त कराया। तभी से यह विजय उत्सव 'नवरात्रि' और 'दशहरा' के रूप में मनाया जाता है।</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('katha-box', 'कथा कॉपी हो गई है!')">📋 कथा कॉपी करें</button>
+        </div>
+
+        <!-- 4. प्रमुख नाम सेक्शन -->
+        <div class="card searchable-card" data-category="names">
+            <h2>📜 माँ दुर्गा के 20 प्रमुख पावन नाम</h2>
+            <div class="content-text" id="names-box">
+                <p>1. शैलपुत्री, 2. ब्रह्मचारिणी, 3. चन्द्रघण्टा, 4. कूष्माण्डा, 5. स्कन्दमाता, 6. कात्यायनी, 7. कालरात्रि, 8. महागौरी, 9. सिद्धिदात्री, 10. भवानी, 11. महाकाली, 12. महालक्ष्मी, 13. महासरस्वती, 14. शिवानेरी, 15. महिषासुरमर्दिनी, 16. चामुण्डा, 17. सर्वमङ्गला, 18. अपर्णा, 19. नारायणी, 20. जगदम्बा।</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('names-box', 'प्रमुख नाम कॉपी हो गए हैं!')">📋 नाम कॉपी करें</button>
+        </div>
+
+        <footer>
+            <p>© 2026 HinduGodsWeb Portal. Built with 100% Devotion & Royal Design.</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast">संदेश</div>
+
+    <script>
+        function copyContent(containerId, message) {
+            const textElement = document.getElementById(containerId);
+            if (!textElement) return;
+            const textArea = document.createElement("textarea");
+            textArea.value = textElement.innerText;
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(message);
+            } catch (err) {
+                alert('कॉपी नहीं हो पाया!');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            toast.innerText = msg;
+            toast.className = "show";
+            setTimeout(() => { toast.className = ""; }, 2500);
+        }
+
+        function filterSection(category, btnId) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(btnId).classList.add('active');
+
+            const cards = document.querySelectorAll('.searchable-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchContent() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.searchable-card');
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
