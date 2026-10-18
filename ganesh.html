@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shri Ganesha - Divine Portal</title>
     <style>
+        /* --- THEME 2: ROYAL CRIMSON (राजसी सिंदूर और स्वर्ण) --- */
         :root {
-            --primary-gold: #d97706;
-            --deep-saffron: #7c2d12;
-            --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
+            --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
+            --brass-gold: #d4af37;
+            --brass-dark: #aa8c2c;
+            --glass-bg: rgba(30, 10, 10, 0.7);
+            --glass-border: rgba(212, 175, 55, 0.4);
+            --text-light: #fdfbf7;
+            --text-muted: #eaddb6;
         }
 
-        * {
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
-            background: var(--bg-gradient);
+            background: var(--crimson-bg);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #292524;
+            color: var(--text-light);
             margin: 0;
             padding: 0;
+            min-height: 100vh;
         }
 
         .container {
@@ -32,89 +34,84 @@
         }
 
         .nav-back {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             text-decoration: none;
-            color: var(--deep-saffron);
-            font-weight: bold;
+            color: var(--brass-gold);
+            font-weight: 700;
             margin-bottom: 15px;
             font-size: 16px;
-            transition: 0.3s;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
         }
-
         .nav-back:hover {
-            color: var(--primary-gold);
+            background: var(--brass-gold);
+            color: #2a0808;
+            transform: translateX(-5px);
         }
 
-        /* Divine Header Graphic */
         header {
             text-align: center;
-            background: linear-gradient(135deg, #7c2d12, #b45309);
-            color: #fff;
-            padding: 35px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(124, 45, 18, 0.2);
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(0,0,0,0.4));
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            border-radius: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             position: relative;
             overflow: hidden;
         }
 
-        header::before {
-            content: "🕉️";
-            font-size: 110px;
-            position: absolute;
-            right: -20px;
-            bottom: -25px;
-            opacity: 0.1;
-        }
-
         header h1 {
             margin: 0;
-            font-size: 30px;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 32px;
+            color: var(--brass-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         header p {
-            margin: 8px 0 0 0;
-            font-size: 15px;
-            color: #fde68a;
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
-        /* --- STYLISH HORIZONTAL TABS --- */
+        /* Tabs */
         .tabs-container {
             display: flex;
             gap: 12px;
             overflow-x: auto;
-            padding: 10px 5px 20px 5px;
+            padding: 10px 5px 25px 5px;
             white-space: nowrap;
             scrollbar-width: none;
         }
-
-        .tabs-container::-webkit-scrollbar {
-            display: none;
-        }
+        .tabs-container::-webkit-scrollbar { display: none; }
 
         .tab-btn {
-            background: #ffffff;
-            border: 2px solid #f59e0b;
-            color: var(--deep-saffron);
-            padding: 10px 22px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--brass-gold);
+            color: var(--brass-gold);
+            padding: 10px 24px;
             border-radius: 30px;
             font-size: 15px;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
 
-        .tab-btn:hover, .tab-btn.active {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--brass-gold);
+            color: #2a0808;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(217, 119, 6, 0.3);
         }
 
-        /* --- SEARCH BAR --- */
+        /* Search */
         .search-box {
             margin-bottom: 25px;
             position: relative;
@@ -122,144 +119,139 @@
 
         .search-input {
             width: 100%;
-            padding: 14px 20px 14px 45px;
+            padding: 16px 20px 16px 50px;
             border-radius: 30px;
-            border: 1px solid #f59e0b;
-            background: #fff;
+            border: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.3);
             font-size: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            color: var(--text-light);
             outline: none;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
-
+        .search-input::placeholder { color: rgba(234,221,182,0.6); }
         .search-input:focus {
-            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.15);
-            border-color: var(--deep-saffron);
+            border-color: var(--brass-gold);
+            background: rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
         .search-box::before {
             content: "🔍";
             position: absolute;
-            left: 18px;
-            top: 15px;
-            font-size: 16px;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            opacity: 0.8;
         }
 
-        /* Glassmorphism Cards */
+        /* Cards */
         .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-            position: relative;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .card h2 {
-            color: var(--deep-saffron);
+            color: var(--brass-gold);
             margin-top: 0;
-            border-bottom: 2px solid #fef3c7;
-            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
+            padding-bottom: 12px;
             font-size: 22px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .content-text {
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-size: 16.5px;
+            line-height: 1.85;
+            margin-bottom: 25px;
+            color: var(--text-light);
         }
 
-        .content-text p {
-            margin: 12px 0;
-        }
+        .content-text p { margin: 14px 0; }
+        .content-text strong { color: var(--brass-gold); }
 
-        .content-text strong {
-            color: #9a3412;
-        }
-
-        /* 12 Names Grid */
         .names-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 15px;
-            margin-top: 15px;
-            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-bottom: 25px;
         }
 
         .name-box {
-            background: #fffbeb;
-            padding: 12px 15px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-gold);
+            background: rgba(0,0,0,0.3);
+            padding: 14px 16px;
+            border-radius: 12px;
+            border-left: 4px solid var(--brass-gold);
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--text-muted);
         }
 
-        /* Functional Copy Button */
+        /* Copy Button */
         .copy-btn {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
+            background: var(--brass-gold);
             border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
+            color: #2a0808;
+            padding: 12px 24px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
         }
-
         .copy-btn:hover {
-            background: linear-gradient(135deg, #d97706, #b45309);
-            transform: scale(1.02);
+            background: #f0c950;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
         }
 
         /* Toast Notification */
         #toast {
             visibility: hidden;
             min-width: 250px;
-            background-color: #7c2d12;
-            color: #fff;
+            background: var(--brass-gold);
+            color: #2a0808;
             text-align: center;
-            border-radius: 8px;
-            padding: 12px;
+            border-radius: 12px;
+            padding: 14px 20px;
             position: fixed;
             z-index: 1000;
             left: 50%;
-            bottom: 30px;
+            bottom: 40px;
             transform: translateX(-50%);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            font-weight: 500;
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
         #toast.show {
             visibility: visible;
             animation: fadein 0.5s, fadeout 0.5s 2.5s;
         }
 
         @keyframes fadein {
-            from { bottom: 0; opacity: 0; }
-            to { bottom: 30px; opacity: 1; }
+            from { bottom: 0; opacity: 0; transform: translate(-50%, 20px); }
+            to { bottom: 40px; opacity: 1; transform: translate(-50%, 0); }
         }
-
         @keyframes fadeout {
-            from { bottom: 30px; opacity: 1; }
+            from { bottom: 40px; opacity: 1; }
             to { bottom: 0; opacity: 0; }
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
-            color: #78716c;
+            margin-top: 50px;
+            color: rgba(234,221,182,0.5);
             font-size: 14px;
-            padding-bottom: 20px;
-            border-top: 1px solid #e7e5e4;
-            padding-top: 20px;
+            padding: 30px 0;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
         }
     </style>
 </head>
@@ -273,20 +265,18 @@
             <p>संपूर्ण मंत्र, आरतियाँ, पावन कथाएँ और विवाह प्रसंग</p>
         </header>
 
-        <!-- Search Bar -->
         <div class="search-box">
             <input type="text" id="searchInput" class="search-input" placeholder="मंत्र, आरती या कथा खोजें..." onkeyup="searchContent()">
         </div>
 
-        <!-- Horizontal Quick Filter Tabs -->
         <div class="tabs-container">
-            <button class="tab-btn active" onclick="filterSection('all')">🌟 सभी देखें</button>
-            <button class="tab-btn" onclick="filterSection('mantras')">📿 मंत्र एवं स्तोत्र</button>
-            <button class="tab-btn" onclick="filterSection('aarti')">🪔 श्री गणेश आरती</button>
-            <button class="tab-btn" onclick="filterSection('names')">📜 लोकप्रिय नाम</button>
-            <button class="tab-btn" onclick="filterSection('story')">📖 गणेश जी की स्टोरी (जन्म)</button>
-            <button class="tab-btn" onclick="filterSection('ekdant')">🐘 एकदंत कथा</button>
-            <button class="tab-btn" onclick="filterSection('marriage')">💍 विवाह प्रसंग</button>
+            <button id="g-all" class="tab-btn active" onclick="filterSection('all', 'g-all')">🌟 सभी</button>
+            <button id="g-mantras" class="tab-btn" onclick="filterSection('mantras', 'g-mantras')">📿 मंत्र</button>
+            <button id="g-aarti" class="tab-btn" onclick="filterSection('aarti', 'g-aarti')">🪔 आरती</button>
+            <button id="g-names" class="tab-btn" onclick="filterSection('names', 'g-names')">✨ नाम</button>
+            <button id="g-story" class="tab-btn" onclick="filterSection('story', 'g-story')">📖 जन्म कथा</button>
+            <button id="g-ekdant" class="tab-btn" onclick="filterSection('ekdant', 'g-ekdant')">🐘 एकदंत</button>
+            <button id="g-marriage" class="tab-btn" onclick="filterSection('marriage', 'g-marriage')">💍 विवाह</button>
         </div>
 
         <!-- 1. संपूर्ण मंत्र सेक्शन -->
@@ -302,7 +292,7 @@
             <button class="copy-btn" onclick="copyContent('mantras-box', 'सभी मंत्र कॉपी हो गए हैं!')">📋 मंत्र कॉपी करें</button>
         </div>
 
-        <!-- 2. श्री गणेश आरती सेक्शन (नई जोड़ी गई) -->
+        <!-- 2. श्री गणेश आरती सेक्शन -->
         <div class="card searchable-card" data-category="aarti">
             <h2>🪔 श्री गणेश जी की आरती</h2>
             <div class="content-text" id="aarti-box">
@@ -318,7 +308,6 @@
         <!-- 3. गणेश जी के लोकप्रिय नाम सेक्शन -->
         <div class="card searchable-card" data-category="names">
             <h2>📜 श्री गणेश जी के लोकप्रिय नाम</h2>
-            <p style="font-size: 15px; color: #57534e;">भारतीय परंपरा और पुराणों में गणेश जी के पुकारे जाने वाले प्रमुख नाम:</p>
             <div class="names-grid" id="names-box">
                 <div class="name-box"><strong>गणपति:</strong> गणों के पति</div>
                 <div class="name-box"><strong>विनायक:</strong> न्याय करने वाले</div>
@@ -346,7 +335,7 @@
             <button class="copy-btn" onclick="copyContent('story-box', 'जन्म कथा कॉपी हो गई है!')">📋 जन्म कथा कॉपी करें</button>
         </div>
 
-        <!-- 5. एकदंत कथा सेक्शन (नई जोड़ी गई) -->
+        <!-- 5. एकदंत कथा सेक्शन -->
         <div class="card searchable-card" data-category="ekdant">
             <h2>🐘 गणेश जी 'एकदंत' क्यों कहलाए? (प्रसिद्ध कथाएँ)</h2>
             <div class="content-text" id="ekdant-box" style="text-align: justify;">
@@ -356,53 +345,57 @@
             <button class="copy-btn" onclick="copyContent('ekdant-box', 'एकदंत कथा कॉपी हो गई है!')">📋 एकदंत कथा कॉपी करें</button>
         </div>
 
-        <!-- 6. गणेश जी का विवाह प्रसंग (विशेष रूप से जोड़ा गया) -->
+        <!-- 6. गणेश जी का विवाह प्रसंग -->
         <div class="card searchable-card" data-category="marriage">
-            <h2>💍 श्री गणेश जी का विवाह प्रसंग (द्धि-सिद्धि और परिक्रमा की कथा)</h2>
+            <h2>💍 श्री गणेश जी का विवाह प्रसंग</h2>
             <div class="content-text" id="marriage-box" style="text-align: justify;">
                 <p><strong>परिक्रमा की शर्त:</strong> जब कार्तिकेय और गणेश जी विवाह योग्य हुए, तो माता-पिता ने शर्त रखी कि जो पहले पूरी पृथ्वी की परिक्रमा करके आएगा, उसका विवाह पहले होगा। कार्तिकेय जी मोर पर बैठकर निकल पड़े, लेकिन बुद्धिमान गणेश जी ने अपने माता-पिता (शिव-पार्वती) की सात बार परिक्रमा कर, हाथ जोड़कर कहा - "मेरे लिए तो आप ही पूरी पृथ्वी और ब्रह्मांड हैं।" इससे प्रसन्न होकर उन्हें विजेता घोषित किया गया।</p>
-                <p><strong>विवाह और संतान:</strong> इसके पश्चात प्रजापति विश्वकर्मा की दो सुंदर पुत्रियों—<strong>द्धि (बुद्धि और सफलता)</strong> और <strong>सिद्धि (उपलब्धि)</strong> का विवाह गणेश जी से संपन्न हुआ। रिद्धि से 'शुभ' और सिद्धि से 'लाभ' नामक पुत्रों की प्राप्ति हुई।</p>
+                <p><strong>विवाह और संतान:</strong> इसके पश्चात प्रजापति विश्वकर्मा की दो सुंदर पुत्रियों—<strong>ऋद्धि (बुद्धि और सफलता)</strong> और <strong>सिद्धि (उपलब्धि)</strong> का विवाह गणेश जी से संपन्न हुआ। रिद्धि से 'शुभ' और सिद्धि से 'लाभ' नामक पुत्रों की प्राप्ति हुई।</p>
             </div>
             <button class="copy-btn" onclick="copyContent('marriage-box', 'विवाह प्रसंग कॉपी हो गया है!')">📋 विवाह प्रसंग कॉपी करें</button>
         </div>
 
         <footer>
-            <p>© 2026 HinduGodsWeb Portal. Built with pure devotion & divine UI.</p>
+            <p>© 2026 HinduGodsWeb Portal. Built with pure devotion & Royal Design.</p>
         </footer>
     </div>
 
-    <!-- Toast Notification Element -->
+    <!-- Toast Notification -->
     <div id="toast">संदेश</div>
 
     <script>
-        // Working Copy Function
+        // 100% Working Fallback Copy Function
         function copyContent(containerId, message) {
             const textElement = document.getElementById(containerId);
             if (!textElement) return;
-            const textToCopy = textElement.innerText;
-
-            navigator.clipboard.writeText(textToCopy).then(() => {
+            const textArea = document.createElement("textarea");
+            textArea.value = textElement.innerText;
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
                 showToast(message);
-            }).catch(err => {
-                alert('कॉपी करने में विफल रहा!');
-            });
+            } catch (err) {
+                alert('कॉपी नहीं हो पाया!');
+            }
+            document.body.removeChild(textArea);
         }
 
-        // Toast Notification Trigger
+        // Beautiful Toast Notification
         function showToast(msg) {
             const toast = document.getElementById("toast");
             toast.innerText = msg;
             toast.className = "show";
-            setTimeout(() => { 
-                toast.className = toast.className.replace("show", ""); 
-            }, 3000);
+            setTimeout(() => { toast.className = ""; }, 2500);
         }
 
-        // Tab Filter Function
-        function filterSection(category) {
+        // 100% Working ID-based Tab Filter
+        function filterSection(category, btnId) {
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            document.getElementById(btnId).classList.add('active');
 
             const cards = document.querySelectorAll('.searchable-card');
             cards.forEach(card => {
@@ -414,11 +407,10 @@
             });
         }
 
-        // Search Bar Function
+        // Live Search Function
         function searchContent() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.querySelectorAll('.searchable-card');
-
             cards.forEach(card => {
                 let text = card.innerText.toLowerCase();
                 if (text.includes(input)) {
@@ -429,6 +421,5 @@
             });
         }
     </script>
-
 </body>
 </html>
