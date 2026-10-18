@@ -1,1 +1,393 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मर्यादा पुरुषोत्तम श्री राम - Divine Portal</title>
+    <style>
+        :root {
+            --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
+            --brass-gold: #d4af37;
+            --brass-dark: #aa8c2c;
+            --glass-bg: rgba(30, 10, 10, 0.75);
+            --glass-border: rgba(212, 175, 55, 0.4);
+            --text-light: #fdfbf7;
+            --text-muted: #eaddb6;
+        }
 
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background: var(--crimson-bg);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--brass-gold);
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 16px;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        .nav-back:hover {
+            background: var(--brass-gold);
+            color: #2a0808;
+            transform: translateX(-5px);
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(0,0,0,0.4));
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 20px;
+            border-radius: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: var(--brass-gold);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .tabs-container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 5px 25px 5px;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+        .tabs-container::-webkit-scrollbar { display: none; }
+
+        .tab-btn {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--brass-gold);
+            color: var(--brass-gold);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--brass-gold);
+            color: #2a0808;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .search-box {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.35);
+            font-size: 16px;
+            color: var(--text-light);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-input::placeholder { color: rgba(234,221,182,0.6); }
+        .search-input:focus {
+            border-color: var(--brass-gold);
+            background: rgba(0,0,0,0.6);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .card h2 {
+            color: var(--brass-gold);
+            margin-top: 0;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
+            padding-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .content-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+
+        .content-text p { margin: 12px 0; }
+        .content-text strong { color: var(--brass-gold); }
+
+        .copy-btn {
+            background: var(--brass-gold);
+            border: none;
+            color: #2a0808;
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        .copy-btn:hover {
+            background: #f0c950;
+            transform: translateY(-2px);
+        }
+
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background: var(--brass-gold);
+            color: #2a0808;
+            text-align: center;
+            border-radius: 12px;
+            padding: 14px 20px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 40px;
+            transform: translateX(-50%);
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; transform: translate(-50%, 20px); }
+            to { bottom: 40px; opacity: 1; transform: translate(-50%, 0); }
+        }
+        @keyframes fadeout {
+            from { bottom: 40px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: rgba(234,221,182,0.6);
+            font-size: 14.5px;
+            padding: 30px 0;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="nav-back">← होम पेज पर वापस जाएं</a>
+
+        <header>
+            <h1>🏹 मर्यादा पुरुषोत्तम श्री राम</h1>
+            <p>दिव्य मन्त्र, महाआरती, 108 नाम और पावन गाथाएँ</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="मन्त्र, आरती, नाम या कथा खोजें..." onkeyup="searchContent()">
+        </div>
+
+        <div class="tabs-container">
+            <button id="r-all" class="tab-btn active" onclick="filterSection('all', 'r-all')">🌟 सभी</button>
+            <button id="r-mantras" class="tab-btn" onclick="filterSection('mantras', 'r-mantras')">📿 मन्त्र & जाप</button>
+            <button id="r-aarti" class="tab-btn" onclick="filterSection('aarti', 'r-aarti')">🪔 आरती</button>
+            <button id="r-katha" class="tab-btn" onclick="filterSection('katha', 'r-katha')">📖 कथा & प्रसंग</button>
+            <button id="r-names" class="tab-btn" onclick="filterSection('names', 'r-names')">📜 108 नाम</button>
+        </div>
+
+        <!-- 1. मन्त्र सेक्शन -->
+        <div class="card searchable-card" data-category="mantras">
+            <h2>📿 श्री राम के प्रमुख मन्त्र एवं जाप विधि</h2>
+            <div class="content-text" id="mantras-box">
+                <p><strong>प्रमुख मन्त्र:</strong><br>
+                1. श्री राम जय राम जय जय राम<br>
+                2. ॐ जानकीवल्लभाय नमः<br>
+                3. रामाय रामभद्राय रामचन्द्राय वेधसे<br>
+                4. रघुनाथाय नाथाय सीतायै पतये नमः<br>
+                5. ॐ दशरथाय विद्महे सीता वल्लभाय धीमहि<br>
+                6. श्री रामचन्द्र कृपालु भजु मन<br>
+                7. सीता राम सीता राम<br>
+                8. जय श्री राम<br>
+                9. ॐ राम रामाय नमः<br>
+                10. राम रक्षा स्तोत्रम् - श्री रामचन्द्र चरणौ शरणं प्रपद्ये<br>
+                11. आपदामपहर्तारं दातारं सर्वसम्पदम्<br>
+                12. हे राम हे राम जगद्गुरु राम</p>
+                
+                <p><strong>जाप विधि:</strong><br>
+                - <strong>समय:</strong> रोज सुबह 4-6 बजे ब्रह्ममुहूर्त में सबसे उत्तम है, अन्यथा स्नान के पश्चात कभी भी कर सकते हैं।<br>
+                - <strong>सामग्री:</strong> तुलसी की माला (108 दानों वाली), एक घी का दीपक और आसन।<br>
+                - <strong>नियम:</strong> मांस और मदिरा से दूर रहें। 11, 21 या 40 दिनों तक लगातार जाप करें।</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('mantras-box', 'श्री राम मन्त्र और विधि कॉपी हो गए हैं!')">📋 मन्त्र कॉपी करें</button>
+        </div>
+
+        <!-- 2. आरती सेक्शन -->
+        <div class="card searchable-card" data-category="aarti">
+            <h2>🪔 श्री रामचन्द्र जी की सम्पूर्ण आरतियाँ</h2>
+            <div class="content-text" id="aarti-box">
+                <p><strong>1. श्री रामचन्द्र कृपालु भजु मन:</strong><br>
+                श्री रामचन्द्र कृपालु भजु मन, हरण भवभय दारुणम्।<br>
+                नव कंज लोचन, कंज मुख कर, कंज पद कन्जारुणम्॥<br>
+                कन्दर्प अगनित अमित छ छवि, नव नील नीरद सुन्दरम्।<br>
+                पट पीत मानहु तडित रुचि शुचि, नौमी जनक सुतवरम्॥<br>
+                भजु दीन बन्धु दिनेश दानव, दैत्य वंश निकन्दनम्।<br>
+                रघुनन्द आनन्द कन्द कौशल चन्द, दशरथ नन्दनम्॥<br>
+                सिर मुकुट कुण्डल तिलक चारु, उदार अङ्ग विभूषणम्।<br>
+                आजानु भुज शर चाप धर, सग्राम जित खर दूषणम्॥</p>
+
+                <p><strong>2. आरती कीजै श्री राम जी की:</strong><br>
+                आरती कीजै श्री राम जी की, दशरथ नन्दन राम जी की।<br>
+                घट घट वासी अविनाशी, सुर-मुनि ध्यान लगावै, दशरथ नन्दन राम जी की॥<br>
+                भगत जनन के काम सुधारै, भक्ति मुक्ति के दाता,<br>
+                संकट हरण मंगल करण, चरणा चित्त लगावै, दशरथ नन्दन राम जी की॥</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('aarti-box', 'श्री राम आरती कॉपी हो गई है!')">📋 आरती कॉपी करें</button>
+        </div>
+
+        <!-- 3. कथा सेक्शन -->
+        <div class="card searchable-card" data-category="katha">
+            <h2>📖 श्री राम कथा एवं प्रसिद्ध प्रसंग</h2>
+            <div class="content-text" id="katha-box" style="text-align: justify;">
+                <p><strong>सम्पूर्ण कथा (संक्षिप्त सारांश):</strong><br>
+                - <strong>जन्म:</strong> अयोध्या के राजा दशरथ के यहाँ पुत्रेष्टि यज्ञ के बाद कौशल्या से राम, कैकेयी से भरत, और सुमित्रा से लक्ष्मण-शत्रुघ्न का जन्म हुआ।<br>
+                - <strong>सीता स्वयंवर:</strong> जनकपुर में शिव धनुष तोड़कर राम-सीता का विवाह हुआ।<br>
+                - <strong>वनवास:</strong> कैकेयी के वचनों के कारण राम जी को 14 वर्ष का वनवास मिला जिसमें सीता और लक्ष्मण साथ गए।<br>
+                - <strong>पंचवटी और सीता हरण:</strong> रावण छल से सीता जी का हरण करके लंका ले गया।<br>
+                - <strong>हनुमान मिलन & लंका युद्ध:</strong> सुग्रीव और हनुमान जी से मिलन के बाद राम सेतु बनाया गया, रावण का वध हुआ और सीता जी को मुक्त कराया गया।<br>
+                - <strong>अयोध्या वापसी:</strong> 14 वर्ष बाद अयोध्या लौटे जिसे दीपावली के रूप में मनाया गया और राम राज्य की स्थापना हुई।</p>
+
+                <p><strong>प्रसिद्ध पावन प्रसंग:</strong><br>
+                1. <strong>शबरी के झूठे बेर:</strong> प्रेम और भक्ति के आगे भगवान ने जूठे बेर भी बड़े आनंद से स्वीकार किए।<br>
+                2. <strong>केवट और नाव:</strong> गंगा पार करते समय केवट का प्रेम और चरण धोने की लीला।<br>
+                3. <strong>हनुमान जी को अमरता:</strong> संजीवनी लाने पर हनुमान जी को अमर होने का वरदान मिला।</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('katha-box', 'कथा और प्रसंग कॉपी हो गए हैं!')">📋 कथा कॉपी करें</button>
+        </div>
+
+        <!-- 4. 108 नाम सेक्शन -->
+        <div class="card searchable-card" data-category="names">
+            <h2>📜 मर्यादा पुरुषोत्तम श्री राम के 108 पावन नाम</h2>
+            <div class="content-text" id="names-box">
+                <p>1. श्री राम, 2. रामचन्द्र, 3. रघुनन्दन, 4. जानकी वल्लभ, 5. जैत्र, 6. जितमित्र, 7. जनार्दन, 8. विश्वामित्र प्रिय, 9. दान्त, 10. शरणागत वत्सल, 11. धर्म धुरंधर, 12. करुणा निधान, 13. वाग्मी, 14. अमित विक्रम, 15. दीन बन्धु, 16. जित क्रोध, 17. महाबाहु, 18. कृतान्त, 19. सार्वभौम, 20. सत्य, 21. सत्य पराक्रम, 22. आप्तकाम, 23. कौशल्या नन्दन, 24. दशमुख विरोचन, 25. लक्ष्मण अग्रज, 26. तारक ब्रह्म, 27. रमेश, 28. रावणारि, 29. रामभद्र, 30. राजीव लोचन, 31. राजेन्द्र, 32. रघुपङ्गव, 33. राघव, 34. रघुकुल तिलक, 35. साकेत पति, 36. भरताग्रज, 37. राजीव लोचन, 38. राजेन्द्र राम, 39. रमेश, 40. रामो, 41. राज राजेन्द्र, 42. रघुननाथ, 43. परब्रह्म, 44. दयालु, 45. राजीवक्ष, 46. पुन्योदय, 47. दायकरा, 48. सीता पति, 49. परमेश्वर, 50. चरित्र वत्सल, 51. लोकाभिराम, 52. श्रीमान्, 53. भरतानुज, 54. कोदण्ड पाणि, 55. कमल नयन, 56. वेदात्मा, 57. वेदान्त सार, 58. वेदात्मन्, 59. भवरोगहर, 60. परब्रह्मन्, 61. धनुर्धर, 62. यज्ञ प्रिय, 63. यज्ञेश, 64. जरत् मरण निवारक, 65. विभीषण परित्राण, 66. शरणागत रक्षक, 67. सर्व देव स्तुत, 68. शान्त, 69. शान्तमूर्ति, 70. परतपर, 71. सर्व देव वन्दित, 72. नीलमेश श्याम, 73. पुन्योदय, 74. महायोगी, 75. अमोघ, 76. पुण्य, 77. पुण्यश्लोक कीर्ति, 78. लोभ विनाशक, 79. क्रोध हन्ता, 80. शान्तात्मा, 81. गम्भीर, 82. धीरोदात्त गुणोत्तम, 83. वाल्मीकि कृत वास, 84. वरप्रद, 85. वाग्मी, 86. नारायण, 87. पर, 88. सच्चिदानन्द विग्रह, 89. सर्व शास्त्र ज्ञान सम्पन्न, 90. सर्व शास्त्र विशारद, 91. पतित पावन, 92. मर्यादा पुरुषोत्तम, 93. महादेव, 94. महाबल, 95. पुण्य श्लोक, 96. पुरुषोत्तम, 97. स्मर वैरि, 98. जितेन्द्र, 99. जितमित्र, 100. सुखद, 101. प्रिय, 102. धन्य, 103. मांगल्य, 104. सुमन्त्र, 105. वासुदेव, 106. दाशरथी, 107. अयोध्या पति, 108. कौशलेन्द्र।</p>
+            </div>
+            <button class="copy-btn" onclick="copyContent('names-box', '108 नाम कॉपी हो गए हैं!')">📋 108 नाम कॉपी करें</button>
+        </div>
+
+        <footer>
+            <p>© 2026 HinduGodsWeb Portal. Built with 100% Devotion & Royal Design.</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast">संदेश</div>
+
+    <script>
+        function copyContent(containerId, message) {
+            const textElement = document.getElementById(containerId);
+            if (!textElement) return;
+            const textArea = document.createElement("textarea");
+            textArea.value = textElement.innerText;
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(message);
+            } catch (err) {
+                alert('कॉपी नहीं हो पाया!');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            toast.innerText = msg;
+            toast.className = "show";
+            setTimeout(() => { toast.className = ""; }, 2500);
+        }
+
+        function filterSection(category, btnId) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(btnId).classList.add('active');
+
+            const cards = document.querySelectorAll('.searchable-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchContent() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.searchable-card');
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+  </html>
+  
