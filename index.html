@@ -3,364 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hindu Divine Portal - Royal Edition</title>
-    <style>
-        :root {
-            --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
-            --brass-gold: #d4af37;
-            --brass-dark: #aa8c2c;
-            --glass-bg: rgba(30, 10, 10, 0.75);
-            --glass-border: rgba(212, 175, 55, 0.4);
-            --text-light: #fdfbf7;
-            --text-muted: #eaddb6;
-        }
-
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-
-        body {
-            background: var(--crimson-bg);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-light);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .top-action-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .policy-btn-top {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--brass-gold);
-            color: var(--brass-gold);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13.5px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .policy-btn-top:hover {
-            background: var(--brass-gold);
-            color: #2a0808;
-        }
-
-        header {
-            text-align: center;
-            background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(0,0,0,0.4));
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 40px 20px;
-            border-radius: 24px;
-            margin-bottom: 25px;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.6);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-            color: var(--brass-gold);
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-            letter-spacing: 1px;
-        }
-
-        header p {
-            margin: 10px 0 0 0;
-            font-size: 16px;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .search-box {
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 16px 20px 16px 55px;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            background: rgba(0,0,0,0.35);
-            font-size: 16px;
-            color: var(--text-light);
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .search-input::placeholder { color: rgba(234,221,182,0.6); }
-        .search-input:focus {
-            border-color: var(--brass-gold);
-            background: rgba(0,0,0,0.6);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .search-box::before {
-            content: "🔍";
-            position: absolute;
-            left: 22px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 18px;
-        }
-
-        .gods-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .god-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 25px 20px;
-            text-align: center;
-            text-decoration: none;
-            color: var(--text-light);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .god-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--brass-gold);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
-            background: rgba(45, 15, 15, 0.85);
-        }
-
-        .god-img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
-            background: rgba(0,0,0,0.2);
-            margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
-
-        .god-card:hover .god-img {
-            transform: scale(1.03);
-        }
-
-        .god-card h2 {
-            margin: 5px 0 10px 0;
-            color: var(--brass-gold);
-            font-size: 22px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-        }
-
-        .god-card p {
-            margin: 0;
-            font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            margin-bottom: 30px;
-            color: rgba(234,221,182,0.6);
-            font-size: 14.5px;
-            padding: 25px 20px;
-            border-top: 1px dashed rgba(212, 175, 55, 0.3);
-            font-weight: 500;
-            background: rgba(0,0,0,0.2);
-            border-radius: 15px;
-        }
-
-        footer span {
-            color: var(--brass-gold);
-            font-weight: 700;
-        }
-
-        .policy-link {
-            color: var(--brass-gold);
-            text-decoration: underline;
-            cursor: pointer;
-            margin-top: 12px;
-            display: inline-block;
-            font-size: 14.5px;
-            font-weight: 600;
-        }
-        .policy-link:hover { color: #ffffff; }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(5px);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #2a0808, #4a0e0e);
-            border: 1px solid var(--brass-gold);
-            padding: 30px;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            color: var(--text-light);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-            position: relative;
-        }
-
-        .close-btn {
-            color: var(--brass-gold);
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: -10px;
-        }
-        .close-btn:hover { color: #fff; }
-
-        .modal-content h3 {
-            color: var(--brass-gold);
-            margin-top: 0;
-            border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
-            padding-bottom: 10px;
-        }
-
-        .modal-content p {
-            font-size: 14.5px;
-            line-height: 1.7;
-            color: var(--text-muted);
-            margin: 12px 0;
-        }
-    </style>
+    <title>महादेव ज्ञानकोश - भगवान शिव का संपूर्ण डिजिटल ज्ञानकोश</title>
+    <!-- Google Fonts for Devanagari -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <!-- Top Action Bar with Family Tree and Privacy Policy -->
-        <div class="top-action-bar">
-            <a href="family.html" class="policy-btn-top">🌳 दिव्य वंश वृक्ष</a>
-            <button class="policy-btn-top" onclick="openPolicy()">📜 Privacy Policy</button>
-        </div>
-
-        <header>
-            <h1>🛕 सनातन हिन्दू दिव्य पोर्टल</h1>
-            <p>संपूर्ण मन्त्र, आरतियाँ, चालीसा और पावन गाथाओं का राजसी संग्रह</p>
-        </header>
-
-        <div class="search-box">
-            <input type="text" id="searchInput" class="search-input" placeholder="देवता या पोर्टल पर खोजें..." onkeyup="searchGods()">
-        </div>
-
-        <div class="gods-grid" id="godsGrid">
-            <!-- श्री गणेश जी -->
-            <a href="ganesh.html" class="god-card searchable-god" data-name="shri ganesha ganpati vinayak gajanand">
-                <img src="ganesh.jpg" alt="श्री गणेश जी" class="god-img">
-                <h2>श्री गणेश जी</h2>
-                <p>वक्रतुंड महामंत्र, गणेश आरती, जन्म कथा, एकदंत प्रसंग और विवाह कथा</p>
-            </a>
-
-            <!-- मर्यादा पुरुषोत्तम श्री राम -->
-            <a href="ram.html" class="god-card searchable-god" data-name="maryada purushottam shri ram rama ramachandra ayodhya raghavendra raghunandan">
-                <img src="ram.jpg" alt="मर्यादा पुरुषोत्तम श्री राम" class="god-img">
-                <h2>मर्यादा पुरुषोत्तम श्री राम</h2>
-                <p>श्री राम महामंत्र, रामचरितमानस चौपाइयाँ, आरती और पावन गाथाएँ</p>
-            </a>
-
-            <!-- महादेव शिव -->
-            <a href="shiva.html" class="god-card searchable-god" data-name="mahadev shiva shankar mahakal bholenath">
-                <img src="shiva.jpg" alt="महादेव शिव" class="god-img">
-                <h2>महादेव शिव</h2>
-                <p>महामृत्युंजय मंत्र, 10 प्रमुख आरतियाँ, 20 नाम और शिव पुराण गाथा</p>
-            </a>
-
-            <!-- श्री हनुमान जी -->
-            <a href="hanuman.html" class="god-card searchable-god" data-name="shri hanuman bajarangbali pavanputt chalisa">
-                <img src="hanuman.jpg" alt="श्री हनुमान जी" class="god-img">
-                <h2>श्री हनुमान जी</h2>
-                <p>संपूर्ण हनुमान चालीसा, शक्तिशाली मंत्र, 20 पावन नाम और प्रेरक कथाएँ</p>
-            </a>
-
-            <!-- श्री कृष्ण -->
-            <a href="krishna.html" class="god-card searchable-god" data-name="shri krishna shyam kanha gita bhagavad">
-                <img src="krishna.jpg" alt="श्री कृष्ण" class="god-img">
-                <h2>श्री कृष्ण</h2>
-                <p>मुरली मनोहर के दिव्य मंत्र, आरती, गीता सार और पावन लीलाएँ</p>
-            </a>
-
-            <!-- माँ दुर्गा -->
-            <a href="durga.html" class="god-card searchable-god" data-name="maa durga ambe shakti bhavani navdurga">
-                <img src="durga.jpg" alt="माँ दुर्गा" class="god-img">
-                <h2>माँ दुर्गा</h2>
-                <p>दुर्गा चालीसा, नवरात्रि मंत्र, महिषासुर मर्दिनी स्तोत्र और अम्बे माता की आरती</p>
-            </a>
-        </div>
-
-        <footer>
-            <p>© 2026 HinduGodsWeb Portal. All Rights Reserved. <br> Created with <span>100% Devotion & Royal Design</span> by Anant Mishra.</p>
-            <div>
-                <span class="policy-link" onclick="openPolicy()">📜 Terms & Privacy Policy</span>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="showHome()">
+                <span class="logo-icon">🔱</span>
+                <span class="logo-text">महादेव ज्ञानकोश</span>
             </div>
-        </footer>
-    </div>
-
-    <!-- Privacy Policy Modal -->
-    <div id="policyModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closePolicy()">&times;</span>
-            <h3>📜 Terms & Privacy Policy</h3>
-            <p><strong>1. उपयोग की शर्तें (Terms of Use):</strong> यह पोर्टल केवल धार्मिक, आध्यात्मिक और शैक्षिक उद्देश्यों के लिए बनाया गया है।</p>
-            <p><strong>2. गोपनीयता नीति (Privacy Policy):</strong> यह एक स्टेटिक वेब पोर्टल है। हम उपयोगकर्ता का कोई भी व्यक्तिगत डेटा या जानकारी सर्वर पर एकत्र नहीं करते हैं।</p>
-            <p><strong>3. कॉपीराइट (Copyright):</strong> इस पोर्टल का डिज़ाइन और कोड Anant Mishra द्वारा पूरी श्रद्धा और भक्ति भाव से विकसित किया गया है।</p>
+            <div class="nav-links" id="navLinks">
+                <a href="#" onclick="showHome()">होम</a>
+                <a href="#parts-section" onclick="showHome()">सभी 20 भाग</a>
+                <a href="#" onclick="showJyotirlinga()">ज्योतिर्लिंग</a>
+                <a href="#" onclick="showSources()">ग्रंथ एवं स्रोत</a>
+            </div>
+            <div class="nav-search-bar">
+                <input type="text" id="globalSearch" placeholder="ज्ञानकोश में खोजें..." onkeyup="handleSearch(event)">
+                <button type="button">🔍</button>
+            </div>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </div>
+    </nav>
 
-    <script>
-        function searchGods() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.querySelectorAll('.searchable-god');
-            cards.forEach(card => {
-                let name = card.getAttribute('data-name');
-                let text = card.innerText.toLowerCase();
-                if (name.includes(input) || text.includes(input)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+    <!-- Main Container / Views -->
+    <main id="mainContent">
+        <!-- Home View -->
+        <div id="homeView">
+            <!-- Hero Section -->
+            <header class="hero-section">
+                <div class="hero-content">
+                    <h1>ॐ नमः शिवाय</h1>
+                    <p>भगवान महादेव के स्वरूप, कथाओं, मंदिरों और आध्यात्मिक परंपराओं का प्रामाणिक ज्ञानकोश</p>
+                    <div class="hero-buttons">
+                        <a href="#parts-section" class="btn btn-primary">ज्ञानकोश पढ़ें</a>
+                        <a href="#parts-section" class="btn btn-secondary">सभी भाग देखें</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-frame">
+                        <div class="spiritual-placeholder">🔱</div>
+                        <p style="color: var(--golden); font-weight: 600;">देव आदि देव महादेव</p>
+                    </div>
+                </div>
+            </header>
 
-        function openPolicy() {
-            document.getElementById('policyModal').style.display = 'flex';
-        }
-        function closePolicy() {
-            document.getElementById('policyModal').style.display = 'none';
-        }
+            <!-- Introduction Section -->
+            <section class="intro-section card">
+                <h2>भगवान महादेव का परिचय</h2>
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <p>सनातन हिंदू परंपरा में भगवान शिव को 'देवों के देव महादेव' के रूप में पूजा जाता है। वे शैव परंपरा के सर्वोच्च देवता हैं जो सृष्टि के संहार, पुनरुत्थान और योग के आदिशेष माने गए हैं।</p>
+                        <p>यह ज्ञानकोश धार्मिक मान्यताओं, पौराणिक कथाओं और ऐतिहासिक-सांस्कृतिक संदर्भों को व्यवस्थित रूप से प्रस्तुत करता है।</p>
+                        <button class="btn btn-outline" onclick="showPartDetail(1)" style="margin-top: 15px; padding: 8px 18px; border-radius: 20px; border: 1px solid var(--secondary-blue); background: transparent; cursor: pointer; font-family: inherit;">विस्तृत परिचय पढ़ें</button>
+                    </div>
+                    <div class="intro-img-box">
+                        <div class="spiritual-placeholder" style="font-size: 48px;">🕉️</div>
+                    </div>
+                </div>
+            </section>
 
-        window.onclick = function(event) {
-            let modal = document.getElementById('policyModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+            <!-- 20-Part Encyclopedia Grid Section -->
+            <section id="parts-section" class="parts-container">
+                <div class="section-title">
+                    <h2>महादेव के बारे में जानें — 20 भाग</h2>
+                    <p>प्रत्येक भाग में प्रामाणिक बिंदु और संदर्भ संकलित हैं</p>
+                </div>
+                
+                <!-- Category Filter Buttons -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterParts('all')">सभी भाग</button>
+                    <button class="filter-btn" onclick="filterParts('स्वरूप')">स्वरूप</button>
+                    <button class="filter-btn" onclick="filterParts('प्रतीक')">प्रतीक</button>
+                    <button class="filter-btn" onclick="filterParts('कथाएँ')">कथाएँ</button>
+                    <button class="filter-btn" onclick="filterParts('मंदिर एवं ज्योतिर्लिंग')">मंदिर एवं ज्योतिर्लिंग</button>
+                </div>
+
+                <div class="grid-container" id="partsGrid">
+                    <!-- Dynamically populated by script.js -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Detail View (Rendered dynamically when a part is clicked) -->
+        <div id="detailView" class="detail-view hidden">
+            <!-- Dynamically populated detail content -->
+        </div>
+
+        <!-- Jyotirlinga View -->
+        <div id="jyotirlingaView" class="jyotirlinga-view hidden">
+            <!-- Dynamically populated jyotirlinga content -->
+        </div>
+
+        <!-- Sources View -->
+        <div id="sourcesView" class="sources-view hidden">
+            <!-- Dynamically populated sources content -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>महादेव ज्ञानकोश</h3>
+                <p>भगवान शिव के स्वरूप, कथाओं, मंदिरों और आध्यात्मिक परंपराओं का डिजिटल ज्ञानकोश।</p>
+            </div>
+            <div class="footer-col">
+                <h4>त्वरित लिंक्स</h4>
+                <ul>
+                    <li><a href="#" onclick="showHome()">होम पेज</a></li>
+                    <li><a href="#" onclick="showJyotirlinga()">बारह ज्योतिर्लिंग</a></li>
+                    <li><a href="#" onclick="showSources()">ग्रंथ एवं प्रमाणिक स्रोत</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>आध्यात्मिक अस्वीकरण</h4>
+                <p>धार्मिक कथाएँ और परंपराएँ विभिन्न ग्रंथों तथा क्षेत्रीय मान्यताओं के अनुसार भिन्न हो सकती हैं। यह पोर्टल शैक्षिक एवं आध्यात्मिक उद्देश्य के लिए है।</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 महादेव ज्ञानकोश. सर्वाधिकार सुरक्षित।</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-</html>
+                        </html>
+                        
