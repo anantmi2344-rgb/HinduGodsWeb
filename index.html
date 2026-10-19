@@ -33,7 +33,9 @@
         }
 
         .top-action-bar {
-            text-align: right;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 15px;
         }
 
@@ -41,11 +43,12 @@
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--brass-gold);
             color: var(--brass-gold);
-            padding: 6px 14px;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 600;
             cursor: pointer;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
         .policy-btn-top:hover {
@@ -252,7 +255,9 @@
 <body>
 
     <div class="container">
+        <!-- Top Action Bar with Family Tree and Privacy Policy -->
         <div class="top-action-bar">
+            <a href="family.html" class="policy-btn-top">🌳 दिव्य वंश वृक्ष</a>
             <button class="policy-btn-top" onclick="openPolicy()">📜 Privacy Policy</button>
         </div>
 
@@ -358,5 +363,4 @@
         }
     </script>
 </body>
-                    </html>
-                    
+</html>
