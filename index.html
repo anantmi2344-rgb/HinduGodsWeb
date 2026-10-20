@@ -9,7 +9,6 @@
         :root {
             --primary-blue: #0b192c;
             --secondary-blue: #1e3e62;
-            --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
             --golden: #d4af37;
             --cream-bg: #fdfbf7;
             --dark-charcoal: #222222;
@@ -50,7 +49,7 @@
         h1 {
             color: var(--secondary-blue);
             font-family: 'Yatra One', cursive;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-size: 32px;
         }
 
@@ -62,7 +61,7 @@
 
         .gods-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
@@ -70,14 +69,26 @@
         .god-card {
             background: #fff;
             border: 2px solid var(--golden);
-            padding: 20px;
-            border-radius: 12px;
+            padding: 15px;
+            border-radius: 14px;
             text-decoration: none;
             color: var(--secondary-blue);
             font-weight: 700;
-            font-size: 18px;
+            font-size: 17px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, background 0.3s;
+            transition: transform 0.3s, background 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .god-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--golden);
         }
 
         .god-card:hover {
@@ -108,12 +119,30 @@
         <p>अपने आराध्य देवी-देवताओं के पावन दर्शन, कथाएँ, आरती और मंत्र चुनें:</p>
 
         <div class="gods-grid">
-            <a href="shiva.html" class="god-card">भगवान शिव</a>
-            <a href="hanuman.html" class="god-card">श्री हनुमान</a>
-            <a href="krishna.html" class="god-card">श्री कृष्ण</a>
-            <a href="durga.html" class="god-card">माँ दुर्गा</a>
-            <a href="ganesh.html" class="god-card">श्री गणेश</a>
-            <a href="ram.html" class="god-card">श्री राम</a>
+            <a href="shiva.html" class="god-card">
+                <img src="shiva.jpg" alt="भगवान शिव">
+                <span>भगवान शिव</span>
+            </a>
+            <a href="hanuman.html" class="god-card">
+                <img src="hanuman.jpg" alt="श्री हनुमान">
+                <span>श्री हनुमान</span>
+            </a>
+            <a href="krishna.html" class="god-card">
+                <img src="krishna.jpg" alt="श्री कृष्ण">
+                <span>श्री कृष्ण</span>
+            </a>
+            <a href="durga.html" class="god-card">
+                <img src="durga.jpg" alt="माँ दुर्गा">
+                <span>माँ दुर्गा</span>
+            </a>
+            <a href="ganesh.html" class="god-card">
+                <img src="ganesh.jpg" alt="श्री गणेश">
+                <span>श्री गणेश</span>
+            </a>
+            <a href="ram.html" class="god-card">
+                <img src="ram.jpg" alt="श्री राम">
+                <span>श्री राम</span>
+            </a>
         </div>
     </div>
 
