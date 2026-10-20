@@ -3,139 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>महादेव ज्ञानकोश - भगवान शिव का संपूर्ण डिजिटल ज्ञानकोश</title>
-    <!-- Google Fonts for Devanagari -->
+    <title>Hindu Gods - Sacred Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-blue: #0b192c;
+            --secondary-blue: #1e3e62;
+            --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
+            --golden: #d4af37;
+            --cream-bg: #fdfbf7;
+            --dark-charcoal: #222222;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif, Arial;
+            background-color: var(--cream-bg);
+            color: var(--dark-charcoal);
+            line-height: 1.8;
+        }
+
+        .navbar {
+            background: var(--primary-blue);
+            color: #fff;
+            padding: 15px 20px;
+            border-bottom: 2px solid var(--golden);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Yatra One', cursive;
+            font-size: 20px;
+            color: var(--golden);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--secondary-blue);
+            font-family: 'Yatra One', cursive;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .gods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .god-card {
+            background: #fff;
+            border: 2px solid var(--golden);
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--secondary-blue);
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .god-card:hover {
+            background: var(--secondary-blue);
+            color: #fff;
+            transform: translateY(-4px);
+        }
+
+        footer {
+            background: var(--primary-blue);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            border-top: 2px solid var(--golden);
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="showHome()">
-                <span class="logo-icon">🔱</span>
-                <span class="logo-text">महादेव ज्ञानकोश</span>
-            </div>
-            <div class="nav-links" id="navLinks">
-                <a href="#" onclick="showHome()">होम</a>
-                <a href="#parts-section" onclick="showHome()">सभी 20 भाग</a>
-                <a href="#" onclick="showJyotirlinga()">ज्योतिर्लिंग</a>
-                <a href="#" onclick="showSources()">ग्रंथ एवं स्रोत</a>
-            </div>
-            <div class="nav-search-bar">
-                <input type="text" id="globalSearch" placeholder="ज्ञानकोश में खोजें..." onkeyup="handleSearch(event)">
-                <button type="button">🔍</button>
-            </div>
-            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+        <div class="nav-logo">🔱 सनातन देवी-देवता पोर्टल</div>
     </nav>
 
-    <!-- Main Container / Views -->
-    <main id="mainContent">
-        <!-- Home View -->
-        <div id="homeView">
-            <!-- Hero Section -->
-            <header class="hero-section">
-                <div class="hero-content">
-                    <h1>ॐ नमः शिवाय</h1>
-                    <p>भगवान महादेव के स्वरूप, कथाओं, मंदिरों और आध्यात्मिक परंपराओं का प्रामाणिक ज्ञानकोश</p>
-                    <div class="hero-buttons">
-                        <a href="#parts-section" class="btn btn-primary">ज्ञानकोश पढ़ें</a>
-                        <a href="#parts-section" class="btn btn-secondary">सभी भाग देखें</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="image-frame">
-                        <div class="spiritual-placeholder">🔱</div>
-                        <p style="color: var(--golden); font-weight: 600;">देव आदि देव महादेव</p>
-                    </div>
-                </div>
-            </header>
+    <div class="container">
+        <h1>पवित्र देवता दर्शन एवं ज्ञान</h1>
+        <p>अपने आराध्य देवी-देवताओं के पावन दर्शन, कथाएँ, आरती और मंत्र चुनें:</p>
 
-            <!-- Introduction Section -->
-            <section class="intro-section card">
-                <h2>भगवान महादेव का परिचय</h2>
-                <div class="intro-grid">
-                    <div class="intro-text">
-                        <p>सनातन हिंदू परंपरा में भगवान शिव को 'देवों के देव महादेव' के रूप में पूजा जाता है। वे शैव परंपरा के सर्वोच्च देवता हैं जो सृष्टि के संहार, पुनरुत्थान और योग के आदिशेष माने गए हैं।</p>
-                        <p>यह ज्ञानकोश धार्मिक मान्यताओं, पौराणिक कथाओं और ऐतिहासिक-सांस्कृतिक संदर्भों को व्यवस्थित रूप से प्रस्तुत करता है।</p>
-                        <button class="btn btn-outline" onclick="showPartDetail(1)" style="margin-top: 15px; padding: 8px 18px; border-radius: 20px; border: 1px solid var(--secondary-blue); background: transparent; cursor: pointer; font-family: inherit;">विस्तृत परिचय पढ़ें</button>
-                    </div>
-                    <div class="intro-img-box">
-                        <div class="spiritual-placeholder" style="font-size: 48px;">🕉️</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 20-Part Encyclopedia Grid Section -->
-            <section id="parts-section" class="parts-container">
-                <div class="section-title">
-                    <h2>महादेव के बारे में जानें — 20 भाग</h2>
-                    <p>प्रत्येक भाग में प्रामाणिक बिंदु और संदर्भ संकलित हैं</p>
-                </div>
-                
-                <!-- Category Filter Buttons -->
-                <div class="filter-buttons">
-                    <button class="filter-btn active" onclick="filterParts('all')">सभी भाग</button>
-                    <button class="filter-btn" onclick="filterParts('स्वरूप')">स्वरूप</button>
-                    <button class="filter-btn" onclick="filterParts('प्रतीक')">प्रतीक</button>
-                    <button class="filter-btn" onclick="filterParts('कथाएँ')">कथाएँ</button>
-                    <button class="filter-btn" onclick="filterParts('मंदिर एवं ज्योतिर्लिंग')">मंदिर एवं ज्योतिर्लिंग</button>
-                </div>
-
-                <div class="grid-container" id="partsGrid">
-                    <!-- Dynamically populated by script.js -->
-                </div>
-            </section>
+        <div class="gods-grid">
+            <a href="shiva.html" class="god-card">भगवान शिव</a>
+            <a href="hanuman.html" class="god-card">श्री हनुमान</a>
+            <a href="krishna.html" class="god-card">श्री कृष्ण</a>
+            <a href="durga.html" class="god-card">माँ दुर्गा</a>
+            <a href="ganesh.html" class="god-card">श्री गणेश</a>
+            <a href="ram.html" class="god-card">श्री राम</a>
         </div>
+    </div>
 
-        <!-- Detail View (Rendered dynamically when a part is clicked) -->
-        <div id="detailView" class="detail-view hidden">
-            <!-- Dynamically populated detail content -->
-        </div>
-
-        <!-- Jyotirlinga View -->
-        <div id="jyotirlingaView" class="jyotirlinga-view hidden">
-            <!-- Dynamically populated jyotirlinga content -->
-        </div>
-
-        <!-- Sources View -->
-        <div id="sourcesView" class="sources-view hidden">
-            <!-- Dynamically populated sources content -->
-        </div>
-    </main>
-
-    <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>महादेव ज्ञानकोश</h3>
-                <p>भगवान शिव के स्वरूप, कथाओं, मंदिरों और आध्यात्मिक परंपराओं का डिजिटल ज्ञानकोश।</p>
-            </div>
-            <div class="footer-col">
-                <h4>त्वरित लिंक्स</h4>
-                <ul>
-                    <li><a href="#" onclick="showHome()">होम पेज</a></li>
-                    <li><a href="#" onclick="showJyotirlinga()">बारह ज्योतिर्लिंग</a></li>
-                    <li><a href="#" onclick="showSources()">ग्रंथ एवं प्रमाणिक स्रोत</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>आध्यात्मिक अस्वीकरण</h4>
-                <p>धार्मिक कथाएँ और परंपराएँ विभिन्न ग्रंथों तथा क्षेत्रीय मान्यताओं के अनुसार भिन्न हो सकती हैं। यह पोर्टल शैक्षिक एवं आध्यात्मिक उद्देश्य के लिए है।</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 महादेव ज्ञानकोश. सर्वाधिकार सुरक्षित।</p>
-        </div>
+        <p>&copy; 2026 सनातन पोर्टल. सर्वाधिकार सुरक्षित।</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
-                        </html>
-                        
+</html>
