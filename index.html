@@ -8,7 +8,7 @@
     
     <style>
         /* =========================================================
-           1. YOUR ROYAL CRIMSON THEME CSS (DO NOT CHANGE)
+           1. YOUR ROYAL CRIMSON THEME CSS (PRESERVED)
            ========================================================= */
         :root {
             --primary-blue: #0b192c;
@@ -125,7 +125,7 @@
         }
 
         /* =========================================================
-           2. PREMIUM 3D TEMPLE OPENING ANIMATION CSS
+           2. FAST & OFFLINE 3D TEMPLE OPENING ANIMATION CSS
            ========================================================= */
         body.intro-active { overflow: hidden; }
 
@@ -133,18 +133,20 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #050200; z-index: 99999; display: flex;
             align-items: center; justify-content: center; overflow: hidden;
-            perspective: 1800px; transition: opacity 1s ease-in-out;
+            perspective: 1800px; transition: opacity 0.5s ease-in-out;
         }
         .divine-light {
             position: absolute; width: 250vw; height: 250vh;
             background: radial-gradient(circle at center, rgba(255, 230, 100, 0.9) 0%, rgba(212, 175, 55, 0.5) 15%, transparent 60%);
             opacity: 0; transform: scale(0.5);
-            animation: revealLight 4s cubic-bezier(0.4, 0, 0.2, 1) forwards 1.8s;
+            /* FASTER ANIMATION TIMING */
+            animation: revealLight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.5s;
             pointer-events: none; z-index: 5;
         }
         .intro-text-container {
             position: absolute; text-align: center; z-index: 10; opacity: 0;
-            animation: textFadeIn 2.5s ease-out forwards 2.5s;
+            /* FASTER ANIMATION TIMING */
+            animation: textFadeIn 1s ease-out forwards 0.8s;
         }
         .intro-logo {
             font-family: 'Yatra One', cursive, sans-serif; font-size: 5vw; color: #fff;
@@ -165,12 +167,14 @@
         .door-left {
             transform-origin: left center; border-right: 3px solid #ffdf00;
             box-shadow: inset -10px 0 30px rgba(255, 223, 0, 0.2);
-            animation: doorGlowLeft 1.5s ease-in forwards, openLeftDoor 3.5s cubic-bezier(0.4, 0, 0.1, 1) forwards 1.8s;
+            /* FASTER ANIMATION TIMING */
+            animation: doorGlowLeft 0.5s ease-in forwards, openLeftDoor 1.2s cubic-bezier(0.4, 0, 0.1, 1) forwards 0.5s;
         }
         .door-right {
             transform-origin: right center; border-left: 3px solid #ffdf00;
             box-shadow: inset 10px 0 30px rgba(255, 223, 0, 0.2);
-            animation: doorGlowRight 1.5s ease-in forwards, openRightDoor 3.5s cubic-bezier(0.4, 0, 0.1, 1) forwards 1.8s;
+            /* FASTER ANIMATION TIMING */
+            animation: doorGlowRight 0.5s ease-in forwards, openRightDoor 1.2s cubic-bezier(0.4, 0, 0.1, 1) forwards 0.5s;
         }
         .door-panel {
             width: 65%; height: 85%; border: 3px solid var(--golden);
@@ -273,7 +277,7 @@
             </div>
         </div>
 
-        <!-- Gods Section (Preserved from old index.html) -->
+        <!-- Gods Section -->
         <div id="gods-section" class="card">
             <div class="section-title">
                 <h2>पवित्र देवता दर्शन</h2>
@@ -316,6 +320,4 @@
                 <button class="filter-btn" onclick="filterParts('स्वरूप')">स्वरूप</button>
                 <button class="filter-btn" onclick="filterParts('कथाएँ')">कथाएँ</button>
                 <button class="filter-btn" onclick="filterParts('प्रतीक')">प्रतीक</button>
-                <button class="filter-btn" onclick="filterParts('मंदिर एवं ज्योतिर्लिंग')">मंदिर एवं ज्योतिर्लिंग</button>
-            </div>
-           
+              
