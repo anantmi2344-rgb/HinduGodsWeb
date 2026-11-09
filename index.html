@@ -8,7 +8,7 @@
     
     <style>
         /* =========================================================
-           1. ROYAL CRIMSON & GOLDEN THEME CSS
+           1. YOUR ROYAL CRIMSON THEME CSS (NO ANIMATION)
            ========================================================= */
         :root {
             --primary-blue: #0b192c;
@@ -115,6 +115,8 @@
         .footer-col a { color: #ccc; text-decoration: none; }
         .footer-col a:hover { color: var(--saffron); }
         .footer-bottom { text-align: center; padding: 20px; background: rgba(0,0,0,0.3); font-size: 13px; color: #aaa; border-top: 1px solid rgba(255,255,255,0.05); }
+        
+        /* Helper Classes */
         .hidden { display: none !important; }
 
         @media (max-width: 768px) {
@@ -123,113 +125,10 @@
             .hero-buttons { justify-content: center; }
             .hero-image { margin-top: 30px; }
         }
-
-        /* =========================================================
-           2. FAST & OFFLINE 3D TEMPLE OPENING ANIMATION CSS
-           ========================================================= */
-        body.intro-active { overflow: hidden; }
-
-        .temple-intro {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #050200; z-index: 99999; display: flex;
-            align-items: center; justify-content: center; overflow: hidden;
-            perspective: 1800px; transition: opacity 0.5s ease-in-out;
-        }
-        .divine-light {
-            position: absolute; width: 250vw; height: 250vh;
-            background: radial-gradient(circle at center, rgba(255, 230, 100, 0.9) 0%, rgba(212, 175, 55, 0.5) 15%, transparent 60%);
-            opacity: 0; transform: scale(0.5);
-            animation: revealLight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.5s;
-            pointer-events: none; z-index: 5;
-        }
-        .intro-text-container {
-            position: absolute; text-align: center; z-index: 10; opacity: 0;
-            animation: textFadeIn 1s ease-out forwards 0.8s;
-        }
-        .intro-logo {
-            font-family: 'Yatra One', cursive, sans-serif; font-size: 5vw; color: #fff;
-            text-shadow: 0 0 20px #d4af37, 0 0 50px #ffdf00; margin-bottom: 10px;
-        }
-        .intro-tagline {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 2vw;
-            color: #fdfbf7; letter-spacing: 4px; text-transform: uppercase;
-            text-shadow: 0 0 15px #d4af37; font-weight: 600;
-        }
-        .temple-doors { position: absolute; width: 100%; height: 100%; display: flex; z-index: 20; transform-style: preserve-3d; }
-        .door {
-            width: 50%; height: 100%;
-            background: linear-gradient(90deg, #150a00 0%, #3a1f00 20%, #8a5a19 50%, #3a1f00 80%, #150a00 100%);
-            position: relative; box-shadow: inset 0 0 80px rgba(0,0,0,0.9);
-            border: 4px solid var(--golden); display: flex; align-items: center; justify-content: center;
-        }
-        .door-left {
-            transform-origin: left center; border-right: 3px solid #ffdf00;
-            box-shadow: inset -10px 0 30px rgba(255, 223, 0, 0.2);
-            animation: doorGlowLeft 0.5s ease-in forwards, openLeftDoor 1.2s cubic-bezier(0.4, 0, 0.1, 1) forwards 0.5s;
-        }
-        .door-right {
-            transform-origin: right center; border-left: 3px solid #ffdf00;
-            box-shadow: inset 10px 0 30px rgba(255, 223, 0, 0.2);
-            animation: doorGlowRight 0.5s ease-in forwards, openRightDoor 1.2s cubic-bezier(0.4, 0, 0.1, 1) forwards 0.5s;
-        }
-        .door-panel {
-            width: 65%; height: 85%; border: 3px solid var(--golden);
-            background: rgba(0,0,0,0.4); box-shadow: inset 0 0 30px rgba(0,0,0,0.9), 0 0 15px rgba(212,175,55,0.4);
-            display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; border-radius: 5px;
-        }
-        .door-carving {
-            width: 50%; height: 20%; border: 2px solid var(--brass-dark); border-radius: 8px;
-            background: linear-gradient(135deg, transparent 30%, rgba(212,175,55,0.2) 50%, transparent 70%); box-shadow: inset 0 0 15px #000;
-        }
-        .door-handle {
-            width: 25px; height: 100px; background: linear-gradient(to bottom, #f4e8c1, #d4af37, #aa8c2c);
-            position: absolute; border-radius: 12px; box-shadow: 3px 5px 15px rgba(0,0,0,0.9), inset 0 0 5px #fff;
-            top: 50%; transform: translateY(-50%); z-index: 30;
-        }
-        .door-left .door-handle { right: 10%; }
-        .door-right .door-handle { left: 10%; }
-        
-        @keyframes doorGlowLeft { 0% { box-shadow: inset -2px 0 5px rgba(255, 223, 0, 0); } 100% { box-shadow: inset -15px 0 40px rgba(255, 223, 0, 0.7); } }
-        @keyframes doorGlowRight { 0% { box-shadow: inset 2px 0 5px rgba(255, 223, 0, 0); } 100% { box-shadow: inset 15px 0 40px rgba(255, 223, 0, 0.7); } }
-        @keyframes openLeftDoor { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(-105deg); } }
-        @keyframes openRightDoor { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(105deg); } }
-        @keyframes revealLight { 0% { opacity: 0; transform: scale(0.5); } 50% { opacity: 1; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
-        @keyframes textFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.9); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
-        
-        .golden-particle { position: absolute; background: #ffdf00; border-radius: 50%; opacity: 0; pointer-events: none; box-shadow: 0 0 10px #ffdf00, 0 0 20px #fff; z-index: 15; }
-        @keyframes floatUp { 0% { transform: translateY(0) scale(0); opacity: 0; } 20% { opacity: 0.9; } 100% { transform: translateY(-100vh) scale(1.2); opacity: 0; } }
-        
-        @media (max-width: 768px) { .intro-logo { font-size: 12vw; } .intro-tagline { font-size: 4vw; } .door-carving { width: 70%; } }
-        @media (prefers-reduced-motion: reduce) { .temple-intro { display: none !important; } body.intro-active { overflow: auto; } }
     </style>
 </head>
 
-<body class="intro-active">
-
-    <!-- =========================================================
-         TEMPLE OPENING ANIMATION OVERLAY
-         ========================================================= -->
-    <div id="temple-intro" class="temple-intro">
-        <div class="divine-light"></div>
-        <div class="intro-text-container">
-            <h1 class="intro-logo">HinduGodsWeb</h1>
-            <p class="intro-tagline">Discover the Divine World</p>
-        </div>
-        <div class="temple-doors">
-            <div class="door door-left">
-                <div class="door-panel">
-                    <div class="door-carving"></div><div class="door-carving"></div><div class="door-carving"></div>
-                </div>
-                <div class="door-handle"></div>
-            </div>
-            <div class="door door-right">
-                <div class="door-handle"></div>
-                <div class="door-panel">
-                    <div class="door-carving"></div><div class="door-carving"></div><div class="door-carving"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+<body>
 
     <!-- =========================================================
          NAVBAR
@@ -318,4 +217,67 @@
                 <button class="filter-btn" onclick="filterParts('प्रतीक')">प्रतीक</button>
                 <button class="filter-btn" onclick="filterParts('मंदिर एवं ज्योतिर्लिंग')">मंदिर एवं ज्योतिर्लिंग</button>
             </div>
-            <div id="partsGrid" class="grid-cont
+            <div id="partsGrid" class="grid-container"></div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         DETAIL VIEW (Hidden by default)
+         ========================================================= -->
+    <div id="detailView" class="detail-view hidden"></div>
+
+    <!-- =========================================================
+         JYOTIRLINGA VIEW (Hidden by default)
+         ========================================================= -->
+    <div id="jyotirlingaView" class="parts-container hidden"></div>
+
+    <!-- =========================================================
+         SOURCES VIEW (Hidden by default)
+         ========================================================= -->
+    <div id="sourcesView" class="parts-container hidden"></div>
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>HinduGodsWeb</h3>
+                <p>सनातन धर्म के पावन ज्ञान, कथाओं और दर्शन का प्रामाणिक डिजिटल पोर्टल।</p>
+            </div>
+            <div class="footer-col">
+                <h4>महत्वपूर्ण लिंक</h4>
+                <li><a style="cursor:pointer;" onclick="showHome()">होम</a></li>
+                <li><a href="vansh_vriksh.html">दिव्य वंश वृक्ष</a></li>
+                <li><a style="cursor:pointer;" onclick="showJyotirlinga()">12 ज्योतिर्लिंग</a></li>
+            </div>
+            <div class="footer-col">
+                <h4>संपर्क</h4>
+                <p>ईमेल: contact@hindugodsweb.com</p>
+                <p>स्थान: भारत</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 HinduGodsWeb. Built with 100% Devotion & Royal Design.
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         JAVASCRIPT (Encyclopedia Logic Only - No Animation)
+         ========================================================= -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Render Encyclopedia Data Immediately on Page Load
+            renderPartsGrid(partsData);
+        });
+
+        // 2. YOUR ENCYCLOPEDIA DATABASE (Preserved 100%)
+        const partsData = [
+            { id: 1, title: "भगवान शिव का परिचय", category: "स्वरूप", shortDesc: "भगवान शिव हिंदू धर्म के प्रमुख देवताओं में से एक हैं जिन्हें महादेव कहा जाता है।", intro: "भगवान शिव सनातन हिंदू धर्म के प्रमुख देवताओं में से एक हैं। उन्हें देवों के देव महादेव और भोलेनाथ के रूप में पूजा जाता है।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. भगवान शिव का दार्शनिक और पौराणिक आयाम`, body: `यह बिंदु भगवान शिव के समग्र स्वरूप, उनकी दिव्यता और सनातन संस्कृति में उनके स्थान की व्याख्या करता है। शिव का अर्थ है 'कल्याणकारी'।`, source: "शिव महापुराण, रुद्रसंहिता", status: "संदर्भ जाँचा गया" })) },
+            { id: 2, title: "भगवान शिव के नाम और उनके अर्थ", category: "स्वरूप", shortDesc: "महादेव, भोलेनाथ, शंकर, शंभू और अन्य सहस्त्र नामों का गूढ़ अर्थ।", intro: "महादेव के विभिन्न नाम उनके अनगिनत गुणों और स्वभाव को दर्शाते हैं।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. पावन नाम एवं महिमा`, body: `शिव के इस नाम का स्मरण करने से भक्तों के सभी प्रकार के कष्ट दूर होते हैं। वे आशुतोष हैं जो शीघ्र प्रसन्न होते हैं।`, source: "शिव महापुराण, शतरुद्रसंहिता", status: "संदर्भ जाँचा गया" })) },
+            { id: 3, title: "भगवान शिव का स्वरूप", category: "स्वरूप", shortDesc: "कैलाशवासी, जटाधारी, नीलकंठ और भस्म विभूति धारी दिव्य स्वरूप का वर्णन।", intro: "शिव का रूप अलौकिक है। वे शरीर पर भस्म रमाते हैं, जटाओं में गंगा और मस्तक पर चंद्रमा धारण करते हैं।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. स्वरूप विशेषता`, body: `शिव का यह रूप साधकों को सांसारिक मोह-माया से परे उठकर आत्मज्ञान प्राप्त करने की प्रेरणा देता है।`, source: "लिंग पुराण", status: "परंपरा-आधारित विवरण" })) },
+            { id: 4, title: "भगवान शिव का परिवार", category: "कथाएँ", shortDesc: "माता पार्वती, पुत्र गणेश, कार्तिकेय और नंदी सहित संपूर्ण शिव परिवार।", intro: "शिव परिवार आदर्श और समन्वय का प्रतीक है। उनके परिवार में विरोधी प्रवृत्तियों के प्राणी भी प्रेम से रहते हैं।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. शिव परिवार प्रसंग`, body: `शिव परिवार का प्रत्येक सदस्य धर्म, ज्ञान, शक्ति और विवेक का आदर्श प्रस्तुत करता है।`, source: "शिव पुराण, पार्वती खंड", status: "संदर्भ जाँचा गया" })) },
+            { id: 5, title: "भगवान शिव और देवी पार्वती", category: "कथाएँ", shortDesc: "सती का पुनर्जन्म, पार्वती तपस्या, और शिव-पार्वती विवाह की पावन गाथा।", intro: "शिव और पार्वती का मिलन पुरुष और प्रकृति (ब्रह्म और माया) का शाश्वत योग है।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. शिव-पार्वती लीला`, body: `माता पार्वती की कठिन तपस्या और शिव की परीक्षा के उपरांत उनका दिव्य विवाह संपन्न हुआ।`, source: "कुमारसंभवम् / शिव पुराण", status: "संदर्भ जाँचा गया" })) },
+            { id: 6, title: "गणेश और कार्तिकेय", category: "कथाएँ", shortDesc: "प्रथम पूज्य श्री गणेश और सेनापति कार्तिकेय के जन्म व प्रसंग।", intro: "शिव और पार्वती के दोनों पुत्र अपनी बुद्धिमत्ता, वीरता और दिव्यता के लिए संपूर्ण ब्रह्मांड में पूजनीय हैं।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. बाल लीला एवं महिमा`, body: `गणेश जी विघ्नहर्ता हैं और कार्तिकेय देवताओं की सेना के महासेनापति हैं।`, source: "शिव पुराण, रुद्रसंहिता", status: "संदर्भ जाँचा गया" })) },
+            { id: 7, title: "भगवान शिव के प्रमुख प्रतीक", category: "प्रतीक", shortDesc: "रुद्राक्ष, व्याघ्रचर्म, सर्प, भस्म और चंद्रमस्तक जैसे sacred symbols का अर्थ।", intro: "भगवान शिव से जुड़े प्रत्येक प्रतीक के पीछे एक गहरा आध्यात्मिक और ब्रह्मांडीय विज्ञान छिपा हुआ है।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. प्रतीक रहस्य`, body: `रुद्राक्ष को शिव के नेत्रों के अश्रु से उत्पन्न माना गया है जो स्वास्थ्य और ध्यान में सहायक है।`, source: "शिव महापुराण", status: "संदर्भ जाँचा गया" })) },
+            { id: 8, title: "भगवान शिव की तीसरी आँख", category: "प्रतीक", shortDesc: "ज्ञान का चक्षु, प्रलय की अग्नि और कामदेव के दहन का पावन प्रसंग।", intro: "शिव की तीसरी आँख
