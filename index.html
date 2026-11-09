@@ -8,7 +8,7 @@
     
     <style>
         /* =========================================================
-           1. YOUR ROYAL CRIMSON THEME CSS (PRESERVED)
+           1. ROYAL CRIMSON & GOLDEN THEME CSS
            ========================================================= */
         :root {
             --primary-blue: #0b192c;
@@ -139,13 +139,11 @@
             position: absolute; width: 250vw; height: 250vh;
             background: radial-gradient(circle at center, rgba(255, 230, 100, 0.9) 0%, rgba(212, 175, 55, 0.5) 15%, transparent 60%);
             opacity: 0; transform: scale(0.5);
-            /* FASTER ANIMATION TIMING */
             animation: revealLight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.5s;
             pointer-events: none; z-index: 5;
         }
         .intro-text-container {
             position: absolute; text-align: center; z-index: 10; opacity: 0;
-            /* FASTER ANIMATION TIMING */
             animation: textFadeIn 1s ease-out forwards 0.8s;
         }
         .intro-logo {
@@ -167,13 +165,11 @@
         .door-left {
             transform-origin: left center; border-right: 3px solid #ffdf00;
             box-shadow: inset -10px 0 30px rgba(255, 223, 0, 0.2);
-            /* FASTER ANIMATION TIMING */
             animation: doorGlowLeft 0.5s ease-in forwards, openLeftDoor 1.2s cubic-bezier(0.4, 0, 0.1, 1) forwards 0.5s;
         }
         .door-right {
             transform-origin: right center; border-left: 3px solid #ffdf00;
             box-shadow: inset 10px 0 30px rgba(255, 223, 0, 0.2);
-            /* FASTER ANIMATION TIMING */
             animation: doorGlowRight 0.5s ease-in forwards, openRightDoor 1.2s cubic-bezier(0.4, 0, 0.1, 1) forwards 0.5s;
         }
         .door-panel {
@@ -320,4 +316,6 @@
                 <button class="filter-btn" onclick="filterParts('स्वरूप')">स्वरूप</button>
                 <button class="filter-btn" onclick="filterParts('कथाएँ')">कथाएँ</button>
                 <button class="filter-btn" onclick="filterParts('प्रतीक')">प्रतीक</button>
-              
+                <button class="filter-btn" onclick="filterParts('मंदिर एवं ज्योतिर्लिंग')">मंदिर एवं ज्योतिर्लिंग</button>
+            </div>
+            <div id="partsGrid" class="grid-cont
