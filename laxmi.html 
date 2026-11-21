@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="माँ लक्ष्मी का संपूर्ण परिचय, 108 नाम, मंत्र, अष्टलक्ष्मी, पूजा विधि, कथाएँ और धार्मिक महत्व।">
+<title>माँ लक्ष्मी | HinduGodsWeb</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --navy: #0b192c;
+    --blue: #1e3e62;
+    --crimson: #8b1538;
+    --red: #b32645;
+    --saffron: #ff6f3c;
+    --gold: #d4af37;
+    --cream: #fff8ed;
+    --white: #ffffff;
+    --text: #30252a;
+    --muted: #75666a;
+    --shadow: 0 8px 28px rgba(55, 15, 30, .10);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.8;
+}
+
+header {
+    background: linear-gradient(120deg, var(--navy), var(--crimson));
+    color: white;
+    padding: 15px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 18px #0002;
+}
+
+.logo {
+    font-family: 'Yatra One', cursive;
+    font-size: 23px;
+    color: #ffd978;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #ffd978;
+}
+
+.hero {
+    min-height: 390px;
+    padding: 65px 20px;
+    text-align: center;
+    color: white;
+    background:
+      linear-gradient(120deg, rgba(11,25,44,.88), rgba(139,21,56,.82)),
+      url('https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=1600&q=85');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero .symbol {
+    font-size: 65px;
+}
+
+.hero h1 {
+    font-family: 'Yatra One', cursive;
+    font-size: clamp(32px, 6vw, 58px);
+    color: #ffdc83;
+    margin: 10px 0;
+}
+
+.hero p {
+    max-width: 750px;
+    font-size: 17px;
+}
+
+.hero a {
+    margin-top: 22px;
+    padding: 10px 24px;
+    border-radius: 30px;
+    background: var(--gold);
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+section {
+    padding: 48px 0;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--crimson);
+    font-family: 'Yatra One', cursive;
+    font-size: clamp(25px, 4vw, 35px);
+    margin-bottom: 10px;
+}
+
+.section-intro {
+    text-align: center;
+    color: var(--muted);
+    max-width: 760px;
+    margin: 0 auto 28px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid #ecd9d5;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: var(--crimson);
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.feature {
+    text-align: center;
+    border-top: 4px solid var(--gold);
+}
+
+.feature .emoji {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+.toc {
+    background: #fff0e8;
+    border: 1px solid #edc8b8;
+    border-radius: 15px;
+    padding: 22px;
+    margin: 28px auto;
+}
+
+.toc h3 {
+    color: var(--crimson);
+    margin-bottom: 10px;
+}
+
+.toc ul {
+    columns: 2;
+    padding-left: 22px;
+}
+
+.toc a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.toc a:hover {
+    color: var(--red);
+    text-decoration: underline;
+}
+
+.name-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px;
+}
+
+.name-item {
+    padding: 10px 13px;
+    background: white;
+    border: 1px solid #ead8cf;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.name-item b {
+    color: var(--crimson);
+    margin-right: 5px;
+}
+
+.mantra {
+    text-align: center;
+    background: linear-gradient(120deg, #fff1d2, #ffe2e1);
+    border: 1px solid #e5c477;
+    border-radius: 14px;
+    padding: 22px;
+    margin: 15px 0;
+}
+
+.mantra .sanskrit {
+    font-size: 21px;
+    color: #8b1538;
+    font-weight: 800;
+    margin: 8px 0;
+}
+
+.note {
+    background: #fff7df;
+    border-left: 5px solid var(--gold);
+    padding: 15px 18px;
+    border-radius: 8px;
+    margin: 18px 0;
+}
+
+footer {
+    text-align: center;
+    background: var(--navy);
+    color: white;
+    padding: 28px 15px;
+}
+
+footer a {
+    color: #ffd978;
+    text-decoration: none;
+}
+
+.back-top {
+    position: fixed;
+    right: 17px;
+    bottom: 17px;
+    background: var(--crimson);
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: var(--shadow);
+}
+
+@media(max-width:600px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+    nav {
+        justify-content: center;
+        gap: 10px;
+    }
+    nav a {
+        font-size: 12px;
+    }
+    .toc ul {
+        columns: 1;
+    }
+    .card {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a class="logo" href="index.html">🔱 HinduGodsWeb</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#parichay">परिचय</a>
+        <a href="#ashtalakshmi">अष्टलक्ष्मी</a>
+        <a href="#108naam">108 नाम</a>
+        <a href="#mantra">मंत्र</a>
+        <a href="#puja">पूजा विधि</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <div class="symbol">🪷</div>
+    <h1>माँ महालक्ष्मी</h1>
+    <p>धन, धान्य, ऐश्वर्य, सौभाग्य, समृद्धि, शांति और मंगल की अधिष्ठात्री देवी माँ लक्ष्मी को कोटि-कोटि प्रणाम।</p>
+    <a href="#parichay">दिव्य परिचय पढ़ें ↓</a>
+</div>
+
+<main class="container">
+
+<div class="toc">
+    <h3>📚 इस पृष्ठ में क्या पढ़ेंगे?</h3>
+    <ul>
+        <li><a href="#parichay">माँ लक्ष्मी का परिचय</a></li>
+        <li><a href="#utpatti">समुद्र मंथन की कथा</a></li>
+        <li><a href="#swaroop">माँ का स्वरूप और प्रतीक</a></li>
+        <li><a href="#ashtalakshmi">अष्टलक्ष्मी के आठ रूप</a></li>
+        <li><a href="#108naam">माँ के 108 नाम</a></li>
+        <li><a href="#mantra">प्रमुख मंत्र</a></li>
+        <li><a href="#puja">पूजा और आराधना</a></li>
+        <li><a href="#vrat">व्रत और त्योहार</a></li>
+        <li><a href="#vahan">वाहन और परिवार</a></li>
+        <li><a href="#mandir">प्रसिद्ध मंदिर</a></li>
+        <li><a href="#mahatva">धार्मिक महत्व</a></li>
+    </ul>
+</div>
+
+<section id="parichay">
+    <h2 class="section-title">🌺 माँ लक्ष्मी का परिचय</h2>
+    <p class="section-intro">माँ लक्ष्मी हिंदू धर्म की प्रमुख देवियों में से एक हैं और भगवान विष्णु की शक्ति एवं सहधर्मिणी मानी जाती हैं।</p>
+
+    <div class="card">
+        <h3>माँ लक्ष्मी कौन हैं?</h3>
+        <p>माँ लक्ष्मी को धन, वैभव, समृद्धि, सौभाग्य, सुंदरता, शांति और शुभता की देवी माना जाता है। उन्हें महालक्ष्मी, श्रीदेवी, कमला और पद्मा जैसे नामों से भी जाना जाता है।</p>
+        <p>हिंदू मान्यता के अनुसार वे भगवान विष्णु के साथ सृष्टि के पालन और संतुलन से जुड़ी हुई हैं। उनकी कृपा केवल धन तक सीमित नहीं मानी जाती, बल्कि ज्ञान, सदाचार, परिवार की सुख-शांति और जीवन की उन्नति भी उनके आशीर्वाद से जोड़ी जाती है।</p>
+        <p>माँ लक्ष्मी की आराधना दीपावली, शरद पूर्णिमा, शुक्रवार और अन्य शुभ अवसरों पर विशेष रूप से की जाती है।</p>
+    </div>
+
+    <div class="grid">
+        <div class="card feature">
+            <div class="emoji">🪷</div>
+            <h3>प्रमुख नाम</h3>
+            <p>महालक्ष्मी, श्रीदेवी, कमला, पद्मा</p>
+        </div>
+        <div class="card feature">
+            <div class="emoji">🙏</div>
+            <h3>पति</h3>
+            <p>भगवान श्री विष्णु</p>
+        </div>
+        <div class="card feature">
+            <div class="emoji">🦉</div>
+            <h3>वाहन</h3>
+            <p>उल्लू (उलूक)</p>
+        </div>
+        <div class="card feature">
+            <div class="emoji">🌸</div>
+            <h3>प्रतीक</h3>
+            <p>कमल, स्वर्ण, कलश और दीप</p>
+        </div>
+    </div>
+</section>
+
+<section id="utpatti">
+    <h2 class="section-title">🌊 समुद्र मंथन से माँ का प्राकट्य</h2>
+    <div class="card">
+        <p>पुराणों में वर्णित प्रसिद्ध समुद्र मंथन की कथा के अनुसार देवताओं और असुरों ने अमृत प्राप्त करने के उद्देश्य से क्षीरसागर का मंथन किया। इस मंथन में अनेक दिव्य रत्न और वस्तुएँ प्रकट हुईं।</p>
+        <p>इसी समुद्र मंथन के दौरान कमल पर विराजमान दिव्य तेजस्विनी देवी लक्ष्मी प्रकट हुईं। उनके प्रकट होने से चारों ओर दिव्य प्रकाश और मंगल का वातावरण छा गया। देवताओं और ऋषियों ने उनकी स्तुति की।</p>
+        <p>माँ लक्ष्मी ने भगवान विष्णु को अपने पति के रूप में स्वीकार किया। इस प्रकार वे श्रीहरि विष्णु की सहधर्मिणी और वैकुंठ की अधिष्ठात्री देवी के रूप में पूजित हुईं।</p>
+        <div class="note">
+            <b>ध्यान दें:</b> माँ लक्ष्मी के प्राकट्य से जुड़ी कथाओं के अलग-अलग पुराणों और परंपराओं में कुछ भिन्न विवरण मिलते हैं।
+        </div>
+    </div>
+</section>
+
+<section id="swaroop">
+    <h2 class="section-title">✨ माँ लक्ष्मी का दिव्य स्वरूप</h2>
+    <div class="card">
+        <p>माँ लक्ष्मी को सामान्यतः कमल के पुष्प पर विराजमान, सुंदर आभूषणों से सुसज्जित और लाल या गुलाबी वस्त्र धारण किए हुए दिखाया जाता है। उनके चित्रों में प्रायः चार हाथ होते हैं।</p>
+    </div>
+
+    <div class="grid">
+        <div class="card feature">
+            <div class="emoji">🪷</div>
+            <h3>कमल का फूल</h3>
+            <p>पवित्रता, सुंदरता और संसार में रहते हुए भी निर्मल बने रहने का प्रतीक।</p>
+        </div>
+        <div class="card feature">
+            <div class="emoji">🪙</div>
+            <h3>स्वर्ण मुद्राएँ</h3>
+            <p>धन, दान, समृद्धि और उदारता का प्रतीक।</p>
+        </div>
+        <div class="card feature">
+            <div class="emoji">🌺</div>
+            <h3>लाल वस्त्र</h3>
+            <p>शक्ति, मंगल, उत्साह और शुभता का प्रतीक।</p>
+        </div>
+        <div class="card feature">
+            <div class="emoji">🐘</div>
+            <h3>गजलक्ष्मी</h3>
+            <p>हाथियों के साथ उनका रूप राजसी वैभव और वर्षा-समृद्धि से जुड़ा है।</p>
+        </div>
+    </div>
+</section>
+
+<section id="ashtalakshmi">
+    <h2 class="section-title">🪷 अष्टलक्ष्मी के आठ स्वरूप</h2>
+    <p class="section-intro">अष्टलक्ष्मी परंपरा में माँ लक्ष्मी के आठ स्वरूपों की पूजा की जाती है। प्रत्येक रूप जीवन की एक विशेष प्रकार की समृद्धि का प्रतिनिधित्व करता है।</p>
+
+    <div class="grid">
+        <div class="card">
+            <h3>1. आदि लक्ष्मी</h3>
+            <p>माँ का मूल और सनातन स्वरूप। आध्यात्मिक शांति, भक्ति और मोक्ष की भावना से जुड़ी हैं।</p>
+        </div>
+        <div class="card">
+            <h3>2. धन लक्ष्मी</h3>
+            <p>धन, आर्थिक समृद्धि, उदारता और ऐश्वर्य की अधिष्ठात्री।</p>
+        </div>
+        <div class="card">
+            <h3>3. धान्य लक्ष्मी</h3>
+            <p>अन्न, कृषि, भोजन और जीवन के पोषण की देवी।</p>
+        </div>
+        <div class="card">
+            <h3>4. गज लक्ष्मी</h3>
+            <p>राजसी वैभव, सम्मान, शक्ति और प्रतिष्ठा का स्वरूप।</p>
+        </div>
+        <div class="card">
+            <h3>5. संतान लक्ष्मी</h3>
+            <p>संतान, परिवार के कल्याण और वंश की उन्नति से जुड़ा स्वरूप।</p>
+        </div>
+        <div class="card">
+            <h3>6. वीर लक्ष्मी</h3>
+            <p>साहस, धैर्य, पराक्रम और कठिनाइयों का सामना करने की शक्ति।</p>
+        </div>
+        <div class="card">
+            <h3>7. विद्या लक्ष्मी</h3>
+            <p>ज्ञान, शिक्षा, बुद्धि और विवेक की समृद्धि का स्वरूप।</p>
+        </div>
+        <div class="card">
+            <h3>8. विजय लक्ष्मी</h3>
+            <p>सफलता, विजय, लक्ष्य प्राप्ति और बाधाओं पर जीत का स्वरूप।</p>
+        </div>
+    </div>
+</section>
+
+<section id="108naam">
+    <h2 class="section-title">📿 माँ लक्ष्मी के 108 नाम</h2>
+    <p class="section-intro">नीचे प्रचलित श्री लक्ष्मी अष्टोत्तर शतनामावली के नामों का एक संकलन दिया गया है। अलग-अलग पाठों और परंपराओं में नामों के क्रम तथा कुछ नामों में अंतर मिल सकता है।</p>
+
+    <div class="name-grid" id="namesList"></div>
+
+    <div class="note">
+        <b>महत्वपूर्ण:</b> यह 108 नामों की सूची है, माँ लक्ष्मी के सभी नामों की अंतिम या सर्वपरंपरागत सूची नहीं। विभिन्न ग्रंथों में सहस्रनाम सहित अन्य नामावलियाँ भी मिलती हैं।
+    </div>
+</section>
+
+<section id="mantra">
+    <h2 class="section-title">🔔 माँ लक्ष्मी के प्रमुख मंत्र</h2>
+    <p class="section-intro">भक्त अपनी श्रद्धा और परंपरा के अनुसार माँ लक्ष्मी के मंत्रों का जप करते हैं।</p>
+
+    <div class="mantra">
+        <h3>1. सरल लक्ष्मी मंत्र</h3>
+        <div class="sanskrit">ॐ श्रीं महालक्ष्म्यै नमः॥</div>
+        <p>अर्थ: माँ महालक्ष्मी को मेरा नमन है।</p>
+    </div>
+
+    <div class="mantra">
+        <h3>2. महालक्ष्मी नमस्कार मंत्र</h3>
+        <div class="sanskrit">ॐ महालक्ष्म्यै च विद्महे विष्णुपत्न्यै च धीमहि। तन्नो लक्ष्मीः प्रचोदयात्॥</div>
+        <p>यह लक्ष्मी गायत्री मंत्र के रूप में प्रचलित है।</p>
+    </div>
+
+    <div class="mantra">
+        <h3>3. श्री सूक्त का प्रसिद्ध मंत्र</h3>
+        <div class="sanskrit">हिरण्यवर्णां हरिणीं सुवर्णरजतस्रजाम्।<br>चन्द्रां हिरण्मयीं लक्ष्मीं जातवेदो म आवह॥</div>
+        <p>यह श्री सूक्त का आरंभिक मंत्र है, जिसमें देवी लक्ष्मी का आवाहन किया जाता है।</p>
+    </div>
+
+    <div class="mantra">
+        <h3>4. माँ लक्ष्मी का प्रणाम मंत्र</h3>
+        <div class="sanskrit">नमस्तेस्तु महामाये श्रीपीठे सुरपूजिते।<br>शङ्खचक्रगदाहस्ते महालक्ष्मि नमोऽस्तुते॥</div>
+        <p>अर्थ: हे महामाया, देवताओं द्वारा पूजित महालक्ष्मी, आपको मेरा नमन है।</p>
+    </div>
+</section>
+
+<section id="puja">
+    <h2 class="section-title">🪔 माँ लक्ष्मी की पूजा विधि</h2>
+    <div class="card">
+        <p>माँ लक्ष्मी की पूजा श्रद्धा, स्वच्छता और सद्भाव के साथ की जाती है। सामान्य पूजा में निम्नलिखित क्रम अपनाया जा सकता है:</p>
+        <ol style="padding-left:24px;">
+            <li>पूजा स्थान को साफ करके माँ लक्ष्मी की तस्वीर या प्रतिमा स्थापित करें।</li>
+            <li>स्वच्छ वस्त्र पहनकर पूजा के लिए बैठें।</li>
+            <li>दीपक जलाएँ और भगवान गणेश का स्मरण करें।</li>
+            <li>माँ लक्ष्मी को फूल, अक्षत और फल अर्पित करें।</li>
+            <li>धूप और दीप अर्पित करके मंत्र या स्तुति का पाठ करें।</li>
+            <li>माँ लक्ष्मी की आरती करें।</li>
+            <li>परिवार और सभी के कल्याण की प्रार्थना करें।</li>
+            <li>प्रसाद बाँटें और जरूरतमंदों की सहायता करें।</li>
+        </ol>
+    </div>
+    <div class="note">
+        पूजा की विधि क्षेत्र, परिवार और संप्रदाय के अनुसार अलग हो सकती है। अपनी पारिवारिक परंपरा का सम्मान करें।
+    </div>
+</section>
+
+<section id="vrat">
+    <h2 class="section-title">🌙 व्रत और प्रमुख त्योहार</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>दीपावली</h3>
+            <p>दीपावली पर माँ लक्ष्मी और भगवान गणेश की पूजा का विशेष महत्व है। घरों में दीप जलाकर सुख-समृद्धि की प्रार्थना की जाती है।</p>
+        </div>
+        <div class="card">
+            <h3>शरद पूर्णिमा</h3>
+            <p>कई क्षेत्रों में शरद पूर्णिमा को कोजागरी लक्ष्मी पूजा के रूप में मनाया जाता है।</p>
+        </div>
+        <div class="card">
+            <h3>वरलक्ष्मी व्रत</h3>
+            <p>दक्षिण भारत के कई क्षेत्रों में विवाहित महिलाएँ परिवार के कल्याण के लिए वरलक्ष्मी व्रत करती हैं।</p>
+        </div>
+        <div class="card">
+            <h3>शुक्रवार की पूजा</h3>
+            <p>कई परिवारों में शुक्रवार को माँ लक्ष्मी की विशेष पूजा और व्रत किया जाता है।</p>
+        </div>
+        <div class="card">
+            <h3>धनतेरस</h3>
+            <p>दीपावली पर्व के आरंभ में धनतेरस पर धन और आरोग्य से जुड़ी पूजा की जाती है।</p>
+        </div>
+        <div class="card">
+            <h3>कोजागरी पूर्णिमा</h3>
+            <p>इस रात माँ लक्ष्मी की आराधना की परंपरा विशेष रूप से पूर्वी भारत और अन्य क्षेत्रों में प्रचलित है।</p>
+        </div>
+    </div>
+</section>
+
+<section id="vahan">
+    <h2 class="section-title">🦉 वाहन और परिवार</h2>
+    <div class="card">
+        <h3>माँ लक्ष्मी का वाहन — उल्लू</h3>
+        <p>माँ लक्ष्मी के वाहन के रूप में उल्लू का उल्लेख मिलता है। इसे उलूक भी कहा जाता है। उल्लू को कुछ परंपराओं में सजगता, विवेक और अंधकार में भी देखने की क्षमता का प्रतीक माना जाता है।</p>
+        <h3>भगवान विष्णु से संबंध</h3>
+        <p>माँ लक्ष्मी भगवान विष्णु की सहधर्मिणी हैं। वैष्णव परंपरा में उन्हें श्रीदेवी कहा जाता है। भगवान विष्णु के विभिन्न अवतारों के साथ माँ लक्ष्मी के अवतारों का भी वर्णन मिलता है।</p>
+        <h3>रामायण और कृष्ण परंपरा</h3>
+        <p>लोकप्रिय धार्मिक मान्यताओं में माता सीता को भगवान राम की सहधर्मिणी और माँ लक्ष्मी का अवतार माना जाता है। इसी प्रकार रुक्मिणी जी को भगवान श्रीकृष्ण की प्रमुख रानी और लक्ष्मी का स्वरूप माना जाता है।</p>
+    </div>
+</section>
+
+<section id="mandir">
+    <h2 class="section-title">🏛️ माँ लक्ष्मी के प्रसिद्ध मंदिर</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>महालक्ष्मी मंदिर, कोल्हापुर</h3>
+            <p>महाराष्ट्र के कोल्हापुर में स्थित श्री महालक्ष्मी मंदिर शक्तिपीठ परंपरा में विशेष महत्व रखता है।</p>
+        </div>
+        <div class="card">
+            <h3>महालक्ष्मी मंदिर, मुंबई</h3>
+            <p>मुंबई का प्रसिद्ध महालक्ष्मी मंदिर भक्तों के लिए प्रमुख धार्मिक स्थल है।</p>
+        </div>
+        <div class="card">
+            <h3>पद्मावती मंदिर, तिरुचानूर</h3>
+            <p>आंध्र प्रदेश में स्थित यह मंदिर देवी पद्मावती को समर्पित है, जिन्हें लक्ष्मी का स्वरूप माना जाता है।</p>
+        </div>
+        <div class="card">
+            <h3>अष्टलक्ष्मी मंदिर, चेन्नई</h3>
+            <p>इस मंदिर में माँ लक्ष्मी के आठ स्वरूपों की पूजा की जाती है।</p>
+        </div>
+    </div>
+</section>
+
+<section id="mahatva">
+    <h2 class="section-title">🙏 माँ लक्ष्मी का धार्मिक महत्व</h2>
+    <div class="card">
+        <p>माँ लक्ष्मी भारतीय धार्मिक और सांस्कृतिक जीवन में समृद्धि, सौंदर्य, शुभता और मंगल की प्रतीक हैं। उनकी पूजा हमें यह संदेश देती है कि धन के साथ-साथ विनम्रता, दान, परिश्रम और सदाचार भी जीवन में आवश्यक हैं।</p>
+        <p>लक्ष्मी का अर्थ केवल धन-संपत्ति नहीं है। ज्ञान, साहस, अन्न, संतान, विजय और आध्यात्मिक शांति भी जीवन की समृद्धि के रूप हैं। अष्टलक्ष्मी की परंपरा इसी व्यापक अर्थ को दर्शाती है।</p>
+    </div>
+    <div class="mantra">
+        <div class="sanskrit">ॐ श्री महालक्ष्म्यै नमः॥</div>
+        <p>माँ महालक्ष्मी सबके जीवन में सुख, शांति, सद्बुद्धि और मंगल प्रदान करें।</p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div style="font-size:32px;">🪷 🙏 🪷</div>
+    <h3>HinduGodsWeb</h3>
+    <p>सनातन धर्म, देवी-देवताओं और भारतीय संस्कृति की जानकारी।</p>
+    <p><a href="index.html">मुख्य पृष्ठ पर वापस जाएँ</a></p>
+    <p style="margin-top:12px;font-size:13px;color:#d8c9c9;">© 2026 HinduGodsWeb | श्रद्धा और ज्ञान का संगम</p>
+</footer>
+
+<a href="#" class="back-top">↑ ऊपर</a>
+
+<script>
+const lakshmiNames = [
+"प्रकृति","विकृति","विद्या","सर्वभूतहितप्रदा","श्रद्धा","विभूति","सुरभि","परमात्मिका",
+"वाचे","पद्मालया","पद्मा","शुचि","स्वाहा","स्वधा","सुधा","धन्या",
+"हिरण्मयी","लक्ष्मी","नित्यपुष्टा","विभावरी","अदिति","दिति","दीप्ता","वसुधा",
+"वसुधारिणी","कमला","कान्ता","कामाक्षी","क्रोधसम्भवा","अनुग्रहप्रदा","बुद्धि","अनघा",
+"हरिवल्लभी","अशोका","अमृता","दीप्ति","लोकशोकविनाशिनी","धर्मनिलया","करुणा","लोकमाता",
+"पद्मप्रिया","पद्महस्ता","पद्माक्षी","पद्मसुन्दरी","पद्मोद्भवा","पद्ममुखी","पद्मनाभप्रिया","रमा",
+"पद्ममाला","देवी","पद्मिनी","पद्मगन्धिनी","पुण्यगन्धा","सुप्रसन्ना","प्रसादाभिमुखी","प्रभा",
+"चन्द्रवदना","चन्द्रा","चन्द्रसहोदरी","चतुर्भुजा","चन्द्ररूपा","इन्दिरा","इन्दुशीतला","आह्लादजननी",
+"पुष्टि","शिवा","शिवकरी","सती","विमला","विश्वजननी","तुष्टि","दारिद्र्यनाशिनी",
+"प्रीतिपुष्करिणी","शान्ता","शुक्लमाल्याम्बरा","श्री","भास्करी","बिल्वनिलया","वरारोहा","यशस्विनी",
+"वसुन्धरा","उदारांगा","हरिणी","हेममालिनी","धनधान्यकरी","सिद्धि","स्त्रैणसौम्या","शुभप्रदा",
+"नृपवेश्मगतानन्दा","वरलक्ष्मी","वसुप्रदा","शुभा","हिरण्यप्राकारा","समुद्रतनया","जया","मंगला",
+"विष्णुवक्षःस्थलस्थिता","विष्णुपत्नी","प्रसन्नाक्षी","नारायणसमाश्रिता","दारिद्र्यध्वंसिनी","देवदेविका","सर्वोपद्रववारिणी","नवदुर्गा",
+"महाकाली","ब्रह्मविष्णुशिवात्मिका"
+];
+
+const list = document.getElementById("namesList");
+lakshmiNames.forEach((name, index) => {
+    const item = document.createElement("div");
+    item.className = "name-item";
+    item.innerHTML = `<b>${index + 1}.</b> ${name}`;
+   
