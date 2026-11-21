@@ -1,283 +1,800 @@
+HinduGodsWeb — Complete "index.html"
+
+नीचे का पूरा कोड "index.html" में डालें:
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hindu Gods - Sacred Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
-    
-    <style>
-        /* =========================================================
-           1. YOUR ROYAL CRIMSON THEME CSS (NO ANIMATION)
-           ========================================================= */
-        :root {
-            --primary-blue: #0b192c;
-            --secondary-blue: #1e3e62;
-            --crimson-bg: linear-gradient(135deg, #4a0e0e 0%, #2a0808 100%);
-            --saffron: #ff6f3c;
-            --golden: #d4af37;
-            --golden-light: #f4e8c1;
-            --cream-bg: #fdfbf7;
-            --dark-charcoal: #222222;
-            --glass-bg: rgba(30, 10, 10, 0.85);
-            --border-color: rgba(212, 175, 55, 0.4);
-            --shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindu Gods - Sacred Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Noto Sans Devanagari', sans-serif, Arial;
-            background-color: var(--cream-bg);
-            color: var(--dark-charcoal);
-            line-height: 1.8;
-        }
+<style>
+:root {
+    --primary-blue: #0b192c;
+    --secondary-blue: #1e3e62;
+    --crimson-bg: linear-gradient(135deg,#4a0e0e 0%,#2a0808 100%);
+    --saffron: #ff6f3c;
+    --golden: #d4af37;
+    --golden-light: #f4e8c1;
+    --cream-bg: #fdfbf7;
+    --dark-charcoal: #222;
+    --border-color: rgba(212,175,55,.4);
+    --shadow: 0 10px 30px rgba(0,0,0,.15);
+}
 
-        /* Navbar */
-        .navbar {
-            background: var(--primary-blue);
-            color: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            border-bottom: 2px solid var(--golden);
-        }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; }
-        .nav-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; font-family: 'Yatra One', cursive, sans-serif; font-size: 22px; color: var(--golden); }
-        .nav-links { display: flex; gap: 25px; }
-        .nav-links a { color: #fff; text-decoration: none; font-weight: 500; transition: color 0.3s; cursor: pointer; }
-        .nav-links a:hover { color: var(--saffron); }
-        .nav-search-bar { display: flex; background: rgba(255,255,255,0.1); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; }
-        .nav-search-bar input { background: transparent; border: none; padding: 8px 15px; color: #fff; outline: none; font-family: inherit; }
-        .nav-search-bar input::placeholder { color: #ccc; }
-        .nav-search-bar button { background: var(--golden); border: none; padding: 0 12px; cursor: pointer; }
-        
-        /* Hero Section */
-        .hero-section { background: linear-gradient(135deg, #4a0e0e, #1e3e62); color: #fff; padding: 70px 20px; display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 30px auto; border-radius: 24px; border: 1px solid var(--border-color); box-shadow: var(--shadow); }
-        .hero-content { max-width: 600px; }
-        .hero-content h1 { font-size: 48px; color: var(--golden); margin-bottom: 15px; }
-        .hero-content p { font-size: 18px; color: var(--golden-light); margin-bottom: 30px; }
-        .hero-buttons { display: flex; gap: 15px; }
-        
-        .btn { padding: 12px 25px; border-radius: 30px; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.3s; font-family: inherit; }
-        .btn-primary { background: var(--saffron); color: #fff; border: none; box-shadow: 0 4px 15px rgba(255,111,60,0.4); }
-        .btn-primary:hover { background: #e85a25; transform: translateY(-2px); }
-        .btn-secondary { background: transparent; color: var(--golden); border: 2px solid var(--golden); }
-        .btn-secondary:hover { background: var(--golden); color: #2a0808; }
-        
-        .hero-image .image-frame { width: 280px; height: 280px; border-radius: 50%; background: rgba(212, 175, 55, 0.1); border: 4px solid var(--golden); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
-        .spiritual-placeholder { font-size: 64px; margin-bottom: 10px; color: var(--golden); }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
 
-        /* Cards & Sections */
-        .card { background: #fff; border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; box-shadow: var(--shadow); max-width: 1200px; margin: 30px auto; }
-        .parts-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .section-title { text-align: center; margin-bottom: 30px; }
-        .section-title h2 { color: var(--secondary-blue); font-size: 32px; }
-        
-        .filter-buttons { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-        .filter-btn { background: #fff; border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 20px; cursor: pointer; font-family: inherit; font-weight: 500; transition: all 0.3s; }
-        .filter-btn.active, .filter-btn:hover { background: var(--saffron); color: #fff; border-color: var(--saffron); }
-        
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-        .part-card { background: #fff; border: 1px solid var(--border-color); border-radius: 16px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit;}
-        .part-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(11, 25, 44, 0.12); border-color: var(--saffron); }
-        .part-badge { background: var(--golden-light); color: var(--secondary-blue); padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 700; align-self: flex-start; margin-bottom: 12px; }
-        .part-card h3 { font-size: 20px; color: var(--secondary-blue); margin-bottom: 10px; }
-        .part-card p { font-size: 14.5px; color: #555; margin-bottom: 20px; }
-        .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 15px; }
-        .point-count { font-size: 13px; color: var(--saffron); font-weight: 600; }
-        .read-btn { background: var(--secondary-blue); color: #fff; border: none; padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; font-family: inherit; }
-        .read-btn:hover { background: var(--saffron); }
+body {
+    font-family: 'Noto Sans Devanagari',sans-serif,Arial;
+    background: var(--cream-bg);
+    color: var(--dark-charcoal);
+    line-height: 1.8;
+}
 
-        /* Detail View */
-        .detail-view { max-width: 900px; margin: 30px auto; padding: 40px; background: #fff; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--border-color); }
-        .breadcrumb { font-size: 14px; color: #666; margin-bottom: 20px; }
-        .breadcrumb a { color: var(--secondary-blue); text-decoration: none; }
-        .detail-header h1 { color: var(--secondary-blue); font-size: 36px; margin: 15px 0; }
-        .detail-intro { font-size: 17px; color: #444; margin-bottom: 30px; border-left: 4px solid var(--saffron); padding-left: 15px; background: rgba(255, 111, 60, 0.05); padding-top: 10px; padding-bottom: 10px; }
-        .toc-box { background: var(--golden-light); border: 1px solid var(--golden); border-radius: 12px; padding: 20px; margin-bottom: 30px; }
-        .toc-box h3 { font-size: 18px; color: var(--secondary-blue); margin-bottom: 12px; }
-        .toc-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; list-style: none; }
-        .toc-list a { color: var(--secondary-blue); text-decoration: none; font-size: 13.5px; }
-        .toc-list a:hover { color: var(--saffron); text-decoration: underline; }
-        .point-item { background: #f9f9f9; border: 1px solid #eee; border-radius: 12px; padding: 22px; margin-bottom: 20px; }
-        .point-item h3 { color: var(--secondary-blue); font-size: 18px; margin-bottom: 10px; }
-        .point-source { margin-top: 10px; font-size: 13px; color: #666; display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #ddd; padding-top: 8px; }
-        .badge-verified { background: #e1f5fe; color: #0288d1; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; }
-        .back-action { margin-top: 30px; display: flex; justify-content: space-between; }
+/* NAVBAR */
+.navbar {
+    background: var(--primary-blue);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,.3);
+    border-bottom: 2px solid var(--golden);
+}
 
-        /* Footer */
-        footer { background: var(--primary-blue); color: #fff; margin-top: 60px; border-top: 2px solid var(--golden); }
-        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 50px 20px; }
-        .footer-col h3, .footer-col h4 { color: var(--golden); margin-bottom: 15px; }
-        .footer-col p, .footer-col li { font-size: 14px; color: #ccc; margin-bottom: 10px; list-style: none; }
-        .footer-col a { color: #ccc; text-decoration: none; }
-        .footer-col a:hover { color: var(--saffron); }
-        .footer-bottom { text-align: center; padding: 20px; background: rgba(0,0,0,0.3); font-size: 13px; color: #aaa; border-top: 1px solid rgba(255,255,255,0.05); }
-        
-        /* Helper Classes */
-        .hidden { display: none !important; }
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 20px;
+}
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-section { flex-direction: column; text-align: center; padding: 40px 20px; }
-            .hero-buttons { justify-content: center; }
-            .hero-image { margin-top: 30px; }
-        }
-    </style>
+.nav-logo {
+    cursor: pointer;
+    font-family: 'Yatra One',cursive;
+    font-size: 22px;
+    color: var(--golden);
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-links a:hover {
+    color: var(--saffron);
+}
+
+.nav-search-bar {
+    display: flex;
+    background: rgba(255,255,255,.1);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.nav-search-bar input {
+    width: 150px;
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    outline: none;
+    font-family: inherit;
+}
+
+.nav-search-bar input::placeholder {
+    color: #ccc;
+}
+
+.nav-search-bar button {
+    background: var(--golden);
+    border: none;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero-section {
+    background: linear-gradient(135deg,#4a0e0e,#1e3e62);
+    color: white;
+    padding: 70px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    color: var(--golden);
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: var(--golden-light);
+    margin-bottom: 25px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: var(--saffron);
+    color: white;
+    border: none;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--golden);
+    border: 2px solid var(--golden);
+}
+
+.hero-image .image-frame {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(212,175,55,.1);
+    border: 4px solid var(--golden);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.spiritual-placeholder {
+    font-size: 65px;
+    color: var(--golden);
+}
+
+/* SECTIONS */
+.card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.parts-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    color: var(--secondary-blue);
+    font-size: 30px;
+}
+
+.section-title p {
+    color: #666;
+}
+
+/* GRID */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+    gap: 22px;
+}
+
+.part-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.05);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    min-width: 0;
+}
+
+.part-card:hover {
+    border-color: var(--saffron);
+}
+
+.part-card h3 {
+    font-size: 19px;
+    color: var(--secondary-blue);
+    margin: 10px 0;
+}
+
+.part-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.god-card {
+    text-align: center;
+    align-items: center;
+}
+
+.god-card-image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--golden-light);
+}
+
+.fallback-icon {
+    font-size: 65px;
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.god-card .read-btn {
+    margin-top: 12px;
+}
+
+.part-badge {
+    background: var(--golden-light);
+    color: var(--secondary-blue);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    align-self: flex-start;
+    margin-bottom: 12px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.point-count {
+    font-size: 13px;
+    color: var(--saffron);
+    font-weight: 600;
+}
+
+.read-btn {
+    background: var(--secondary-blue);
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* FILTERS */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: white;
+    border: 1px solid var(--border-color);
+    padding: 8px 17px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--saffron);
+    color: white;
+    border-color: var(--saffron);
+}
+
+/* DETAIL VIEW */
+.detail-view {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.detail-header h1 {
+    color: var(--secondary-blue);
+    font-size: 32px;
+    margin: 15px 0;
+}
+
+.detail-intro {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--saffron);
+    padding: 12px 15px;
+    background: rgba(255,111,60,.05);
+}
+
+.toc-box {
+    background: var(--golden-light);
+    border: 1px solid var(--golden);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.toc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap: 8px;
+    list-style: none;
+}
+
+.toc-list a {
+    color: var(--secondary-blue);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.point-item {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.point-item h3 {
+    color: var(--secondary-blue);
+    margin-bottom: 8px;
+}
+
+.point-source {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+    border-top: 1px dashed #ddd;
+    padding-top: 8px;
+}
+
+.back-action {
+    margin-top: 25px;
+}
+
+/* JYOTIRLINGA */
+.jyoti-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.jyoti-card h3 {
+    color: var(--secondary-blue);
+    margin-bottom: 8px;
+}
+
+.source-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* FOOTER */
+footer {
+    background: var(--primary-blue);
+    color: white;
+    margin-top: 60px;
+    border-top: 2px solid var(--golden);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 35px;
+    padding: 45px 20px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+    color: var(--golden);
+    margin-bottom: 12px;
+}
+
+.footer-col p,
+.footer-col li {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 8px;
+    list-style: none;
+}
+
+.footer-col a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 18px;
+    background: rgba(0,0,0,.3);
+    font-size: 13px;
+    color: #aaa;
+    border-top: 1px solid rgba(255,255,255,.05);
+}
+
+.no-results {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    grid-column: 1/-1;
+}
+
+@media(max-width:768px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .nav-search-bar {
+        margin-left: auto;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+        margin: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        margin-top: 15px;
+    }
+
+    .hero-image .image-frame {
+        width: 190px;
+        height: 190px;
+    }
+
+    .card {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .detail-view {
+        margin: 15px;
+        padding: 22px;
+    }
+
+    .detail-header h1 {
+        font-size: 25px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- =========================================================
-         NAVBAR
-         ========================================================= -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="showHome()">🔱 HinduGodsWeb</div>
-            <div class="nav-search-bar">
-                <input type="text" placeholder="खोजें...">
-                <button>🔍</button>
-            </div>
-            <div class="nav-links">
-                <a onclick="showHome()">होम</a>
-                <a onclick="showJyotirlinga()">12 ज्योतिर्लिंग</a>
-                <a onclick="showSources()">प्रमाणिक स्रोत</a>
-                <a href="vansh_vriksh.html">वंश वृक्ष</a>
-            </div>
-        </div>
-    </nav>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo" onclick="showHome()">🔱 HinduGodsWeb</div>
 
-    <!-- =========================================================
-         MAIN HOME VIEW
-         ========================================================= -->
-    <div id="homeView">
-        
-        <!-- Hero Section -->
-        <div class="hero-section">
-            <div class="hero-content">
-                <h1>सनातन धर्म और देव दर्शन</h1>
-                <p>संपूर्ण ज्ञानकोश, 12 ज्योतिर्लिंग, आरती, चालीसा और पौराणिक कथाओं का पावन संग्रह।</p>
-                <div class="hero-buttons">
-                    <a href="#gods-section" class="btn btn-primary">दर्शन करें</a>
-                    <a href="#encyclopedia" class="btn btn-secondary">ज्ञानकोश पढ़ें</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-frame">
-                    <div class="spiritual-placeholder">🕉️</div>
-                    <h3 style="color:var(--golden)">दिव्य दर्शन</h3>
-                </div>
+        <div class="nav-search-bar">
+            <input type="text" id="siteSearch" placeholder="खोजें..." aria-label="खोजें">
+            <button onclick="searchSite()">🔍</button>
+        </div>
+
+        <div class="nav-links">
+            <a onclick="showHome()">होम</a>
+            <a onclick="showJyotirlinga()">12 ज्योतिर्लिंग</a>
+            <a onclick="showSources()">प्रमाणिक स्रोत</a>
+            <a href="vansh_vriksh.html">वंश वृक्ष</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HOME VIEW -->
+<div id="homeView">
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>सनातन धर्म और देव दर्शन</h1>
+            <p>देवताओं का परिचय, पौराणिक कथाएँ, आरती, चालीसा और धार्मिक ज्ञान का संग्रह।</p>
+            <div class="hero-buttons">
+                <a href="#gods-section" class="btn btn-primary">दर्शन करें</a>
+                <a href="#encyclopedia" class="btn btn-secondary">ज्ञानकोश पढ़ें</a>
             </div>
         </div>
 
-        <!-- Gods Section -->
-        <div id="gods-section" class="card">
-            <div class="section-title">
-                <h2>पवित्र देवता दर्शन</h2>
-            </div>
-            <div class="grid-container">
-                <a href="shiva.html" class="part-card" style="text-align:center;">
-                    <div style="font-size:40px; margin-bottom:10px;">🔱</div>
-                    <h3>भगवान शिव</h3>
-                </a>
-                <a href="hanuman.html" class="part-card" style="text-align:center;">
-                    <div style="font-size:40px; margin-bottom:10px;">🚩</div>
-                    <h3>श्री हनुमान</h3>
-                </a>
-                <a href="krishna.html" class="part-card" style="text-align:center;">
-                    <div style="font-size:40px; margin-bottom:10px;">🦚</div>
-                    <h3>श्री कृष्ण</h3>
-                </a>
-                <a href="durga.html" class="part-card" style="text-align:center;">
-                    <div style="font-size:40px; margin-bottom:10px;">🌺</div>
-                    <h3>माँ दुर्गा</h3>
-                </a>
-                <a href="ganesh.html" class="part-card" style="text-align:center;">
-                    <div style="font-size:40px; margin-bottom:10px;">🐘</div>
-                    <h3>श्री गणेश</h3>
-                </a>
-                <a href="ram.html" class="part-card" style="text-align:center;">
-                    <div style="font-size:40px; margin-bottom:10px;">🏹</div>
-                    <h3>श्री राम</h3>
-                </a>
+        <div class="hero-image">
+            <div class="image-frame">
+                <div class="spiritual-placeholder">🕉️</div>
+                <h3 style="color:var(--golden)">दिव्य दर्शन</h3>
             </div>
         </div>
+    </section>
 
-        <!-- Encyclopedia Container -->
-        <div id="encyclopedia" class="parts-container">
-            <div class="section-title">
-                <h2>महादेव ज्ञानकोश</h2>
-            </div>
-            <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterParts('all')">सभी भाग</button>
-                <button class="filter-btn" onclick="filterParts('स्वरूप')">स्वरूप</button>
-                <button class="filter-btn" onclick="filterParts('कथाएँ')">कथाएँ</button>
-                <button class="filter-btn" onclick="filterParts('प्रतीक')">प्रतीक</button>
-                <button class="filter-btn" onclick="filterParts('मंदिर एवं ज्योतिर्लिंग')">मंदिर एवं ज्योतिर्लिंग</button>
-            </div>
-            <div id="partsGrid" class="grid-container"></div>
+    <!-- GODS SECTION -->
+    <section id="gods-section" class="card">
+        <div class="section-title">
+            <h2>पवित्र देवता दर्शन</h2>
+            <p>देवी-देवताओं के बारे में जानें</p>
+        </div>
+
+        <div class="grid-container" id="godsGrid">
+
+            <a href="shiva.html" class="part-card god-card" data-god-card>
+                <div class="fallback-icon">🔱</div>
+                <h3>भगवान शिव</h3>
+                <p>देवों के देव महादेव</p>
+                <button class="read-btn" type="button">दर्शन करें</button>
+            </a>
+
+            <a href="hanuman.html" class="part-card god-card" data-god-card>
+                <div class="fallback-icon">🚩</div>
+                <h3>श्री हनुमान</h3>
+                <p>भक्ति, शक्ति और सेवा के प्रतीक</p>
+                <button class="read-btn" type="button">दर्शन करें</button>
+            </a>
+
+            <a href="krishna.html" class="part-card god-card" data-god-card>
+                <div class="fallback-icon">🦚</div>
+                <h3>श्री कृष्ण</h3>
+                <p>योगेश्वर और श्रीमद्भगवद्गीता के उपदेशक</p>
+                <button class="read-btn" type="button">दर्शन करें</button>
+            </a>
+
+            <a href="durga.html" class="part-card god-card" data-god-card>
+                <div class="fallback-icon">🌺</div>
+                <h3>माँ दुर्गा</h3>
+                <p>आदिशक्ति का दिव्य स्वरूप</p>
+                <button class="read-btn" type="button">दर्शन करें</button>
+            </a>
+
+            <a href="ganesh.html" class="part-card god-card" data-god-card>
+                <div class="fallback-icon">🐘</div>
+                <h3>श्री गणेश</h3>
+                <p>प्रथम पूज्य विघ्नहर्ता</p>
+                <button class="read-btn" type="button">दर्शन करें</button>
+            </a>
+
+            <a href="ram.html" class="part-card god-card" data-god-card>
+                <div class="fallback-icon">🏹</div>
+                <h3>श्री राम</h3>
+                <p>मर्यादा पुरुषोत्तम</p>
+                <button class="read-btn" type="button">दर्शन करें</button>
+            </a>
+
+            <a href="laxmi.html" class="part-card god-card" data-god-card>
+                <div class="fallback-icon">🪷</div>
+                <h3>माँ लक्ष्मी</h3>
+                <p>समृद्धि, सौभाग्य और ऐश्वर्य की देवी</p>
+                <button class="read-btn" type="button">दर्शन करें</button>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ENCYCLOPEDIA -->
+    <section id="encyclopedia" class="parts-container">
+        <div class="section-title">
+            <h2>महादेव ज्ञानकोश</h2>
+            <p>भगवान शिव के स्वरूप, कथाओं और प्रतीकों का परिचय</p>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterParts('all',this)">सभी भाग</button>
+            <button class="filter-btn" onclick="filterParts('स्वरूप',this)">स्वरूप</button>
+            <button class="filter-btn" onclick="filterParts('कथाएँ',this)">कथाएँ</button>
+            <button class="filter-btn" onclick="filterParts('प्रतीक',this)">प्रतीक</button>
+            <button class="filter-btn" onclick="filterParts('मंदिर एवं ज्योतिर्लिंग',this)">मंदिर एवं ज्योतिर्लिंग</button>
+        </div>
+
+        <div id="partsGrid" class="grid-container"></div>
+    </section>
+
+</div>
+
+<!-- DETAIL VIEW -->
+<div id="detailView" class="detail-view hidden"></div>
+
+<!-- JYOTIRLINGA VIEW -->
+<div id="jyotirlingaView" class="parts-container hidden"></div>
+
+<!-- SOURCES VIEW -->
+<div id="sourcesView" class="parts-container hidden"></div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>HinduGodsWeb</h3>
+            <p>सनातन धर्म के पावन ज्ञान, कथाओं और दर्शन का डिजिटल संग्रह।</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>महत्वपूर्ण लिंक</h4>
+            <ul>
+                <li><a href="#" onclick="showHome();return false;">होम</a></li>
+                <li><a href="vansh_vriksh.html">दिव्य वंश वृक्ष</a></li>
+                <li><a href="#" onclick="showJyotirlinga();return false;">12 ज्योतिर्लिंग</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>संपर्क</h4>
+            <p>ईमेल: contact@hindugodsweb.com</p>
+            <p>स्थान: भारत</p>
         </div>
     </div>
 
-    <!-- =========================================================
-         DETAIL VIEW (Hidden by default)
-         ========================================================= -->
-    <div id="detailView" class="detail-view hidden"></div>
+    <div class="footer-bottom">
+        &copy; 2026 HinduGodsWeb. Built with Devotion & Royal Design.
+    </div>
+</footer>
 
-    <!-- =========================================================
-         JYOTIRLINGA VIEW (Hidden by default)
-         ========================================================= -->
-    <div id="jyotirlingaView" class="parts-container hidden"></div>
+<script>
+/* ==========================================
+   1. ENCYCLOPEDIA DATABASE
+========================================== */
 
-    <!-- =========================================================
-         SOURCES VIEW (Hidden by default)
-         ========================================================= -->
-    <div id="sourcesView" class="parts-container hidden"></div>
-
-    <!-- =========================================================
-         FOOTER
-         ========================================================= -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>HinduGodsWeb</h3>
-                <p>सनातन धर्म के पावन ज्ञान, कथाओं और दर्शन का प्रामाणिक डिजिटल पोर्टल।</p>
-            </div>
-            <div class="footer-col">
-                <h4>महत्वपूर्ण लिंक</h4>
-                <li><a style="cursor:pointer;" onclick="showHome()">होम</a></li>
-                <li><a href="vansh_vriksh.html">दिव्य वंश वृक्ष</a></li>
-                <li><a style="cursor:pointer;" onclick="showJyotirlinga()">12 ज्योतिर्लिंग</a></li>
-            </div>
-            <div class="footer-col">
-                <h4>संपर्क</h4>
-                <p>ईमेल: contact@hindugodsweb.com</p>
-                <p>स्थान: भारत</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 HinduGodsWeb. Built with 100% Devotion & Royal Design.
-        </div>
-    </footer>
-
-    <!-- =========================================================
-         JAVASCRIPT (Encyclopedia Logic Only - No Animation)
-         ========================================================= -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Render Encyclopedia Data Immediately on Page Load
-            renderPartsGrid(partsData);
-        });
-
-        // 2. YOUR ENCYCLOPEDIA DATABASE (Preserved 100%)
-        const partsData = [
-            { id: 1, title: "भगवान शिव का परिचय", category: "स्वरूप", shortDesc: "भगवान शिव हिंदू धर्म के प्रमुख देवताओं में से एक हैं जिन्हें महादेव कहा जाता है।", intro: "भगवान शिव सनातन हिंदू धर्म के प्रमुख देवताओं में से एक हैं। उन्हें देवों के देव महादेव और भोलेनाथ के रूप में पूजा जाता है।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. भगवान शिव का दार्शनिक और पौराणिक आयाम`, body: `यह बिंदु भगवान शिव के समग्र स्वरूप, उनकी दिव्यता और सनातन संस्कृति में उनके स्थान की व्याख्या करता है। शिव का अर्थ है 'कल्याणकारी'।`, source: "शिव महापुराण, रुद्रसंहिता", status: "संदर्भ जाँचा गया" })) },
-            { id: 2, title: "भगवान शिव के नाम और उनके अर्थ", category: "स्वरूप", shortDesc: "महादेव, भोलेनाथ, शंकर, शंभू और अन्य सहस्त्र नामों का गूढ़ अर्थ।", intro: "महादेव के विभिन्न नाम उनके अनगिनत गुणों और स्वभाव को दर्शाते हैं।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. पावन नाम एवं महिमा`, body: `शिव के इस नाम का स्मरण करने से भक्तों के सभी प्रकार के कष्ट दूर होते हैं। वे आशुतोष हैं जो शीघ्र प्रसन्न होते हैं।`, source: "शिव महापुराण, शतरुद्रसंहिता", status: "संदर्भ जाँचा गया" })) },
-            { id: 3, title: "भगवान शिव का स्वरूप", category: "स्वरूप", shortDesc: "कैलाशवासी, जटाधारी, नीलकंठ और भस्म विभूति धारी दिव्य स्वरूप का वर्णन।", intro: "शिव का रूप अलौकिक है। वे शरीर पर भस्म रमाते हैं, जटाओं में गंगा और मस्तक पर चंद्रमा धारण करते हैं।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. स्वरूप विशेषता`, body: `शिव का यह रूप साधकों को सांसारिक मोह-माया से परे उठकर आत्मज्ञान प्राप्त करने की प्रेरणा देता है।`, source: "लिंग पुराण", status: "परंपरा-आधारित विवरण" })) },
-            { id: 4, title: "भगवान शिव का परिवार", category: "कथाएँ", shortDesc: "माता पार्वती, पुत्र गणेश, कार्तिकेय और नंदी सहित संपूर्ण शिव परिवार।", intro: "शिव परिवार आदर्श और समन्वय का प्रतीक है। उनके परिवार में विरोधी प्रवृत्तियों के प्राणी भी प्रेम से रहते हैं।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. शिव परिवार प्रसंग`, body: `शिव परिवार का प्रत्येक सदस्य धर्म, ज्ञान, शक्ति और विवेक का आदर्श प्रस्तुत करता है।`, source: "शिव पुराण, पार्वती खंड", status: "संदर्भ जाँचा गया" })) },
-            { id: 5, title: "भगवान शिव और देवी पार्वती", category: "कथाएँ", shortDesc: "सती का पुनर्जन्म, पार्वती तपस्या, और शिव-पार्वती विवाह की पावन गाथा।", intro: "शिव और पार्वती का मिलन पुरुष और प्रकृति (ब्रह्म और माया) का शाश्वत योग है।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. शिव-पार्वती लीला`, body: `माता पार्वती की कठिन तपस्या और शिव की परीक्षा के उपरांत उनका दिव्य विवाह संपन्न हुआ।`, source: "कुमारसंभवम् / शिव पुराण", status: "संदर्भ जाँचा गया" })) },
-            { id: 6, title: "गणेश और कार्तिकेय", category: "कथाएँ", shortDesc: "प्रथम पूज्य श्री गणेश और सेनापति कार्तिकेय के जन्म व प्रसंग।", intro: "शिव और पार्वती के दोनों पुत्र अपनी बुद्धिमत्ता, वीरता और दिव्यता के लिए संपूर्ण ब्रह्मांड में पूजनीय हैं।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. बाल लीला एवं महिमा`, body: `गणेश जी विघ्नहर्ता हैं और कार्तिकेय देवताओं की सेना के महासेनापति हैं।`, source: "शिव पुराण, रुद्रसंहिता", status: "संदर्भ जाँचा गया" })) },
-            { id: 7, title: "भगवान शिव के प्रमुख प्रतीक", category: "प्रतीक", shortDesc: "रुद्राक्ष, व्याघ्रचर्म, सर्प, भस्म और चंद्रमस्तक जैसे sacred symbols का अर्थ।", intro: "भगवान शिव से जुड़े प्रत्येक प्रतीक के पीछे एक गहरा आध्यात्मिक और ब्रह्मांडीय विज्ञान छिपा हुआ है।", points: Array.from({ length: 20 }, (_, i) => ({ id: i + 1, heading: `${i + 1}. प्रतीक रहस्य`, body: `रुद्राक्ष को शिव के नेत्रों के अश्रु से उत्पन्न माना गया है जो स्वास्थ्य और ध्यान में सहायक है।`, source: "शिव महापुराण", status: "संदर्भ जाँचा गया" })) },
-            { id: 8, title: "भगवान शिव की तीसरी आँख", category: "प्रतीक", shortDesc: "ज्ञान का चक्षु, प्रलय की अग्नि और कामदेव के दहन का पावन प्रसंग।", intro: "शिव की तीसरी आँख
+const partsData = [
+    {
+        id:1,
+        title:"भगवान शिव का परिचय",
+        category:"स्वरूप",
+        shortDesc:"भगवान शिव हिंदू धर्म के प्रमुख देवताओं में से एक हैं।",
+        intro:"भगवान शिव को महादेव, भोलेनाथ, शंकर और रुद्र जैसे अनेक नामों से जाना जाता है। शैव परंपरा में उनका विशेष स्थान है।",
+        points:[
+            ["महादेव का अर्थ","महादेव का अर्थ है देवों के देव। यह नाम शिव की सर्वोच्च दिव्यता को व्यक्त करता है।","शैव परंपरा"],
+            ["भोलेनाथ","भोलेनाथ नाम उनकी सरलता और भक्तों के प्रति करुणा को दर्शाता है।","लोकभक्ति परंपरा"],
+            ["शिव का अर्थ","शिव शब्द का सामान्य अर्थ कल्याणकारी माना जाता है।","संस्कृत परंपरा"],
+            ["शैव परंपरा","शैव परंपरा में भगवान शिव को आराध्य देव के रूप में पूजा जाता है।","शैव आगम एवं पुराण"],
+            ["ध्यान और योग","शिव को योग और ध्यान से जुड़ी परंपराओं में आदियोगी के रूप में भी स्मरण किया जाता है।","योग परंपरा"]
+        ]
+    },
+    {
+        id:2,
+        title:"भगवान शिव के नाम और अर्थ",
+        category:"स्वरूप",
+        shortDesc:"महादेव, शंकर, शंभू, रुद्र और नीलकंठ जैसे नामों का परिचय।",
+        intro:"भगवान शिव के अनेक नाम उनके विभिन्न गुणों, स्वरूपों और पौराणिक प्रसंगों को व्यक्त करते हैं।",
+        points:[
+            ["महादेव","देवों के देव के रूप में पूजित।","शैव परंपरा"],
+            ["शंकर","कल्याण करने वाले।","संस्कृत परंपरा"],
+            ["शंभू","कल्याण और मंगल से जुड़ा नाम।","शिव परंपरा"],
+            ["रुद्र","वैदिक साहित्य में वर्णित एक शक्तिशाली देवस्वरूप।","ऋग्वेद"],
+            ["नीलकंठ","समुद्र मंथन के हलाहल प्रसंग से जुड़ा नाम।","भागवत पुराण एवं शिव पुराण"],
+            ["पशुपतिनाथ","समस्त जीवों के स्वामी के रूप में पूजित।","शैव परंपरा"]
+        ]
+    },
+    {
+        id:3,
+        title:"भगवान शिव का दिव्य स्वरूप",
+        category:"स्वरूप",
+        shortDesc:"जटाएँ, गंगा, चंद्रमा, त्रिशूल और भस्म का धार्मिक महत्व।",
+        intro:"भगवान शिव के स्वरूप में अनेक प्रतीक दिखाई देते हैं। इनका धार्मिक और दार्शनिक अर्थ अलग-अलग परंपराओं में समझाया जाता है।",
+        points:[
+            ["जटाएँ","शिव के जटाधारी स्वरूप का वर्णन अनेक धार्मिक चित्रणों में मिलता है।","शिव पुराण"],
+            ["मस्तक पर चंद्रमा","चंद्रशेखर स्वरूप शिव की विशेष पहचान है।","शैव परंपरा"],
+            ["जटाओं में गंगा","गंगा के अवतरण की कथा शिव से जुड़ी हुई है।","रामायण एवं पुराण"],
+            ["त्रिशूल","त्रिशूल शिव का प्रमुख आयुध और प्रतीक है।","शैव परंपरा"],
+            ["भस्म","भस्म वैराग्य और नश्वरता की याद दिलाने वाला प्रतीक माना जाता है।","शैव परंपरा"]
+        ]
+    },
+    {
+        id:4,
+        title:"भगवान शिव का परिवार",
+        category:"कथाएँ",
+        shortDesc:"माता पार्वती, गणेश, कार्तिकेय और नंदी का परिचय।",
+        intro:"शिव परिवार भारतीय धार्मिक और सांस्कृतिक परंपरा में एक महत्वपूर्ण स्थान रखता है।",
+        points:[
+            ["माता पार्वती","देवी पार्वती शिव की अर्धांगिनी के रूप में पूजित हैं।","शिव पुराण"],
+            ["श्री गणेश","गणेश जी को विघ्नहर्ता और प्रथम पूज्य माना जाता है।","गणेश पुराण"],
+            ["कार्तिकेय","कार्तिकेय देवताओं के सेनापति के रूप में वर्णित हैं।","स्कंद पुराण"],
+            ["नंदी","नंदी को शिव का वाहन और परम भक्त माना जाता है।","शैव परंपरा"],
+            ["शिव परिवार","शिव परिवार के चित्रण में प्रेम, एकता और पारिवारिक समन्वय का संदेश मिलता है।","धार्मिक परंपरा"]
+        ]
+    },
+    {
+        id:5,
+        title:"शिव और माता पार्वती का विवाह",
+        category:"कथाएँ",
+        shortDesc:"देवी पार्वती की तपस्या और शिव-पार्वती विवाह की कथा।",
+        intro:"शिव-पार्वती विवाह की कथा पुराणों और काव्य परंपरा में महत्वपूर्ण स्थान रखती है।",
+        points:[
+            ["देवी सती","दक्ष यज्ञ का प्रसंग शिव और सती की कथा से जुड़ा है।","शिव पुराण"],
+            ["पार्वती का जन्म","हिमालय और मेना की पुत्री के रूप में पार्वती का वर्णन मिलता है।","शिव पुराण"],
+            ["तपस्या","पार्वती ने शिव को पति रूप में प्राप्त करने के लिए तपस्या की।","शिव पुराण"],
+            ["शिव-पार्वती विवाह","उनके विवाह का वर्णन विभिन्न पुराणों में मिलता है।","शिव पुराण"],
+            ["अर्धनारीश्वर","शिव और शक्ति की एकता को अर्धनारीश्वर स्वरूप में दर्शाया जाता है।","शैव परंपरा"]
+        ]
+    },
+    {
+        id:6,
+        title:"गणेश और कार्तिकेय की कथाएँ",
+        category:"कथाएँ",
+       
